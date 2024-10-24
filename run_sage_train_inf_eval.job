@@ -15,7 +15,8 @@
 cd ~/chicago2/HP_FT_TM
 
 # Pull the latest changes from the repository
-git checkout -- run_sage_train_inf_eval.job
+git fetch origin
+git checkout origin/main -- run_sage_train_inf_eval.job sage_train_inf_eval.py
 git pull origin main # Replace "main" with the name of your default branch if it's different
 
 
