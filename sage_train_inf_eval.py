@@ -476,7 +476,7 @@ if __name__ == "__main__":
     parser.add_argument('--train_target', type=str, help='Path to the target training file.')
     parser.add_argument('--eval_source', type=str, help='Path to the source evaluation file.')
     parser.add_argument('--eval_target', type=str, help='Path to the target evaluation file.')
-    parser.add_argument('--num_train_records', type=int, default=10000, help='Number of records in the training dataset.')
+    parser.add_argument('--num_train_records', type=int, default=-1, help='Number of records in the training dataset.')
     parser.add_argument('--full', type=str, default='', help='Full or not full training.')
     parser.add_argument('--checkpoint_dir', type=str, default=None, help='Path to the checkpoint directory.')
     parser.add_argument('--target_lang', type=str, required=True, help='Target language (e.g., "pt-pt").') 
