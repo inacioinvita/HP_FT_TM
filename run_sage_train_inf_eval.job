@@ -75,8 +75,8 @@ python -m pip install \
     safetensors
 
 # Define paths
-PROJECT_DIR=~/chicago2
-SCRIPT_PATH=$PROJECT_DIR/sage_train_inf_eval.py
+PROJECT_DIR=~/chicago2/
+SCRIPT_PATH=~/chicago2/HP_FT_TM/sage_train_inf_eval.py
 
 # Set seed
 # SEED=42
