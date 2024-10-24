@@ -26,12 +26,23 @@ export CONDA_SHLVL="1"
 source /home/ivieira/mambaforge/etc/profile.d/conda.sh
 conda activate my-pip-env
 
-# Start the MLFlow server in the background
-mlflow server \
-    --backend-store-uri sqlite:///mlflow.db \
-    --default-artifact-root ./mlruns \
-    --host 0.0.0.0 \
-    --port 5000 &
+# Set up MLflow
+export MLFLOW_TRACKING_URI="file:///home/ivieira/chicago2/mlruns"
+export MLFLOW_EXPERIMENT_NAME="sage_training_inference_evaluation"
+
+# Instead of starting the MLflow server, we'll just use the file store
+# Remove or comment out the following lines:
+# mlflow server \
+#     --backend-store-uri sqlite:///mlflow.db \
+#     --default-artifact-root ./mlruns \
+#     --host 0.0.0.0 \
+#     --port 5000 &
+
+# Navigate to the project directory
+cd ~/chicago2/HP_FT_TM
+
+# Pull the latest changes from the repository
+git pull origin main # Replace "main" with the name of your default branch if it's different
 
 # Ensure pip is up-to-date
 python -m pip install --upgrade pip -q
@@ -113,7 +124,7 @@ FULL="full"
 OUTPUT_DIR="/home/ivieira/chicago2/models/fine_tuned_models/llama-3-8B-$TARGET_LANG-$FULL-$CURRENT_DATE"
 
 # MLFlow parameters
-MLFLOW_TRACKING_URI="http://localhost:5000"  # Adjust as needed
+MLFLOW_TRACKING_URI="file:///home/ivieira/chicago2/mlruns"
 MLFLOW_EXPERIMENT_NAME="sage_training_inference_evaluation"
 
 # Export MLFlow environment variables
@@ -186,5 +197,7 @@ SAVE_TOTAL_LIMIT=3
 python $SCRIPT_PATH "${TRAIN_ARGS[@]}" && \
 python $SCRIPT_PATH "${INFER_ARGS[@]}" && \
 python $SCRIPT_PATH "${EVAL_ARGS[@]}" > train_and_evaluate_stdout.log 2> train_and_evaluate_stderr.log     
+
+
 
 
