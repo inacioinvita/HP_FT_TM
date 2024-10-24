@@ -181,6 +181,8 @@ INFER_ARGS=(
     --model_path "$OUTPUT_DIR"  # Use the output model from training
     --ct2_quantization "$CT2_QUANTIZATION"
     --ct2_compute_type "$CT2_COMPUTE_TYPE"
+    --target_lang "$TARGET_LANG"
+    --output_dir "$OUTPUT_DIR"
 )
 
 # Define arguments for evaluation
@@ -190,6 +192,8 @@ EVAL_ARGS=(
     --target_test_file "$TEST_TARGET"
     --translations_file "$TRANSLATIONS_FILE"
     --data_dir "$PROJECT_DIR"
+    --target_lang "$TARGET_LANG"
+    --output_dir "$OUTPUT_DIR"
 )
 
 # Define new parameters
