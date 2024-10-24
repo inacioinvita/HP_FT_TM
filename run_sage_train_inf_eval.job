@@ -9,9 +9,18 @@
 #SBATCH --gres=gpu:a100:4
 
 # Convert line endings to Unix format
-sed -i 's/\r$//' "$0"
+sed -i.bak 's/\r$//' "$0"
+
+# Navigate to the project directory
+cd ~/chicago2/HP_FT_TM
+
+# Pull the latest changes from the repository
+git checkout -- run_sage_train_inf_eval.job
+git pull origin main # Replace "main" with the name of your default branch if it's different
+
 
 # Load necessary modules (modify as per your cluster's configuration)
+source /etc/profile.d/modules.sh
 module load python/3.8
 module load cuda/11.3
 
@@ -41,11 +50,6 @@ export MLFLOW_EXPERIMENT_NAME="sage_training_inference_evaluation"
 #     --host 0.0.0.0 \
 #     --port 5000 &
 
-# Navigate to the project directory
-cd ~/chicago2/HP_FT_TM
-
-# Pull the latest changes from the repository
-git pull origin main # Replace "main" with the name of your default branch if it's different
 
 # Ensure pip is up-to-date
 python -m pip install --upgrade pip -q
