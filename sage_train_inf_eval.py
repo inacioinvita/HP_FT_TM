@@ -467,7 +467,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Integrated Training, Inference, and Evaluation Script.") 
 
     # Add the seed argument
-    parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
+  #  parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
 
     parser.add_argument('--data_dir', type=str, default=BASE_DIR, help='Base directory for data and models.')
 
