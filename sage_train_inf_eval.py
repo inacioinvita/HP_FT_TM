@@ -402,7 +402,6 @@ def evaluate_model(data_dir, model_path, tokenizer_path, test_source, test_targe
     return bleu, chrf, ter, comet
 
 def main(args):
-    # set_seed(args.seed)
     data_dir = args.data_dir or BASE_DIR
 
     train_source_sentences, train_target_sentences, eval_source_sentences, eval_target_sentences, test_source_sentences, test_target_sentences = load_data(
@@ -466,11 +465,8 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Integrated Training, Inference, and Evaluation Script.") 
 
-    # Add the seed argument
-  #  parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
-
+    # Define arguments
     parser.add_argument('--data_dir', type=str, default=BASE_DIR, help='Base directory for data and models.')
-
     parser.add_argument('--train', action='store_true', help='Flag to perform training.')
     parser.add_argument('--train_source', type=str, help='Path to the source training file.')
     parser.add_argument('--train_target', type=str, help='Path to the target training file.')
@@ -481,16 +477,12 @@ if __name__ == "__main__":
     parser.add_argument('--checkpoint_dir', type=str, default=None, help='Path to the checkpoint directory.')
     parser.add_argument('--target_lang', type=str, required=True, help='Target language (e.g., "pt-pt").') 
     parser.add_argument('--model_path', type=str, default=None, help='Path to the pre-trained model.')     
-
     parser.add_argument('--infer', action='store_true', help='Flag to perform inference.')
     parser.add_argument('--test_source', type=str, help='Path to the source test file.')
     parser.add_argument('--test_target', type=str, help='Path to the target test file.')
-
     parser.add_argument('--output_dir', type=str, required=True, help='Directory to save the fine-tuned model.')
-
     parser.add_argument('--evaluate', action='store_true', help='Flag to perform evaluation.')
     parser.add_argument('--translations_file', type=str, help='Path to the translations file.')
-
     parser.add_argument('--num_train_epochs', type=int, default=2, help='Number of training epochs.')      
     parser.add_argument('--train_batch_size', type=int, default=32, help='Training batch size per device.')    
     parser.add_argument('--eval_batch_size', type=int, default=32, help='Evaluation batch size per device.')
@@ -498,21 +490,17 @@ if __name__ == "__main__":
     parser.add_argument('--lora_alpha', type=int, default=16, help='LoRA alpha parameter.')
     parser.add_argument('--lora_dropout', type=float, default=0.1, help='LoRA dropout rate.')
     parser.add_argument('--lora_r', type=int, default=64, help='LoRA r parameter.')
-
     parser.add_argument('--load_in_4bit', type=str, default='true', help='Load model in 4-bit (true/false).')
     parser.add_argument('--bnb_4bit_quant_type', type=str, default='nf4', help='BNB 4-bit quantization type.')
     parser.add_argument('--bnb_4bit_use_double_quant', type=str, default='true', help='Use double quantization (true/false).')
-
     parser.add_argument('--ct2_quantization', type=str, default='int8', help='CTranslate2 quantization type.')
     parser.add_argument('--ct2_compute_type', type=str, default='int8', help='CTranslate2 compute type.')  
-
     parser.add_argument('--warmup_steps', type=int, default=0, help='Number of warmup steps.')
     parser.add_argument('--logging_steps', type=int, default=250, help='Number of logging steps.')
     parser.add_argument('--save_steps', type=int, default=1000, help='Number of save steps.')
     parser.add_argument('--evaluation_strategy', type=str, default='steps', help='Evaluation strategy.')   
     parser.add_argument('--bf16', action='store_true', help='Use bfloat16 precision.')
     parser.add_argument('--lr_scheduler_type', type=str, default='constant', help='Learning rate scheduler type.')
-
     parser.add_argument('--max_length', type=int, default=512, help='Max generation length.')
     parser.add_argument('--eval_steps', type=int, default=100, help='Number of evaluation steps.')
     parser.add_argument('--save_total_limit', type=int, default=3, help='Limit the total amount of checkpoints. Deletes the older checkpoints in output_dir.')

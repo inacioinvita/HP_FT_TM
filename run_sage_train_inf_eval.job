@@ -40,7 +40,7 @@ conda activate my-pip-env
 
 # Set up MLflow
 export MLFLOW_TRACKING_URI="file:///home/ivieira/chicago2/mlruns"
-export MLFLOW_EXPERIMENT_NAME="sage_training_inference_evaluation"
+export MLFLOW_EXPERIMENT_NAME="adobe_training_inference_evaluation"
 
 # Instead of starting the MLflow server, we'll just use the file store
 # Remove or comment out the following lines:
@@ -128,8 +128,8 @@ TRANSLATIONS_FILE="/home/ivieira/chicago2/results/inference/translations_$CURREN
 # Other parameters
 NUM_TRAIN_RECORDS=-1  # Use all training records
 FULL="full"
-OUTPUT_DIR="/home/ivieira/chicago2/models/fine_tuned_models/llama-3-8B-$TARGET_LANG-$FULL-$CURRENT_DATE"
-
+OUTPUT_DIR="/home/ivieira/chicago2/models/fine_tuned_models/llama-3-8B-$TARGET_LANG-$CURRENT_DATE"
+mkdir -p "$OUTPUT_DIR"
 # MLFlow parameters
 MLFLOW_TRACKING_URI="file:///home/ivieira/chicago2/mlruns"
 MLFLOW_EXPERIMENT_NAME="sage_training_inference_evaluation"
@@ -143,7 +143,6 @@ MODEL_PATH="/home/ivieira/chicago2/models/meta-llama/Meta-Llama-3-8B-Instruct"
 # Define arguments for training
 TRAIN_ARGS=(
     --train
-#    --seed "$SEED"
     --train_source "$TRAIN_SOURCE"
     --train_target "$TRAIN_TARGET"
     --eval_source "$EVAL_SOURCE"
