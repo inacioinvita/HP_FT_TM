@@ -281,8 +281,10 @@ def train_model(model, tokenizer, dataset, output_directory, target_lang, num_tr
 
         trainer.train()
 
-        model.save_pretrained(output_directory)
-        tokenizer.save_pretrained(output_directory)
+        # Merge and save the model
+        merged_model = model.merge_and_unload()
+        merged_model.save_pretrained(os.path.join(output_directory, "merged_model"))
+        tokenizer.save_pretrained(os.path.join(output_directory, "merged_model"))
 
         logs = trainer.state.log_history
         detailed_logs_path = os.path.join(output_directory, "detailed_logs.json")
@@ -317,6 +319,12 @@ def train_model(model, tokenizer, dataset, output_directory, target_lang, num_tr
 
         print("Experiment Report:")
         print(json.dumps(report, indent=2))
+
+        print(f"Number of training samples: {len(dataset['train'])}")
+        print(f"Number of evaluation samples: {len(dataset['validation'])}")
+        print(f"Training batch size: {trainer.args.per_device_train_batch_size * trainer.args.n_gpu}")
+        print(f"Gradient accumulation steps: {trainer.args.gradient_accumulation_steps}")
+        print(f"Effective batch size: {trainer.args.per_device_train_batch_size * trainer.args.n_gpu * trainer.args.gradient_accumulation_steps}")
 
 def evaluate_model(data_dir, model_path, tokenizer_path, test_source, test_target, translations_file, target_lang, args):
     quant_config = BitsAndBytesConfig(
@@ -400,6 +408,15 @@ def evaluate_model(data_dir, model_path, tokenizer_path, test_source, test_targe
         print(df)
 
     return bleu, chrf, ter, comet
+
+def convert_to_ct2(merged_model_path, ct2_output_path, quantization):
+    subprocess.run([
+        "ct2-transformers-converter",
+        "--model", merged_model_path,
+        "--quantization", quantization,
+        "--output_dir", ct2_output_path,
+        "--force"
+    ], check=True, text=True)
 
 def main(args):
     data_dir = args.data_dir or BASE_DIR
