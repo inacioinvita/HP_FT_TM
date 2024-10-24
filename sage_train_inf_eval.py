@@ -233,7 +233,7 @@ def train_model(model, tokenizer, dataset, output_directory, target_lang, num_tr
         mlflow.log_param("lora_r", peft_config.r)
         mlflow.log_param("target_language", target_lang)
         mlflow.log_param("num_train_records", num_train_records)
-        mlflow.log_param("seed", args.seed)
+        # mlflow.log_param("seed", args.seed)
         mlflow.log_param("output_directory", output_directory)
         mlflow.log_param("train_source", args.train_source)
         mlflow.log_param("train_target", args.train_target)
@@ -402,7 +402,7 @@ def evaluate_model(data_dir, model_path, tokenizer_path, test_source, test_targe
     return bleu, chrf, ter, comet
 
 def main(args):
-    set_seed(args.seed)
+    # set_seed(args.seed)
     data_dir = args.data_dir or BASE_DIR
 
     train_source_sentences, train_target_sentences, eval_source_sentences, eval_target_sentences, test_source_sentences, test_target_sentences = load_data(

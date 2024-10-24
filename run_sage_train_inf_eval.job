@@ -75,7 +75,7 @@ PROJECT_DIR=~/chicago2
 SCRIPT_PATH=$PROJECT_DIR/sage_train_inf_eval.py
 
 # Set seed
-SEED=42
+# SEED=42
 
 # Get the current date to use in the checkpoint directory
 CURRENT_DATE=$(date +%Y%m%d_%H%M%S)
