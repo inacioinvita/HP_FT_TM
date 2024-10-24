@@ -139,7 +139,7 @@ MODEL_PATH="/home/ivieira/chicago2/models/meta-llama/Meta-Llama-3-8B-Instruct"
 # Define arguments for training
 TRAIN_ARGS=(
     --train
-    --seed "$SEED"
+#    --seed "$SEED"
     --train_source "$TRAIN_SOURCE"
     --train_target "$TRAIN_TARGET"
     --eval_source "$EVAL_SOURCE"
