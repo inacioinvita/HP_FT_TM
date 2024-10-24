@@ -290,8 +290,18 @@ def train_model(model, tokenizer, dataset, output_directory, target_lang, num_tr
             json.dump(logs, log_file, indent=2)
         mlflow.log_artifact(detailed_logs_path)
 
-        final_train_loss = next(log['loss'] for log in reversed(logs) if 'loss' in log)
-        final_eval_loss = next(log['eval_loss'] for log in reversed(logs) if 'eval_loss' in log)
+        # Add error handling and default values
+        try:
+            final_train_loss = next(log['loss'] for log in reversed(logs) if 'loss' in log)
+        except StopIteration:
+            final_train_loss = None
+            print("Warning: No training loss found in logs.")
+
+        try:
+            final_eval_loss = next(log['eval_loss'] for log in reversed(logs) if 'eval_loss' in log)
+        except StopIteration:
+            final_eval_loss = None
+            print("Warning: No evaluation loss found in logs.")
 
         report = {
             "output_directory": output_directory,
@@ -404,7 +414,7 @@ def main(args):
         test_target=args.test_target
     )
 
-    mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI", "http://localhost:5000"))
+    mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI", "file:///home/ivieira/chicago2/mlruns"))
     mlflow.set_experiment(os.getenv("MLFLOW_EXPERIMENT_NAME", "Default_Experiment"))
 
     quant_config = BitsAndBytesConfig(
@@ -456,6 +466,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Integrated Training, Inference, and Evaluation Script.") 
 
+    # Add the seed argument
     parser.add_argument('--seed', type=int, default=42, help='Random seed for reproducibility')
 
     parser.add_argument('--data_dir', type=str, default=BASE_DIR, help='Base directory for data and models.')
