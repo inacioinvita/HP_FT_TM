@@ -83,12 +83,25 @@ def prepare_dataset(prompts, num_train_records=None):
     return DatasetDict(dataset_dict)
 
 def load_model_and_tokenizer(model_path, quant_config=None):
-    model = AutoModelForCausalLM.from_pretrained(
-        model_path,
-        device_map='auto',
-        quantization_config=quant_config,
-        use_cache=False
-    )
+    # Check if there's a merged_model subdirectory
+    merged_model_path = os.path.join(model_path, 'merged_model')
+    if os.path.exists(merged_model_path):
+        model_path = merged_model_path
+        print(f"Found merged_model subdirectory. Using path: {model_path}")
+    
+    try:
+        model = AutoModelForCausalLM.from_pretrained(
+            model_path,
+            device_map='auto',
+            quantization_config=quant_config,
+            use_cache=False
+        )
+    except OSError as e:
+        print(f"Error loading model: {e}")
+        print("Available files in the model directory:")
+        print(os.listdir(model_path))
+        raise
+
     tokenizer = AutoTokenizer.from_pretrained(
         model_path,
         add_bos_token=True,
