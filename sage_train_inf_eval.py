@@ -348,6 +348,12 @@ def evaluate_model(data_dir, model_path, tokenizer_path, test_source, test_targe
     )
     model, tokenizer = load_model_and_tokenizer(model_path, quant_config)
 
+    # Check if there's a merged_model subdirectory
+    merged_model_path = os.path.join(model_path, 'merged_model')
+    if os.path.exists(merged_model_path):
+        model_path = merged_model_path
+        print(f"Using merged_model path for conversion: {model_path}")
+
     ct2_save_directory = os.path.join(data_dir, "ct2_model")
     os.makedirs(ct2_save_directory, exist_ok=True)
     print(f"Converting model to CTranslate2 format and saving to {ct2_save_directory}...")
