@@ -496,7 +496,17 @@ def main(args):
         evaluate_model(data_dir, args.model_path, args.model_path, args.test_source, args.test_target, args.translations_file, args.target_lang, args)
 
     if args.evaluate:
-        evaluate_metrics = perform_evaluation(data_dir, args.test_source, args.test_target, args.translations_file, args.target_lang, args)
+        results = evaluate_model(
+            args.data_dir,
+            args.model_path,
+            args.model_path,  # Using the same path for tokenizer
+            args.test_source,
+            args.test_target,
+            args.translations_file,
+            args.target_lang,
+            args
+        )
+        print("Evaluation Results:", results)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Integrated Training, Inference, and Evaluation Script.") 
@@ -543,4 +553,3 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     main(args)
-
