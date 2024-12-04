@@ -23,7 +23,7 @@ git pull origin main # Replace "main" with the name of your default branch if it
 # Load necessary modules (modify as per your cluster's configuration)
 source /etc/profile.d/modules.sh
 module load python/3.8
-module load cuda/11.3
+module load cuda/12.5
 
 # Source the bash configuration file to initialize conda/mamba
 source ~/.bashrc  # or source ~/.bash_profile, depending on your setup
