@@ -1,56 +1,20 @@
 #!/bin/bash
 
-#SBATCH -p compute
-#SBATCH -J sage_train_inf_eval_job
-#SBATCH --cpus-per-task=4
-#SBATCH --mem=200000
-#SBATCH --nodelist=g129
-#SBATCH -t 8:00:00
-#SBATCH --gres=gpu:a100:4
-
-# Convert line endings to Unix format
-# sed -i.bak 's/\r$//' "$0"
-
-# Navigate to the project directory
-cd ~/chicago2/HP_FT_TM
-
-# Pull the latest changes from the repository
-git fetch origin
-git checkout origin/main -- run_sage_train_inf_eval.job sage_train_inf_eval.py
-git pull origin main # Replace "main" with the name of your default branch if it's different
-
-
-# Load necessary modules (modify as per your cluster's configuration)
-source /etc/profile.d/modules.sh
-module load python/3.8
-module load cuda/12.5
-
-# Source the bash configuration file to initialize conda/mamba
-source ~/.bashrc  # or source ~/.bash_profile, depending on your setup
-
-# Activate the conda/mamba environment
-export PATH="/home/ivieira/mambaforge/bin:$PATH"
-export CONDA_EXE="/home/ivieira/mambaforge/bin/conda"
-export _CE_M=""
-export _CE_CONDA=""
-export CONDA_PYTHON_EXE="/home/ivieira/mambaforge/bin/python"
+# Set up conda/mamba environment
+export PATH="$HOME/mambaforge/bin:$PATH"
+export CONDA_EXE="$HOME/mambaforge/bin/conda"
+export CONDA_PYTHON_EXE="$HOME/mambaforge/bin/python"
 export CONDA_SHLVL="1"
 
-source /home/ivieira/mambaforge/etc/profile.d/conda.sh
+# Source the conda.sh script to enable conda commands
+source $HOME/mambaforge/etc/profile.d/conda.sh
+
+# Activate the conda environment
 conda activate my-pip-env
 
 # Set up MLflow
 export MLFLOW_TRACKING_URI="file:///home/ivieira/chicago2/mlruns"
 export MLFLOW_EXPERIMENT_NAME="adobe_training_inference_evaluation"
-
-# Instead of starting the MLflow server, we'll just use the file store
-# Remove or comment out the following lines:
-# mlflow server \
-#     --backend-store-uri sqlite:///mlflow.db \
-#     --default-artifact-root ./mlruns \
-#     --host 0.0.0.0 \
-#     --port 5000 &
-
 
 # Ensure pip is up-to-date
 python -m pip install --upgrade pip -q
