@@ -8,8 +8,8 @@
 #SBATCH -t 8:00:00
 #SBATCH --gres=gpu:a100:4
 
-# Convert line endings to Unix format (optional)
-# sed -i.bak 's/\r$//' "$0"
+eval "$(/home/ivieira/mambaforge/bin/conda shell.bash hook)"
+conda activate my-pip-env
 
 # Navigate to the project directory
 cd ~/chicago2/HP_FT_TM
@@ -18,21 +18,6 @@ cd ~/chicago2/HP_FT_TM
 git fetch origin
 git checkout origin/main -- run_BALS_trainer.job BALS_trainer.py
 git pull origin main # Replace "main" with the name of your default branch if it's different
-
-# Source the bash configuration file to initialise conda/mamba
-source ~/.bashrc
-
-
-# Manually set up the conda environment variables
-export PATH="/home/ivieira/mambaforge/bin:$PATH"
-export CONDA_EXE="/home/ivieira/mambaforge/bin/conda"
-export _CE_M=""
-export _CE_CONDA=""
-export CONDA_PYTHON_EXE="/home/ivieira/mambaforge/bin/python"
-export CONDA_SHLVL="1"
-
-# Source the conda initialisation script
-source /home/ivieira/mambaforge/etc/profile.d/conda.sh
 
 # Activate the Mamba environment using conda
 conda activate my-pip-env
