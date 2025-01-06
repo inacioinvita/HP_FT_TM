@@ -40,7 +40,24 @@ conda activate my-pip-env
 python -m pip install --upgrade pip -q
 
 # Install the required packages in the user directory
-python -m pip install --user torch ctranslate2==4.3.0 transformers==4.37.0 huggingface_hub accelerate sentencepiece
+python -m pip install --user \
+    torch \
+    ctranslate2==4.3.1 \
+    transformers==4.37.0 \
+    huggingface_hub \
+    accelerate \
+    sentencepiece \
+    sacrebleu \
+    pandas \
+    comet \
+    unbabel-comet \
+    polars \
+    bitsandbytes \
+    mlflow \
+    trl \
+    peft \
+    datasets \
+    safetensors
 
 # Run the BALS trainer script
-python ~/chicago2/BALS_trainer.py
+python ~/chicago2/HP_FT_TM/BALS_trainer.py
