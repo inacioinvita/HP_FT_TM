@@ -29,7 +29,8 @@ python -m pip install --upgrade pip -q
 python -m pip install --user \
     torch \
     ctranslate2==4.3.1 \
-    transformers \
+    "transformers>=4.38.0" \
+    "trl>=0.7.6" \
     huggingface_hub \
     accelerate \
     sentencepiece \
@@ -40,10 +41,12 @@ python -m pip install --user \
     polars \
     bitsandbytes \
     mlflow \
-    trl \
     peft \
     datasets \
     safetensors
+
+# Verify installations
+python -c "import transformers; import trl; print(f'transformers version: {transformers.__version__}'); print(f'trl version: {trl.__version__}')"
 
 # 7) Run the training script
 python ~/chicago2/HP_FT_TM/BALS_trainer.py
