@@ -125,10 +125,11 @@ def train_model(model, tokenizer, dataset, output_directory):
     print(f"Model saved to: {output_directory}")
 
 
+
 def main(train_file, eval_file, target_lang, num_train_records):
     """Main function to execute the training pipeline."""
-    source_train_file = train_file.replace('.pt-br', '_pt-br.en')
-    source_eval_file = eval_file.replace('.pt-br', '_pt-br.en')
+    source_train_file = train_file.replace('.de', '.en')
+    source_eval_file = eval_file.replace('.de', '.en')
 
     source_lang = "English"
 
