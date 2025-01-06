@@ -150,8 +150,8 @@ def main(train_file, eval_file, target_lang, num_train_records):
 
 
 if __name__ == "__main__":
-    train_file = "train_dataset.pt-br"
-    eval_file = "eval_dataset.pt-br"
-    target_lang = "Portuguese"
+    train_file = "BALS_train_en-de.de"
+    eval_file = "BALS_dev_en-de.de"
+    target_lang = "German"
     num_train_records = 1000  # Adjust as needed
     main(train_file, eval_file, target_lang, num_train_records)
