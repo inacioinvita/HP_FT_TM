@@ -29,7 +29,7 @@ python -m pip install --upgrade pip -q
 python -m pip install --user \
     torch \
     ctranslate2==4.3.1 \
-    transformers==4.37.0 \
+    transformers \
     huggingface_hub \
     accelerate \
     sentencepiece \
