@@ -8,24 +8,24 @@
 #SBATCH -t 8:00:00
 #SBATCH --gres=gpu:a100:4
 
+# 1) Initialize Conda in this shell environment
 eval "$(/home/ivieira/mambaforge/bin/conda shell.bash hook)"
+
+# 2) Activate the Conda environment (only once)
 conda activate my-pip-env
 
-# Navigate to the project directory
+# 3) Move to your project directory
 cd ~/chicago2/HP_FT_TM
 
-# Pull the latest changes from the repository
+# 4) Pull the latest changes from the repo
 git fetch origin
 git checkout origin/main -- run_BALS_trainer.job BALS_trainer.py
-git pull origin main # Replace "main" with the name of your default branch if it's different
+git pull origin main
 
-# Activate the Mamba environment using conda
-conda activate my-pip-env
-
-# Ensure pip is up-to-date
+# 5) Ensure pip is up-to-date
 python -m pip install --upgrade pip -q
 
-# Install the required packages in the user directory
+# 6) Install required packages
 python -m pip install --user \
     torch \
     ctranslate2==4.3.1 \
@@ -45,5 +45,5 @@ python -m pip install --user \
     datasets \
     safetensors
 
-# Run the BALS trainer script
+# 7) Run the training script
 python ~/chicago2/HP_FT_TM/BALS_trainer.py
