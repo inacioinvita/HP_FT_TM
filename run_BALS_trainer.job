@@ -17,11 +17,6 @@ conda activate my-pip-env
 # 3) Move to your project directory
 cd ~/chicago2/HP_FT_TM
 
-# 4) Pull the latest changes from the repo
-git fetch origin
-git checkout origin/main -- run_BALS_trainer.job BALS_trainer.py
-git pull origin main
-
 # 5) Ensure pip is up-to-date
 python -m pip install --upgrade pip -q
 
