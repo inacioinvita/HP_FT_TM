@@ -25,18 +25,24 @@ source /etc/profile.d/modules.sh
 module load python/3.8
 module load cuda/12.5
 
-# Source the bash configuration file to initialize conda/mamba
-source ~/.bashrc  # or source ~/.bash_profile, depending on your setup
+# Initialize conda for bash
+eval "$(/home/ivieira/mambaforge/bin/conda shell.bash hook)"
 
-# Activate the conda/mamba environment
+# Set up conda/mamba environment paths
 export PATH="/home/ivieira/mambaforge/bin:$PATH"
 export CONDA_EXE="/home/ivieira/mambaforge/bin/conda"
-export _CE_M=""
-export _CE_CONDA=""
 export CONDA_PYTHON_EXE="/home/ivieira/mambaforge/bin/python"
 export CONDA_SHLVL="1"
 
+# Initialize conda
 source /home/ivieira/mambaforge/etc/profile.d/conda.sh
+
+# Create the environment if it doesn't exist
+if ! conda env list | grep -q "my-pip-env"; then
+    conda create -n my-pip-env python=3.8 -y
+fi
+
+# Activate the environment
 conda activate my-pip-env
 
 # Set up MLflow
