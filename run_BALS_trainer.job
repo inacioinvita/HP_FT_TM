@@ -29,26 +29,28 @@ export CUDA_VISIBLE_DEVICES=$SLURM_STEP_GPUS
 python -m pip uninstall -y torch torchvision torchaudio bitsandbytes
 rm -rf ~/.local/lib/python3.8/site-packages/bitsandbytes*
 
-# 1) First try to install PyTorch with CUDA 12.1 (latest stable version)
+# 1) Install PyTorch with CUDA 12.1
 echo "=== Installing PyTorch with CUDA support ==="
 python -m pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cu121
 
-# If that fails, try installing via conda
-if ! python -c "import torch; assert torch.cuda.is_available()" 2>/dev/null; then
-    echo "Pip installation failed, trying conda..."
-    conda install -y pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
-fi
-
-# Verify the installation
-python -c "
+# 2) Verify installation with proper error handling
+echo "=== Verifying PyTorch CUDA Installation ==="
+if python -c "
 import torch
 print('PyTorch version:', torch.__version__)
 print('CUDA available:', torch.cuda.is_available())
 print('CUDA version:', torch.version.cuda)
-"
+if not torch.cuda.is_available():
+    raise RuntimeError('CUDA not available')
+"; then
+    echo "PyTorch CUDA installation successful!"
+else
+    echo "PyTorch CUDA installation failed, trying conda..."
+    conda install -y pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+fi
 
-# Continue only if PyTorch with CUDA is available
-python -c "import torch; assert torch.cuda.is_available()" || { echo "PyTorch CUDA still not available. Exiting."; exit 1; }
+# 3) Final verification
+python -c "import torch; assert torch.cuda.is_available(), 'PyTorch CUDA still not available'" || exit 1
 
 # 8) Install BitsAndBytes with CUDA 12.5 support from the multi-backend branch
 echo "=== Installing BitsAndBytes from Multi-backend Branch ==="
