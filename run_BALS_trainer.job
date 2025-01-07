@@ -8,6 +8,18 @@
 #SBATCH -t 8:00:00
 #SBATCH --gres=gpu:a100:4
 
+# Deactivate any active Conda environments
+conda deactivate 2>/dev/null || true
+
+# Clear conda shell initialization
+unset -f __conda_activate
+unset -f __conda_reactivate 
+unset -f __conda_hashr
+unset -f conda
+
+
+
+
 # 1) Initialize Conda in this shell environment
 eval "$(/home/ivieira/mambaforge/bin/conda shell.bash hook)"
 
