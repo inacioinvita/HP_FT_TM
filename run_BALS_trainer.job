@@ -1,66 +1,37 @@
 #!/bin/bash
 
 #SBATCH -p compute
-#SBATCH -J BALS_train_job
+#SBATCH -J t_llam
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=200000
-#SBATCH --nodelist=g129
+#SBATCH --nodelist=g128
 #SBATCH -t 8:00:00
 #SBATCH --gres=gpu:a100:4
 
-# Deactivate any active Conda environments
-conda deactivate 2>/dev/null || true
-
-# Clear conda shell initialization
-unset -f __conda_activate
-unset -f __conda_reactivate 
-unset -f __conda_hashr
-unset -f conda
-
-
-
-
-# 1) Initialize Conda in this shell environment
-eval "$(/home/ivieira/mambaforge/bin/conda shell.bash hook)"
-
-# 2) Activate the Conda environment (only once)
-conda activate my-pip-env
-
-# 3) Move to your project directory
-cd ~/chicago2/HP_FT_TM
-
-# 4) Set CUDA environment variables
+# 1) Set CUDA environment variables
 export CUDA_HOME=/usr/local/cuda-12.5
 export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 export PATH=$CUDA_HOME/bin:$PATH
 
-# 5) Ensure pip is up-to-date
-python -m pip install --upgrade pip -q
+# 2) Initialize Conda
+source /home/ivieira/mambaforge/etc/profile.d/conda.sh
+eval "$(/home/ivieira/mambaforge/bin/conda shell.bash hook)"
+conda activate my-pip-env
 
-# 6) Install required packages
-python -m pip install --user \
-    torch \
-    ctranslate2==4.3.1 \
-    "transformers>=4.38.0" \
-    "trl>=0.7.6" \
-    huggingface_hub \
-    accelerate \
-    sentencepiece \
-    sacrebleu \
-    pandas \
-    comet \
-    unbabel-comet \
-    polars \
-    bitsandbytes \
-    mlflow \
-    peft \
-    datasets \
-    safetensors
+# 3) Move to project directory
+cd ~/chicago2/HP_FT_TM
 
-# Verify installations
-python -c "import transformers; import trl; print(f'transformers version: {transformers.__version__}'); print(f'trl version: {trl.__version__}')"
+# 4) Set GPU devices from SLURM
+export CUDA_VISIBLE_DEVICES=$SLURM_STEP_GPUS
+
+# 5) Install PyTorch with CUDA and cuDNN via conda
+conda install -y pytorch torchvision torchaudio pytorch-cuda=11.8 cudnn -c pytorch -c nvidia
+
+# 6) Install all required packages
+python -m pip install --user --no-cache-dir \
+    trl peft pandas ctranslate2 transformers \
+    huggingface_hub accelerate bitsandbytes \
+    datasets sacrebleu unbabel-comet polars
 
 # 7) Run the training script
-python ~/chicago2/HP_FT_TM/BALS_trainer.py
-
-
+python BALS_trainer.py
