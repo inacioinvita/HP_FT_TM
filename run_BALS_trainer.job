@@ -4,7 +4,7 @@
 #SBATCH -J BALS_train_job
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=200000
-#SBATCH --nodelist=g129
+#SBATCH --nodelist=g128
 #SBATCH -t 8:00:00
 #SBATCH --gres=gpu:a100:4
 
