@@ -22,15 +22,42 @@ eval "$(/home/ivieira/mambaforge/bin/conda shell.bash hook)"
 # 2) Activate the Conda environment (only once)
 conda activate my-pip-env
 
-# 3) Move to your project directory
+# 3) DIAGNOSTIC CHECKS
+echo "=== System Information ==="
+date
+hostname
+whoami
+
+echo -e "\n=== CUDA Environment Variables ==="
+echo "CUDA_HOME: $CUDA_HOME"
+echo "LD_LIBRARY_PATH: $LD_LIBRARY_PATH"
+echo "PATH: $PATH"
+echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
+
+echo -e "\n=== NVIDIA GPU Status ==="
+nvidia-smi
+
+echo -e "\n=== CUDA Compiler ==="
+which nvcc
+nvcc --version
+
+echo -e "\n=== Python Environment ==="
+which python
+python --version
+pip --version
+
+echo -e "\n=== CUDA Libraries Check ==="
+ls -l $CUDA_HOME/lib64/lib*cuda*.so* 2>/dev/null || echo "No CUDA libraries found in CUDA_HOME"
+ldconfig -p | grep cuda
+
+echo -e "\n=== PyTorch CUDA Check ==="
+python -c "import torch; print('PyTorch version:', torch.__version__); print('CUDA available:', torch.cuda.is_available()); print('CUDA version:', torch.version.cuda if torch.cuda.is_available() else 'N/A'); print('Device count:', torch.cuda.device_count()); print('Current device:', torch.cuda.current_device() if torch.cuda.is_available() else 'N/A')"
+
+# 4) Move to your project directory
 cd ~/chicago2/HP_FT_TM
 
-# 4) Set CUDA visible devices from SLURM
+# 5) Set CUDA visible devices from SLURM
 export CUDA_VISIBLE_DEVICES=$SLURM_STEP_GPUS
-
-# 5) Verify CUDA setup
-nvidia-smi
-nvcc --version
 
 # 6) Clean previous installations
 python -m pip uninstall -y bitsandbytes
