@@ -17,6 +17,11 @@ conda activate my-pip-env
 # 3) Move to your project directory
 cd ~/chicago2/HP_FT_TM
 
+# 4) Set CUDA environment variables
+export CUDA_HOME=/usr/local/cuda-12.5
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+export PATH=$CUDA_HOME/bin:$PATH
+
 # 5) Ensure pip is up-to-date
 python -m pip install --upgrade pip -q
 
@@ -45,3 +50,5 @@ python -c "import transformers; import trl; print(f'transformers version: {trans
 
 # 7) Run the training script
 python ~/chicago2/HP_FT_TM/BALS_trainer.py
+
+
