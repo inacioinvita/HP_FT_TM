@@ -7,7 +7,7 @@
 #SBATCH -J cuda_check          # Job name
 #SBATCH --cpus-per-task=4      # Number of CPU cores
 #SBATCH --mem=200000            # Memory (in MB)
-#SBATCH --gres=gpu:a100:4      # Request 1 A100 GPU
+#SBATCH --gres=gpu:a100:1      # Request 1 A100 GPU
 #SBATCH -t 0-02:00:00          # Time limit (2 hours)
 #SBATCH -o cuda_check.out      # Stdout
 #SBATCH -e cuda_check.err      # Stderr
