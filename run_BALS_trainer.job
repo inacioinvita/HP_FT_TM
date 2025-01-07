@@ -11,6 +11,11 @@
 # Load CUDA module first
 module load cuda/12.5
 
+# Set CUDA environment variables
+export CUDA_HOME=/usr/local/cuda-12.5
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+export PATH=$CUDA_HOME/bin:$PATH
+
 # 1) Initialize Conda in this shell environment
 eval "$(/home/ivieira/mambaforge/bin/conda shell.bash hook)"
 
@@ -23,17 +28,16 @@ cd ~/chicago2/HP_FT_TM
 # 4) Set CUDA visible devices from SLURM
 export CUDA_VISIBLE_DEVICES=$SLURM_STEP_GPUS
 
-# 5) Verify CUDA is available
-python -c "import torch; print('CUDA available:', torch.cuda.is_available()); print('Device count:', torch.cuda.device_count()); print('Devices:', [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())])"
+# 5) Verify CUDA setup
+nvidia-smi
+nvcc --version
 
-# 5) Ensure pip is up-to-date
-python -m pip install --upgrade pip -q
-
-# First, completely remove bitsandbytes
+# 6) Clean previous installations
 python -m pip uninstall -y bitsandbytes
+rm -rf ~/.local/lib/python3.8/site-packages/bitsandbytes*
 
-# Then install the latest version directly from the source
-python -m pip install --user --no-cache-dir --upgrade \
+# 7) Install packages with CUDA environment properly set
+CUDA_VERSION=125 python -m pip install --user --no-cache-dir --upgrade \
     "bitsandbytes @ git+https://github.com/TimDettmers/bitsandbytes.git" \
     torch \
     ctranslate2==4.3.1 \
@@ -52,15 +56,16 @@ python -m pip install --user --no-cache-dir --upgrade \
     datasets \
     safetensors
 
-# Verify the installation
+# 8) Verify installations
 python -c "
+import torch
 import bitsandbytes as bnb
+print('CUDA available:', torch.cuda.is_available())
+print('Device count:', torch.cuda.device_count())
+print('Devices:', [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())])
 print('bitsandbytes version:', bnb.__version__)
 print('CUDA compilation status:', bnb.COMPILED_WITH_CUDA)
 "
-
-# Verify installations
-python -c "import transformers; import trl; print(f'transformers version: {transformers.__version__}'); print(f'trl version: {trl.__version__}')"
 
 # 7) Run the training script
 python ~/chicago2/HP_FT_TM/BALS_trainer.py
