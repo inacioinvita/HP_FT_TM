@@ -27,10 +27,12 @@ export CUDA_VISIBLE_DEVICES=$SLURM_STEP_GPUS
 # 5) Install PyTorch with CUDA 12.1 (confirmed working)
 python -m pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cu121
 
+pip install -U bitsandbytes
+
 # 6) Install all required packages
 python -m pip install --user --no-cache-dir \
     trl peft pandas ctranslate2 transformers \
-    huggingface_hub accelerate "bitsandbytes==0.41.1" \
+    huggingface_hub accelerate \
     datasets sacrebleu unbabel-comet polars
 
 # 7) Run the training script
