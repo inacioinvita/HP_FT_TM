@@ -29,14 +29,16 @@ python -c "import torch; print('CUDA available:', torch.cuda.is_available()); pr
 # 5) Ensure pip is up-to-date
 python -m pip install --upgrade pip -q
 
+# First, completely remove bitsandbytes
 python -m pip uninstall -y bitsandbytes
 
-# 6) Install required packages
-python -m pip install --user --upgrade \
+# Then install the latest version directly from the source
+python -m pip install --user --no-cache-dir --upgrade \
+    "bitsandbytes @ git+https://github.com/TimDettmers/bitsandbytes.git" \
     torch \
     ctranslate2==4.3.1 \
-    transformers \
-    trl \
+    "transformers>=4.38.0" \
+    "trl>=0.7.6" \
     huggingface_hub \
     accelerate \
     sentencepiece \
@@ -45,11 +47,17 @@ python -m pip install --user --upgrade \
     comet \
     unbabel-comet \
     polars \
-    "bitsandbytes==0.41.1" \
     mlflow \
     peft \
     datasets \
     safetensors
+
+# Verify the installation
+python -c "
+import bitsandbytes as bnb
+print('bitsandbytes version:', bnb.__version__)
+print('CUDA compilation status:', bnb.COMPILED_WITH_CUDA)
+"
 
 # Verify installations
 python -c "import transformers; import trl; print(f'transformers version: {transformers.__version__}'); print(f'trl version: {trl.__version__}')"
