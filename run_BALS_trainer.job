@@ -30,7 +30,7 @@ python -m pip install --no-cache-dir torch --index-url https://download.pytorch.
 # 6) Install all required packages
 python -m pip install --user --no-cache-dir \
     trl peft pandas ctranslate2 transformers \
-    huggingface_hub accelerate bitsandbytes \
+    huggingface_hub accelerate "bitsandbytes==0.41.1" \
     datasets sacrebleu unbabel-comet polars
 
 # 7) Run the training script
