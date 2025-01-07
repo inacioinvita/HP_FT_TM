@@ -10,22 +10,29 @@
 #SBATCH -t 8:00:00
 #SBATCH --gres=gpu:a100:4
 
-# 1) Set CUDA environment variables for version 12.5
+# 1) Initialize Conda
+eval "$(/home/ivieira/mambaforge/bin/conda shell.bash hook)"
+
+# 2) Remove and recreate environment
+echo "=== Creating fresh conda environment ==="
+conda deactivate
+conda env remove -n my-pip-env --yes
+conda create -n my-pip-env python=3.8 -y
+conda activate my-pip-env
+echo "=== Fresh environment created ==="
+
+# 3) Set CUDA environment variables
 export CUDA_HOME=/usr/local/cuda-12.5
 export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 export PATH=$CUDA_HOME/bin:$PATH
 
-# 2) Initialize Conda and activate environment
-eval "$(/home/ivieira/mambaforge/bin/conda shell.bash hook)"
-conda activate my-pip-env
-
-# 3) Move to project directory
+# 4) Move to project directory
 cd ~/chicago2/HP_FT_TM
 
-# 4) Set GPU devices from SLURM
+# 5) Set GPU devices from SLURM
 export CUDA_VISIBLE_DEVICES=$SLURM_STEP_GPUS
 
-# 5) Clean previous installations
+# 6) Clean previous installations
 python -m pip uninstall -y torch torchvision torchaudio bitsandbytes
 rm -rf ~/.local/lib/python3.8/site-packages/bitsandbytes*
 
