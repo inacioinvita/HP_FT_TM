@@ -59,15 +59,9 @@ def load_model_and_tokenizer(model_path):
 
     model = AutoModelForCausalLM.from_pretrained(
         model_path,
-        device_map="auto",  # or a manual dict
+        device_map='auto',
         quantization_config=nf4_config,
-        use_cache=False,
-        max_memory={
-            "cuda:0": "18GB",
-            "cuda:1": "18GB",
-            "cuda:2": "18GB",
-            "cuda:3": "18GB",
-        }
+        use_cache=False
     )
 
     tokenizer = AutoTokenizer.from_pretrained(
@@ -100,10 +94,10 @@ def train_model(model, tokenizer, dataset, output_directory):
         num_train_epochs=1,
         per_device_train_batch_size=16,
         per_device_eval_batch_size=16,
-        warmup_ratio=0.03,
+        warmup_steps=0.03,
         logging_steps=50,
         save_steps=50,
-        eval_strategy="steps",
+        evaluation_strategy="steps",
         eval_steps=50,
         learning_rate=1e-3,
         bf16=True,
@@ -147,7 +141,7 @@ def main(train_file, eval_file, target_lang, num_train_records):
 
     dataset = prepare_dataset(prompts, eval_prompts, num_train_records)
 
-    model_path = '/home/ivieira/spinning-storage/ivieira/chicago2/models/llama318b'
+    model_path = os.path.join(BASE_DIR, 'spinning-storage/ivieira/chicago2/models/llama318b')
     model, tokenizer = load_model_and_tokenizer(model_path)
 
     output_directory = os.path.join(BASE_DIR, 'models', 'fine_tuned_models')
