@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 #SBATCH -p compute
 #SBATCH -J t_llam
 #SBATCH --cpus-per-task=4
