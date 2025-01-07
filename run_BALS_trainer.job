@@ -8,29 +8,29 @@
 #SBATCH -t 8:00:00
 #SBATCH --gres=gpu:a100:4
 
-export CUDA_HOME=/usr/local/cuda-12.5
+# Set CUDA environment variables for version 11.8 (a well-supported version)
+export CUDA_HOME=/usr/local/cuda-11.8
 export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 export PATH=$CUDA_HOME/bin:$PATH
 
-# 3) Initialize Conda and activate environment
+# Initialize Conda and activate environment
 eval "$(/home/ivieira/mambaforge/bin/conda shell.bash hook)"
 conda activate my-pip-env
 
-# 4) Move to your project directory
+# Move to project directory
 cd ~/chicago2/HP_FT_TM
 
-# 5) Set the GPU devices from SLURM
+# Set GPU devices from SLURM
 export CUDA_VISIBLE_DEVICES=$SLURM_STEP_GPUS
 
-# 6) Clean previous bitsandbytes installations
+# Clean previous installations
 python -m pip uninstall -y bitsandbytes
 rm -rf ~/.local/lib/python3.8/site-packages/bitsandbytes*
 
-# 7) Install bitsandbytes from GitHub with CUDA version
-#    plus your other requirements. Remove "module load" references.
-CUDA_VERSION=125 python -m pip install --user --no-cache-dir --upgrade \
-    "bitsandbytes @ git+https://github.com/TimDettmers/bitsandbytes.git" \
-    torch \
+# Install packages with specific bitsandbytes version known to work with CUDA 11.8
+python -m pip install --user --no-cache-dir --upgrade \
+    "bitsandbytes==0.41.1" \
+    torch --index-url https://download.pytorch.org/whl/cu118 \
     ctranslate2==4.3.1 \
     "transformers>=4.38.0" \
     "trl>=0.7.6" \
@@ -47,5 +47,8 @@ CUDA_VERSION=125 python -m pip install --user --no-cache-dir --upgrade \
     datasets \
     safetensors
 
-# 8) Finally, run your BALS_trainer.py
+# Verify bitsandbytes installation
+python -c "import bitsandbytes as bnb; print('BNB CUDA:', bnb.COMPILED_WITH_CUDA)"
+
+# Run the trainer
 python BALS_trainer.py
