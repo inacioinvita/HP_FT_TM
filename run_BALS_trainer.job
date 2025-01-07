@@ -20,6 +20,12 @@ conda activate my-pip-env
 # 3) Move to your project directory
 cd ~/chicago2/HP_FT_TM
 
+# 4) Set CUDA visible devices from SLURM
+export CUDA_VISIBLE_DEVICES=$SLURM_STEP_GPUS
+
+# 5) Verify CUDA is available
+python -c "import torch; print('CUDA available:', torch.cuda.is_available()); print('Device count:', torch.cuda.device_count()); print('Devices:', [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())])"
+
 # 5) Ensure pip is up-to-date
 python -m pip install --upgrade pip -q
 
