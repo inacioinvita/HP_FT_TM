@@ -59,9 +59,15 @@ def load_model_and_tokenizer(model_path):
 
     model = AutoModelForCausalLM.from_pretrained(
         model_path,
-        device_map='auto',
+        device_map="auto",  # or a manual dict
         quantization_config=nf4_config,
-        use_cache=False
+        use_cache=False,
+        max_memory={
+            "cuda:0": "18GB",
+            "cuda:1": "18GB",
+            "cuda:2": "18GB",
+            "cuda:3": "18GB",
+        }
     )
 
     tokenizer = AutoTokenizer.from_pretrained(
