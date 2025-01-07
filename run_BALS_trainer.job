@@ -24,11 +24,29 @@ cd ~/chicago2/HP_FT_TM
 # 4) Set GPU devices from SLURM
 export CUDA_VISIBLE_DEVICES=$SLURM_STEP_GPUS
 
-# 5) Install PyTorch with CUDA 12.1 (confirmed working)
+# 5) Install dependencies in the correct order
+python -m pip install --no-cache-dir \
+    packaging>=20.0 \
+    PyYAML>=5.4 \
+    torchmetrics>=0.7.0 \
+    tqdm>=4.57.0 \
+    pandas>=1.4.1
+
+# 6) Install PyTorch with CUDA 12.1 (confirmed working)
 python -m pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cu121
 
-# 6) Install bitsandbytes (latest version)
-python -m pip install --no-cache-dir bitsandbytes
+# 7) Install other core dependencies
+python -m pip install --no-cache-dir \
+    bitsandbytes \
+    accelerate \
+    datasets \
+    tyro>=0.5.11 \
+    pytorch-lightning>=2.4.0
 
-# 7) Run the training script
+# 8) Install remaining packages
+python -m pip install --no-cache-dir \
+    trl>=0.11.4 \
+    unbabel-comet>=2.2.4
+
+# 9) Run the training script
 python BALS_trainer.py
