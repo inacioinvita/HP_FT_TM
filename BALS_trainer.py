@@ -141,7 +141,7 @@ def main(train_file, eval_file, target_lang, num_train_records):
 
     dataset = prepare_dataset(prompts, eval_prompts, num_train_records)
 
-    model_path = os.path.join(BASE_DIR, 'llm', 'Meta-Llama-3.1-8B-Instruct')
+    model_path = os.path.join(BASE_DIR, 'spinning-storage/ivieira/chicago2/models/llama318b')
     model, tokenizer = load_model_and_tokenizer(model_path)
 
     output_directory = os.path.join(BASE_DIR, 'models', 'fine_tuned_models')
