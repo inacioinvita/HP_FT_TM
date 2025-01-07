@@ -10,25 +10,31 @@
 #SBATCH -t 8:00:00
 #SBATCH --gres=gpu:a100:4
 
-# 1) Initialize Conda
-eval "$(/home/ivieira/mambaforge/bin/conda shell.bash hook)"
-
-
-
-# 3) Set CUDA environment variables
+# Set CUDA environment variables
 export CUDA_HOME=/usr/local/cuda-12.5
 export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 export PATH=$CUDA_HOME/bin:$PATH
+
+# Initialize conda
+source /home/ivieira/mambaforge/etc/profile.d/conda.sh
+conda activate my-pip-env
+
+# Clean previous installations
+python -m pip uninstall -y torch torchvision torchaudio bitsandbytes
+rm -rf ~/.local/lib/python3.8/site-packages/bitsandbytes*
+
+# Install PyTorch with CUDA 12.1 (confirmed working)
+python -m pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cu121
+
+# Install BitsAndBytes
+python -m pip install --no-cache-dir --upgrade \
+    "bitsandbytes@https://github.com/bitsandbytes-foundation/bitsandbytes/archive/refs/heads/main.zip"
 
 # 4) Move to project directory
 cd ~/chicago2/HP_FT_TM
 
 # 5) Set GPU devices from SLURM
 export CUDA_VISIBLE_DEVICES=$SLURM_STEP_GPUS
-
-# 6) Clean previous installations
-python -m pip uninstall -y torch torchvision torchaudio bitsandbytes
-rm -rf ~/.local/lib/python3.8/site-packages/bitsandbytes*
 
 # 1) Clean the environment thoroughly
 echo "=== Cleaning environment ==="
@@ -37,10 +43,6 @@ conda uninstall -y --force pytorch torchvision torchaudio pytorch-cuda cuda-tool
 rm -rf ~/.local/lib/python3.8/site-packages/triton*
 rm -rf ~/.local/lib/python3.8/site-packages/torch*
 echo "=== Environment cleaned ==="
-
-# 1) Install PyTorch with CUDA 12.1
-echo "=== Installing PyTorch with CUDA support ==="
-python -m pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cu121
 
 # 2) Verify installation with proper error handling
 echo "=== Verifying PyTorch CUDA Installation ==="
@@ -60,12 +62,6 @@ fi
 
 # 3) Final verification
 python -c "import torch; assert torch.cuda.is_available(), 'PyTorch CUDA still not available'" || exit 1
-
-# 8) Install BitsAndBytes with CUDA 12.5 support from the multi-backend branch
-echo "=== Installing BitsAndBytes from Multi-backend Branch ==="
-python -m pip install --no-cache-dir --upgrade \
-    "bitsandbytes@https://github.com/bitsandbytes-foundation/bitsandbytes/archive/refs/heads/main.zip"
-echo "=========================================="
 
 # 9) Verify BitsAndBytes CUDA support
 echo "=== Verifying BitsAndBytes Installation ==="
