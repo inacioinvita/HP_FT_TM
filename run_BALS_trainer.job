@@ -1,92 +1,28 @@
 #!/bin/bash
 
 #SBATCH -p compute
-#SBATCH -J t_llam
+#SBATCH -J BALS_train_job
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=200000
-#SBATCH --nodelist=g128
+#SBATCH --nodelist=g129
 #SBATCH -t 8:00:00
 #SBATCH --gres=gpu:a100:4
 
-# Set CUDA environment variables
-export CUDA_HOME=/usr/local/cuda-12.5
-export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
-export PATH=$CUDA_HOME/bin:$PATH
+# 1) Initialize Conda in this shell environment
+eval "$(/home/ivieira/mambaforge/bin/conda shell.bash hook)"
 
-# Initialize conda
-source /home/ivieira/mambaforge/etc/profile.d/conda.sh
+# 2) Activate the Conda environment (only once)
 conda activate my-pip-env
 
-# Clean previous installations
-python -m pip uninstall -y torch torchvision torchaudio bitsandbytes
-rm -rf ~/.local/lib/python3.8/site-packages/bitsandbytes*
-
-# Install PyTorch with CUDA 12.1 (confirmed working)
-python -m pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cu121
-
-# Install BitsAndBytes
-python -m pip install --no-cache-dir --upgrade \
-    "bitsandbytes@https://github.com/bitsandbytes-foundation/bitsandbytes/archive/refs/heads/main.zip"
-
-# 4) Move to project directory
+# 3) Move to your project directory
 cd ~/chicago2/HP_FT_TM
 
-# 5) Set GPU devices from SLURM
-export CUDA_VISIBLE_DEVICES=$SLURM_STEP_GPUS
+# 5) Ensure pip is up-to-date
+python -m pip install --upgrade pip -q
 
-# 1) Clean the environment thoroughly
-echo "=== Cleaning environment ==="
-python -m pip uninstall -y torch torchvision torchaudio triton torchtriton
-conda uninstall -y --force pytorch torchvision torchaudio pytorch-cuda cuda-toolkit triton torchtriton
-rm -rf ~/.local/lib/python3.8/site-packages/triton*
-rm -rf ~/.local/lib/python3.8/site-packages/torch*
-echo "=== Environment cleaned ==="
-
-# 2) Verify installation with proper error handling
-echo "=== Verifying PyTorch CUDA Installation ==="
-if python -c "
-import torch
-print('PyTorch version:', torch.__version__)
-print('CUDA available:', torch.cuda.is_available())
-print('CUDA version:', torch.version.cuda)
-if not torch.cuda.is_available():
-    raise RuntimeError('CUDA not available')
-"; then
-    echo "PyTorch CUDA installation successful!"
-else
-    echo "PyTorch CUDA installation failed, trying conda..."
-    conda install -y pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
-fi
-
-# 3) Final verification
-python -c "import torch; assert torch.cuda.is_available(), 'PyTorch CUDA still not available'" || exit 1
-
-# 9) Verify BitsAndBytes CUDA support
-echo "=== Verifying BitsAndBytes Installation ==="
-python -c "
-import bitsandbytes as bnb
-try:
-    print('BNB CUDA:', bnb.COMPILED_WITH_CUDA)
-except AttributeError:
-    print('BNB is not compiled with CUDA support.')
-"
-echo "=========================================="
-
-# Exit if BitsAndBytes was not compiled with CUDA
-python -c "
-import bitsandbytes as bnb
-import sys
-try:
-    assert bnb.COMPILED_WITH_CUDA, 'BitsAndBytes was not compiled with CUDA support.'
-except AssertionError as e:
-    print(e)
-    sys.exit(1)
-"
-echo "BitsAndBytes is compiled with CUDA support."
-echo "=========================================="
-
-# 10) Install remaining packages
-python -m pip install --no-cache-dir \
+# 6) Install required packages
+python -m pip install --user \
+    torch \
     ctranslate2==4.3.1 \
     "transformers>=4.38.0" \
     "trl>=0.7.6" \
@@ -98,12 +34,14 @@ python -m pip install --no-cache-dir \
     comet \
     unbabel-comet \
     polars \
+    bitsandbytes \
     mlflow \
     peft \
     datasets \
     safetensors
 
-# 11) Run the trainer
-python BALS_trainer.py
+# Verify installations
+python -c "import transformers; import trl; print(f'transformers version: {transformers.__version__}'); print(f'trl version: {trl.__version__}')"
 
-
+# 7) Run the training script
+python ~/chicago2/HP_FT_TM/BALS_trainer.py
