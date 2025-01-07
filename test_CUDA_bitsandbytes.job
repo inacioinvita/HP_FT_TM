@@ -1,0 +1,142 @@
+#!/bin/bash
+
+###############################################################################
+# SLURM Directives (example values; adjust as needed)
+###############################################################################
+#SBATCH -p compute             # Partition
+#SBATCH -J cuda_check          # Job name
+#SBATCH --cpus-per-task=4      # Number of CPU cores
+#SBATCH --mem=200000            # Memory (in MB)
+#SBATCH --gres=gpu:a100:4      # Request 1 A100 GPU
+#SBATCH -t 0-02:00:00          # Time limit (2 hours)
+#SBATCH -o cuda_check.out      # Stdout
+#SBATCH -e cuda_check.err      # Stderr
+
+###############################################################################
+# Investigate CUDA + BitsAndBytes Compatibility on HPC
+#
+# Usage:
+#   sbatch test_CUDA_bitsandbytes.job
+#
+# This script:
+#   1. Allocates a GPU-enabled node so that nvidia-smi & GPU detection works
+#   2. Logs HPC info (driver version, environment variables, etc.)
+#   3. Creates a fresh conda environment to avoid conflicts
+#   4. Installs PyTorch with CUDA
+#   5. Verifies GPU detection with PyTorch
+#   6. Installs BitsAndBytes from GitHub + verifies CUDA detection
+###############################################################################
+
+# Bash options:
+# -e  Exit immediately if a command returns non-zero
+# -o pipefail  Return non-zero if any part of a pipeline fails
+# -u  Treat unset variables as an error; for environment-check printing, we will
+#     carefully handle them with default expansions
+set -eo pipefail
+
+echo "=== (SLURM) Node allocation info ==="
+echo "Node: $(hostname)"
+echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
+nvidia-smi || echo "nvidia-smi failed, possibly no GPU available or can't be accessed."
+
+###############################################################################
+# 1) Initialize Conda (adjust path if needed)
+###############################################################################
+echo "=== Initializing Conda ==="
+if ! command -v conda &>/dev/null; then
+  echo "Conda not found in PATH. Make sure your environment module or PATH is correct."
+  exit 1
+fi
+eval "$(conda shell.bash hook)"
+
+###############################################################################
+# 2) Create Fresh Conda Environment
+###############################################################################
+ENV_NAME="cuda_test_env"
+echo "=== Removing environment '${ENV_NAME}' if it exists... ==="
+conda deactivate || true
+conda env remove -n "${ENV_NAME}" --yes || true
+echo "=== Creating new conda environment: ${ENV_NAME} ==="
+conda create -n "${ENV_NAME}" python=3.8 -y
+conda activate "${ENV_NAME}"
+echo "=== Conda environment ready ==="
+conda info --envs
+echo
+
+###############################################################################
+# 3) Diagnostics (Environment Variables, HPC info)
+###############################################################################
+echo "=== Checking environment variables ==="
+# Use default expansion to avoid unbound variable errors
+echo "CUDA_HOME=${CUDA_HOME:-UNSET}"
+echo "LD_LIBRARY_PATH=${LD_LIBRARY_PATH:-UNSET}"
+echo "PATH=${PATH:-UNSET}"
+echo
+
+echo "=== HPC environment (modules) ==="
+if command -v module &>/dev/null; then
+    module list || echo "Could not list modules."
+else
+    echo "No 'module' command found, skipping module list."
+fi
+
+echo "=== System Info ==="
+uname -a
+echo "User: $(whoami)"
+echo
+
+###############################################################################
+# 4) PyTorch Installation
+###############################################################################
+echo "=== Installing PyTorch with CUDA 12.1 wheels ==="
+python -m pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cu121
+
+echo "=== Verifying PyTorch GPU detection ==="
+python -c "
+import torch
+print('PyTorch version:', torch.__version__)
+print('PyTorch CUDA available:', torch.cuda.is_available())
+print('torch.version.cuda:', torch.version.cuda)
+if not torch.cuda.is_available():
+    raise RuntimeError('GPU not detected by PyTorch.')
+"
+
+echo
+echo "=== PyTorch installation + verification complete. ==="
+echo
+
+###############################################################################
+# 5) BitsAndBytes Installation & Verification
+###############################################################################
+echo "=== Installing BitsAndBytes from GitHub (main branch) ==="
+python -m pip install --no-cache-dir --upgrade \
+  \"bitsandbytes@https://github.com/bitsandbytes-foundation/bitsandbytes/archive/refs/heads/main.zip\"
+
+echo
+echo "=== Verifying BitsAndBytes GPU support ==="
+python -c "
+import bitsandbytes as bnb
+import torch
+
+print('BitsAndBytes version:', getattr(bnb, '__version__', 'unknown'))
+try:
+    print('BNB compiled with CUDA:', bnb.COMPILED_WITH_CUDA)
+except AttributeError:
+    print('BNB is missing COMPILED_WITH_CUDA attribute; likely no GPU support.')
+
+if torch.cuda.is_available():
+    assert hasattr(bnb, 'COMPILED_WITH_CUDA') and bnb.COMPILED_WITH_CUDA, \
+        'BitsAndBytes is not CUDA-enabled despite PyTorch seeing a GPU.'
+"
+echo
+echo "=== BitsAndBytes installation check complete. ==="
+echo
+
+###############################################################################
+# Summary
+###############################################################################
+echo "=== Summary ==="
+echo "If no errors appeared above, you likely have a valid GPU environment (PyTorch sees a GPU)"
+echo "and BitsAndBytes is compiled with CUDA. Otherwise, read any exceptions or the logs carefully."
+echo
+echo "Done!" 
