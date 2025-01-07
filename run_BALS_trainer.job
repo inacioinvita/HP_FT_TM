@@ -21,7 +21,7 @@ cd ~/chicago2/HP_FT_TM
 python -m pip install --upgrade pip -q
 
 # 6) Install required packages
-python -m pip install --user \
+python -m pip install --user --upgrade \
     torch \
     ctranslate2==4.3.1 \
     transformers \
