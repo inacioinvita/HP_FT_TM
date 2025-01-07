@@ -1,5 +1,9 @@
 #!/bin/bash
 
+echo "=== NVIDIA Driver Version ==="
+nvidia-smi
+echo "=============================="
+
 #SBATCH -p compute
 #SBATCH -J t_llam
 #SBATCH --cpus-per-task=4
@@ -88,3 +92,5 @@ python -m pip install --no-cache-dir \
 
 # 11) Run the trainer
 python BALS_trainer.py
+
+
