@@ -10,10 +10,6 @@
 #SBATCH -t 8:00:00
 #SBATCH --gres=gpu:a100:4
 
-echo "=== NVIDIA Driver Version ==="
-nvidia-smi
-echo "=============================="
-
 # 1) Set CUDA environment variables for version 12.5
 export CUDA_HOME=/usr/local/cuda-12.5
 export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
