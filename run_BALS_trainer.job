@@ -8,6 +8,9 @@
 #SBATCH -t 8:00:00
 #SBATCH --gres=gpu:a100:4
 
+# Load CUDA module first
+module load cuda/12.5
+
 # 1) Initialize Conda in this shell environment
 eval "$(/home/ivieira/mambaforge/bin/conda shell.bash hook)"
 
