@@ -8,7 +8,7 @@
 #SBATCH -t 8:00:00
 #SBATCH --gres=gpu:a100:4
 
-# Set CUDA environment variables for version 11.8 (a well-supported version)
+# Set CUDA environment variables for version 11.8
 export CUDA_HOME=/usr/local/cuda-11.8
 export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 export PATH=$CUDA_HOME/bin:$PATH
@@ -27,10 +27,14 @@ export CUDA_VISIBLE_DEVICES=$SLURM_STEP_GPUS
 python -m pip uninstall -y bitsandbytes
 rm -rf ~/.local/lib/python3.8/site-packages/bitsandbytes*
 
-# Install packages with specific bitsandbytes version known to work with CUDA 11.8
-python -m pip install --user --no-cache-dir --upgrade \
-    "bitsandbytes==0.41.1" \
-    torch --index-url https://download.pytorch.org/whl/cu118 \
+# First install PyTorch with CUDA 11.8
+python -m pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cu118
+
+# Now install bitsandbytes with specific CUDA version
+CUDA_VERSION=118 python -m pip install --no-cache-dir bitsandbytes==0.41.3
+
+# Install remaining packages
+python -m pip install --no-cache-dir \
     ctranslate2==4.3.1 \
     "transformers>=4.38.0" \
     "trl>=0.7.6" \
@@ -47,8 +51,19 @@ python -m pip install --user --no-cache-dir --upgrade \
     datasets \
     safetensors
 
-# Verify bitsandbytes installation
-python -c "import bitsandbytes as bnb; print('BNB CUDA:', bnb.COMPILED_WITH_CUDA)"
+# Verify the installation
+python -c "
+import torch
+import bitsandbytes as bnb
+print('PyTorch CUDA:', torch.cuda.is_available())
+print('CUDA Version:', torch.version.cuda)
+print('GPU Device:', torch.cuda.get_device_name(0))
+try:
+    print('BNB CUDA:', bnb.COMPILED_WITH_CUDA)
+except:
+    from bitsandbytes.cuda_setup.main import get_compute_capability
+    print('Compute Capability:', get_compute_capability())
+"
 
 # Run the trainer
 python BALS_trainer.py
