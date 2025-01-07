@@ -1,8 +1,6 @@
 #!/bin/bash
 
-echo "=== NVIDIA Driver Version ==="
-nvidia-smi
-echo "=============================="
+
 
 #SBATCH -p compute
 #SBATCH -J t_llam
@@ -11,6 +9,10 @@ echo "=============================="
 #SBATCH --nodelist=g128
 #SBATCH -t 8:00:00
 #SBATCH --gres=gpu:a100:4
+
+echo "=== NVIDIA Driver Version ==="
+nvidia-smi
+echo "=============================="
 
 # 1) Set CUDA environment variables for version 12.1
 export CUDA_HOME=/usr/local/cuda-12.1
