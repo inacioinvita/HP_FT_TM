@@ -1,0 +1,59 @@
+#!/bin/bash
+
+#SBATCH -p compute
+#SBATCH -J trainer
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=200000
+#SBATCH --nodelist=g128
+#SBATCH -t 8:00:00
+#SBATCH --gres=gpu:a100:4
+
+# Source the bash configuration file to initialize conda/mamba
+source ~/.bashrc  # or source ~/.bash_profile, depending on where conda/mamba is initialized
+
+# Manually set up the conda environment variables
+export PATH="~/mambaforge/bin:$PATH"
+export CONDA_EXE="~/mambaforge/bin/conda"
+export _CE_M=""
+export _CE_CONDA=""
+export CONDA_PYTHON_EXE="~/mambaforge/bin/python"
+export CONDA_SHLVL="1"
+
+# Source the conda initialization script
+source /home/ivieira/mambaforge/etc/profile.d/conda.sh
+
+# Activate the Mamba environment using conda
+conda activate my-pip-env
+
+# Ensure pip is up-to-date
+python -m pip install --upgrade pip -q
+
+# Install the required packages in the user directory
+python -m pip install --user trl peft torch pandas ctranslate2 transformers huggingface_hub accelerate bitsandbytes datasets safetensors
+# Run the Python script
+# Set the working directory to your project directory
+cd ~/chicago2
+
+pwd
+
+ls -l
+
+# python ~/chicago2/trainer_cp2_pt.py --train_file "/home/ivieira/chicago2/full_train_dataset.pt-br" --eval_file "/home/ivieira/chicago2/full_eval_dataset.pt-br" --target_lang "Brazilian Portuguese" --num_train_records -1 --full 'full_sept_test' #--checkpoint_dir "/home/ivieira/models/fine_tuned_models/llama-3-8B-German--1full/checkpoint-600"
+
+python trainer_cp2_pt.py \
+    --full 'full' \
+    --train_file '/home/ivieira/chicago2/train_en-pt-pt.pt-pt' \
+    --eval_file '/home/ivieira/chicago2/dev_en-pt-pt.pt-pt' \
+    --target_lang 'pt-pt' \
+#    --num_train_records None \
+#    --checkpoint_dir '/path/to/checkpoint' 
+
+# full_eval_dataset.fi    full_eval_dataset_fi.en
+# full_train_dataset.fi   full_train_dataset_fi.en
+
+# test_dataset.fi
+# train_dataset.fi
+# eval_dataset.fi
+# test_dataset.en
+# train_dataset.en
+# eval_dataset.en
