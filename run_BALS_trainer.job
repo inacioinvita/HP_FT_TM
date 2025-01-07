@@ -8,62 +8,26 @@
 #SBATCH -t 8:00:00
 #SBATCH --gres=gpu:a100:4
 
-# Load CUDA module first
-module load cuda/12.5
-
-# Set CUDA environment variables
 export CUDA_HOME=/usr/local/cuda-12.5
 export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 export PATH=$CUDA_HOME/bin:$PATH
 
-# 1) Initialize Conda in this shell environment
+# 3) Initialize Conda and activate environment
 eval "$(/home/ivieira/mambaforge/bin/conda shell.bash hook)"
-
-# 2) Activate the Conda environment (only once)
 conda activate my-pip-env
-
-# 3) DIAGNOSTIC CHECKS
-echo "=== System Information ==="
-date
-hostname
-whoami
-
-echo -e "\n=== CUDA Environment Variables ==="
-echo "CUDA_HOME: $CUDA_HOME"
-echo "LD_LIBRARY_PATH: $LD_LIBRARY_PATH"
-echo "PATH: $PATH"
-echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
-
-echo -e "\n=== NVIDIA GPU Status ==="
-nvidia-smi
-
-echo -e "\n=== CUDA Compiler ==="
-which nvcc
-nvcc --version
-
-echo -e "\n=== Python Environment ==="
-which python
-python --version
-pip --version
-
-echo -e "\n=== CUDA Libraries Check ==="
-ls -l $CUDA_HOME/lib64/lib*cuda*.so* 2>/dev/null || echo "No CUDA libraries found in CUDA_HOME"
-ldconfig -p | grep cuda
-
-echo -e "\n=== PyTorch CUDA Check ==="
-python -c "import torch; print('PyTorch version:', torch.__version__); print('CUDA available:', torch.cuda.is_available()); print('CUDA version:', torch.version.cuda if torch.cuda.is_available() else 'N/A'); print('Device count:', torch.cuda.device_count()); print('Current device:', torch.cuda.current_device() if torch.cuda.is_available() else 'N/A')"
 
 # 4) Move to your project directory
 cd ~/chicago2/HP_FT_TM
 
-# 5) Set CUDA visible devices from SLURM
+# 5) Set the GPU devices from SLURM
 export CUDA_VISIBLE_DEVICES=$SLURM_STEP_GPUS
 
-# 6) Clean previous installations
+# 6) Clean previous bitsandbytes installations
 python -m pip uninstall -y bitsandbytes
 rm -rf ~/.local/lib/python3.8/site-packages/bitsandbytes*
 
-# 7) Install packages with CUDA environment properly set
+# 7) Install bitsandbytes from GitHub with CUDA version
+#    plus your other requirements. Remove "module load" references.
 CUDA_VERSION=125 python -m pip install --user --no-cache-dir --upgrade \
     "bitsandbytes @ git+https://github.com/TimDettmers/bitsandbytes.git" \
     torch \
@@ -83,16 +47,5 @@ CUDA_VERSION=125 python -m pip install --user --no-cache-dir --upgrade \
     datasets \
     safetensors
 
-# 8) Verify installations
-python -c "
-import torch
-import bitsandbytes as bnb
-print('CUDA available:', torch.cuda.is_available())
-print('Device count:', torch.cuda.device_count())
-print('Devices:', [torch.cuda.get_device_name(i) for i in range(torch.cuda.device_count())])
-print('bitsandbytes version:', bnb.__version__)
-print('CUDA compilation status:', bnb.COMPILED_WITH_CUDA)
-"
-
-# 7) Run the training script
-python ~/chicago2/HP_FT_TM/BALS_trainer.py
+# 8) Finally, run your BALS_trainer.py
+python BALS_trainer.py
