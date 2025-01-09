@@ -15,8 +15,23 @@ source /home/ivieira/mambaforge/etc/profile.d/conda.sh
 conda create -n llama-env python=3.8 -y
 conda activate llama-env
 
+# Install base dependencies first
+pip install --no-cache-dir \
+    importlib-metadata \
+    packaging \
+    pyyaml \
+    requests \
+    tqdm \
+    python-dateutil \
+    pandas \
+    pyarrow \
+    torchmetrics \
+    regex \
+    attrs \
+    transformers
+
 # Install PyTorch
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
 # Load HuggingFace token
 source ~/.huggingface_token
