@@ -8,28 +8,17 @@
 #SBATCH -o llama_factory_%j.out
 #SBATCH -e llama_factory_%j.err
 
-# Initialize CUDA environment
-export CUDA_HOME=/usr/local/cuda-12.5
-export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
-export PATH=$CUDA_HOME/bin:$PATH
-
 # Initialize Conda
 source /home/ivieira/mambaforge/etc/profile.d/conda.sh
 
-# Clean up and create fresh environment
-conda deactivate
-conda env remove -n llama-env -y
-conda clean -a -y  # Clean all conda caches
+# Create and activate environment
 conda create -n llama-env python=3.8 -y
 conda activate llama-env
 
-# Install PyTorch using pip instead of conda
-pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+# Install PyTorch
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 
-# Set GPU devices from SLURM
-export CUDA_VISIBLE_DEVICES=$SLURM_STEP_GPUS
-
-# Load HuggingFace token from a separate file that is not in git
+# Load HuggingFace token
 source ~/.huggingface_token
 
 # Run the script
