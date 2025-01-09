@@ -36,7 +36,10 @@ def main():
     # --- LOGIN TO HUGGINGFACE HUB ---
     hf_token = os.environ.get("HUGGINGFACEHUB_API_TOKEN", "")
     if not hf_token:
-        raise ValueError("HUGGINGFACEHUB_API_TOKEN environment variable not set.")
+        raise ValueError(
+            "HUGGINGFACEHUB_API_TOKEN environment variable not set.\n"
+            "Please add 'export HUGGINGFACEHUB_API_TOKEN=your_token_here' to run_factory.job"
+        )
 
     from huggingface_hub import login
     login(token=hf_token)
