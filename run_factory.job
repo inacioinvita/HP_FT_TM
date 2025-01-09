@@ -6,25 +6,26 @@
 #SBATCH --gres=gpu:a100:1
 #SBATCH -t 8:00:00
 
-
 # Initialize CUDA environment
 export CUDA_HOME=/usr/local/cuda-12.5
 export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 export PATH=$CUDA_HOME/bin:$PATH
 
-# Initialize Conda (adjust paths as needed)
+# Initialize Conda
 source /home/ivieira/mambaforge/etc/profile.d/conda.sh
-conda activate my-pip-env2
+
+# Create and activate a new conda environment if it doesn't exist
+conda create -n llama-env python=3.8 -y
+conda activate llama-env
+
+# Install basic requirements
+conda install -y pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
 
 # Set GPU devices from SLURM
 export CUDA_VISIBLE_DEVICES=$SLURM_STEP_GPUS
 
 # Load HuggingFace token from a separate file that is not in git
-source ~/.huggingface_token  # This file should contain: export HUGGINGFACEHUB_API_TOKEN='your_token'
-
-# Clean up any problematic packages before running
-pip uninstall -y tyro transformers peft trl
-pip cache purge
+source ~/.huggingface_token
 
 # Run the script
 python run_llama_factory.py
