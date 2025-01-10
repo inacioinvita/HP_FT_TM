@@ -36,6 +36,9 @@ git clone https://github.com/hiyouga/LLaMA-Factory.git
 cd LLaMA-Factory
 pip install --no-deps -e .
 
+# Copy the Python script to the correct location
+cp ~/chicago2/HP_FT_TM/run_llama_factory.py ~/chicago2/HP_FT_TM/LLaMA-Factory/
+
 # Load HuggingFace token
 source ~/.huggingface_token
 
