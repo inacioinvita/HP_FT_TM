@@ -1,0 +1,66 @@
+#!/bin/bash
+
+#SBATCH -p compute
+#SBATCH -J llama_factory
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=200000
+#SBATCH --gres=gpu:a100:1
+#SBATCH -t 8:00:00
+#SBATCH -o llama_factory_%j.out
+#SBATCH -e llama_factory_%j.err
+
+# Initialize conda
+eval "$(conda shell.bash hook)"
+
+# Create and activate environment
+conda create -n llama-env python=3.11 -y
+conda activate llama-env
+
+# Install CUDA-enabled PyTorch first
+conda install -y pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+
+# Install bitsandbytes with CUDA support
+pip install bitsandbytes==0.43.1 --prefer-binary
+
+# Clone and setup LLaMA Factory
+cd ~ || exit 1
+rm -rf LLaMA-Factory
+git clone --depth 1 https://github.com/hiyouga/LLaMA-Factory.git
+cd LLaMA-Factory
+
+# Install requirements
+pip install -r requirements.txt
+pip install -e .[torch,bitsandbytes]
+
+# Quick GPU check
+python -c "import torch; print('CUDA available?', torch.cuda.is_available()); print('Device count:', torch.cuda.device_count());"
+
+# Create training config
+cat <<EOF > train_llama3.json
+{
+  "stage": "sft",
+  "do_train": true,
+  "model_name_or_path": "unsloth/llama-3-8b-Instruct-bnb-4bit", 
+  "dataset": "identity,alpaca_en_demo",
+  "template": "llama3",
+  "finetuning_type": "lora",
+  "lora_target": "all",
+  "output_dir": "llama3_lora",
+  "per_device_train_batch_size": 2,
+  "gradient_accumulation_steps": 4,
+  "lr_scheduler_type": "cosine",
+  "logging_steps": 10,
+  "warmup_ratio": 0.1,
+  "save_steps": 100,
+  "learning_rate": 5e-5,
+  "num_train_epochs": 1.0,
+  "max_samples": 50,
+  "max_grad_norm": 1.0,
+  "loraplus_lr_ratio": 16.0,
+  "fp16": true,
+  "use_liger_kernel": true
+}
+EOF
+
+# Run training
+llamafactory-cli train train_llama3.json 
