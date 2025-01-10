@@ -27,11 +27,16 @@ pip install --no-cache-dir \
     pyarrow \
     torchmetrics \
     regex \
-    attrs \
-    transformers
+    attrs
 
-# Install PyTorch
-pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+# Install PyTorch and transformers with specific versions
+pip install --no-cache-dir \
+    torch==2.0.1 \
+    torchvision==0.15.2 \
+    torchaudio==2.0.2 \
+    --index-url https://download.pytorch.org/whl/cu118
+
+pip install --no-cache-dir transformers==4.31.0
 
 # Load HuggingFace token
 source ~/.huggingface_token
