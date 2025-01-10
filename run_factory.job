@@ -12,31 +12,29 @@
 source /home/ivieira/mambaforge/etc/profile.d/conda.sh
 
 # Create and activate environment
-conda create -n llama-env python=3.8 -y
+conda create -n llama-env python=3.11 -y
 conda activate llama-env
 
-# Install base dependencies first
+# Install packages with specific versions
 pip install --no-cache-dir \
-    importlib-metadata \
-    packaging \
-    pyyaml \
-    requests \
-    tqdm \
-    python-dateutil \
-    pandas \
-    pyarrow \
-    torchmetrics \
-    regex \
-    attrs
-
-# Install PyTorch and transformers with specific versions
-pip install --no-cache-dir \
-    torch==2.0.1 \
-    torchvision==0.15.2 \
-    torchaudio==2.0.2 \
+    torch==2.4.0 \
+    torchvision \
+    torchaudio \
     --index-url https://download.pytorch.org/whl/cu118
 
-pip install --no-cache-dir transformers==4.31.0
+pip install --no-cache-dir \
+    transformers==4.43.4 \
+    datasets==2.20.0 \
+    accelerate==0.32.0 \
+    peft==0.12.0 \
+    trl==0.9.6 \
+    bitsandbytes==0.43.1
+
+# Clone and install LLaMA Factory with --no-deps
+cd ~/chicago2/HP_FT_TM
+git clone https://github.com/hiyouga/LLaMA-Factory.git
+cd LLaMA-Factory
+pip install --no-deps -e .
 
 # Load HuggingFace token
 source ~/.huggingface_token
