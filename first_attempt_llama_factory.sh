@@ -3,30 +3,46 @@
 # First, ensure conda is properly initialized
 eval "$(conda shell.bash hook)"
 
-# Remove existing environment if it exists
-conda deactivate
-conda env remove -n llama-env -y
-conda clean -a -y
-
-# Create the environment with specific CUDA support
+# Create the environment if it doesn't exist
 conda create -n llama-env python=3.11 -y
+
+# Then activate environment
 conda activate llama-env
 
-# Install CUDA-enabled PyTorch first
-conda install -y pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+#
+# first_attempt_llama_factory.sh
+# 
+# Example script that:
+#   1. Clones LLaMA Factory
+#   2. Installs pinned dependencies (from requirements.txt)
+#   3. Installs optional extras for PyTorch, bitsandbytes, etc.
+#   4. Verifies GPU is detected by PyTorch
+#   5. Demonstrates a minimal training run
 
-# Install bitsandbytes with CUDA support
-pip install bitsandbytes==0.43.1 --prefer-binary
+set -e  # Exit if any command fails
 
-# Install other dependencies
+# --- 1. Clone LLaMA Factory ---
+cd ~ || exit 1  # Or choose your preferred directory
+rm -rf LLaMA-Factory
+git clone --depth 1 https://github.com/hiyouga/LLaMA-Factory.git
+cd LLaMA-Factory
+
+# --- 2. Install pinned dependencies from the recently updated requirements.txt ---
+#     This ensures we match the minimum/maximum versions that LLaMA Factory devs recommend.
 pip install -r requirements.txt
-pip install -e .[torch,bitsandbytes]
 
-# Quick GPU check
+# --- 3. (Optional) Install extras to get GPU-based training, bitsandbytes, etc. ---
+#     You can add or remove extras as needed: e.g. [torch,metrics,deepspeed,bitsandbytes,liger-kernel].
+#     This is helpful if you want quantization or advanced GPU usage.
+pip install -e .[torch,bitsandbytes,liger-kernel]
+
+# --- 4. Quick GPU check ---
 echo "Verifying that PyTorch sees the GPU..."
 python -c "import torch; print('CUDA available?', torch.cuda.is_available()); print('Device count:', torch.cuda.device_count());"
 
-# Create a small JSON config for fine-tuning
+# --- 5. Minimal Fine-Tuning Example ---
+#     Create a small JSON config to do a short LoRA fine-tuning on some small dataset.
+
 cat <<EOF > train_llama3.json
 {
   "stage": "sft",
@@ -54,6 +70,8 @@ cat <<EOF > train_llama3.json
 EOF
 
 echo
-echo "Starting a minimal fine-tuning run..."
+echo "Starting a minimal fine-tuning run (this may take 5-10 minutes or more depending on your GPU)..."
 llamafactory-cli train train_llama3.json
 
+echo
+echo "Done! You have now installed pinned dependencies and run a minimal training example."
