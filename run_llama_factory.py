@@ -22,15 +22,13 @@ def main():
     login(token=os.environ["HUGGINGFACEHUB_API_TOKEN"])
 
     # --- RUN LLAMA FACTORY CLI ---
-    # Set specific port and host for cluster environment
-    os.environ["GRADIO_SERVER_PORT"] = "6006"  # Choose a specific port
-    os.environ["GRADIO_SERVER_NAME"] = "0.0.0.0"  # Listen on all interfaces
+    # Enable Gradio share feature (like in Colab)
+    os.environ["GRADIO_SHARE"] = "1"
     
     print("Starting LLaMA Factory Web UI...")
-    print("You may need to set up port forwarding to access the UI:")
-    print("ssh -L 6006:localhost:6006 your_username@cluster_address")
+    print("Waiting for public URL...")
     
-    subprocess.run(["llamafactory-cli", "webui", "--listen", "--share"], check=True)
+    subprocess.run(["llamafactory-cli", "webui"], check=True)
 
 if __name__ == "__main__":
     main()
