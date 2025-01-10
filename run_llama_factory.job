@@ -22,6 +22,9 @@ conda install -y pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c 
 # Install bitsandbytes with CUDA support
 pip install bitsandbytes==0.43.1 --prefer-binary
 
+# Install liger-kernel
+pip install liger-kernel>=0.3.0
+
 # Clone and setup LLaMA Factory
 cd ~ || exit 1
 rm -rf LLaMA-Factory
@@ -58,7 +61,7 @@ cat <<EOF > train_llama3.json
   "max_grad_norm": 1.0,
   "loraplus_lr_ratio": 16.0,
   "fp16": true,
-  "use_liger_kernel": true
+  "use_liger_kernel": false
 }
 EOF
 
