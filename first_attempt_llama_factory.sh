@@ -1,4 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
+# First, ensure conda is properly initialized
+eval "$(conda shell.bash hook)"
+
+# Then activate environment
+conda activate llama-env
+
 #
 # first_attempt_llama_factory.sh
 # 
@@ -8,11 +15,6 @@
 #   3. Installs optional extras for PyTorch, bitsandbytes, etc.
 #   4. Verifies GPU is detected by PyTorch
 #   5. Demonstrates a minimal training run
-
-# --- 0. Optional: Activate your Python environment here (conda or venv) ---
-conda activate llama-factory2
-#     or
-#     source /path/to/your/venv/bin/activate
 
 set -e  # Exit if any command fails
 
