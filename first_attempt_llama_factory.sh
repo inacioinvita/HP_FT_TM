@@ -3,6 +3,9 @@
 # First, ensure conda is properly initialized
 eval "$(conda shell.bash hook)"
 
+# Create the environment if it doesn't exist
+conda create -n llama-env python=3.11 -y
+
 # Then activate environment
 conda activate llama-env
 
