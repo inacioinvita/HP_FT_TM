@@ -30,9 +30,12 @@ pip install --no-cache-dir \
     trl==0.9.6 \
     bitsandbytes==0.43.1
 
-# Clone and install LLaMA Factory with --no-deps
+# Remove existing LLaMA Factory directory if it exists
+rm -rf ~/chicago2/HP_FT_TM/LLaMA-Factory
+
+# Clone and install LLaMA Factory with --no-deps and longer timeout
 cd ~/chicago2/HP_FT_TM
-git clone https://github.com/hiyouga/LLaMA-Factory.git
+GIT_HTTP_LOW_SPEED_LIMIT=1000 GIT_HTTP_LOW_SPEED_TIME=60 git clone https://github.com/hiyouga/LLaMA-Factory.git
 cd LLaMA-Factory
 pip install --no-deps -e .
 
