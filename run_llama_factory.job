@@ -43,27 +43,63 @@ cat <<EOF > train_llama3.json
 {
   "stage": "sft",
   "do_train": true,
-  "model_name_or_path": "unsloth/llama-3-8b-Instruct-bnb-4bit", 
-  "dataset": "identity,alpaca_en_demo",
+  "model_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "dataset": "BALS_de_dataset",
+  "dataset_dir": "data",
   "template": "llama3",
   "finetuning_type": "lora",
   "lora_target": "all",
-  "output_dir": "llama3_lora",
-  "per_device_train_batch_size": 2,
-  "gradient_accumulation_steps": 4,
-  "lr_scheduler_type": "cosine",
+  "output_dir": "saves/Llama-3.1-8B-Instruct/lora/train_$(date +%Y-%m-%d-%H-%M-%S)",
+  "bf16": true,
+  "cutoff_len": 1024,
+  "ddp_timeout": 180000000,
+  "eval_steps": 100,
+  "eval_strategy": "steps",
+  "flash_attn": "auto",
+  "gradient_accumulation_steps": 8,
+  "learning_rate": 0.002,
   "logging_steps": 10,
-  "warmup_ratio": 0.1,
-  "save_steps": 100,
-  "learning_rate": 5e-5,
-  "num_train_epochs": 1.0,
-  "max_samples": 50,
+  "lora_alpha": 16,
+  "lora_dropout": 0.1,
+  "lora_rank": 64,
+  "lr_scheduler_type": "cosine",
   "max_grad_norm": 1.0,
-  "loraplus_lr_ratio": 16.0,
-  "fp16": true,
-  "use_liger_kernel": false
+  "max_samples": 100000,
+  "num_train_epochs": 1.0,
+  "optim": "adamw_torch",
+  "packing": false,
+  "per_device_eval_batch_size": 8,
+  "per_device_train_batch_size": 8,
+  "plot_loss": true,
+  "preprocessing_num_workers": 16,
+  "quantization_bit": 4,
+  "quantization_method": "bitsandbytes",
+  "report_to": "none",
+  "save_steps": 100,
+  "trust_remote_code": true,
+  "val_size": 0.1,
+  "warmup_steps": 50
 }
 EOF
 
+# ⚠️ IMPORTANT: Make sure ~/.huggingface_token exists and contains your HF token
+# Format: export HUGGINGFACEHUB_API_TOKEN='your_token_here'
+if [ ! -f ~/.huggingface_token ]; then
+    echo "Error: ~/.huggingface_token not found!"
+    echo "Please create it with: echo \"export HUGGINGFACEHUB_API_TOKEN='your_token'\" > ~/.huggingface_token"
+    exit 1
+fi
+
+# Load HuggingFace token
+source ~/.huggingface_token
+
 # Run training
 llamafactory-cli train train_llama3.json 
+
+# After training completes, print paths
+echo "----------------------------------------"
+echo "Model and checkpoint locations:"
+echo "Base directory: $HOME/LLaMA-Factory/"
+echo "Model save path: $HOME/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_$(date +%Y-%m-%d-%H-%M-%S)"
+echo "Checkpoint directory: $HOME/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_$(date +%Y-%m-%d-%H-%M-%S)/checkpoint-*"
+echo "----------------------------------------" 
