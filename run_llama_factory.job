@@ -10,7 +10,7 @@
 #SBATCH -e LF_%j.err
 
 # Initialize conda
-eval "$(conda shell.bash hook)"
+eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
 
 # Create and activate environment
 # conda create -n lf-env2 python=3.11 -y
