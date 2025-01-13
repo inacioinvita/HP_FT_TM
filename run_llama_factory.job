@@ -22,8 +22,7 @@ conda activate lf-env
 
 # Install bitsandbytes with CUDA support
 # pip install bitsandbytes==0.43.1 --prefer-binary
-
-# Install liger-kernel
+# pip install wandb
 # pip install liger-kernel>=0.3.0
 
 # Clone and setup LLaMA Factory ONLY on the first run
@@ -62,7 +61,7 @@ cat <<EOF > train_llama3.json
   "logging_steps": 10,
   "lora_alpha": 16,
   "lora_dropout": 0.1,
-  "lora_rank": 64,
+  "lora_rank": 128,
   "lr_scheduler_type": "polynomial",
   "max_grad_norm": 1.0,
   "max_samples": 100000,
