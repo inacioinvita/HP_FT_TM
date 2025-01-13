@@ -16,6 +16,7 @@ eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
 # conda create -n lf-env2 python=3.11 -y
 conda activate lf-env
 
+# Only install the following packages once on the environment
 # Install CUDA-enabled PyTorch first
 # conda install -y pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
 
@@ -25,15 +26,15 @@ conda activate lf-env
 # Install liger-kernel
 # pip install liger-kernel>=0.3.0
 
-# Clone and setup LLaMA Factory
+# Clone and setup LLaMA Factory ONLY on the first run
 cd ~ || exit 1
-rm -rf LLaMA-Factory
-git clone --depth 1 https://github.com/hiyouga/LLaMA-Factory.git
+# rm -rf LLaMA-Factory
+# git clone --depth 1 https://github.com/hiyouga/LLaMA-Factory.git
 cd LLaMA-Factory
 
-# Install requirements
-pip install -r requirements.txt
-pip install -e .[torch,bitsandbytes]
+# Only install requirements once on the environment
+# pip install -r requirements.txt
+# pip install -e .[torch,bitsandbytes]
 
 # Quick GPU check
 python -c "import torch; print('CUDA available?', torch.cuda.is_available()); print('Device count:', torch.cuda.device_count());"
