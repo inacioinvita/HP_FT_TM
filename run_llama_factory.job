@@ -1,10 +1,12 @@
 #!/bin/bash
 
+NUM_GPUS=2  # Change this value to adjust GPU allocation globally
+
 #SBATCH -p compute
 #SBATCH -J LF_L_3.1_8B
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=200000
-#SBATCH --gres=gpu:a100:2
+#SBATCH --gres=gpu:a100:${NUM_GPUS}
 #SBATCH -t 8:00:00
 #SBATCH -o LF_%j.out
 #SBATCH -e LF_%j.err
@@ -37,7 +39,7 @@ cd LLaMA-Factory
 # pip install -e .[torch,bitsandbytes]
 
 # Quick GPU check
-python -c "import torch; print('CUDA available?', torch.cuda.is_available()); print('Device count:', torch.cuda.device_count());"
+python -c "import torch; print('CUDA available?', torch.cuda.is_available()); print('Device count:', torch.cuda.device_count()); print("Distributed available:", is_available());"
 
 # Create training config
 cat <<EOF > train_llama3.json
@@ -115,8 +117,21 @@ fi
 # Source the API keys
 source ~/.api_keys
 
+# Set DDP parameters
+export MASTER_ADDR=$(hostname)
+export MASTER_PORT=29500
+export NNODES=1
+export GPUS_PER_NODE=$NUM_GPUS
+export NPROC_PER_NODE=$GPUS_PER_NODE
+
+# Launch training with torchrun
+FORCE_TORCHRUN=1 torchrun --standalone \
+  --nnodes=$NNODES \
+  --nproc-per-node=$NPROC_PER_NODE \
+  $(which llamafactory-cli) train train_llama3.json
+
 # Run training
-llamafactory-cli train train_llama3.json 
+# llamafactory-cli train train_llama3.json # To launch training without DDP
 
 # After training completes, print paths
 echo "----------------------------------------"
