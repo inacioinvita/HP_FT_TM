@@ -121,7 +121,7 @@ source ~/.api_keys
 export MASTER_ADDR=$(hostname)
 export MASTER_PORT=29500
 export NNODES=1
-export GPUS_PER_NODE=8  # matches --gres=gpu:a100:8
+export GPUS_PER_NODE=2  # matches --gres=gpu:a100:8
 export NPROC_PER_NODE=$GPUS_PER_NODE
 
 # Use FORCE_TORCHRUN=1 to let LLaMA Factory know we want to run under torchrun 
