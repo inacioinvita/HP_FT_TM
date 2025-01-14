@@ -4,7 +4,7 @@
 #SBATCH -J LF_L_3.1_8B
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=200000
-#SBATCH --gres=gpu:a100:1
+#SBATCH --gres=gpu:a100:2
 #SBATCH -t 8:00:00
 #SBATCH -o LF_%j.out
 #SBATCH -e LF_%j.err
@@ -24,6 +24,7 @@ conda activate lf-env
 # pip install bitsandbytes==0.43.1 --prefer-binary
 # pip install wandb
 # pip install liger-kernel>=0.3.0
+# pip install sacrebleu unbabel-comet
 
 # Clone and setup LLaMA Factory ONLY on the first run
 cd ~ || exit 1
@@ -77,33 +78,42 @@ cat <<EOF > train_llama3.json
   "report_to": "wandb",
   "run_name": "train_$(date +%Y-%m-%d-%H-%M-%S)",
   "save_steps": 10,
-  "trust_remote_code": true,
+  "trust_remote_code": true, 
   "upcast_layernorm": true,
   "val_size": 0.1,
-  "warmup_steps": 5
+  "warmup_steps": 3
 }
 EOF
 
-# ⚠️ IMPORTANT: Make sure ~/.huggingface_token exists and contains your HF token
-# Format: export HUGGINGFACEHUB_API_TOKEN='your_token_here'
-if [ ! -f ~/.huggingface_token ]; then
-    echo "Error: ~/.huggingface_token not found!"
-    echo "Please create it with: echo \"export HUGGINGFACEHUB_API_TOKEN='your_token'\" > ~/.huggingface_token"
+# upcast_layernorm:  Whether or not to upcast the layernorm weights in fp32 (remove when 4bit quantization is used)
+
+
+# # ⚠️ IMPORTANT: Make sure ~/.huggingface_token exists and contains your HF token
+# # Format: export HUGGINGFACEHUB_API_TOKEN='your_token_here'
+# if [ ! -f ~/.huggingface_token ]; then
+#     echo "Error: ~/.huggingface_token not found!"
+#     echo "Please create it with: echo \"export HUGGINGFACEHUB_API_TOKEN='your_token'\" > ~/.huggingface_token"
+#     exit 1
+# fi
+# # Load HuggingFace token
+# source ~/.huggingface_token
+# # Load WANDB token
+# if [ ! -f ~/.wandb_token ]; then
+#     echo "Error: ~/.wandb_token not found!"
+#     echo "Please create it with: echo \"export WANDB_API_KEY='your_token'\" > ~/.wandb_token"
+#     exit 1
+# fi
+# # Source the token
+# source ~/.wandb_token
+
+# Load all API keys
+if [ ! -f ~/.api_keys ]; then
+    echo "Error: ~/.api_keys not found!"
+    echo "Check run_llama_factory.job for API keys loading - ~/.wandb_token and ~/.huggingface_token"
     exit 1
 fi
-
-# Load HuggingFace token
-source ~/.huggingface_token
-
-# Load WANDB token
-if [ ! -f ~/.wandb_token ]; then
-    echo "Error: ~/.wandb_token not found!"
-    echo "Please create it with: echo \"export WANDB_API_KEY='your_token'\" > ~/.wandb_token"
-    exit 1
-fi
-
-# Source the token
-source ~/.wandb_token
+# Source the API keys
+source ~/.api_keys
 
 # Run training
 llamafactory-cli train train_llama3.json 
