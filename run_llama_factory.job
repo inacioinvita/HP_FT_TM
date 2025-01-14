@@ -36,6 +36,7 @@ cd LLaMA-Factory
 # pip install -r requirements.txt
 # pip install -e .[torch,bitsandbytes]
 
+
 # Quick GPU check
 python -c "import torch; print('CUDA available?', torch.cuda.is_available()); print('Device count:', torch.cuda.device_count());"
 
