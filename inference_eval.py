@@ -43,7 +43,7 @@ wandb.init(
 
 # Directories and paths
 base_dir = os.path.expanduser("~/LLaMA-Factory")
-model_dir = args.model_dir  # Use the provided model directory
+model_dir = args.model_dir  # From command line
 test_dataset_path = os.path.join(base_dir, "data/BALS_de_test_dataset.json")
 output_dir = os.path.join(base_dir, "evaluation/autoeval", os.path.basename(model_dir))
 os.makedirs(output_dir, exist_ok=True)
@@ -60,6 +60,24 @@ model.eval()
 # Load test data
 with open(test_dataset_path, "r") as f:
     data = json.load(f)
+
+def extract_translation(output_text):
+    """Extract translation from model output."""
+    try:
+        # Find the last JSON object in the text
+        json_start = output_text.rfind("{")
+        json_end = output_text.find("}", json_start) + 1
+        if json_start != -1 and json_end != -1:
+            response = json.loads(output_text[json_start:json_end])
+            translation = response.get("translation", "").strip()
+            if translation:
+                return translation
+            else:
+                print(f"No translation found in response: {response}")
+    except Exception as e:
+        print(f"Error extracting translation: {e}")
+        print(f"Raw output: {output_text}")
+    return ""
 
 predictions = []
 sources = []
@@ -78,19 +96,20 @@ for sample in data:
     output_tokens = model.generate(**inputs, max_new_tokens=256, do_sample=False, pad_token_id=tokenizer.eos_token_id)
     output_text = tokenizer.decode(output_tokens[0], skip_special_tokens=True)
     
-    # Extract JSON response
-    try:
-        json_start = output_text.find("{")
-        json_end = output_text.rfind("}") + 1
-        response = json.loads(output_text[json_start:json_end])
-        translation = response.get("translation", "").strip()
-    except Exception as e:
-        translation = ""
-        print(f"Parsing error: {e}. Raw output: {output_text}")
+    # Extract translation using our new function
+    translation = extract_translation(output_text)
+    
+    if not translation:
+        print(f"Warning: Empty translation for input: {input_text[:100]}...")
     
     predictions.append(translation)
     sources.append(input_text)
     references.append(reference)
+
+    # Optional: print progress
+    print(f"Processed {len(predictions)} samples", end="\r")
+
+print("\nFinished processing all samples")
 
 # Save translations
 with open(os.path.join(output_dir, "translations.txt"), "w") as f:
