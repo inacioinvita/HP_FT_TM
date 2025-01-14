@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=200000
 #SBATCH --gres=gpu:a100:1
-#SBATCH -t 8:00:00
+#SBATCH -t 12:00:00
 #SBATCH -o LF_%j.out
 #SBATCH -e LF_%j.err
 
@@ -71,7 +71,7 @@ cat <<EOF > train_llama3.json
   "lr_scheduler_type": "polynomial",
   "max_grad_norm": 1.0,
   "max_samples": 100000,
-  "num_train_epochs": 0.01,
+  "num_train_epochs": 1,
   "optim": "adamw_torch",
   "packing": false,
   "per_device_eval_batch_size": 16,
