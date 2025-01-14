@@ -13,7 +13,7 @@
 eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
 
 # Create and activate environment
-# conda create -n lf-env2 python=3.11 -y
+# conda create -n lf-env python=3.11 -y
 conda activate lf-env
 
 # Only install the following packages once on the environment
@@ -34,13 +34,17 @@ cd LLaMA-Factory
 
 # Only install requirements once on the environment
 # pip install -r requirements.txt
-# pip install -e .[torch,bitsandbytes]
+# pip install -e .[torch,bitsandbytes,metrics]
 
 
 # Quick GPU check
 python -c "import torch; print('CUDA available?', torch.cuda.is_available()); print('Device count:', torch.cuda.device_count());"
 
-# Create training config
+# Set timestamp variable
+export TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
+MODEL_PATH="saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}"
+
+# Create training config with variable
 cat <<EOF > train_llama3.json
 {
   "stage": "sft",
@@ -51,7 +55,7 @@ cat <<EOF > train_llama3.json
   "template": "llama3",
   "finetuning_type": "lora",
   "lora_target": "all",
-  "output_dir": "saves/Llama-3.1-8B-Instruct/lora/train_$(date +%Y-%m-%d-%H-%M-%S)",
+  "output_dir": "saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}",
   "bf16": true,
   "cutoff_len": 1024,
   "ddp_timeout": 180000000,
@@ -77,7 +81,7 @@ cat <<EOF > train_llama3.json
   "quantization_bit": 8,
   "quantization_method": "bitsandbytes",
   "report_to": "wandb",
-  "run_name": "train_$(date +%Y-%m-%d-%H-%M-%S)",
+  "run_name": "train_${TIMESTAMP}",
   "save_steps": 10,
   "trust_remote_code": true, 
   "upcast_layernorm": true,
@@ -87,25 +91,6 @@ cat <<EOF > train_llama3.json
 EOF
 
 # upcast_layernorm:  Whether or not to upcast the layernorm weights in fp32 (remove when 4bit quantization is used)
-
-
-# # ⚠️ IMPORTANT: Make sure ~/.huggingface_token exists and contains your HF token
-# # Format: export HUGGINGFACEHUB_API_TOKEN='your_token_here'
-# if [ ! -f ~/.huggingface_token ]; then
-#     echo "Error: ~/.huggingface_token not found!"
-#     echo "Please create it with: echo \"export HUGGINGFACEHUB_API_TOKEN='your_token'\" > ~/.huggingface_token"
-#     exit 1
-# fi
-# # Load HuggingFace token
-# source ~/.huggingface_token
-# # Load WANDB token
-# if [ ! -f ~/.wandb_token ]; then
-#     echo "Error: ~/.wandb_token not found!"
-#     echo "Please create it with: echo \"export WANDB_API_KEY='your_token'\" > ~/.wandb_token"
-#     exit 1
-# fi
-# # Source the token
-# source ~/.wandb_token
 
 # Load all API keys
 if [ ! -f ~/.api_keys ]; then
@@ -133,12 +118,14 @@ source ~/.api_keys
 #   $(which llamafactory-cli) train train_llama3.json
 
 # Run training
-llamafactory-cli train train_llama3.json # To launch training without DDP
+llamafactory-cli train train_llama3.json
 
-# After training completes, print paths
+# Run inference and evaluation with the same path
+python ~/chicago2/HP_FT_TM/inference_eval.py --model_dir "$HOME/LLaMA-Factory/$MODEL_PATH"
+
+# Print paths for verification
 echo "----------------------------------------"
-echo "Model and checkpoint locations:"
-echo "Base directory: $HOME/LLaMA-Factory/"
-echo "Model save path: $HOME/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_$(date +%Y-%m-%d-%H-%M-%S)"
-echo "Checkpoint directory: $HOME/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_$(date +%Y-%m-%d-%H-%M-%S)/checkpoint-*"
-echo "----------------------------------------" 
+echo "Model and evaluation paths:"
+echo "Model path: $HOME/LLaMA-Factory/$MODEL_PATH"
+echo "Evaluation output: $HOME/LLaMA-Factory/evaluation/autoeval/train_${TIMESTAMP}"
+echo "----------------------------------------"
