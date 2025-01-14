@@ -68,7 +68,7 @@ cat <<EOF > train_llama3.json
   "lora_alpha": 16,
   "lora_dropout": 0.1,
   "lora_rank": 64,
-  "lr_scheduler_type": "polynomial",
+  "lr_scheduler_type": "cosine",
   "max_grad_norm": 1.0,
   "max_samples": 100000,
   "num_train_epochs": 1,
