@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NUM_GPUS=2
+NUM_GPUS=1
 # Change this value to adjust GPU allocation globally
 
 #SBATCH -p compute
@@ -118,21 +118,21 @@ fi
 # Source the API keys
 source ~/.api_keys
 
-# Set DDP parameters
-export MASTER_ADDR=$(hostname)
-export MASTER_PORT=29500
-export NNODES=1
-export GPUS_PER_NODE=$NUM_GPUS
-export NPROC_PER_NODE=$GPUS_PER_NODE
+# # Set DDP parameters
+# export MASTER_ADDR=$(hostname)
+# export MASTER_PORT=29500
+# export NNODES=1
+# export GPUS_PER_NODE=$NUM_GPUS
+# export NPROC_PER_NODE=$GPUS_PER_NODE
 
-# Launch training with torchrun
-FORCE_TORCHRUN=1 torchrun --standalone \
-  --nnodes=$NNODES \
-  --nproc-per-node=$NPROC_PER_NODE \
-  $(which llamafactory-cli) train train_llama3.json
+# # Launch training with torchrun
+# FORCE_TORCHRUN=1 torchrun --standalone \
+#   --nnodes=$NNODES \
+#   --nproc-per-node=$NPROC_PER_NODE \
+#   $(which llamafactory-cli) train train_llama3.json
 
 # Run training
-# llamafactory-cli train train_llama3.json # To launch training without DDP
+llamafactory-cli train train_llama3.json # To launch training without DDP
 
 # After training completes, print paths
 echo "----------------------------------------"
