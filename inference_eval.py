@@ -110,7 +110,16 @@ for sample in data:
     output_tokens = model.generate(**inputs, max_new_tokens=256, do_sample=False, pad_token_id=tokenizer.eos_token_id)
     output_text = tokenizer.decode(output_tokens[0], skip_special_tokens=True)
     
-    # Extract translation using our new function
+    #########################################
+    # Debug print for first sample only
+    if len(predictions) == 0:  # First iteration
+        print("\n=== DEBUG: First Sample Output ===")
+        print("Input:", input_text[:100], "...")
+        print("Raw Output:", output_text)
+        print("================================\n")
+    #########################################
+
+    # Extract translation
     translation = extract_translation(output_text)
     
     if not translation:
