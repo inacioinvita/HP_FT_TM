@@ -1,0 +1,131 @@
+#!/bin/bash
+
+#SBATCH -p compute
+#SBATCH -J LF_L_3.1_8B
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=200000
+#SBATCH --gres=gpu:a100:1
+#SBATCH -t 12:00:00
+#SBATCH -o LF_%j.out
+#SBATCH -e LF_%j.err
+
+# Initialize conda
+eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
+
+# Create and activate environment
+# conda create -n lf-env python=3.11 -y
+conda activate lf-env
+
+# Only install the following packages once on the environment
+# Install CUDA-enabled PyTorch first
+# conda install -y pytorch torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+
+# Install bitsandbytes with CUDA support
+# pip install bitsandbytes==0.43.1 --prefer-binary
+# pip install wandb
+# pip install liger-kernel>=0.3.0
+# pip install sacrebleu unbabel-comet
+
+# Clone and setup LLaMA Factory ONLY on the first run
+cd ~ || exit 1
+# rm -rf LLaMA-Factory
+# git clone --depth 1 https://github.com/hiyouga/LLaMA-Factory.git
+cd LLaMA-Factory
+
+# Only install requirements once on the environment
+# pip install -r requirements.txt
+# pip install -e .[torch,bitsandbytes,metrics]
+
+
+# Quick GPU check
+python -c "import torch; print('CUDA available?', torch.cuda.is_available()); print('Device count:', torch.cuda.device_count());"
+
+# Set timestamp variable
+export TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
+MODEL_PATH="saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}"
+
+# Create training config with variable
+cat <<EOF > train_llama3.json
+{
+  "stage": "sft",
+  "do_train": true,
+  "model_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "dataset": "BALS_de_train_dataset",
+  "dataset_dir": "data",
+  "template": "llama3",
+  "finetuning_type": "lora",
+  "lora_target": "all",
+  "output_dir": "saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}",
+  "bf16": true,
+  "cutoff_len": 1024,
+  "ddp_timeout": 180000000,
+  "eval_steps": 10,
+  "eval_strategy": "steps",
+  "flash_attn": "auto",
+  "gradient_accumulation_steps": 8,
+  "learning_rate": 0.001,
+  "logging_steps": 10,
+  "lora_alpha": 16,
+  "lora_dropout": 0.1,
+  "lora_rank": 64,
+  "lr_scheduler_type": "polynomial",
+  "max_grad_norm": 1.0,
+  "max_samples": 100000,
+  "num_train_epochs": 0.31,
+  "optim": "adamw_torch",
+  "packing": false,
+  "per_device_eval_batch_size": 16,
+  "per_device_train_batch_size": 32,
+  "plot_loss": true,
+  "preprocessing_num_workers": 16,
+  "quantization_bit": 8,
+  "quantization_method": "bitsandbytes",
+  "report_to": "wandb",
+  "run_name": "train_${TIMESTAMP}",
+  "save_steps": 10,
+  "trust_remote_code": true, 
+  "upcast_layernorm": true,
+  "val_size": 0.1,
+  "warmup_steps": 3
+}
+EOF
+
+# upcast_layernorm:  Whether or not to upcast the layernorm weights in fp32 (remove when 4bit quantization is used)
+
+# Load all API keys
+if [ ! -f ~/.api_keys ]; then
+    echo "Error: ~/.api_keys not found!"
+    echo "Check run_llama_factory.job for API keys loading - ~/.wandb_token and ~/.huggingface_token"
+    exit 1
+fi
+# Source the API keys
+source ~/.api_keys
+
+### CHANGED: Use Native DDP with torchrun for single-node multi-GPU
+# The trick here is to set the number of processes you want per node to match your number of GPUs
+# We also set MASTER_ADDR to our own hostname for single-node usage
+# export MASTER_ADDR=$(hostname)
+# export MASTER_PORT=29500
+# export NNODES=1
+# export GPUS_PER_NODE=1  # matches --gres=gpu:a100:1
+# export NPROC_PER_NODE=$GPUS_PER_NODE
+
+# # Use FORCE_TORCHRUN=1 to let LLaMA Factory know we want to run under torchrun 
+# # (which automatically invokes DistributedDataParallel)
+# FORCE_TORCHRUN=1 torchrun --standalone \
+#   --nnodes=$NNODES \
+#   --nproc-per-node=$NPROC_PER_NODE \
+#   $(which llamafactory-cli) train train_llama3.json
+
+# Run training
+llamafactory-cli train train_llama3.json
+
+# Run inference and evaluation with the same path
+python ~/chicago2/HP_FT_TM/inference_eval.py --model_dir "$HOME/LLaMA-Factory/$MODEL_PATH"
+
+# Print paths for verification
+echo "----------------------------------------"
+echo "Model and evaluation paths:"
+echo "Model path: $HOME/LLaMA-Factory/$MODEL_PATH"
+echo "Evaluation output: $HOME/LLaMA-Factory/evaluation/autoeval/train_${TIMESTAMP}"
+echo "----------------------------------------"

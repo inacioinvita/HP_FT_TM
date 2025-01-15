@@ -1,0 +1,49 @@
+#!/bin/bash
+#SBATCH -p compute
+#SBATCH -J llama_factory
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=200000
+#SBATCH --gres=gpu:a100:1
+#SBATCH -t 8:00:00
+#SBATCH -o llama_factory_%j.out
+#SBATCH -e llama_factory_%j.err
+
+# Initialize Conda
+source /home/ivieira/mambaforge/etc/profile.d/conda.sh
+
+# Create and activate environment
+conda create -n llama-env python=3.11 -y
+conda activate llama-env
+
+# Install packages with specific versions
+pip install --no-cache-dir \
+    torch==2.4.0 \
+    torchvision \
+    torchaudio \
+    --index-url https://download.pytorch.org/whl/cu118
+
+pip install --no-cache-dir \
+    transformers==4.43.4 \
+    datasets==2.20.0 \
+    accelerate==0.32.0 \
+    peft==0.12.0 \
+    trl==0.9.6 \
+    bitsandbytes==0.43.1
+
+# Remove existing LLaMA Factory directory if it exists
+rm -rf ~/chicago2/HP_FT_TM/LLaMA-Factory
+
+# Clone and install LLaMA Factory with --no-deps and longer timeout
+cd ~/chicago2/HP_FT_TM
+GIT_HTTP_LOW_SPEED_LIMIT=1000 GIT_HTTP_LOW_SPEED_TIME=60 git clone https://github.com/hiyouga/LLaMA-Factory.git
+cd LLaMA-Factory
+pip install --no-deps -e .
+
+# Copy the Python script to the correct location
+cp ~/chicago2/HP_FT_TM/run_llama_factory.py ~/chicago2/HP_FT_TM/LLaMA-Factory/
+
+# Load HuggingFace token
+source ~/.huggingface_token
+
+# Run the script
+python run_llama_factory.py
