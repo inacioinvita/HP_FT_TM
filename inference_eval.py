@@ -4,7 +4,7 @@ import json
 import torch
 import sacrebleu
 import wandb
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, LlamaTokenizer, LlamaForCausalLM
 from comet import download_model, load_from_checkpoint
 
 # Add argument parsing
@@ -49,8 +49,8 @@ output_dir = os.path.join(base_dir, "evaluation/autoeval", os.path.basename(mode
 os.makedirs(output_dir, exist_ok=True)
 
 # Load model and tokenizer
-tokenizer = AutoTokenizer.from_pretrained(model_dir, use_fast=False)
-model = AutoModelForCausalLM.from_pretrained(
+tokenizer = AutoTokenizer.from_pretrained(model_dir)
+model = LlamaForCausalLM.from_pretrained(
     model_dir,
     device_map="auto",
     torch_dtype=torch.bfloat16
