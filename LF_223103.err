@@ -1,205 +1,0 @@
-[INFO|configuration_utils.py:679] 2025-01-13 16:46:59,675 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
-[INFO|configuration_utils.py:746] 2025-01-13 16:46:59,678 >> Model config LlamaConfig {
-  "_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 4096,
-  "initializer_range": 0.02,
-  "intermediate_size": 14336,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 32,
-  "num_hidden_layers": 32,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 8.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": false,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.46.1",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|tokenization_utils_base.py:2211] 2025-01-13 16:46:59,879 >> loading file tokenizer.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer.json
-[INFO|tokenization_utils_base.py:2211] 2025-01-13 16:46:59,879 >> loading file tokenizer.model from cache at None
-[INFO|tokenization_utils_base.py:2211] 2025-01-13 16:46:59,879 >> loading file added_tokens.json from cache at None
-[INFO|tokenization_utils_base.py:2211] 2025-01-13 16:46:59,879 >> loading file special_tokens_map.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/special_tokens_map.json
-[INFO|tokenization_utils_base.py:2211] 2025-01-13 16:46:59,879 >> loading file tokenizer_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2475] 2025-01-13 16:47:00,281 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
-[INFO|configuration_utils.py:679] 2025-01-13 16:47:01,290 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
-[INFO|configuration_utils.py:746] 2025-01-13 16:47:01,293 >> Model config LlamaConfig {
-  "_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 4096,
-  "initializer_range": 0.02,
-  "intermediate_size": 14336,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 32,
-  "num_hidden_layers": 32,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 8.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": false,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.46.1",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|tokenization_utils_base.py:2211] 2025-01-13 16:47:01,502 >> loading file tokenizer.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer.json
-[INFO|tokenization_utils_base.py:2211] 2025-01-13 16:47:01,502 >> loading file tokenizer.model from cache at None
-[INFO|tokenization_utils_base.py:2211] 2025-01-13 16:47:01,502 >> loading file added_tokens.json from cache at None
-[INFO|tokenization_utils_base.py:2211] 2025-01-13 16:47:01,502 >> loading file special_tokens_map.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/special_tokens_map.json
-[INFO|tokenization_utils_base.py:2211] 2025-01-13 16:47:01,502 >> loading file tokenizer_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2475] 2025-01-13 16:47:01,911 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
-Setting num_proc from 16 back to 1 for the train split to disable multiprocessing as it only contains one shard.
-Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 25856 examples [00:00, 69981.17 examples/s]Generating train split: 25856 examples [00:00, 69508.99 examples/s]
-Converting format of dataset (num_proc=16):   0%|          | 0/25856 [00:00<?, ? examples/s]Converting format of dataset (num_proc=16):   1%|          | 178/25856 [00:00<00:26, 967.71 examples/s]Converting format of dataset (num_proc=16):  12%|█▏        | 3158/25856 [00:00<00:01, 13560.49 examples/s]Converting format of dataset (num_proc=16):  31%|███       | 7961/25856 [00:00<00:00, 25872.17 examples/s]Converting format of dataset (num_proc=16):  45%|████▌     | 11719/25856 [00:00<00:00, 29320.47 examples/s]Converting format of dataset (num_proc=16):  58%|█████▊    | 15015/25856 [00:00<00:00, 29365.32 examples/s]Converting format of dataset (num_proc=16):  70%|███████   | 18183/25856 [00:00<00:00, 27509.24 examples/s]Converting format of dataset (num_proc=16):  82%|████████▏ | 21323/25856 [00:00<00:00, 28557.90 examples/s]Converting format of dataset (num_proc=16):  94%|█████████▍| 24388/25856 [00:00<00:00, 28129.20 examples/s]Converting format of dataset (num_proc=16): 100%|██████████| 25856/25856 [00:01<00:00, 23786.57 examples/s]
-Running tokenizer on dataset (num_proc=16):   0%|          | 0/25856 [00:00<?, ? examples/s]Running tokenizer on dataset (num_proc=16):   4%|▍         | 1000/25856 [00:01<00:47, 522.18 examples/s]Running tokenizer on dataset (num_proc=16):   8%|▊         | 2000/25856 [00:02<00:25, 925.85 examples/s]Running tokenizer on dataset (num_proc=16):  10%|█         | 2616/25856 [00:02<00:23, 1002.24 examples/s]Running tokenizer on dataset (num_proc=16):  16%|█▋        | 4232/25856 [00:03<00:14, 1544.17 examples/s]Running tokenizer on dataset (num_proc=16):  20%|██        | 5232/25856 [00:04<00:12, 1654.84 examples/s]Running tokenizer on dataset (num_proc=16):  26%|██▋       | 6848/25856 [00:04<00:09, 2018.40 examples/s]Running tokenizer on dataset (num_proc=16):  35%|███▌      | 9080/25856 [00:05<00:06, 2727.66 examples/s]Running tokenizer on dataset (num_proc=16):  39%|███▉      | 10080/25856 [00:05<00:06, 2410.32 examples/s]Running tokenizer on dataset (num_proc=16):  48%|████▊     | 12312/25856 [00:06<00:04, 2878.76 examples/s]Running tokenizer on dataset (num_proc=16):  50%|█████     | 12928/25856 [00:06<00:04, 2667.19 examples/s]Running tokenizer on dataset (num_proc=16):  62%|██████▏   | 15928/25856 [00:07<00:02, 3665.42 examples/s]Running tokenizer on dataset (num_proc=16):  66%|██████▋   | 17160/25856 [00:07<00:02, 4283.28 examples/s]Running tokenizer on dataset (num_proc=16):  70%|███████   | 18160/25856 [00:07<00:02, 3486.76 examples/s]Running tokenizer on dataset (num_proc=16):  76%|███████▋  | 19776/25856 [00:07<00:01, 4230.60 examples/s]Running tokenizer on dataset (num_proc=16):  79%|███████▉  | 20392/25856 [00:08<00:01, 4152.69 examples/s]Running tokenizer on dataset (num_proc=16):  85%|████████▌ | 22008/25856 [00:08<00:00, 5177.34 examples/s]Running tokenizer on dataset (num_proc=16):  89%|████████▉ | 23008/25856 [00:08<00:00, 5836.35 examples/s]Running tokenizer on dataset (num_proc=16):  94%|█████████▍| 24240/25856 [00:08<00:00, 5997.97 examples/s]Running tokenizer on dataset (num_proc=16): 100%|██████████| 25856/25856 [00:08<00:00, 6051.25 examples/s]Running tokenizer on dataset (num_proc=16): 100%|██████████| 25856/25856 [00:08<00:00, 2907.63 examples/s]
-[INFO|configuration_utils.py:679] 2025-01-13 16:47:13,507 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
-[INFO|configuration_utils.py:746] 2025-01-13 16:47:13,537 >> Model config LlamaConfig {
-  "_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 4096,
-  "initializer_range": 0.02,
-  "intermediate_size": 14336,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 32,
-  "num_hidden_layers": 32,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 8.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": false,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.46.1",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|modeling_utils.py:3937] 2025-01-13 16:47:13,683 >> loading weights file model.safetensors from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/model.safetensors.index.json
-[INFO|modeling_utils.py:1670] 2025-01-13 16:47:13,734 >> Instantiating LlamaForCausalLM model under default dtype torch.bfloat16.
-[INFO|configuration_utils.py:1096] 2025-01-13 16:47:13,748 >> Generate config GenerationConfig {
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ]
-}
-
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:08,  2.70s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:05<00:05,  2.75s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:08<00:02,  2.76s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:08<00:00,  1.91s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:08<00:00,  2.22s/it]
-[INFO|modeling_utils.py:4800] 2025-01-13 16:47:22,818 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
-
-[INFO|modeling_utils.py:4808] 2025-01-13 16:47:22,827 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at meta-llama/Meta-Llama-3.1-8B-Instruct.
-If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
-[INFO|configuration_utils.py:1051] 2025-01-13 16:47:23,036 >> loading configuration file generation_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/generation_config.json
-[INFO|configuration_utils.py:1096] 2025-01-13 16:47:23,048 >> Generate config GenerationConfig {
-  "bos_token_id": 128000,
-  "do_sample": true,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "temperature": 0.6,
-  "top_p": 0.9
-}
-
-Traceback (most recent call last):
-  File "/home/ivieira/miniconda3/envs/lf-env/bin/llamafactory-cli", line 8, in <module>
-    sys.exit(main())
-             ^^^^^^
-  File "/home/ivieira/LLaMA-Factory/src/llamafactory/cli.py", line 112, in main
-    run_exp()
-  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/tuner.py", line 92, in run_exp
-    _training_function(config={"args": args, "callbacks": callbacks})
-  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/tuner.py", line 66, in _training_function
-    run_sft(model_args, data_args, training_args, finetuning_args, generating_args, callbacks)
-  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/sft/workflow.py", line 82, in run_sft
-    trainer = CustomSeq2SeqTrainer(
-              ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/sft/trainer.py", line 59, in __init__
-    super().__init__(**kwargs)
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/utils/deprecation.py", line 165, in wrapped_func
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/trainer_seq2seq.py", line 72, in __init__
-    super().__init__(
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/utils/deprecation.py", line 165, in wrapped_func
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/trainer.py", line 629, in __init__
-    self.callback_handler = CallbackHandler(
-                            ^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/trainer_callback.py", line 411, in __init__
-    self.add_callback(cb)
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/trainer_callback.py", line 428, in add_callback
-    cb = callback() if isinstance(callback, type) else callback
-         ^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/integrations/integration_utils.py", line 768, in __init__
-    raise RuntimeError("WandbCallback requires wandb to be installed. Run `pip install wandb`.")
-RuntimeError: WandbCallback requires wandb to be installed. Run `pip install wandb`.

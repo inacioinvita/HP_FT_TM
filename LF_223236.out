@@ -1,9 +1,0 @@
-CUDA available? True
-Device count: 1
-[INFO|2025-01-14 15:37:29] llamafactory.cli:157 >> Initializing distributed tasks at: localhost:35855
-----------------------------------------
-Model and checkpoint locations:
-Base directory: /home/ivieira/LLaMA-Factory/
-Model save path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-15-37-32
-Checkpoint directory: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-15-37-32/checkpoint-*
-----------------------------------------

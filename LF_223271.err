@@ -1,2014 +1,0 @@
-[INFO|configuration_utils.py:679] 2025-01-14 23:45:16,550 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
-[INFO|configuration_utils.py:746] 2025-01-14 23:45:16,551 >> Model config LlamaConfig {
-  "_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 4096,
-  "initializer_range": 0.02,
-  "intermediate_size": 14336,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 32,
-  "num_hidden_layers": 32,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 8.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": false,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.46.1",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|tokenization_utils_base.py:2211] 2025-01-14 23:45:16,884 >> loading file tokenizer.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer.json
-[INFO|tokenization_utils_base.py:2211] 2025-01-14 23:45:16,884 >> loading file tokenizer.model from cache at None
-[INFO|tokenization_utils_base.py:2211] 2025-01-14 23:45:16,884 >> loading file added_tokens.json from cache at None
-[INFO|tokenization_utils_base.py:2211] 2025-01-14 23:45:16,884 >> loading file special_tokens_map.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/special_tokens_map.json
-[INFO|tokenization_utils_base.py:2211] 2025-01-14 23:45:16,884 >> loading file tokenizer_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2475] 2025-01-14 23:45:17,264 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
-[INFO|configuration_utils.py:679] 2025-01-14 23:45:18,168 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
-[INFO|configuration_utils.py:746] 2025-01-14 23:45:18,171 >> Model config LlamaConfig {
-  "_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 4096,
-  "initializer_range": 0.02,
-  "intermediate_size": 14336,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 32,
-  "num_hidden_layers": 32,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 8.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": false,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.46.1",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|tokenization_utils_base.py:2211] 2025-01-14 23:45:18,366 >> loading file tokenizer.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer.json
-[INFO|tokenization_utils_base.py:2211] 2025-01-14 23:45:18,366 >> loading file tokenizer.model from cache at None
-[INFO|tokenization_utils_base.py:2211] 2025-01-14 23:45:18,366 >> loading file added_tokens.json from cache at None
-[INFO|tokenization_utils_base.py:2211] 2025-01-14 23:45:18,366 >> loading file special_tokens_map.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/special_tokens_map.json
-[INFO|tokenization_utils_base.py:2211] 2025-01-14 23:45:18,366 >> loading file tokenizer_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2475] 2025-01-14 23:45:18,746 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
-[INFO|configuration_utils.py:679] 2025-01-14 23:45:19,698 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
-[INFO|configuration_utils.py:746] 2025-01-14 23:45:19,699 >> Model config LlamaConfig {
-  "_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 4096,
-  "initializer_range": 0.02,
-  "intermediate_size": 14336,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 32,
-  "num_hidden_layers": 32,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 8.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": false,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.46.1",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|modeling_utils.py:3937] 2025-01-14 23:45:19,779 >> loading weights file model.safetensors from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/model.safetensors.index.json
-[INFO|modeling_utils.py:1670] 2025-01-14 23:45:19,780 >> Instantiating LlamaForCausalLM model under default dtype torch.bfloat16.
-[INFO|configuration_utils.py:1096] 2025-01-14 23:45:19,781 >> Generate config GenerationConfig {
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ]
-}
-
-Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:08,  2.96s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:05<00:05,  2.83s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:08<00:02,  2.76s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:08<00:00,  1.90s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:08<00:00,  2.24s/it]
-[INFO|modeling_utils.py:4800] 2025-01-14 23:45:28,877 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
-
-[INFO|modeling_utils.py:4808] 2025-01-14 23:45:28,877 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at meta-llama/Meta-Llama-3.1-8B-Instruct.
-If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
-[INFO|configuration_utils.py:1051] 2025-01-14 23:45:29,124 >> loading configuration file generation_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/generation_config.json
-[INFO|configuration_utils.py:1096] 2025-01-14 23:45:29,125 >> Generate config GenerationConfig {
-  "bos_token_id": 128000,
-  "do_sample": true,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "temperature": 0.6,
-  "top_p": 0.9
-}
-
-[INFO|trainer.py:698] 2025-01-14 23:45:30,955 >> Using auto half precision backend
-[INFO|trainer.py:2313] 2025-01-14 23:45:31,188 >> ***** Running training *****
-[INFO|trainer.py:2314] 2025-01-14 23:45:31,188 >>   Num examples = 23,270
-[INFO|trainer.py:2315] 2025-01-14 23:45:31,188 >>   Num Epochs = 1
-[INFO|trainer.py:2316] 2025-01-14 23:45:31,188 >>   Instantaneous batch size per device = 32
-[INFO|trainer.py:2319] 2025-01-14 23:45:31,188 >>   Total train batch size (w. parallel, distributed & accumulation) = 256
-[INFO|trainer.py:2320] 2025-01-14 23:45:31,188 >>   Gradient Accumulation steps = 8
-[INFO|trainer.py:2321] 2025-01-14 23:45:31,188 >>   Total optimization steps = 91
-[INFO|trainer.py:2322] 2025-01-14 23:45:31,192 >>   Number of trainable parameters = 167,772,160
-[INFO|integration_utils.py:812] 2025-01-14 23:45:31,195 >> Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
-wandb: Currently logged in as: inaciovieira (inaciovieira-alpha-crc). Use `wandb login --relogin` to force relogin
-wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
-wandb: Tracking run with wandb version 0.19.2
-wandb: Run data is saved locally in /home/ivieira/LLaMA-Factory/wandb/run-20250114_234531-t4h9hcyt
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run train_2025-01-14-23-45-10
-wandb: ⭐️ View project at https://wandb.ai/inaciovieira-alpha-crc/llamafactory
-wandb: 🚀 View run at https://wandb.ai/inaciovieira-alpha-crc/llamafactory/runs/t4h9hcyt
-  0%|          | 0/91 [00:00<?, ?it/s]/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.bfloat16 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
-  1%|          | 1/91 [00:49<1:14:25, 49.61s/it]  2%|▏         | 2/91 [01:48<1:21:27, 54.91s/it]  3%|▎         | 3/91 [02:55<1:29:05, 60.75s/it]  4%|▍         | 4/91 [03:58<1:29:16, 61.57s/it]  5%|▌         | 5/91 [05:06<1:31:40, 63.96s/it]  7%|▋         | 6/91 [05:57<1:23:56, 59.25s/it]  8%|▊         | 7/91 [07:07<1:27:51, 62.76s/it]  9%|▉         | 8/91 [08:11<1:27:33, 63.29s/it] 10%|▉         | 9/91 [09:11<1:24:55, 62.14s/it] 11%|█         | 10/91 [10:02<1:19:12, 58.67s/it]                                                  11%|█         | 10/91 [10:02<1:19:12, 58.67s/it][INFO|trainer.py:4117] 2025-01-14 23:55:34,244 >> 
-***** Running Evaluation *****
-[INFO|trainer.py:4119] 2025-01-14 23:55:34,244 >>   Num examples = 2586
-[INFO|trainer.py:4122] 2025-01-14 23:55:34,244 >>   Batch size = 16
-
-  0%|          | 0/162 [00:00<?, ?it/s][A
-  1%|          | 2/162 [00:00<00:35,  4.55it/s][A
-  2%|▏         | 3/162 [00:00<00:47,  3.34it/s][A
-  2%|▏         | 4/162 [00:01<00:55,  2.83it/s][A
-  3%|▎         | 5/162 [00:01<01:07,  2.32it/s][A
-  4%|▎         | 6/162 [00:02<01:05,  2.39it/s][A
-  4%|▍         | 7/162 [00:02<01:05,  2.38it/s][A
-  5%|▍         | 8/162 [00:03<01:12,  2.14it/s][A
-  6%|▌         | 9/162 [00:03<01:09,  2.19it/s][A
-  6%|▌         | 10/162 [00:04<01:16,  1.98it/s][A
-  7%|▋         | 11/162 [00:05<01:30,  1.67it/s][A
-  7%|▋         | 12/162 [00:05<01:20,  1.86it/s][A
-  8%|▊         | 13/162 [00:06<01:20,  1.86it/s][A
-  9%|▊         | 14/162 [00:06<01:15,  1.96it/s][A
-  9%|▉         | 15/162 [00:06<01:10,  2.08it/s][A
- 10%|▉         | 16/162 [00:07<01:07,  2.17it/s][A
- 10%|█         | 17/162 [00:07<01:08,  2.12it/s][A
- 11%|█         | 18/162 [00:08<01:13,  1.97it/s][A
- 12%|█▏        | 19/162 [00:08<01:10,  2.03it/s][A
- 12%|█▏        | 20/162 [00:09<01:15,  1.88it/s][A
- 13%|█▎        | 21/162 [00:09<01:11,  1.98it/s][A
- 14%|█▎        | 22/162 [00:10<01:05,  2.13it/s][A
- 14%|█▍        | 23/162 [00:11<01:16,  1.82it/s][A
- 15%|█▍        | 24/162 [00:11<01:11,  1.94it/s][A
- 15%|█▌        | 25/162 [00:11<01:08,  2.00it/s][A
- 16%|█▌        | 26/162 [00:12<01:05,  2.07it/s][A
- 17%|█▋        | 27/162 [00:13<01:42,  1.31it/s][A
- 17%|█▋        | 28/162 [00:14<01:29,  1.50it/s][A
- 18%|█▊        | 29/162 [00:14<01:18,  1.70it/s][A
- 19%|█▊        | 30/162 [00:15<01:14,  1.77it/s][A
- 19%|█▉        | 31/162 [00:15<01:09,  1.89it/s][A
- 20%|█▉        | 32/162 [00:16<01:04,  2.03it/s][A
- 20%|██        | 33/162 [00:16<01:01,  2.11it/s][A
- 21%|██        | 34/162 [00:17<01:08,  1.87it/s][A
- 22%|██▏       | 35/162 [00:17<01:03,  1.98it/s][A
- 22%|██▏       | 36/162 [00:19<01:42,  1.23it/s][A
- 23%|██▎       | 37/162 [00:19<01:27,  1.43it/s][A
- 23%|██▎       | 38/162 [00:19<01:17,  1.59it/s][A
- 24%|██▍       | 39/162 [00:20<01:18,  1.57it/s][A
- 25%|██▍       | 40/162 [00:21<01:07,  1.80it/s][A
- 25%|██▌       | 41/162 [00:21<01:07,  1.79it/s][A
- 26%|██▌       | 42/162 [00:21<00:59,  2.00it/s][A
- 27%|██▋       | 43/162 [00:22<00:57,  2.07it/s][A
- 27%|██▋       | 44/162 [00:23<01:03,  1.87it/s][A
- 28%|██▊       | 45/162 [00:23<00:58,  1.99it/s][A
- 28%|██▊       | 46/162 [00:23<00:55,  2.09it/s][A
- 29%|██▉       | 47/162 [00:24<00:55,  2.07it/s][A
- 30%|██▉       | 48/162 [00:24<00:55,  2.06it/s][A
- 30%|███       | 49/162 [00:25<00:52,  2.16it/s][A
- 31%|███       | 50/162 [00:25<00:52,  2.12it/s][A
- 31%|███▏      | 51/162 [00:26<00:50,  2.20it/s][A
- 32%|███▏      | 52/162 [00:26<00:49,  2.22it/s][A
- 33%|███▎      | 53/162 [00:27<00:47,  2.31it/s][A
- 33%|███▎      | 54/162 [00:27<00:46,  2.32it/s][A
- 34%|███▍      | 55/162 [00:27<00:44,  2.39it/s][A
- 35%|███▍      | 56/162 [00:28<00:44,  2.39it/s][A
- 35%|███▌      | 57/162 [00:28<00:46,  2.27it/s][A
- 36%|███▌      | 58/162 [00:29<00:45,  2.29it/s][A
- 36%|███▋      | 59/162 [00:29<00:48,  2.12it/s][A
- 37%|███▋      | 60/162 [00:30<00:47,  2.13it/s][A
- 38%|███▊      | 61/162 [00:30<00:46,  2.16it/s][A
- 38%|███▊      | 62/162 [00:31<00:45,  2.20it/s][A
- 39%|███▉      | 63/162 [00:31<00:44,  2.24it/s][A
- 40%|███▉      | 64/162 [00:32<00:45,  2.15it/s][A
- 40%|████      | 65/162 [00:32<00:45,  2.15it/s][A
- 41%|████      | 66/162 [00:32<00:43,  2.23it/s][A
- 41%|████▏     | 67/162 [00:33<00:43,  2.16it/s][A
- 42%|████▏     | 68/162 [00:33<00:41,  2.29it/s][A
- 43%|████▎     | 69/162 [00:34<00:42,  2.19it/s][A
- 43%|████▎     | 70/162 [00:34<00:41,  2.21it/s][A
- 44%|████▍     | 71/162 [00:35<00:40,  2.27it/s][A
- 44%|████▍     | 72/162 [00:36<00:52,  1.73it/s][A
- 45%|████▌     | 73/162 [00:36<00:47,  1.88it/s][A
- 46%|████▌     | 74/162 [00:36<00:44,  1.98it/s][A
- 46%|████▋     | 75/162 [00:37<00:40,  2.12it/s][A
- 47%|████▋     | 76/162 [00:37<00:43,  1.98it/s][A
- 48%|████▊     | 77/162 [00:38<00:46,  1.85it/s][A
- 48%|████▊     | 78/162 [00:40<01:22,  1.02it/s][A
- 49%|████▉     | 79/162 [00:40<01:06,  1.25it/s][A
- 49%|████▉     | 80/162 [00:41<00:58,  1.40it/s][A
- 50%|█████     | 81/162 [00:41<00:51,  1.57it/s][A
- 51%|█████     | 82/162 [00:42<00:45,  1.75it/s][A
- 51%|█████     | 83/162 [00:42<00:40,  1.93it/s][A
- 52%|█████▏    | 84/162 [00:43<00:37,  2.06it/s][A
- 52%|█████▏    | 85/162 [00:43<00:34,  2.21it/s][A
- 53%|█████▎    | 86/162 [00:43<00:34,  2.18it/s][A
- 54%|█████▎    | 87/162 [00:44<00:42,  1.76it/s][A
- 54%|█████▍    | 88/162 [00:45<00:39,  1.88it/s][A
- 55%|█████▍    | 89/162 [00:45<00:35,  2.04it/s][A
- 56%|█████▌    | 90/162 [00:46<00:35,  2.04it/s][A
- 56%|█████▌    | 91/162 [00:46<00:33,  2.10it/s][A
- 57%|█████▋    | 92/162 [00:46<00:31,  2.19it/s][A
- 57%|█████▋    | 93/162 [00:47<00:30,  2.29it/s][A
- 58%|█████▊    | 94/162 [00:47<00:29,  2.31it/s][A
- 59%|█████▊    | 95/162 [00:48<00:28,  2.38it/s][A
- 59%|█████▉    | 96/162 [00:48<00:28,  2.32it/s][A
- 60%|█████▉    | 97/162 [00:49<00:28,  2.28it/s][A
- 60%|██████    | 98/162 [00:49<00:27,  2.32it/s][A
- 61%|██████    | 99/162 [00:49<00:26,  2.42it/s][A
- 62%|██████▏   | 100/162 [00:50<00:26,  2.31it/s][A
- 62%|██████▏   | 101/162 [00:50<00:26,  2.32it/s][A
- 63%|██████▎   | 102/162 [00:51<00:25,  2.39it/s][A
- 64%|██████▎   | 103/162 [00:51<00:26,  2.20it/s][A
- 64%|██████▍   | 104/162 [00:52<00:25,  2.27it/s][A
- 65%|██████▍   | 105/162 [00:52<00:25,  2.25it/s][A
- 65%|██████▌   | 106/162 [00:52<00:23,  2.35it/s][A
- 66%|██████▌   | 107/162 [00:53<00:22,  2.41it/s][A
- 67%|██████▋   | 108/162 [00:53<00:22,  2.42it/s][A
- 67%|██████▋   | 109/162 [00:54<00:22,  2.40it/s][A
- 68%|██████▊   | 110/162 [00:54<00:21,  2.40it/s][A
- 69%|██████▊   | 111/162 [00:54<00:20,  2.45it/s][A
- 69%|██████▉   | 112/162 [00:55<00:21,  2.37it/s][A
- 70%|██████▉   | 113/162 [00:55<00:20,  2.42it/s][A
- 70%|███████   | 114/162 [00:56<00:19,  2.49it/s][A
- 71%|███████   | 115/162 [00:56<00:19,  2.44it/s][A
- 72%|███████▏  | 116/162 [00:56<00:18,  2.53it/s][A
- 72%|███████▏  | 117/162 [00:57<00:18,  2.44it/s][A
- 73%|███████▎  | 118/162 [00:57<00:18,  2.36it/s][A
- 73%|███████▎  | 119/162 [00:58<00:19,  2.25it/s][A
- 74%|███████▍  | 120/162 [00:58<00:18,  2.30it/s][A
- 75%|███████▍  | 121/162 [00:59<00:18,  2.22it/s][A
- 75%|███████▌  | 122/162 [00:59<00:18,  2.21it/s][A
- 76%|███████▌  | 123/162 [01:00<00:17,  2.25it/s][A
- 77%|███████▋  | 124/162 [01:00<00:16,  2.26it/s][A
- 77%|███████▋  | 125/162 [01:01<00:16,  2.24it/s][A
- 78%|███████▊  | 126/162 [01:01<00:15,  2.33it/s][A
- 78%|███████▊  | 127/162 [01:01<00:14,  2.39it/s][A
- 79%|███████▉  | 128/162 [01:02<00:14,  2.33it/s][A
- 80%|███████▉  | 129/162 [01:02<00:14,  2.28it/s][A
- 80%|████████  | 130/162 [01:03<00:13,  2.38it/s][A
- 81%|████████  | 131/162 [01:03<00:14,  2.19it/s][A
- 81%|████████▏ | 132/162 [01:04<00:13,  2.21it/s][A
- 82%|████████▏ | 133/162 [01:04<00:12,  2.26it/s][A
- 83%|████████▎ | 134/162 [01:04<00:12,  2.30it/s][A
- 83%|████████▎ | 135/162 [01:05<00:11,  2.38it/s][A
- 84%|████████▍ | 136/162 [01:05<00:11,  2.28it/s][A
- 85%|████████▍ | 137/162 [01:06<00:11,  2.15it/s][A
- 85%|████████▌ | 138/162 [01:06<00:10,  2.23it/s][A
- 86%|████████▌ | 139/162 [01:07<00:09,  2.32it/s][A
- 86%|████████▋ | 140/162 [01:07<00:09,  2.42it/s][A
- 87%|████████▋ | 141/162 [01:07<00:08,  2.37it/s][A
- 88%|████████▊ | 142/162 [01:08<00:08,  2.34it/s][A
- 88%|████████▊ | 143/162 [01:08<00:08,  2.29it/s][A
- 89%|████████▉ | 144/162 [01:09<00:08,  2.21it/s][A
- 90%|████████▉ | 145/162 [01:09<00:07,  2.24it/s][A
- 90%|█████████ | 146/162 [01:10<00:06,  2.33it/s][A
- 91%|█████████ | 147/162 [01:10<00:07,  1.94it/s][A
- 91%|█████████▏| 148/162 [01:11<00:06,  2.02it/s][A
- 92%|█████████▏| 149/162 [01:11<00:06,  2.16it/s][A
- 93%|█████████▎| 150/162 [01:12<00:05,  2.19it/s][A
- 93%|█████████▎| 151/162 [01:12<00:04,  2.23it/s][A
- 94%|█████████▍| 152/162 [01:13<00:04,  2.10it/s][A
- 94%|█████████▍| 153/162 [01:13<00:04,  2.17it/s][A
- 95%|█████████▌| 154/162 [01:13<00:03,  2.24it/s][A
- 96%|█████████▌| 155/162 [01:14<00:03,  2.19it/s][A
- 96%|█████████▋| 156/162 [01:14<00:02,  2.32it/s][A
- 97%|█████████▋| 157/162 [01:15<00:02,  2.02it/s][A
- 98%|█████████▊| 158/162 [01:15<00:01,  2.16it/s][A
- 98%|█████████▊| 159/162 [01:16<00:01,  2.21it/s][A
- 99%|█████████▉| 160/162 [01:16<00:00,  2.25it/s][A
- 99%|█████████▉| 161/162 [01:17<00:00,  2.20it/s][A
-100%|██████████| 162/162 [01:17<00:00,  2.46it/s][A                                                 
-                                                 [A 11%|█         | 10/91 [11:19<1:19:12, 58.67s/it]
-100%|██████████| 162/162 [01:17<00:00,  2.46it/s][A
-                                                 [A[INFO|trainer.py:3801] 2025-01-14 23:56:52,136 >> Saving model checkpoint to saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-10
-[INFO|configuration_utils.py:679] 2025-01-14 23:56:52,710 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
-[INFO|configuration_utils.py:746] 2025-01-14 23:56:52,712 >> Model config LlamaConfig {
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 4096,
-  "initializer_range": 0.02,
-  "intermediate_size": 14336,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 32,
-  "num_hidden_layers": 32,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 8.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": false,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.46.1",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|tokenization_utils_base.py:2646] 2025-01-14 23:56:53,331 >> tokenizer config file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-10/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2655] 2025-01-14 23:56:53,332 >> Special tokens file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-10/special_tokens_map.json
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.bfloat16 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
- 12%|█▏        | 11/91 [12:33<1:56:12, 87.16s/it] 13%|█▎        | 12/91 [13:46<1:49:03, 82.83s/it] 14%|█▍        | 13/91 [14:54<1:41:54, 78.39s/it] 15%|█▌        | 14/91 [15:46<1:30:09, 70.26s/it] 16%|█▋        | 15/91 [16:54<1:28:08, 69.58s/it] 18%|█▊        | 16/91 [18:17<1:32:13, 73.79s/it] 19%|█▊        | 17/91 [19:27<1:29:18, 72.41s/it] 20%|█▉        | 18/91 [20:14<1:18:55, 64.87s/it] 21%|██        | 19/91 [21:36<1:23:59, 69.99s/it] 22%|██▏       | 20/91 [22:21<1:13:58, 62.51s/it]                                                  22%|██▏       | 20/91 [22:21<1:13:58, 62.51s/it][INFO|trainer.py:4117] 2025-01-15 00:07:53,660 >> 
-***** Running Evaluation *****
-[INFO|trainer.py:4119] 2025-01-15 00:07:53,661 >>   Num examples = 2586
-[INFO|trainer.py:4122] 2025-01-15 00:07:53,661 >>   Batch size = 16
-
-  0%|          | 0/162 [00:00<?, ?it/s][A
-  1%|          | 2/162 [00:00<00:35,  4.52it/s][A
-  2%|▏         | 3/162 [00:00<00:47,  3.33it/s][A
-  2%|▏         | 4/162 [00:01<00:55,  2.83it/s][A
-  3%|▎         | 5/162 [00:01<01:07,  2.32it/s][A
-  4%|▎         | 6/162 [00:02<01:05,  2.40it/s][A
-  4%|▍         | 7/162 [00:02<01:05,  2.38it/s][A
-  5%|▍         | 8/162 [00:03<01:11,  2.14it/s][A
-  6%|▌         | 9/162 [00:03<01:09,  2.20it/s][A
-  6%|▌         | 10/162 [00:04<01:16,  1.98it/s][A
-  7%|▋         | 11/162 [00:05<01:30,  1.67it/s][A
-  7%|▋         | 12/162 [00:05<01:20,  1.86it/s][A
-  8%|▊         | 13/162 [00:06<01:20,  1.86it/s][A
-  9%|▊         | 14/162 [00:06<01:15,  1.96it/s][A
-  9%|▉         | 15/162 [00:06<01:10,  2.08it/s][A
- 10%|▉         | 16/162 [00:07<01:07,  2.18it/s][A
- 10%|█         | 17/162 [00:07<01:08,  2.13it/s][A
- 11%|█         | 18/162 [00:08<01:13,  1.96it/s][A
- 12%|█▏        | 19/162 [00:08<01:10,  2.02it/s][A
- 12%|█▏        | 20/162 [00:09<01:15,  1.87it/s][A
- 13%|█▎        | 21/162 [00:09<01:11,  1.97it/s][A
- 14%|█▎        | 22/162 [00:10<01:06,  2.12it/s][A
- 14%|█▍        | 23/162 [00:11<01:16,  1.82it/s][A
- 15%|█▍        | 24/162 [00:11<01:11,  1.93it/s][A
- 15%|█▌        | 25/162 [00:11<01:08,  2.00it/s][A
- 16%|█▌        | 26/162 [00:12<01:05,  2.07it/s][A
- 17%|█▋        | 27/162 [00:13<01:42,  1.31it/s][A
- 17%|█▋        | 28/162 [00:14<01:29,  1.50it/s][A
- 18%|█▊        | 29/162 [00:14<01:18,  1.69it/s][A
- 19%|█▊        | 30/162 [00:15<01:14,  1.77it/s][A
- 19%|█▉        | 31/162 [00:15<01:09,  1.89it/s][A
- 20%|█▉        | 32/162 [00:16<01:04,  2.03it/s][A
- 20%|██        | 33/162 [00:16<01:01,  2.11it/s][A
- 21%|██        | 34/162 [00:17<01:08,  1.86it/s][A
- 22%|██▏       | 35/162 [00:17<01:04,  1.98it/s][A
- 22%|██▏       | 36/162 [00:19<01:42,  1.23it/s][A
- 23%|██▎       | 37/162 [00:19<01:27,  1.43it/s][A
- 23%|██▎       | 38/162 [00:20<01:17,  1.59it/s][A
- 24%|██▍       | 39/162 [00:20<01:18,  1.57it/s][A
- 25%|██▍       | 40/162 [00:21<01:07,  1.80it/s][A
- 25%|██▌       | 41/162 [00:21<01:07,  1.79it/s][A
- 26%|██▌       | 42/162 [00:21<01:00,  2.00it/s][A
- 27%|██▋       | 43/162 [00:22<00:57,  2.07it/s][A
- 27%|██▋       | 44/162 [00:23<01:03,  1.87it/s][A
- 28%|██▊       | 45/162 [00:23<00:58,  1.99it/s][A
- 28%|██▊       | 46/162 [00:23<00:55,  2.08it/s][A
- 29%|██▉       | 47/162 [00:24<00:55,  2.06it/s][A
- 30%|██▉       | 48/162 [00:24<00:55,  2.06it/s][A
- 30%|███       | 49/162 [00:25<00:52,  2.16it/s][A
- 31%|███       | 50/162 [00:25<00:52,  2.12it/s][A
- 31%|███▏      | 51/162 [00:26<00:50,  2.20it/s][A
- 32%|███▏      | 52/162 [00:26<00:49,  2.21it/s][A
- 33%|███▎      | 53/162 [00:27<00:47,  2.31it/s][A
- 33%|███▎      | 54/162 [00:27<00:46,  2.32it/s][A
- 34%|███▍      | 55/162 [00:27<00:44,  2.40it/s][A
- 35%|███▍      | 56/162 [00:28<00:44,  2.41it/s][A
- 35%|███▌      | 57/162 [00:28<00:46,  2.28it/s][A
- 36%|███▌      | 58/162 [00:29<00:45,  2.30it/s][A
- 36%|███▋      | 59/162 [00:29<00:48,  2.14it/s][A
- 37%|███▋      | 60/162 [00:30<00:47,  2.14it/s][A
- 38%|███▊      | 61/162 [00:30<00:46,  2.17it/s][A
- 38%|███▊      | 62/162 [00:31<00:45,  2.20it/s][A
- 39%|███▉      | 63/162 [00:31<00:44,  2.23it/s][A
- 40%|███▉      | 64/162 [00:32<00:45,  2.15it/s][A
- 40%|████      | 65/162 [00:32<00:44,  2.16it/s][A
- 41%|████      | 66/162 [00:32<00:43,  2.23it/s][A
- 41%|████▏     | 67/162 [00:33<00:43,  2.17it/s][A
- 42%|████▏     | 68/162 [00:33<00:41,  2.29it/s][A
- 43%|████▎     | 69/162 [00:34<00:42,  2.17it/s][A
- 43%|████▎     | 70/162 [00:34<00:41,  2.20it/s][A
- 44%|████▍     | 71/162 [00:35<00:40,  2.26it/s][A
- 44%|████▍     | 72/162 [00:36<00:52,  1.73it/s][A
- 45%|████▌     | 73/162 [00:36<00:47,  1.88it/s][A
- 46%|████▌     | 74/162 [00:36<00:44,  1.98it/s][A
- 46%|████▋     | 75/162 [00:37<00:41,  2.12it/s][A
- 47%|████▋     | 76/162 [00:37<00:43,  1.99it/s][A
- 48%|████▊     | 77/162 [00:38<00:45,  1.87it/s][A
- 48%|████▊     | 78/162 [00:40<01:21,  1.03it/s][A
- 49%|████▉     | 79/162 [00:40<01:06,  1.25it/s][A
- 49%|████▉     | 80/162 [00:41<00:58,  1.40it/s][A
- 50%|█████     | 81/162 [00:41<00:51,  1.58it/s][A
- 51%|█████     | 82/162 [00:42<00:45,  1.75it/s][A
- 51%|█████     | 83/162 [00:42<00:40,  1.93it/s][A
- 52%|█████▏    | 84/162 [00:43<00:37,  2.06it/s][A
- 52%|█████▏    | 85/162 [00:43<00:34,  2.21it/s][A
- 53%|█████▎    | 86/162 [00:43<00:34,  2.18it/s][A
- 54%|█████▎    | 87/162 [00:44<00:42,  1.76it/s][A
- 54%|█████▍    | 88/162 [00:45<00:39,  1.88it/s][A
- 55%|█████▍    | 89/162 [00:45<00:35,  2.04it/s][A
- 56%|█████▌    | 90/162 [00:46<00:35,  2.04it/s][A
- 56%|█████▌    | 91/162 [00:46<00:33,  2.10it/s][A
- 57%|█████▋    | 92/162 [00:46<00:31,  2.19it/s][A
- 57%|█████▋    | 93/162 [00:47<00:30,  2.29it/s][A
- 58%|█████▊    | 94/162 [00:47<00:29,  2.30it/s][A
- 59%|█████▊    | 95/162 [00:48<00:28,  2.38it/s][A
- 59%|█████▉    | 96/162 [00:48<00:28,  2.32it/s][A
- 60%|█████▉    | 97/162 [00:49<00:28,  2.28it/s][A
- 60%|██████    | 98/162 [00:49<00:27,  2.32it/s][A
- 61%|██████    | 99/162 [00:49<00:26,  2.41it/s][A
- 62%|██████▏   | 100/162 [00:50<00:26,  2.31it/s][A
- 62%|██████▏   | 101/162 [00:50<00:26,  2.32it/s][A
- 63%|██████▎   | 102/162 [00:51<00:25,  2.38it/s][A
- 64%|██████▎   | 103/162 [00:51<00:26,  2.19it/s][A
- 64%|██████▍   | 104/162 [00:52<00:25,  2.26it/s][A
- 65%|██████▍   | 105/162 [00:52<00:25,  2.24it/s][A
- 65%|██████▌   | 106/162 [00:52<00:23,  2.35it/s][A
- 66%|██████▌   | 107/162 [00:53<00:22,  2.41it/s][A
- 67%|██████▋   | 108/162 [00:53<00:22,  2.41it/s][A
- 67%|██████▋   | 109/162 [00:54<00:22,  2.39it/s][A
- 68%|██████▊   | 110/162 [00:54<00:21,  2.40it/s][A
- 69%|██████▊   | 111/162 [00:54<00:20,  2.45it/s][A
- 69%|██████▉   | 112/162 [00:55<00:21,  2.36it/s][A
- 70%|██████▉   | 113/162 [00:55<00:20,  2.42it/s][A
- 70%|███████   | 114/162 [00:56<00:19,  2.49it/s][A
- 71%|███████   | 115/162 [00:56<00:19,  2.44it/s][A
- 72%|███████▏  | 116/162 [00:56<00:18,  2.53it/s][A
- 72%|███████▏  | 117/162 [00:57<00:18,  2.44it/s][A
- 73%|███████▎  | 118/162 [00:57<00:18,  2.35it/s][A
- 73%|███████▎  | 119/162 [00:58<00:19,  2.23it/s][A
- 74%|███████▍  | 120/162 [00:58<00:18,  2.26it/s][A
- 75%|███████▍  | 121/162 [00:59<00:18,  2.18it/s][A
- 75%|███████▌  | 122/162 [00:59<00:18,  2.18it/s][A
- 76%|███████▌  | 123/162 [01:00<00:17,  2.23it/s][A
- 77%|███████▋  | 124/162 [01:00<00:16,  2.24it/s][A
- 77%|███████▋  | 125/162 [01:01<00:16,  2.23it/s][A
- 78%|███████▊  | 126/162 [01:01<00:15,  2.31it/s][A
- 78%|███████▊  | 127/162 [01:01<00:14,  2.38it/s][A
- 79%|███████▉  | 128/162 [01:02<00:14,  2.32it/s][A
- 80%|███████▉  | 129/162 [01:02<00:14,  2.27it/s][A
- 80%|████████  | 130/162 [01:03<00:13,  2.37it/s][A
- 81%|████████  | 131/162 [01:03<00:14,  2.18it/s][A
- 81%|████████▏ | 132/162 [01:04<00:13,  2.20it/s][A
- 82%|████████▏ | 133/162 [01:04<00:12,  2.24it/s][A
- 83%|████████▎ | 134/162 [01:04<00:12,  2.29it/s][A
- 83%|████████▎ | 135/162 [01:05<00:11,  2.36it/s][A
- 84%|████████▍ | 136/162 [01:05<00:11,  2.27it/s][A
- 85%|████████▍ | 137/162 [01:06<00:11,  2.14it/s][A
- 85%|████████▌ | 138/162 [01:06<00:10,  2.22it/s][A
- 86%|████████▌ | 139/162 [01:07<00:09,  2.31it/s][A
- 86%|████████▋ | 140/162 [01:07<00:09,  2.40it/s][A
- 87%|████████▋ | 141/162 [01:08<00:08,  2.36it/s][A
- 88%|████████▊ | 142/162 [01:08<00:08,  2.32it/s][A
- 88%|████████▊ | 143/162 [01:08<00:08,  2.28it/s][A
- 89%|████████▉ | 144/162 [01:09<00:08,  2.20it/s][A
- 90%|████████▉ | 145/162 [01:09<00:07,  2.24it/s][A
- 90%|█████████ | 146/162 [01:10<00:06,  2.32it/s][A
- 91%|█████████ | 147/162 [01:10<00:07,  1.94it/s][A
- 91%|█████████▏| 148/162 [01:11<00:06,  2.02it/s][A
- 92%|█████████▏| 149/162 [01:11<00:06,  2.16it/s][A
- 93%|█████████▎| 150/162 [01:12<00:05,  2.19it/s][A
- 93%|█████████▎| 151/162 [01:12<00:04,  2.23it/s][A
- 94%|█████████▍| 152/162 [01:13<00:04,  2.10it/s][A
- 94%|█████████▍| 153/162 [01:13<00:04,  2.17it/s][A
- 95%|█████████▌| 154/162 [01:14<00:03,  2.24it/s][A
- 96%|█████████▌| 155/162 [01:14<00:03,  2.19it/s][A
- 96%|█████████▋| 156/162 [01:14<00:02,  2.31it/s][A
- 97%|█████████▋| 157/162 [01:15<00:02,  2.02it/s][A
- 98%|█████████▊| 158/162 [01:15<00:01,  2.15it/s][A
- 98%|█████████▊| 159/162 [01:16<00:01,  2.20it/s][A
- 99%|█████████▉| 160/162 [01:16<00:00,  2.24it/s][A
- 99%|█████████▉| 161/162 [01:17<00:00,  2.20it/s][A
-100%|██████████| 162/162 [01:17<00:00,  2.46it/s][A                                                 
-                                                 [A 22%|██▏       | 20/91 [23:39<1:13:58, 62.51s/it]
-100%|██████████| 162/162 [01:17<00:00,  2.46it/s][A
-                                                 [A[INFO|trainer.py:3801] 2025-01-15 00:09:11,666 >> Saving model checkpoint to saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-20
-[INFO|configuration_utils.py:679] 2025-01-15 00:09:12,137 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
-[INFO|configuration_utils.py:746] 2025-01-15 00:09:12,139 >> Model config LlamaConfig {
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 4096,
-  "initializer_range": 0.02,
-  "intermediate_size": 14336,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 32,
-  "num_hidden_layers": 32,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 8.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": false,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.46.1",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|tokenization_utils_base.py:2646] 2025-01-15 00:09:12,774 >> tokenizer config file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-20/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2655] 2025-01-15 00:09:12,775 >> Special tokens file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-20/special_tokens_map.json
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.bfloat16 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
- 23%|██▎       | 21/91 [24:43<1:40:42, 86.32s/it] 24%|██▍       | 22/91 [25:38<1:28:37, 77.07s/it] 25%|██▌       | 23/91 [26:30<1:18:49, 69.56s/it] 26%|██▋       | 24/91 [27:41<1:17:58, 69.83s/it] 27%|██▋       | 25/91 [28:36<1:11:59, 65.45s/it] 29%|██▊       | 26/91 [29:43<1:11:28, 65.97s/it] 30%|██▉       | 27/91 [30:55<1:12:11, 67.68s/it] 31%|███       | 28/91 [32:03<1:11:09, 67.78s/it] 32%|███▏      | 29/91 [33:16<1:11:42, 69.39s/it] 33%|███▎      | 30/91 [34:10<1:05:47, 64.71s/it]                                                  33%|███▎      | 30/91 [34:10<1:05:47, 64.71s/it][INFO|trainer.py:4117] 2025-01-15 00:19:42,511 >> 
-***** Running Evaluation *****
-[INFO|trainer.py:4119] 2025-01-15 00:19:42,512 >>   Num examples = 2586
-[INFO|trainer.py:4122] 2025-01-15 00:19:42,512 >>   Batch size = 16
-
-  0%|          | 0/162 [00:00<?, ?it/s][A
-  1%|          | 2/162 [00:00<00:35,  4.51it/s][A
-  2%|▏         | 3/162 [00:00<00:48,  3.31it/s][A
-  2%|▏         | 4/162 [00:01<00:56,  2.81it/s][A
-  3%|▎         | 5/162 [00:01<01:07,  2.31it/s][A
-  4%|▎         | 6/162 [00:02<01:05,  2.39it/s][A
-  4%|▍         | 7/162 [00:02<01:05,  2.37it/s][A
-  5%|▍         | 8/162 [00:03<01:12,  2.13it/s][A
-  6%|▌         | 9/162 [00:03<01:10,  2.18it/s][A
-  6%|▌         | 10/162 [00:04<01:16,  1.98it/s][A
-  7%|▋         | 11/162 [00:05<01:30,  1.66it/s][A
-  7%|▋         | 12/162 [00:05<01:20,  1.85it/s][A
-  8%|▊         | 13/162 [00:06<01:20,  1.85it/s][A
-  9%|▊         | 14/162 [00:06<01:15,  1.95it/s][A
-  9%|▉         | 15/162 [00:06<01:10,  2.07it/s][A
- 10%|▉         | 16/162 [00:07<01:07,  2.16it/s][A
- 10%|█         | 17/162 [00:07<01:08,  2.12it/s][A
- 11%|█         | 18/162 [00:08<01:13,  1.96it/s][A
- 12%|█▏        | 19/162 [00:08<01:10,  2.02it/s][A
- 12%|█▏        | 20/162 [00:09<01:16,  1.87it/s][A
- 13%|█▎        | 21/162 [00:09<01:11,  1.97it/s][A
- 14%|█▎        | 22/162 [00:10<01:06,  2.11it/s][A
- 14%|█▍        | 23/162 [00:11<01:16,  1.81it/s][A
- 15%|█▍        | 24/162 [00:11<01:11,  1.93it/s][A
- 15%|█▌        | 25/162 [00:12<01:08,  2.00it/s][A
- 16%|█▌        | 26/162 [00:12<01:05,  2.06it/s][A
- 17%|█▋        | 27/162 [00:13<01:43,  1.31it/s][A
- 17%|█▋        | 28/162 [00:14<01:29,  1.50it/s][A
- 18%|█▊        | 29/162 [00:14<01:18,  1.69it/s][A
- 19%|█▊        | 30/162 [00:15<01:14,  1.76it/s][A
- 19%|█▉        | 31/162 [00:15<01:09,  1.89it/s][A
- 20%|█▉        | 32/162 [00:16<01:04,  2.02it/s][A
- 20%|██        | 33/162 [00:16<01:01,  2.11it/s][A
- 21%|██        | 34/162 [00:17<01:08,  1.86it/s][A
- 22%|██▏       | 35/162 [00:17<01:04,  1.97it/s][A
- 22%|██▏       | 36/162 [00:19<01:42,  1.23it/s][A
- 23%|██▎       | 37/162 [00:19<01:27,  1.43it/s][A
- 23%|██▎       | 38/162 [00:20<01:17,  1.59it/s][A
- 24%|██▍       | 39/162 [00:20<01:18,  1.57it/s][A
- 25%|██▍       | 40/162 [00:21<01:07,  1.80it/s][A
- 25%|██▌       | 41/162 [00:21<01:07,  1.78it/s][A
- 26%|██▌       | 42/162 [00:22<01:00,  1.99it/s][A
- 27%|██▋       | 43/162 [00:22<00:57,  2.06it/s][A
- 27%|██▋       | 44/162 [00:23<01:03,  1.86it/s][A
- 28%|██▊       | 45/162 [00:23<00:59,  1.98it/s][A
- 28%|██▊       | 46/162 [00:23<00:55,  2.08it/s][A
- 29%|██▉       | 47/162 [00:24<00:55,  2.06it/s][A
- 30%|██▉       | 48/162 [00:24<00:55,  2.05it/s][A
- 30%|███       | 49/162 [00:25<00:52,  2.15it/s][A
- 31%|███       | 50/162 [00:25<00:52,  2.11it/s][A
- 31%|███▏      | 51/162 [00:26<00:50,  2.20it/s][A
- 32%|███▏      | 52/162 [00:26<00:49,  2.21it/s][A
- 33%|███▎      | 53/162 [00:27<00:47,  2.30it/s][A
- 33%|███▎      | 54/162 [00:27<00:46,  2.32it/s][A
- 34%|███▍      | 55/162 [00:27<00:44,  2.40it/s][A
- 35%|███▍      | 56/162 [00:28<00:44,  2.40it/s][A
- 35%|███▌      | 57/162 [00:28<00:46,  2.28it/s][A
- 36%|███▌      | 58/162 [00:29<00:45,  2.29it/s][A
- 36%|███▋      | 59/162 [00:29<00:48,  2.13it/s][A
- 37%|███▋      | 60/162 [00:30<00:47,  2.15it/s][A
- 38%|███▊      | 61/162 [00:30<00:46,  2.17it/s][A
- 38%|███▊      | 62/162 [00:31<00:45,  2.20it/s][A
- 39%|███▉      | 63/162 [00:31<00:44,  2.23it/s][A
- 40%|███▉      | 64/162 [00:32<00:46,  2.13it/s][A
- 40%|████      | 65/162 [00:32<00:45,  2.14it/s][A
- 41%|████      | 66/162 [00:32<00:43,  2.22it/s][A
- 41%|████▏     | 67/162 [00:33<00:44,  2.16it/s][A
- 42%|████▏     | 68/162 [00:33<00:41,  2.28it/s][A
- 43%|████▎     | 69/162 [00:34<00:42,  2.18it/s][A
- 43%|████▎     | 70/162 [00:34<00:41,  2.20it/s][A
- 44%|████▍     | 71/162 [00:35<00:40,  2.25it/s][A
- 44%|████▍     | 72/162 [00:36<00:52,  1.72it/s][A
- 45%|████▌     | 73/162 [00:36<00:47,  1.87it/s][A
- 46%|████▌     | 74/162 [00:37<00:44,  1.97it/s][A
- 46%|████▋     | 75/162 [00:37<00:41,  2.12it/s][A
- 47%|████▋     | 76/162 [00:37<00:43,  1.99it/s][A
- 48%|████▊     | 77/162 [00:38<00:45,  1.86it/s][A
- 48%|████▊     | 78/162 [00:40<01:21,  1.03it/s][A
- 49%|████▉     | 79/162 [00:41<01:07,  1.24it/s][A
- 49%|████▉     | 80/162 [00:41<00:59,  1.39it/s][A
- 50%|█████     | 81/162 [00:41<00:51,  1.56it/s][A
- 51%|█████     | 82/162 [00:42<00:46,  1.73it/s][A
- 51%|█████     | 83/162 [00:42<00:41,  1.92it/s][A
- 52%|█████▏    | 84/162 [00:43<00:38,  2.04it/s][A
- 52%|█████▏    | 85/162 [00:43<00:35,  2.19it/s][A
- 53%|█████▎    | 86/162 [00:44<00:35,  2.16it/s][A
- 54%|█████▎    | 87/162 [00:44<00:42,  1.76it/s][A
- 54%|█████▍    | 88/162 [00:45<00:39,  1.87it/s][A
- 55%|█████▍    | 89/162 [00:45<00:35,  2.03it/s][A
- 56%|█████▌    | 90/162 [00:46<00:35,  2.03it/s][A
- 56%|█████▌    | 91/162 [00:46<00:33,  2.10it/s][A
- 57%|█████▋    | 92/162 [00:47<00:32,  2.18it/s][A
- 57%|█████▋    | 93/162 [00:47<00:30,  2.28it/s][A
- 58%|█████▊    | 94/162 [00:47<00:29,  2.30it/s][A
- 59%|█████▊    | 95/162 [00:48<00:28,  2.37it/s][A
- 59%|█████▉    | 96/162 [00:48<00:28,  2.32it/s][A
- 60%|█████▉    | 97/162 [00:49<00:28,  2.28it/s][A
- 60%|██████    | 98/162 [00:49<00:27,  2.32it/s][A
- 61%|██████    | 99/162 [00:49<00:26,  2.41it/s][A
- 62%|██████▏   | 100/162 [00:50<00:26,  2.31it/s][A
- 62%|██████▏   | 101/162 [00:50<00:26,  2.32it/s][A
- 63%|██████▎   | 102/162 [00:51<00:25,  2.38it/s][A
- 64%|██████▎   | 103/162 [00:51<00:26,  2.19it/s][A
- 64%|██████▍   | 104/162 [00:52<00:25,  2.25it/s][A
- 65%|██████▍   | 105/162 [00:52<00:25,  2.24it/s][A
- 65%|██████▌   | 106/162 [00:53<00:23,  2.34it/s][A
- 66%|██████▌   | 107/162 [00:53<00:22,  2.40it/s][A
- 67%|██████▋   | 108/162 [00:53<00:22,  2.41it/s][A
- 67%|██████▋   | 109/162 [00:54<00:22,  2.38it/s][A
- 68%|██████▊   | 110/162 [00:54<00:21,  2.39it/s][A
- 69%|██████▊   | 111/162 [00:55<00:20,  2.44it/s][A
- 69%|██████▉   | 112/162 [00:55<00:21,  2.36it/s][A
- 70%|██████▉   | 113/162 [00:55<00:20,  2.41it/s][A
- 70%|███████   | 114/162 [00:56<00:19,  2.48it/s][A
- 71%|███████   | 115/162 [00:56<00:19,  2.43it/s][A
- 72%|███████▏  | 116/162 [00:57<00:18,  2.52it/s][A
- 72%|███████▏  | 117/162 [00:57<00:18,  2.44it/s][A
- 73%|███████▎  | 118/162 [00:58<00:18,  2.35it/s][A
- 73%|███████▎  | 119/162 [00:58<00:19,  2.25it/s][A
- 74%|███████▍  | 120/162 [00:58<00:18,  2.30it/s][A
- 75%|███████▍  | 121/162 [00:59<00:18,  2.21it/s][A
- 75%|███████▌  | 122/162 [00:59<00:18,  2.21it/s][A
- 76%|███████▌  | 123/162 [01:00<00:17,  2.25it/s][A
- 77%|███████▋  | 124/162 [01:00<00:16,  2.25it/s][A
- 77%|███████▋  | 125/162 [01:01<00:16,  2.23it/s][A
- 78%|███████▊  | 126/162 [01:01<00:15,  2.32it/s][A
- 78%|███████▊  | 127/162 [01:01<00:14,  2.39it/s][A
- 79%|███████▉  | 128/162 [01:02<00:14,  2.32it/s][A
- 80%|███████▉  | 129/162 [01:02<00:14,  2.28it/s][A
- 80%|████████  | 130/162 [01:03<00:13,  2.38it/s][A
- 81%|████████  | 131/162 [01:03<00:14,  2.19it/s][A
- 81%|████████▏ | 132/162 [01:04<00:13,  2.21it/s][A
- 82%|████████▏ | 133/162 [01:04<00:12,  2.25it/s][A
- 83%|████████▎ | 134/162 [01:05<00:12,  2.30it/s][A
- 83%|████████▎ | 135/162 [01:05<00:11,  2.37it/s][A
- 84%|████████▍ | 136/162 [01:05<00:11,  2.28it/s][A
- 85%|████████▍ | 137/162 [01:06<00:11,  2.15it/s][A
- 85%|████████▌ | 138/162 [01:06<00:10,  2.22it/s][A
- 86%|████████▌ | 139/162 [01:07<00:09,  2.31it/s][A
- 86%|████████▋ | 140/162 [01:07<00:09,  2.41it/s][A
- 87%|████████▋ | 141/162 [01:08<00:08,  2.36it/s][A
- 88%|████████▊ | 142/162 [01:08<00:08,  2.33it/s][A
- 88%|████████▊ | 143/162 [01:09<00:08,  2.29it/s][A
- 89%|████████▉ | 144/162 [01:09<00:08,  2.20it/s][A
- 90%|████████▉ | 145/162 [01:09<00:07,  2.24it/s][A
- 90%|█████████ | 146/162 [01:10<00:06,  2.33it/s][A
- 91%|█████████ | 147/162 [01:11<00:07,  1.94it/s][A
- 91%|█████████▏| 148/162 [01:11<00:06,  2.02it/s][A
- 92%|█████████▏| 149/162 [01:11<00:06,  2.16it/s][A
- 93%|█████████▎| 150/162 [01:12<00:05,  2.19it/s][A
- 93%|█████████▎| 151/162 [01:12<00:04,  2.23it/s][A
- 94%|█████████▍| 152/162 [01:13<00:04,  2.10it/s][A
- 94%|█████████▍| 153/162 [01:13<00:04,  2.16it/s][A
- 95%|█████████▌| 154/162 [01:14<00:03,  2.23it/s][A
- 96%|█████████▌| 155/162 [01:14<00:03,  2.19it/s][A
- 96%|█████████▋| 156/162 [01:15<00:02,  2.31it/s][A
- 97%|█████████▋| 157/162 [01:15<00:02,  2.01it/s][A
- 98%|█████████▊| 158/162 [01:16<00:01,  2.14it/s][A
- 98%|█████████▊| 159/162 [01:16<00:01,  2.20it/s][A
- 99%|█████████▉| 160/162 [01:16<00:00,  2.24it/s][A
- 99%|█████████▉| 161/162 [01:17<00:00,  2.19it/s][A
-100%|██████████| 162/162 [01:17<00:00,  2.44it/s][A                                                 
-                                                 [A 33%|███▎      | 30/91 [35:28<1:05:47, 64.71s/it]
-100%|██████████| 162/162 [01:17<00:00,  2.44it/s][A
-                                                 [A[INFO|trainer.py:3801] 2025-01-15 00:21:00,647 >> Saving model checkpoint to saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-30
-[INFO|configuration_utils.py:679] 2025-01-15 00:21:01,054 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
-[INFO|configuration_utils.py:746] 2025-01-15 00:21:01,055 >> Model config LlamaConfig {
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 4096,
-  "initializer_range": 0.02,
-  "intermediate_size": 14336,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 32,
-  "num_hidden_layers": 32,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 8.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": false,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.46.1",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|tokenization_utils_base.py:2646] 2025-01-15 00:21:01,693 >> tokenizer config file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-30/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2655] 2025-01-15 00:21:01,694 >> Special tokens file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-30/special_tokens_map.json
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.bfloat16 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
- 34%|███▍      | 31/91 [36:26<1:26:13, 86.22s/it] 35%|███▌      | 32/91 [37:54<1:25:07, 86.57s/it] 36%|███▋      | 33/91 [38:58<1:17:20, 80.01s/it] 37%|███▋      | 34/91 [40:24<1:17:30, 81.58s/it] 38%|███▊      | 35/91 [41:28<1:11:27, 76.56s/it] 40%|███▉      | 36/91 [42:55<1:13:00, 79.65s/it] 41%|████      | 37/91 [43:43<1:03:10, 70.19s/it] 42%|████▏     | 38/91 [45:10<1:06:19, 75.08s/it] 43%|████▎     | 39/91 [46:09<1:00:55, 70.30s/it] 44%|████▍     | 40/91 [47:04<55:48, 65.65s/it]                                                  44%|████▍     | 40/91 [47:04<55:48, 65.65s/it][INFO|trainer.py:4117] 2025-01-15 00:32:36,502 >> 
-***** Running Evaluation *****
-[INFO|trainer.py:4119] 2025-01-15 00:32:36,502 >>   Num examples = 2586
-[INFO|trainer.py:4122] 2025-01-15 00:32:36,502 >>   Batch size = 16
-
-  0%|          | 0/162 [00:00<?, ?it/s][A
-  1%|          | 2/162 [00:00<00:35,  4.55it/s][A
-  2%|▏         | 3/162 [00:00<00:47,  3.34it/s][A
-  2%|▏         | 4/162 [00:01<00:55,  2.84it/s][A
-  3%|▎         | 5/162 [00:01<01:07,  2.33it/s][A
-  4%|▎         | 6/162 [00:02<01:04,  2.41it/s][A
-  4%|▍         | 7/162 [00:02<01:05,  2.38it/s][A
-  5%|▍         | 8/162 [00:03<01:11,  2.14it/s][A
-  6%|▌         | 9/162 [00:03<01:09,  2.20it/s][A
-  6%|▌         | 10/162 [00:04<01:16,  1.99it/s][A
-  7%|▋         | 11/162 [00:05<01:30,  1.67it/s][A
-  7%|▋         | 12/162 [00:05<01:20,  1.87it/s][A
-  8%|▊         | 13/162 [00:06<01:19,  1.86it/s][A
-  9%|▊         | 14/162 [00:06<01:15,  1.97it/s][A
-  9%|▉         | 15/162 [00:06<01:10,  2.09it/s][A
- 10%|▉         | 16/162 [00:07<01:06,  2.19it/s][A
- 10%|█         | 17/162 [00:07<01:07,  2.14it/s][A
- 11%|█         | 18/162 [00:08<01:12,  1.97it/s][A
- 12%|█▏        | 19/162 [00:08<01:10,  2.04it/s][A
- 12%|█▏        | 20/162 [00:09<01:15,  1.88it/s][A
- 13%|█▎        | 21/162 [00:09<01:11,  1.98it/s][A
- 14%|█▎        | 22/162 [00:10<01:05,  2.13it/s][A
- 14%|█▍        | 23/162 [00:11<01:16,  1.83it/s][A
- 15%|█▍        | 24/162 [00:11<01:11,  1.94it/s][A
- 15%|█▌        | 25/162 [00:11<01:08,  2.01it/s][A
- 16%|█▌        | 26/162 [00:12<01:05,  2.08it/s][A
- 17%|█▋        | 27/162 [00:13<01:42,  1.31it/s][A
- 17%|█▋        | 28/162 [00:14<01:29,  1.50it/s][A
- 18%|█▊        | 29/162 [00:14<01:18,  1.70it/s][A
- 19%|█▊        | 30/162 [00:15<01:14,  1.77it/s][A
- 19%|█▉        | 31/162 [00:15<01:09,  1.90it/s][A
- 20%|█▉        | 32/162 [00:15<01:03,  2.03it/s][A
- 20%|██        | 33/162 [00:16<01:00,  2.12it/s][A
- 21%|██        | 34/162 [00:17<01:08,  1.87it/s][A
- 22%|██▏       | 35/162 [00:17<01:03,  1.99it/s][A
- 22%|██▏       | 36/162 [00:19<01:41,  1.24it/s][A
- 23%|██▎       | 37/162 [00:19<01:27,  1.43it/s][A
- 23%|██▎       | 38/162 [00:19<01:17,  1.60it/s][A
- 24%|██▍       | 39/162 [00:20<01:18,  1.57it/s][A
- 25%|██▍       | 40/162 [00:20<01:07,  1.81it/s][A
- 25%|██▌       | 41/162 [00:21<01:07,  1.79it/s][A
- 26%|██▌       | 42/162 [00:21<00:59,  2.01it/s][A
- 27%|██▋       | 43/162 [00:22<00:57,  2.08it/s][A
- 27%|██▋       | 44/162 [00:22<01:03,  1.87it/s][A
- 28%|██▊       | 45/162 [00:23<00:58,  1.99it/s][A
- 28%|██▊       | 46/162 [00:23<00:55,  2.09it/s][A
- 29%|██▉       | 47/162 [00:24<00:55,  2.07it/s][A
- 30%|██▉       | 48/162 [00:24<00:55,  2.07it/s][A
- 30%|███       | 49/162 [00:25<00:52,  2.16it/s][A
- 31%|███       | 50/162 [00:25<00:52,  2.12it/s][A
- 31%|███▏      | 51/162 [00:26<00:50,  2.21it/s][A
- 32%|███▏      | 52/162 [00:26<00:49,  2.23it/s][A
- 33%|███▎      | 53/162 [00:26<00:47,  2.32it/s][A
- 33%|███▎      | 54/162 [00:27<00:46,  2.33it/s][A
- 34%|███▍      | 55/162 [00:27<00:44,  2.42it/s][A
- 35%|███▍      | 56/162 [00:28<00:43,  2.42it/s][A
- 35%|███▌      | 57/162 [00:28<00:45,  2.29it/s][A
- 36%|███▌      | 58/162 [00:29<00:45,  2.31it/s][A
- 36%|███▋      | 59/162 [00:29<00:47,  2.15it/s][A
- 37%|███▋      | 60/162 [00:30<00:47,  2.17it/s][A
- 38%|███▊      | 61/162 [00:30<00:46,  2.20it/s][A
- 38%|███▊      | 62/162 [00:30<00:44,  2.23it/s][A
- 39%|███▉      | 63/162 [00:31<00:43,  2.26it/s][A
- 40%|███▉      | 64/162 [00:31<00:45,  2.16it/s][A
- 40%|████      | 65/162 [00:32<00:44,  2.16it/s][A
- 41%|████      | 66/162 [00:32<00:43,  2.21it/s][A
- 41%|████▏     | 67/162 [00:33<00:44,  2.15it/s][A
- 42%|████▏     | 68/162 [00:33<00:41,  2.28it/s][A
- 43%|████▎     | 69/162 [00:34<00:42,  2.18it/s][A
- 43%|████▎     | 70/162 [00:34<00:41,  2.21it/s][A
- 44%|████▍     | 71/162 [00:35<00:40,  2.27it/s][A
- 44%|████▍     | 72/162 [00:35<00:51,  1.73it/s][A
- 45%|████▌     | 73/162 [00:36<00:47,  1.88it/s][A
- 46%|████▌     | 74/162 [00:36<00:44,  1.98it/s][A
- 46%|████▋     | 75/162 [00:37<00:40,  2.13it/s][A
- 47%|████▋     | 76/162 [00:37<00:43,  1.99it/s][A
- 48%|████▊     | 77/162 [00:38<00:45,  1.86it/s][A
- 48%|████▊     | 78/162 [00:40<01:21,  1.03it/s][A
- 49%|████▉     | 79/162 [00:40<01:06,  1.25it/s][A
- 49%|████▉     | 80/162 [00:41<00:58,  1.41it/s][A
- 50%|█████     | 81/162 [00:41<00:51,  1.58it/s][A
- 51%|█████     | 82/162 [00:42<00:45,  1.75it/s][A
- 51%|█████     | 83/162 [00:42<00:40,  1.93it/s][A
- 52%|█████▏    | 84/162 [00:42<00:37,  2.05it/s][A
- 52%|█████▏    | 85/162 [00:43<00:34,  2.20it/s][A
- 53%|█████▎    | 86/162 [00:43<00:35,  2.17it/s][A
- 54%|█████▎    | 87/162 [00:44<00:42,  1.76it/s][A
- 54%|█████▍    | 88/162 [00:45<00:39,  1.87it/s][A
- 55%|█████▍    | 89/162 [00:45<00:35,  2.04it/s][A
- 56%|█████▌    | 90/162 [00:45<00:35,  2.04it/s][A
- 56%|█████▌    | 91/162 [00:46<00:33,  2.10it/s][A
- 57%|█████▋    | 92/162 [00:46<00:31,  2.19it/s][A
- 57%|█████▋    | 93/162 [00:47<00:30,  2.29it/s][A
- 58%|█████▊    | 94/162 [00:47<00:29,  2.31it/s][A
- 59%|█████▊    | 95/162 [00:48<00:28,  2.38it/s][A
- 59%|█████▉    | 96/162 [00:48<00:28,  2.32it/s][A
- 60%|█████▉    | 97/162 [00:48<00:28,  2.28it/s][A
- 60%|██████    | 98/162 [00:49<00:27,  2.32it/s][A
- 61%|██████    | 99/162 [00:49<00:26,  2.42it/s][A
- 62%|██████▏   | 100/162 [00:50<00:26,  2.32it/s][A
- 62%|██████▏   | 101/162 [00:50<00:26,  2.33it/s][A
- 63%|██████▎   | 102/162 [00:51<00:25,  2.39it/s][A
- 64%|██████▎   | 103/162 [00:51<00:26,  2.20it/s][A
- 64%|██████▍   | 104/162 [00:51<00:25,  2.27it/s][A
- 65%|██████▍   | 105/162 [00:52<00:25,  2.25it/s][A
- 65%|██████▌   | 106/162 [00:52<00:23,  2.36it/s][A
- 66%|██████▌   | 107/162 [00:53<00:22,  2.42it/s][A
- 67%|██████▋   | 108/162 [00:53<00:22,  2.42it/s][A
- 67%|██████▋   | 109/162 [00:54<00:22,  2.40it/s][A
- 68%|██████▊   | 110/162 [00:54<00:21,  2.41it/s][A
- 69%|██████▊   | 111/162 [00:54<00:20,  2.45it/s][A
- 69%|██████▉   | 112/162 [00:55<00:21,  2.37it/s][A
- 70%|██████▉   | 113/162 [00:55<00:20,  2.39it/s][A
- 70%|███████   | 114/162 [00:56<00:19,  2.44it/s][A
- 71%|███████   | 115/162 [00:56<00:19,  2.41it/s][A
- 72%|███████▏  | 116/162 [00:56<00:18,  2.51it/s][A
- 72%|███████▏  | 117/162 [00:57<00:18,  2.43it/s][A
- 73%|███████▎  | 118/162 [00:57<00:18,  2.35it/s][A
- 73%|███████▎  | 119/162 [00:58<00:19,  2.25it/s][A
- 74%|███████▍  | 120/162 [00:58<00:18,  2.30it/s][A
- 75%|███████▍  | 121/162 [00:59<00:18,  2.21it/s][A
- 75%|███████▌  | 122/162 [00:59<00:18,  2.21it/s][A
- 76%|███████▌  | 123/162 [01:00<00:17,  2.25it/s][A
- 77%|███████▋  | 124/162 [01:00<00:16,  2.26it/s][A
- 77%|███████▋  | 125/162 [01:00<00:16,  2.24it/s][A
- 78%|███████▊  | 126/162 [01:01<00:15,  2.33it/s][A
- 78%|███████▊  | 127/162 [01:01<00:14,  2.39it/s][A
- 79%|███████▉  | 128/162 [01:02<00:14,  2.33it/s][A
- 80%|███████▉  | 129/162 [01:02<00:14,  2.29it/s][A
- 80%|████████  | 130/162 [01:02<00:13,  2.39it/s][A
- 81%|████████  | 131/162 [01:03<00:14,  2.19it/s][A
- 81%|████████▏ | 132/162 [01:03<00:13,  2.21it/s][A
- 82%|████████▏ | 133/162 [01:04<00:12,  2.25it/s][A
- 83%|████████▎ | 134/162 [01:04<00:12,  2.30it/s][A
- 83%|████████▎ | 135/162 [01:05<00:11,  2.37it/s][A
- 84%|████████▍ | 136/162 [01:05<00:11,  2.29it/s][A
- 85%|████████▍ | 137/162 [01:06<00:11,  2.15it/s][A
- 85%|████████▌ | 138/162 [01:06<00:10,  2.23it/s][A
- 86%|████████▌ | 139/162 [01:07<00:09,  2.32it/s][A
- 86%|████████▋ | 140/162 [01:07<00:09,  2.41it/s][A
- 87%|████████▋ | 141/162 [01:07<00:08,  2.37it/s][A
- 88%|████████▊ | 142/162 [01:08<00:08,  2.34it/s][A
- 88%|████████▊ | 143/162 [01:08<00:08,  2.29it/s][A
- 89%|████████▉ | 144/162 [01:09<00:08,  2.21it/s][A
- 90%|████████▉ | 145/162 [01:09<00:07,  2.25it/s][A
- 90%|█████████ | 146/162 [01:10<00:06,  2.33it/s][A
- 91%|█████████ | 147/162 [01:10<00:07,  1.94it/s][A
- 91%|█████████▏| 148/162 [01:11<00:06,  2.03it/s][A
- 92%|█████████▏| 149/162 [01:11<00:06,  2.17it/s][A
- 93%|█████████▎| 150/162 [01:12<00:05,  2.20it/s][A
- 93%|█████████▎| 151/162 [01:12<00:04,  2.24it/s][A
- 94%|█████████▍| 152/162 [01:12<00:04,  2.10it/s][A
- 94%|█████████▍| 153/162 [01:13<00:04,  2.17it/s][A
- 95%|█████████▌| 154/162 [01:13<00:03,  2.24it/s][A
- 96%|█████████▌| 155/162 [01:14<00:03,  2.20it/s][A
- 96%|█████████▋| 156/162 [01:14<00:02,  2.32it/s][A
- 97%|█████████▋| 157/162 [01:15<00:02,  2.02it/s][A
- 98%|█████████▊| 158/162 [01:15<00:01,  2.16it/s][A
- 98%|█████████▊| 159/162 [01:16<00:01,  2.21it/s][A
- 99%|█████████▉| 160/162 [01:16<00:00,  2.24it/s][A
- 99%|█████████▉| 161/162 [01:17<00:00,  2.20it/s][A
-100%|██████████| 162/162 [01:17<00:00,  2.45it/s][A                                               
-                                                 [A 44%|████▍     | 40/91 [48:22<55:48, 65.65s/it]
-100%|██████████| 162/162 [01:17<00:00,  2.45it/s][A
-                                                 [A[INFO|trainer.py:3801] 2025-01-15 00:33:54,294 >> Saving model checkpoint to saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-40
-[INFO|configuration_utils.py:679] 2025-01-15 00:33:54,722 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
-[INFO|configuration_utils.py:746] 2025-01-15 00:33:54,723 >> Model config LlamaConfig {
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 4096,
-  "initializer_range": 0.02,
-  "intermediate_size": 14336,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 32,
-  "num_hidden_layers": 32,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 8.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": false,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.46.1",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|tokenization_utils_base.py:2646] 2025-01-15 00:33:55,351 >> tokenizer config file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-40/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2655] 2025-01-15 00:33:55,352 >> Special tokens file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-40/special_tokens_map.json
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.bfloat16 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
- 45%|████▌     | 41/91 [49:19<1:11:59, 86.39s/it] 46%|████▌     | 42/91 [50:14<1:03:04, 77.23s/it] 47%|████▋     | 43/91 [51:23<59:46, 74.73s/it]   48%|████▊     | 44/91 [52:12<52:25, 66.93s/it] 49%|████▉     | 45/91 [53:30<53:44, 70.10s/it] 51%|█████     | 46/91 [54:26<49:26, 65.93s/it] 52%|█████▏    | 47/91 [55:45<51:15, 69.89s/it] 53%|█████▎    | 48/91 [56:52<49:31, 69.10s/it] 54%|█████▍    | 49/91 [58:15<51:21, 73.36s/it] 55%|█████▍    | 50/91 [59:26<49:35, 72.57s/it]                                                55%|█████▍    | 50/91 [59:26<49:35, 72.57s/it][INFO|trainer.py:4117] 2025-01-15 00:44:58,878 >> 
-***** Running Evaluation *****
-[INFO|trainer.py:4119] 2025-01-15 00:44:58,879 >>   Num examples = 2586
-[INFO|trainer.py:4122] 2025-01-15 00:44:58,879 >>   Batch size = 16
-
-  0%|          | 0/162 [00:00<?, ?it/s][A
-  1%|          | 2/162 [00:00<00:35,  4.54it/s][A
-  2%|▏         | 3/162 [00:00<00:47,  3.34it/s][A
-  2%|▏         | 4/162 [00:01<00:55,  2.84it/s][A
-  3%|▎         | 5/162 [00:01<01:07,  2.33it/s][A
-  4%|▎         | 6/162 [00:02<01:04,  2.40it/s][A
-  4%|▍         | 7/162 [00:02<01:04,  2.39it/s][A
-  5%|▍         | 8/162 [00:03<01:11,  2.14it/s][A
-  6%|▌         | 9/162 [00:03<01:09,  2.20it/s][A
-  6%|▌         | 10/162 [00:04<01:16,  1.99it/s][A
-  7%|▋         | 11/162 [00:05<01:30,  1.67it/s][A
-  7%|▋         | 12/162 [00:05<01:20,  1.87it/s][A
-  8%|▊         | 13/162 [00:06<01:20,  1.86it/s][A
-  9%|▊         | 14/162 [00:06<01:15,  1.97it/s][A
-  9%|▉         | 15/162 [00:06<01:10,  2.09it/s][A
- 10%|▉         | 16/162 [00:07<01:06,  2.18it/s][A
- 10%|█         | 17/162 [00:07<01:07,  2.13it/s][A
- 11%|█         | 18/162 [00:08<01:13,  1.97it/s][A
- 12%|█▏        | 19/162 [00:08<01:10,  2.03it/s][A
- 12%|█▏        | 20/162 [00:09<01:15,  1.88it/s][A
- 13%|█▎        | 21/162 [00:09<01:11,  1.98it/s][A
- 14%|█▎        | 22/162 [00:10<01:05,  2.13it/s][A
- 14%|█▍        | 23/162 [00:11<01:16,  1.82it/s][A
- 15%|█▍        | 24/162 [00:11<01:11,  1.94it/s][A
- 15%|█▌        | 25/162 [00:11<01:08,  2.01it/s][A
- 16%|█▌        | 26/162 [00:12<01:05,  2.08it/s][A
- 17%|█▋        | 27/162 [00:13<01:42,  1.31it/s][A
- 17%|█▋        | 28/162 [00:14<01:29,  1.50it/s][A
- 18%|█▊        | 29/162 [00:14<01:18,  1.70it/s][A
- 19%|█▊        | 30/162 [00:15<01:14,  1.77it/s][A
- 19%|█▉        | 31/162 [00:15<01:09,  1.90it/s][A
- 20%|█▉        | 32/162 [00:15<01:03,  2.03it/s][A
- 20%|██        | 33/162 [00:16<01:00,  2.12it/s][A
- 21%|██        | 34/162 [00:17<01:08,  1.87it/s][A
- 22%|██▏       | 35/162 [00:17<01:03,  1.99it/s][A
- 22%|██▏       | 36/162 [00:19<01:41,  1.24it/s][A
- 23%|██▎       | 37/162 [00:19<01:27,  1.43it/s][A
- 23%|██▎       | 38/162 [00:19<01:17,  1.60it/s][A
- 24%|██▍       | 39/162 [00:20<01:18,  1.57it/s][A
- 25%|██▍       | 40/162 [00:20<01:07,  1.80it/s][A
- 25%|██▌       | 41/162 [00:21<01:07,  1.79it/s][A
- 26%|██▌       | 42/162 [00:21<01:00,  2.00it/s][A
- 27%|██▋       | 43/162 [00:22<00:57,  2.07it/s][A
- 27%|██▋       | 44/162 [00:23<01:03,  1.87it/s][A
- 28%|██▊       | 45/162 [00:23<00:58,  1.99it/s][A
- 28%|██▊       | 46/162 [00:23<00:55,  2.09it/s][A
- 29%|██▉       | 47/162 [00:24<00:55,  2.07it/s][A
- 30%|██▉       | 48/162 [00:24<00:55,  2.06it/s][A
- 30%|███       | 49/162 [00:25<00:52,  2.16it/s][A
- 31%|███       | 50/162 [00:25<00:52,  2.12it/s][A
- 31%|███▏      | 51/162 [00:26<00:50,  2.21it/s][A
- 32%|███▏      | 52/162 [00:26<00:49,  2.22it/s][A
- 33%|███▎      | 53/162 [00:26<00:47,  2.32it/s][A
- 33%|███▎      | 54/162 [00:27<00:46,  2.33it/s][A
- 34%|███▍      | 55/162 [00:27<00:44,  2.42it/s][A
- 35%|███▍      | 56/162 [00:28<00:43,  2.42it/s][A
- 35%|███▌      | 57/162 [00:28<00:45,  2.29it/s][A
- 36%|███▌      | 58/162 [00:29<00:45,  2.31it/s][A
- 36%|███▋      | 59/162 [00:29<00:48,  2.15it/s][A
- 37%|███▋      | 60/162 [00:30<00:47,  2.16it/s][A
- 38%|███▊      | 61/162 [00:30<00:46,  2.19it/s][A
- 38%|███▊      | 62/162 [00:30<00:44,  2.23it/s][A
- 39%|███▉      | 63/162 [00:31<00:43,  2.27it/s][A
- 40%|███▉      | 64/162 [00:31<00:45,  2.17it/s][A
- 40%|████      | 65/162 [00:32<00:44,  2.18it/s][A
- 41%|████      | 66/162 [00:32<00:42,  2.23it/s][A
- 41%|████▏     | 67/162 [00:33<00:43,  2.16it/s][A
- 42%|████▏     | 68/162 [00:33<00:41,  2.27it/s][A
- 43%|████▎     | 69/162 [00:34<00:42,  2.17it/s][A
- 43%|████▎     | 70/162 [00:34<00:41,  2.20it/s][A
- 44%|████▍     | 71/162 [00:35<00:40,  2.26it/s][A
- 44%|████▍     | 72/162 [00:35<00:52,  1.73it/s][A
- 45%|████▌     | 73/162 [00:36<00:47,  1.88it/s][A
- 46%|████▌     | 74/162 [00:36<00:44,  1.98it/s][A
- 46%|████▋     | 75/162 [00:37<00:40,  2.13it/s][A
- 47%|████▋     | 76/162 [00:37<00:43,  1.99it/s][A
- 48%|████▊     | 77/162 [00:38<00:45,  1.87it/s][A
- 48%|████▊     | 78/162 [00:40<01:21,  1.03it/s][A
- 49%|████▉     | 79/162 [00:40<01:06,  1.25it/s][A
- 49%|████▉     | 80/162 [00:41<00:58,  1.41it/s][A
- 50%|█████     | 81/162 [00:41<00:51,  1.58it/s][A
- 51%|█████     | 82/162 [00:42<00:45,  1.75it/s][A
- 51%|█████     | 83/162 [00:42<00:40,  1.94it/s][A
- 52%|█████▏    | 84/162 [00:42<00:38,  2.05it/s][A
- 52%|█████▏    | 85/162 [00:43<00:35,  2.18it/s][A
- 53%|█████▎    | 86/162 [00:43<00:35,  2.15it/s][A
- 54%|█████▎    | 87/162 [00:44<00:42,  1.75it/s][A
- 54%|█████▍    | 88/162 [00:45<00:39,  1.87it/s][A
- 55%|█████▍    | 89/162 [00:45<00:35,  2.03it/s][A
- 56%|█████▌    | 90/162 [00:45<00:35,  2.04it/s][A
- 56%|█████▌    | 91/162 [00:46<00:33,  2.10it/s][A
- 57%|█████▋    | 92/162 [00:46<00:31,  2.19it/s][A
- 57%|█████▋    | 93/162 [00:47<00:30,  2.30it/s][A
- 58%|█████▊    | 94/162 [00:47<00:29,  2.31it/s][A
- 59%|█████▊    | 95/162 [00:48<00:28,  2.39it/s][A
- 59%|█████▉    | 96/162 [00:48<00:28,  2.32it/s][A
- 60%|█████▉    | 97/162 [00:48<00:28,  2.29it/s][A
- 60%|██████    | 98/162 [00:49<00:27,  2.33it/s][A
- 61%|██████    | 99/162 [00:49<00:25,  2.42it/s][A
- 62%|██████▏   | 100/162 [00:50<00:26,  2.32it/s][A
- 62%|██████▏   | 101/162 [00:50<00:26,  2.33it/s][A
- 63%|██████▎   | 102/162 [00:51<00:25,  2.40it/s][A
- 64%|██████▎   | 103/162 [00:51<00:26,  2.20it/s][A
- 64%|██████▍   | 104/162 [00:51<00:25,  2.27it/s][A
- 65%|██████▍   | 105/162 [00:52<00:25,  2.25it/s][A
- 65%|██████▌   | 106/162 [00:52<00:23,  2.36it/s][A
- 66%|██████▌   | 107/162 [00:53<00:22,  2.42it/s][A
- 67%|██████▋   | 108/162 [00:53<00:22,  2.43it/s][A
- 67%|██████▋   | 109/162 [00:54<00:22,  2.40it/s][A
- 68%|██████▊   | 110/162 [00:54<00:21,  2.41it/s][A
- 69%|██████▊   | 111/162 [00:54<00:20,  2.46it/s][A
- 69%|██████▉   | 112/162 [00:55<00:21,  2.38it/s][A
- 70%|██████▉   | 113/162 [00:55<00:20,  2.44it/s][A
- 70%|███████   | 114/162 [00:56<00:19,  2.50it/s][A
- 71%|███████   | 115/162 [00:56<00:19,  2.46it/s][A
- 72%|███████▏  | 116/162 [00:56<00:18,  2.54it/s][A
- 72%|███████▏  | 117/162 [00:57<00:18,  2.46it/s][A
- 73%|███████▎  | 118/162 [00:57<00:18,  2.37it/s][A
- 73%|███████▎  | 119/162 [00:58<00:19,  2.26it/s][A
- 74%|███████▍  | 120/162 [00:58<00:18,  2.31it/s][A
- 75%|███████▍  | 121/162 [00:59<00:18,  2.22it/s][A
- 75%|███████▌  | 122/162 [00:59<00:18,  2.22it/s][A
- 76%|███████▌  | 123/162 [00:59<00:17,  2.26it/s][A
- 77%|███████▋  | 124/162 [01:00<00:16,  2.26it/s][A
- 77%|███████▋  | 125/162 [01:00<00:16,  2.25it/s][A
- 78%|███████▊  | 126/162 [01:01<00:15,  2.34it/s][A
- 78%|███████▊  | 127/162 [01:01<00:14,  2.40it/s][A
- 79%|███████▉  | 128/162 [01:02<00:14,  2.34it/s][A
- 80%|███████▉  | 129/162 [01:02<00:14,  2.30it/s][A
- 80%|████████  | 130/162 [01:02<00:13,  2.39it/s][A
- 81%|████████  | 131/162 [01:03<00:14,  2.20it/s][A
- 81%|████████▏ | 132/162 [01:03<00:13,  2.22it/s][A
- 82%|████████▏ | 133/162 [01:04<00:12,  2.26it/s][A
- 83%|████████▎ | 134/162 [01:04<00:12,  2.31it/s][A
- 83%|████████▎ | 135/162 [01:05<00:11,  2.38it/s][A
- 84%|████████▍ | 136/162 [01:05<00:11,  2.29it/s][A
- 85%|████████▍ | 137/162 [01:06<00:11,  2.15it/s][A
- 85%|████████▌ | 138/162 [01:06<00:10,  2.23it/s][A
- 86%|████████▌ | 139/162 [01:06<00:09,  2.32it/s][A
- 86%|████████▋ | 140/162 [01:07<00:09,  2.42it/s][A
- 87%|████████▋ | 141/162 [01:07<00:08,  2.38it/s][A
- 88%|████████▊ | 142/162 [01:08<00:08,  2.34it/s][A
- 88%|████████▊ | 143/162 [01:08<00:08,  2.30it/s][A
- 89%|████████▉ | 144/162 [01:09<00:08,  2.22it/s][A
- 90%|████████▉ | 145/162 [01:09<00:07,  2.25it/s][A
- 90%|█████████ | 146/162 [01:09<00:06,  2.34it/s][A
- 91%|█████████ | 147/162 [01:10<00:07,  1.95it/s][A
- 91%|█████████▏| 148/162 [01:11<00:06,  2.03it/s][A
- 92%|█████████▏| 149/162 [01:11<00:05,  2.17it/s][A
- 93%|█████████▎| 150/162 [01:11<00:05,  2.20it/s][A
- 93%|█████████▎| 151/162 [01:12<00:04,  2.24it/s][A
- 94%|█████████▍| 152/162 [01:12<00:04,  2.11it/s][A
- 94%|█████████▍| 153/162 [01:13<00:04,  2.15it/s][A
- 95%|█████████▌| 154/162 [01:13<00:03,  2.20it/s][A
- 96%|█████████▌| 155/162 [01:14<00:03,  2.17it/s][A
- 96%|█████████▋| 156/162 [01:14<00:02,  2.30it/s][A
- 97%|█████████▋| 157/162 [01:15<00:02,  2.01it/s][A
- 98%|█████████▊| 158/162 [01:15<00:01,  2.15it/s][A
- 98%|█████████▊| 159/162 [01:16<00:01,  2.20it/s][A
- 99%|█████████▉| 160/162 [01:16<00:00,  2.24it/s][A
- 99%|█████████▉| 161/162 [01:16<00:00,  2.20it/s][A
-100%|██████████| 162/162 [01:17<00:00,  2.46it/s][A                                               
-                                                 [A 55%|█████▍    | 50/91 [1:00:44<49:35, 72.57s/it]
-100%|██████████| 162/162 [01:17<00:00,  2.46it/s][A
-                                                 [A[INFO|trainer.py:3801] 2025-01-15 00:46:16,602 >> Saving model checkpoint to saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-50
-[INFO|configuration_utils.py:679] 2025-01-15 00:46:16,997 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
-[INFO|configuration_utils.py:746] 2025-01-15 00:46:16,999 >> Model config LlamaConfig {
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 4096,
-  "initializer_range": 0.02,
-  "intermediate_size": 14336,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 32,
-  "num_hidden_layers": 32,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 8.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": false,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.46.1",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|tokenization_utils_base.py:2646] 2025-01-15 00:46:17,616 >> tokenizer config file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-50/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2655] 2025-01-15 00:46:17,617 >> Special tokens file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-50/special_tokens_map.json
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.bfloat16 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
- 56%|█████▌    | 51/91 [1:02:02<1:05:04, 97.60s/it] 57%|█████▋    | 52/91 [1:02:54<54:33, 83.93s/it]   58%|█████▊    | 53/91 [1:04:01<49:57, 78.87s/it] 59%|█████▉    | 54/91 [1:05:20<48:38, 78.87s/it] 60%|██████    | 55/91 [1:06:16<43:07, 71.89s/it] 62%|██████▏   | 56/91 [1:07:10<38:49, 66.57s/it] 63%|██████▎   | 57/91 [1:08:20<38:18, 67.59s/it] 64%|██████▎   | 58/91 [1:09:44<39:56, 72.63s/it] 65%|██████▍   | 59/91 [1:10:54<38:20, 71.88s/it] 66%|██████▌   | 60/91 [1:12:08<37:25, 72.44s/it]                                                  66%|██████▌   | 60/91 [1:12:08<37:25, 72.44s/it][INFO|trainer.py:4117] 2025-01-15 00:57:40,828 >> 
-***** Running Evaluation *****
-[INFO|trainer.py:4119] 2025-01-15 00:57:40,828 >>   Num examples = 2586
-[INFO|trainer.py:4122] 2025-01-15 00:57:40,828 >>   Batch size = 16
-
-  0%|          | 0/162 [00:00<?, ?it/s][A
-  1%|          | 2/162 [00:00<00:35,  4.54it/s][A
-  2%|▏         | 3/162 [00:00<00:47,  3.33it/s][A
-  2%|▏         | 4/162 [00:01<00:55,  2.83it/s][A
-  3%|▎         | 5/162 [00:01<01:07,  2.33it/s][A
-  4%|▎         | 6/162 [00:02<01:04,  2.40it/s][A
-  4%|▍         | 7/162 [00:02<01:05,  2.38it/s][A
-  5%|▍         | 8/162 [00:03<01:11,  2.14it/s][A
-  6%|▌         | 9/162 [00:03<01:09,  2.20it/s][A
-  6%|▌         | 10/162 [00:04<01:16,  1.99it/s][A
-  7%|▋         | 11/162 [00:05<01:30,  1.67it/s][A
-  7%|▋         | 12/162 [00:05<01:20,  1.87it/s][A
-  8%|▊         | 13/162 [00:06<01:19,  1.86it/s][A
-  9%|▊         | 14/162 [00:06<01:15,  1.97it/s][A
-  9%|▉         | 15/162 [00:06<01:10,  2.09it/s][A
- 10%|▉         | 16/162 [00:07<01:06,  2.18it/s][A
- 10%|█         | 17/162 [00:07<01:07,  2.14it/s][A
- 11%|█         | 18/162 [00:08<01:13,  1.97it/s][A
- 12%|█▏        | 19/162 [00:08<01:10,  2.03it/s][A
- 12%|█▏        | 20/162 [00:09<01:15,  1.87it/s][A
- 13%|█▎        | 21/162 [00:09<01:11,  1.98it/s][A
- 14%|█▎        | 22/162 [00:10<01:05,  2.13it/s][A
- 14%|█▍        | 23/162 [00:11<01:16,  1.82it/s][A
- 15%|█▍        | 24/162 [00:11<01:11,  1.94it/s][A
- 15%|█▌        | 25/162 [00:11<01:08,  2.01it/s][A
- 16%|█▌        | 26/162 [00:12<01:05,  2.08it/s][A
- 17%|█▋        | 27/162 [00:13<01:42,  1.31it/s][A
- 17%|█▋        | 28/162 [00:14<01:29,  1.50it/s][A
- 18%|█▊        | 29/162 [00:14<01:18,  1.70it/s][A
- 19%|█▊        | 30/162 [00:15<01:14,  1.77it/s][A
- 19%|█▉        | 31/162 [00:15<01:09,  1.90it/s][A
- 20%|█▉        | 32/162 [00:16<01:04,  2.03it/s][A
- 20%|██        | 33/162 [00:16<01:00,  2.12it/s][A
- 21%|██        | 34/162 [00:17<01:08,  1.87it/s][A
- 22%|██▏       | 35/162 [00:17<01:03,  1.99it/s][A
- 22%|██▏       | 36/162 [00:19<01:42,  1.23it/s][A
- 23%|██▎       | 37/162 [00:19<01:27,  1.43it/s][A
- 23%|██▎       | 38/162 [00:19<01:17,  1.60it/s][A
- 24%|██▍       | 39/162 [00:20<01:18,  1.57it/s][A
- 25%|██▍       | 40/162 [00:20<01:07,  1.80it/s][A
- 25%|██▌       | 41/162 [00:21<01:08,  1.77it/s][A
- 26%|██▌       | 42/162 [00:21<01:00,  1.98it/s][A
- 27%|██▋       | 43/162 [00:22<00:57,  2.06it/s][A
- 27%|██▋       | 44/162 [00:23<01:03,  1.86it/s][A
- 28%|██▊       | 45/162 [00:23<00:58,  1.99it/s][A
- 28%|██▊       | 46/162 [00:23<00:55,  2.08it/s][A
- 29%|██▉       | 47/162 [00:24<00:55,  2.07it/s][A
- 30%|██▉       | 48/162 [00:24<00:55,  2.06it/s][A
- 30%|███       | 49/162 [00:25<00:52,  2.16it/s][A
- 31%|███       | 50/162 [00:25<00:52,  2.12it/s][A
- 31%|███▏      | 51/162 [00:26<00:50,  2.21it/s][A
- 32%|███▏      | 52/162 [00:26<00:49,  2.22it/s][A
- 33%|███▎      | 53/162 [00:27<00:47,  2.31it/s][A
- 33%|███▎      | 54/162 [00:27<00:46,  2.32it/s][A
- 34%|███▍      | 55/162 [00:27<00:44,  2.41it/s][A
- 35%|███▍      | 56/162 [00:28<00:43,  2.42it/s][A
- 35%|███▌      | 57/162 [00:28<00:45,  2.29it/s][A
- 36%|███▌      | 58/162 [00:29<00:45,  2.30it/s][A
- 36%|███▋      | 59/162 [00:29<00:48,  2.14it/s][A
- 37%|███▋      | 60/162 [00:30<00:47,  2.16it/s][A
- 38%|███▊      | 61/162 [00:30<00:46,  2.19it/s][A
- 38%|███▊      | 62/162 [00:31<00:44,  2.23it/s][A
- 39%|███▉      | 63/162 [00:31<00:43,  2.27it/s][A
- 40%|███▉      | 64/162 [00:31<00:45,  2.17it/s][A
- 40%|████      | 65/162 [00:32<00:44,  2.18it/s][A
- 41%|████      | 66/162 [00:32<00:42,  2.24it/s][A
- 41%|████▏     | 67/162 [00:33<00:43,  2.18it/s][A
- 42%|████▏     | 68/162 [00:33<00:40,  2.30it/s][A
- 43%|████▎     | 69/162 [00:34<00:42,  2.18it/s][A
- 43%|████▎     | 70/162 [00:34<00:41,  2.19it/s][A
- 44%|████▍     | 71/162 [00:35<00:40,  2.24it/s][A
- 44%|████▍     | 72/162 [00:35<00:52,  1.72it/s][A
- 45%|████▌     | 73/162 [00:36<00:47,  1.87it/s][A
- 46%|████▌     | 74/162 [00:36<00:44,  1.97it/s][A
- 46%|████▋     | 75/162 [00:37<00:41,  2.12it/s][A
- 47%|████▋     | 76/162 [00:37<00:43,  1.99it/s][A
- 48%|████▊     | 77/162 [00:38<00:45,  1.86it/s][A
- 48%|████▊     | 78/162 [00:40<01:21,  1.03it/s][A
- 49%|████▉     | 79/162 [00:40<01:06,  1.24it/s][A
- 49%|████▉     | 80/162 [00:41<00:58,  1.40it/s][A
- 50%|█████     | 81/162 [00:41<00:51,  1.57it/s][A
- 51%|█████     | 82/162 [00:42<00:45,  1.74it/s][A
- 51%|█████     | 83/162 [00:42<00:40,  1.93it/s][A
- 52%|█████▏    | 84/162 [00:43<00:38,  2.05it/s][A
- 52%|█████▏    | 85/162 [00:43<00:34,  2.20it/s][A
- 53%|█████▎    | 86/162 [00:43<00:35,  2.17it/s][A
- 54%|█████▎    | 87/162 [00:44<00:42,  1.76it/s][A
- 54%|█████▍    | 88/162 [00:45<00:39,  1.87it/s][A
- 55%|█████▍    | 89/162 [00:45<00:35,  2.04it/s][A
- 56%|█████▌    | 90/162 [00:46<00:35,  2.04it/s][A
- 56%|█████▌    | 91/162 [00:46<00:33,  2.10it/s][A
- 57%|█████▋    | 92/162 [00:46<00:31,  2.19it/s][A
- 57%|█████▋    | 93/162 [00:47<00:30,  2.29it/s][A
- 58%|█████▊    | 94/162 [00:47<00:29,  2.31it/s][A
- 59%|█████▊    | 95/162 [00:48<00:28,  2.38it/s][A
- 59%|█████▉    | 96/162 [00:48<00:28,  2.32it/s][A
- 60%|█████▉    | 97/162 [00:48<00:28,  2.28it/s][A
- 60%|██████    | 98/162 [00:49<00:27,  2.33it/s][A
- 61%|██████    | 99/162 [00:49<00:26,  2.42it/s][A
- 62%|██████▏   | 100/162 [00:50<00:26,  2.32it/s][A
- 62%|██████▏   | 101/162 [00:50<00:26,  2.33it/s][A
- 63%|██████▎   | 102/162 [00:51<00:25,  2.39it/s][A
- 64%|██████▎   | 103/162 [00:51<00:26,  2.19it/s][A
- 64%|██████▍   | 104/162 [00:52<00:25,  2.26it/s][A
- 65%|██████▍   | 105/162 [00:52<00:25,  2.24it/s][A
- 65%|██████▌   | 106/162 [00:52<00:23,  2.35it/s][A
- 66%|██████▌   | 107/162 [00:53<00:22,  2.41it/s][A
- 67%|██████▋   | 108/162 [00:53<00:22,  2.42it/s][A
- 67%|██████▋   | 109/162 [00:54<00:22,  2.40it/s][A
- 68%|██████▊   | 110/162 [00:54<00:21,  2.41it/s][A
- 69%|██████▊   | 111/162 [00:54<00:20,  2.45it/s][A
- 69%|██████▉   | 112/162 [00:55<00:21,  2.37it/s][A
- 70%|██████▉   | 113/162 [00:55<00:20,  2.43it/s][A
- 70%|███████   | 114/162 [00:56<00:19,  2.49it/s][A
- 71%|███████   | 115/162 [00:56<00:19,  2.45it/s][A
- 72%|███████▏  | 116/162 [00:56<00:18,  2.53it/s][A
- 72%|███████▏  | 117/162 [00:57<00:18,  2.45it/s][A
- 73%|███████▎  | 118/162 [00:57<00:18,  2.36it/s][A
- 73%|███████▎  | 119/162 [00:58<00:19,  2.26it/s][A
- 74%|███████▍  | 120/162 [00:58<00:18,  2.30it/s][A
- 75%|███████▍  | 121/162 [00:59<00:18,  2.22it/s][A
- 75%|███████▌  | 122/162 [00:59<00:18,  2.21it/s][A
- 76%|███████▌  | 123/162 [01:00<00:17,  2.25it/s][A
- 77%|███████▋  | 124/162 [01:00<00:16,  2.26it/s][A
- 77%|███████▋  | 125/162 [01:00<00:16,  2.24it/s][A
- 78%|███████▊  | 126/162 [01:01<00:15,  2.32it/s][A
- 78%|███████▊  | 127/162 [01:01<00:14,  2.39it/s][A
- 79%|███████▉  | 128/162 [01:02<00:14,  2.33it/s][A
- 80%|███████▉  | 129/162 [01:02<00:14,  2.29it/s][A
- 80%|████████  | 130/162 [01:03<00:13,  2.39it/s][A
- 81%|████████  | 131/162 [01:03<00:14,  2.19it/s][A
- 81%|████████▏ | 132/162 [01:04<00:13,  2.21it/s][A
- 82%|████████▏ | 133/162 [01:04<00:12,  2.25it/s][A
- 83%|████████▎ | 134/162 [01:04<00:12,  2.30it/s][A
- 83%|████████▎ | 135/162 [01:05<00:11,  2.37it/s][A
- 84%|████████▍ | 136/162 [01:05<00:11,  2.28it/s][A
- 85%|████████▍ | 137/162 [01:06<00:11,  2.15it/s][A
- 85%|████████▌ | 138/162 [01:06<00:10,  2.23it/s][A
- 86%|████████▌ | 139/162 [01:07<00:09,  2.32it/s][A
- 86%|████████▋ | 140/162 [01:07<00:09,  2.41it/s][A
- 87%|████████▋ | 141/162 [01:07<00:08,  2.37it/s][A
- 88%|████████▊ | 142/162 [01:08<00:08,  2.33it/s][A
- 88%|████████▊ | 143/162 [01:08<00:08,  2.29it/s][A
- 89%|████████▉ | 144/162 [01:09<00:08,  2.21it/s][A
- 90%|████████▉ | 145/162 [01:09<00:07,  2.25it/s][A
- 90%|█████████ | 146/162 [01:10<00:06,  2.33it/s][A
- 91%|█████████ | 147/162 [01:10<00:07,  1.94it/s][A
- 91%|█████████▏| 148/162 [01:11<00:06,  2.03it/s][A
- 92%|█████████▏| 149/162 [01:11<00:06,  2.16it/s][A
- 93%|█████████▎| 150/162 [01:12<00:05,  2.19it/s][A
- 93%|█████████▎| 151/162 [01:12<00:04,  2.24it/s][A
- 94%|█████████▍| 152/162 [01:13<00:04,  2.10it/s][A
- 94%|█████████▍| 153/162 [01:13<00:04,  2.17it/s][A
- 95%|█████████▌| 154/162 [01:13<00:03,  2.24it/s][A
- 96%|█████████▌| 155/162 [01:14<00:03,  2.20it/s][A
- 96%|█████████▋| 156/162 [01:14<00:02,  2.31it/s][A
- 97%|█████████▋| 157/162 [01:15<00:02,  2.02it/s][A
- 98%|█████████▊| 158/162 [01:15<00:01,  2.15it/s][A
- 98%|█████████▊| 159/162 [01:16<00:01,  2.21it/s][A
- 99%|█████████▉| 160/162 [01:16<00:00,  2.25it/s][A
- 99%|█████████▉| 161/162 [01:17<00:00,  2.20it/s][A
-100%|██████████| 162/162 [01:17<00:00,  2.46it/s][A                                                 
-                                                 [A 66%|██████▌   | 60/91 [1:13:26<37:25, 72.44s/it]
-100%|██████████| 162/162 [01:17<00:00,  2.46it/s][A
-                                                 [A[INFO|trainer.py:3801] 2025-01-15 00:58:58,670 >> Saving model checkpoint to saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-60
-[INFO|configuration_utils.py:679] 2025-01-15 00:58:59,083 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
-[INFO|configuration_utils.py:746] 2025-01-15 00:58:59,086 >> Model config LlamaConfig {
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 4096,
-  "initializer_range": 0.02,
-  "intermediate_size": 14336,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 32,
-  "num_hidden_layers": 32,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 8.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": false,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.46.1",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|tokenization_utils_base.py:2646] 2025-01-15 00:58:59,716 >> tokenizer config file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-60/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2655] 2025-01-15 00:58:59,717 >> Special tokens file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-60/special_tokens_map.json
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.bfloat16 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
- 67%|██████▋   | 61/91 [1:14:40<48:11, 96.38s/it] 68%|██████▊   | 62/91 [1:15:35<40:31, 83.86s/it] 69%|██████▉   | 63/91 [1:16:41<36:42, 78.65s/it] 70%|███████   | 64/91 [1:17:41<32:46, 72.83s/it] 71%|███████▏  | 65/91 [1:18:39<29:40, 68.50s/it] 73%|███████▎  | 66/91 [1:19:47<28:28, 68.33s/it] 74%|███████▎  | 67/91 [1:20:54<27:10, 67.94s/it] 75%|███████▍  | 68/91 [1:21:44<24:00, 62.64s/it] 76%|███████▌  | 69/91 [1:22:43<22:29, 61.34s/it] 77%|███████▋  | 70/91 [1:23:35<20:34, 58.77s/it]                                                  77%|███████▋  | 70/91 [1:23:35<20:34, 58.77s/it][INFO|trainer.py:4117] 2025-01-15 01:09:08,176 >> 
-***** Running Evaluation *****
-[INFO|trainer.py:4119] 2025-01-15 01:09:08,176 >>   Num examples = 2586
-[INFO|trainer.py:4122] 2025-01-15 01:09:08,176 >>   Batch size = 16
-
-  0%|          | 0/162 [00:00<?, ?it/s][A
-  1%|          | 2/162 [00:00<00:35,  4.52it/s][A
-  2%|▏         | 3/162 [00:00<00:47,  3.32it/s][A
-  2%|▏         | 4/162 [00:01<00:55,  2.83it/s][A
-  3%|▎         | 5/162 [00:01<01:07,  2.33it/s][A
-  4%|▎         | 6/162 [00:02<01:04,  2.40it/s][A
-  4%|▍         | 7/162 [00:02<01:05,  2.38it/s][A
-  5%|▍         | 8/162 [00:03<01:11,  2.14it/s][A
-  6%|▌         | 9/162 [00:03<01:09,  2.20it/s][A
-  6%|▌         | 10/162 [00:04<01:16,  1.99it/s][A
-  7%|▋         | 11/162 [00:05<01:30,  1.67it/s][A
-  7%|▋         | 12/162 [00:05<01:20,  1.87it/s][A
-  8%|▊         | 13/162 [00:06<01:19,  1.86it/s][A
-  9%|▊         | 14/162 [00:06<01:14,  1.98it/s][A
-  9%|▉         | 15/162 [00:06<01:10,  2.09it/s][A
- 10%|▉         | 16/162 [00:07<01:06,  2.18it/s][A
- 10%|█         | 17/162 [00:07<01:07,  2.13it/s][A
- 11%|█         | 18/162 [00:08<01:13,  1.97it/s][A
- 12%|█▏        | 19/162 [00:08<01:10,  2.03it/s][A
- 12%|█▏        | 20/162 [00:09<01:15,  1.88it/s][A
- 13%|█▎        | 21/162 [00:09<01:11,  1.98it/s][A
- 14%|█▎        | 22/162 [00:10<01:05,  2.12it/s][A
- 14%|█▍        | 23/162 [00:11<01:16,  1.82it/s][A
- 15%|█▍        | 24/162 [00:11<01:11,  1.93it/s][A
- 15%|█▌        | 25/162 [00:11<01:08,  2.00it/s][A
- 16%|█▌        | 26/162 [00:12<01:05,  2.07it/s][A
- 17%|█▋        | 27/162 [00:13<01:42,  1.31it/s][A
- 17%|█▋        | 28/162 [00:14<01:29,  1.50it/s][A
- 18%|█▊        | 29/162 [00:14<01:18,  1.69it/s][A
- 19%|█▊        | 30/162 [00:15<01:14,  1.77it/s][A
- 19%|█▉        | 31/162 [00:15<01:09,  1.89it/s][A
- 20%|█▉        | 32/162 [00:16<01:04,  2.03it/s][A
- 20%|██        | 33/162 [00:16<01:01,  2.11it/s][A
- 21%|██        | 34/162 [00:17<01:08,  1.86it/s][A
- 22%|██▏       | 35/162 [00:17<01:04,  1.98it/s][A
- 22%|██▏       | 36/162 [00:19<01:42,  1.23it/s][A
- 23%|██▎       | 37/162 [00:19<01:27,  1.43it/s][A
- 23%|██▎       | 38/162 [00:19<01:17,  1.59it/s][A
- 24%|██▍       | 39/162 [00:20<01:18,  1.57it/s][A
- 25%|██▍       | 40/162 [00:21<01:07,  1.80it/s][A
- 25%|██▌       | 41/162 [00:21<01:07,  1.78it/s][A
- 26%|██▌       | 42/162 [00:21<01:00,  2.00it/s][A
- 27%|██▋       | 43/162 [00:22<00:57,  2.07it/s][A
- 27%|██▋       | 44/162 [00:23<01:03,  1.87it/s][A
- 28%|██▊       | 45/162 [00:23<00:58,  1.99it/s][A
- 28%|██▊       | 46/162 [00:23<00:55,  2.08it/s][A
- 29%|██▉       | 47/162 [00:24<00:55,  2.06it/s][A
- 30%|██▉       | 48/162 [00:24<00:55,  2.06it/s][A
- 30%|███       | 49/162 [00:25<00:52,  2.15it/s][A
- 31%|███       | 50/162 [00:25<00:52,  2.12it/s][A
- 31%|███▏      | 51/162 [00:26<00:50,  2.20it/s][A
- 32%|███▏      | 52/162 [00:26<00:49,  2.22it/s][A
- 33%|███▎      | 53/162 [00:27<00:47,  2.31it/s][A
- 33%|███▎      | 54/162 [00:27<00:46,  2.32it/s][A
- 34%|███▍      | 55/162 [00:27<00:44,  2.41it/s][A
- 35%|███▍      | 56/162 [00:28<00:43,  2.41it/s][A
- 35%|███▌      | 57/162 [00:28<00:45,  2.29it/s][A
- 36%|███▌      | 58/162 [00:29<00:45,  2.30it/s][A
- 36%|███▋      | 59/162 [00:29<00:48,  2.14it/s][A
- 37%|███▋      | 60/162 [00:30<00:47,  2.16it/s][A
- 38%|███▊      | 61/162 [00:30<00:46,  2.19it/s][A
- 38%|███▊      | 62/162 [00:31<00:44,  2.23it/s][A
- 39%|███▉      | 63/162 [00:31<00:43,  2.26it/s][A
- 40%|███▉      | 64/162 [00:31<00:45,  2.17it/s][A
- 40%|████      | 65/162 [00:32<00:44,  2.18it/s][A
- 41%|████      | 66/162 [00:32<00:42,  2.24it/s][A
- 41%|████▏     | 67/162 [00:33<00:43,  2.18it/s][A
- 42%|████▏     | 68/162 [00:33<00:40,  2.30it/s][A
- 43%|████▎     | 69/162 [00:34<00:42,  2.19it/s][A
- 43%|████▎     | 70/162 [00:34<00:41,  2.21it/s][A
- 44%|████▍     | 71/162 [00:35<00:40,  2.26it/s][A
- 44%|████▍     | 72/162 [00:35<00:51,  1.73it/s][A
- 45%|████▌     | 73/162 [00:36<00:47,  1.88it/s][A
- 46%|████▌     | 74/162 [00:36<00:44,  1.98it/s][A
- 46%|████▋     | 75/162 [00:37<00:40,  2.13it/s][A
- 47%|████▋     | 76/162 [00:37<00:43,  2.00it/s][A
- 48%|████▊     | 77/162 [00:38<00:45,  1.87it/s][A
- 48%|████▊     | 78/162 [00:40<01:21,  1.03it/s][A
- 49%|████▉     | 79/162 [00:40<01:06,  1.25it/s][A
- 49%|████▉     | 80/162 [00:41<00:58,  1.41it/s][A
- 50%|█████     | 81/162 [00:41<00:51,  1.58it/s][A
- 51%|█████     | 82/162 [00:42<00:45,  1.75it/s][A
- 51%|█████     | 83/162 [00:42<00:40,  1.94it/s][A
- 52%|█████▏    | 84/162 [00:42<00:37,  2.06it/s][A
- 52%|█████▏    | 85/162 [00:43<00:34,  2.21it/s][A
- 53%|█████▎    | 86/162 [00:43<00:34,  2.18it/s][A
- 54%|█████▎    | 87/162 [00:44<00:42,  1.76it/s][A
- 54%|█████▍    | 88/162 [00:45<00:39,  1.87it/s][A
- 55%|█████▍    | 89/162 [00:45<00:35,  2.03it/s][A
- 56%|█████▌    | 90/162 [00:46<00:35,  2.02it/s][A
- 56%|█████▌    | 91/162 [00:46<00:34,  2.08it/s][A
- 57%|█████▋    | 92/162 [00:46<00:32,  2.16it/s][A
- 57%|█████▋    | 93/162 [00:47<00:30,  2.26it/s][A
- 58%|█████▊    | 94/162 [00:47<00:29,  2.28it/s][A
- 59%|█████▊    | 95/162 [00:48<00:28,  2.34it/s][A
- 59%|█████▉    | 96/162 [00:48<00:28,  2.30it/s][A
- 60%|█████▉    | 97/162 [00:49<00:28,  2.27it/s][A
- 60%|██████    | 98/162 [00:49<00:27,  2.31it/s][A
- 61%|██████    | 99/162 [00:49<00:26,  2.41it/s][A
- 62%|██████▏   | 100/162 [00:50<00:26,  2.31it/s][A
- 62%|██████▏   | 101/162 [00:50<00:26,  2.32it/s][A
- 63%|██████▎   | 102/162 [00:51<00:25,  2.39it/s][A
- 64%|██████▎   | 103/162 [00:51<00:26,  2.20it/s][A
- 64%|██████▍   | 104/162 [00:52<00:25,  2.26it/s][A
- 65%|██████▍   | 105/162 [00:52<00:25,  2.24it/s][A
- 65%|██████▌   | 106/162 [00:52<00:23,  2.35it/s][A
- 66%|██████▌   | 107/162 [00:53<00:23,  2.38it/s][A
- 67%|██████▋   | 108/162 [00:53<00:23,  2.34it/s][A
- 67%|██████▋   | 109/162 [00:54<00:23,  2.29it/s][A
- 68%|██████▊   | 110/162 [00:54<00:22,  2.33it/s][A
- 69%|██████▊   | 111/162 [00:54<00:21,  2.40it/s][A
- 69%|██████▉   | 112/162 [00:55<00:21,  2.33it/s][A
- 70%|██████▉   | 113/162 [00:55<00:20,  2.40it/s][A
- 70%|███████   | 114/162 [00:56<00:19,  2.47it/s][A
- 71%|███████   | 115/162 [00:56<00:19,  2.43it/s][A
- 72%|███████▏  | 116/162 [00:56<00:18,  2.52it/s][A
- 72%|███████▏  | 117/162 [00:57<00:18,  2.44it/s][A
- 73%|███████▎  | 118/162 [00:57<00:18,  2.36it/s][A
- 73%|███████▎  | 119/162 [00:58<00:19,  2.25it/s][A
- 74%|███████▍  | 120/162 [00:58<00:18,  2.30it/s][A
- 75%|███████▍  | 121/162 [00:59<00:18,  2.21it/s][A
- 75%|███████▌  | 122/162 [00:59<00:18,  2.21it/s][A
- 76%|███████▌  | 123/162 [01:00<00:17,  2.25it/s][A
- 77%|███████▋  | 124/162 [01:00<00:16,  2.25it/s][A
- 77%|███████▋  | 125/162 [01:01<00:16,  2.23it/s][A
- 78%|███████▊  | 126/162 [01:01<00:15,  2.32it/s][A
- 78%|███████▊  | 127/162 [01:01<00:14,  2.39it/s][A
- 79%|███████▉  | 128/162 [01:02<00:14,  2.33it/s][A
- 80%|███████▉  | 129/162 [01:02<00:14,  2.29it/s][A
- 80%|████████  | 130/162 [01:03<00:13,  2.39it/s][A
- 81%|████████  | 131/162 [01:03<00:14,  2.19it/s][A
- 81%|████████▏ | 132/162 [01:04<00:13,  2.21it/s][A
- 82%|████████▏ | 133/162 [01:04<00:12,  2.25it/s][A
- 83%|████████▎ | 134/162 [01:04<00:12,  2.30it/s][A
- 83%|████████▎ | 135/162 [01:05<00:11,  2.37it/s][A
- 84%|████████▍ | 136/162 [01:05<00:11,  2.28it/s][A
- 85%|████████▍ | 137/162 [01:06<00:11,  2.15it/s][A
- 85%|████████▌ | 138/162 [01:06<00:10,  2.22it/s][A
- 86%|████████▌ | 139/162 [01:07<00:09,  2.31it/s][A
- 86%|████████▋ | 140/162 [01:07<00:09,  2.41it/s][A
- 87%|████████▋ | 141/162 [01:07<00:08,  2.36it/s][A
- 88%|████████▊ | 142/162 [01:08<00:08,  2.33it/s][A
- 88%|████████▊ | 143/162 [01:08<00:08,  2.29it/s][A
- 89%|████████▉ | 144/162 [01:09<00:08,  2.20it/s][A
- 90%|████████▉ | 145/162 [01:09<00:07,  2.24it/s][A
- 90%|█████████ | 146/162 [01:10<00:06,  2.33it/s][A
- 91%|█████████ | 147/162 [01:10<00:07,  1.94it/s][A
- 91%|█████████▏| 148/162 [01:11<00:06,  2.03it/s][A
- 92%|█████████▏| 149/162 [01:11<00:06,  2.16it/s][A
- 93%|█████████▎| 150/162 [01:12<00:05,  2.19it/s][A
- 93%|█████████▎| 151/162 [01:12<00:04,  2.23it/s][A
- 94%|█████████▍| 152/162 [01:13<00:04,  2.10it/s][A
- 94%|█████████▍| 153/162 [01:13<00:04,  2.18it/s][A
- 95%|█████████▌| 154/162 [01:13<00:03,  2.25it/s][A
- 96%|█████████▌| 155/162 [01:14<00:03,  2.20it/s][A
- 96%|█████████▋| 156/162 [01:14<00:02,  2.32it/s][A
- 97%|█████████▋| 157/162 [01:15<00:02,  2.02it/s][A
- 98%|█████████▊| 158/162 [01:15<00:01,  2.16it/s][A
- 98%|█████████▊| 159/162 [01:16<00:01,  2.21it/s][A
- 99%|█████████▉| 160/162 [01:16<00:00,  2.25it/s][A
- 99%|█████████▉| 161/162 [01:17<00:00,  2.20it/s][A
-100%|██████████| 162/162 [01:17<00:00,  2.46it/s][A                                                 
-                                                 [A 77%|███████▋  | 70/91 [1:24:53<20:34, 58.77s/it]
-100%|██████████| 162/162 [01:17<00:00,  2.46it/s][A
-                                                 [A[INFO|trainer.py:3801] 2025-01-15 01:10:26,109 >> Saving model checkpoint to saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-70
-[INFO|configuration_utils.py:679] 2025-01-15 01:10:36,703 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
-[INFO|configuration_utils.py:746] 2025-01-15 01:10:36,706 >> Model config LlamaConfig {
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 4096,
-  "initializer_range": 0.02,
-  "intermediate_size": 14336,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 32,
-  "num_hidden_layers": 32,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 8.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": false,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.46.1",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|tokenization_utils_base.py:2646] 2025-01-15 01:10:37,426 >> tokenizer config file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-70/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2655] 2025-01-15 01:10:37,427 >> Special tokens file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-70/special_tokens_map.json
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.bfloat16 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
- 78%|███████▊  | 71/91 [1:25:51<27:15, 81.80s/it] 79%|███████▉  | 72/91 [1:26:37<22:32, 71.20s/it] 80%|████████  | 73/91 [1:27:27<19:27, 64.85s/it] 81%|████████▏ | 74/91 [1:28:22<17:28, 61.67s/it] 82%|████████▏ | 75/91 [1:29:20<16:08, 60.54s/it] 84%|████████▎ | 76/91 [1:30:15<14:45, 59.02s/it] 85%|████████▍ | 77/91 [1:31:02<12:56, 55.48s/it] 86%|████████▌ | 78/91 [1:31:58<12:02, 55.61s/it] 87%|████████▋ | 79/91 [1:32:57<11:17, 56.49s/it] 88%|████████▊ | 80/91 [1:33:49<10:05, 55.07s/it]                                                  88%|████████▊ | 80/91 [1:33:49<10:05, 55.07s/it][INFO|trainer.py:4117] 2025-01-15 01:19:21,251 >> 
-***** Running Evaluation *****
-[INFO|trainer.py:4119] 2025-01-15 01:19:21,251 >>   Num examples = 2586
-[INFO|trainer.py:4122] 2025-01-15 01:19:21,251 >>   Batch size = 16
-
-  0%|          | 0/162 [00:00<?, ?it/s][A
-  1%|          | 2/162 [00:00<00:35,  4.55it/s][A
-  2%|▏         | 3/162 [00:00<00:47,  3.34it/s][A
-  2%|▏         | 4/162 [00:01<00:55,  2.84it/s][A
-  3%|▎         | 5/162 [00:01<01:07,  2.34it/s][A
-  4%|▎         | 6/162 [00:02<01:04,  2.41it/s][A
-  4%|▍         | 7/162 [00:02<01:04,  2.39it/s][A
-  5%|▍         | 8/162 [00:03<01:11,  2.15it/s][A
-  6%|▌         | 9/162 [00:03<01:09,  2.21it/s][A
-  6%|▌         | 10/162 [00:04<01:16,  1.99it/s][A
-  7%|▋         | 11/162 [00:05<01:30,  1.68it/s][A
-  7%|▋         | 12/162 [00:05<01:20,  1.87it/s][A
-  8%|▊         | 13/162 [00:06<01:19,  1.87it/s][A
-  9%|▊         | 14/162 [00:06<01:14,  1.97it/s][A
-  9%|▉         | 15/162 [00:06<01:10,  2.09it/s][A
- 10%|▉         | 16/162 [00:07<01:06,  2.18it/s][A
- 10%|█         | 17/162 [00:07<01:07,  2.14it/s][A
- 11%|█         | 18/162 [00:08<01:12,  1.98it/s][A
- 12%|█▏        | 19/162 [00:08<01:10,  2.04it/s][A
- 12%|█▏        | 20/162 [00:09<01:15,  1.89it/s][A
- 13%|█▎        | 21/162 [00:09<01:10,  1.99it/s][A
- 14%|█▎        | 22/162 [00:10<01:05,  2.13it/s][A
- 14%|█▍        | 23/162 [00:11<01:16,  1.82it/s][A
- 15%|█▍        | 24/162 [00:11<01:11,  1.93it/s][A
- 15%|█▌        | 25/162 [00:11<01:08,  2.00it/s][A
- 16%|█▌        | 26/162 [00:12<01:05,  2.07it/s][A
- 17%|█▋        | 27/162 [00:13<01:42,  1.31it/s][A
- 17%|█▋        | 28/162 [00:14<01:29,  1.50it/s][A
- 18%|█▊        | 29/162 [00:14<01:18,  1.70it/s][A
- 19%|█▊        | 30/162 [00:15<01:14,  1.78it/s][A
- 19%|█▉        | 31/162 [00:15<01:08,  1.90it/s][A
- 20%|█▉        | 32/162 [00:15<01:03,  2.04it/s][A
- 20%|██        | 33/162 [00:16<01:00,  2.12it/s][A
- 21%|██        | 34/162 [00:17<01:08,  1.87it/s][A
- 22%|██▏       | 35/162 [00:17<01:03,  1.99it/s][A
- 22%|██▏       | 36/162 [00:19<01:41,  1.24it/s][A
- 23%|██▎       | 37/162 [00:19<01:27,  1.43it/s][A
- 23%|██▎       | 38/162 [00:19<01:17,  1.60it/s][A
- 24%|██▍       | 39/162 [00:20<01:18,  1.57it/s][A
- 25%|██▍       | 40/162 [00:20<01:07,  1.81it/s][A
- 25%|██▌       | 41/162 [00:21<01:07,  1.79it/s][A
- 26%|██▌       | 42/162 [00:21<00:59,  2.01it/s][A
- 27%|██▋       | 43/162 [00:22<00:57,  2.08it/s][A
- 27%|██▋       | 44/162 [00:22<01:02,  1.87it/s][A
- 28%|██▊       | 45/162 [00:23<00:58,  1.99it/s][A
- 28%|██▊       | 46/162 [00:23<00:55,  2.09it/s][A
- 29%|██▉       | 47/162 [00:24<00:55,  2.08it/s][A
- 30%|██▉       | 48/162 [00:24<00:55,  2.07it/s][A
- 30%|███       | 49/162 [00:25<00:52,  2.16it/s][A
- 31%|███       | 50/162 [00:25<00:52,  2.12it/s][A
- 31%|███▏      | 51/162 [00:26<00:50,  2.21it/s][A
- 32%|███▏      | 52/162 [00:26<00:49,  2.23it/s][A
- 33%|███▎      | 53/162 [00:26<00:46,  2.32it/s][A
- 33%|███▎      | 54/162 [00:27<00:46,  2.33it/s][A
- 34%|███▍      | 55/162 [00:27<00:44,  2.42it/s][A
- 35%|███▍      | 56/162 [00:28<00:43,  2.43it/s][A
- 35%|███▌      | 57/162 [00:28<00:45,  2.30it/s][A
- 36%|███▌      | 58/162 [00:29<00:44,  2.31it/s][A
- 36%|███▋      | 59/162 [00:29<00:47,  2.15it/s][A
- 37%|███▋      | 60/162 [00:30<00:46,  2.17it/s][A
- 38%|███▊      | 61/162 [00:30<00:45,  2.20it/s][A
- 38%|███▊      | 62/162 [00:30<00:44,  2.24it/s][A
- 39%|███▉      | 63/162 [00:31<00:43,  2.28it/s][A
- 40%|███▉      | 64/162 [00:31<00:44,  2.18it/s][A
- 40%|████      | 65/162 [00:32<00:44,  2.19it/s][A
- 41%|████      | 66/162 [00:32<00:42,  2.26it/s][A
- 41%|████▏     | 67/162 [00:33<00:43,  2.19it/s][A
- 42%|████▏     | 68/162 [00:33<00:40,  2.31it/s][A
- 43%|████▎     | 69/162 [00:34<00:42,  2.21it/s][A
- 43%|████▎     | 70/162 [00:34<00:41,  2.23it/s][A
- 44%|████▍     | 71/162 [00:34<00:39,  2.28it/s][A
- 44%|████▍     | 72/162 [00:35<00:51,  1.74it/s][A
- 45%|████▌     | 73/162 [00:36<00:47,  1.88it/s][A
- 46%|████▌     | 74/162 [00:36<00:44,  1.97it/s][A
- 46%|████▋     | 75/162 [00:37<00:41,  2.12it/s][A
- 47%|████▋     | 76/162 [00:37<00:43,  1.98it/s][A
- 48%|████▊     | 77/162 [00:38<00:45,  1.86it/s][A
- 48%|████▊     | 78/162 [00:40<01:21,  1.03it/s][A
- 49%|████▉     | 79/162 [00:40<01:06,  1.25it/s][A
- 49%|████▉     | 80/162 [00:41<00:58,  1.41it/s][A
- 50%|█████     | 81/162 [00:41<00:51,  1.58it/s][A
- 51%|█████     | 82/162 [00:42<00:45,  1.75it/s][A
- 51%|█████     | 83/162 [00:42<00:40,  1.94it/s][A
- 52%|█████▏    | 84/162 [00:42<00:37,  2.06it/s][A
- 52%|█████▏    | 85/162 [00:43<00:34,  2.22it/s][A
- 53%|█████▎    | 86/162 [00:43<00:34,  2.18it/s][A
- 54%|█████▎    | 87/162 [00:44<00:42,  1.77it/s][A
- 54%|█████▍    | 88/162 [00:44<00:39,  1.88it/s][A
- 55%|█████▍    | 89/162 [00:45<00:35,  2.05it/s][A
- 56%|█████▌    | 90/162 [00:45<00:35,  2.05it/s][A
- 56%|█████▌    | 91/162 [00:46<00:33,  2.11it/s][A
- 57%|█████▋    | 92/162 [00:46<00:31,  2.20it/s][A
- 57%|█████▋    | 93/162 [00:47<00:29,  2.30it/s][A
- 58%|█████▊    | 94/162 [00:47<00:29,  2.32it/s][A
- 59%|█████▊    | 95/162 [00:47<00:28,  2.39it/s][A
- 59%|█████▉    | 96/162 [00:48<00:28,  2.33it/s][A
- 60%|█████▉    | 97/162 [00:48<00:28,  2.30it/s][A
- 60%|██████    | 98/162 [00:49<00:27,  2.34it/s][A
- 61%|██████    | 99/162 [00:49<00:25,  2.43it/s][A
- 62%|██████▏   | 100/162 [00:50<00:26,  2.33it/s][A
- 62%|██████▏   | 101/162 [00:50<00:26,  2.33it/s][A
- 63%|██████▎   | 102/162 [00:50<00:24,  2.40it/s][A
- 64%|██████▎   | 103/162 [00:51<00:26,  2.21it/s][A
- 64%|██████▍   | 104/162 [00:51<00:25,  2.27it/s][A
- 65%|██████▍   | 105/162 [00:52<00:25,  2.25it/s][A
- 65%|██████▌   | 106/162 [00:52<00:23,  2.37it/s][A
- 66%|██████▌   | 107/162 [00:53<00:22,  2.43it/s][A
- 67%|██████▋   | 108/162 [00:53<00:22,  2.43it/s][A
- 67%|██████▋   | 109/162 [00:53<00:21,  2.41it/s][A
- 68%|██████▊   | 110/162 [00:54<00:21,  2.42it/s][A
- 69%|██████▊   | 111/162 [00:54<00:20,  2.47it/s][A
- 69%|██████▉   | 112/162 [00:55<00:20,  2.39it/s][A
- 70%|██████▉   | 113/162 [00:55<00:20,  2.44it/s][A
- 70%|███████   | 114/162 [00:55<00:19,  2.51it/s][A
- 71%|███████   | 115/162 [00:56<00:19,  2.46it/s][A
- 72%|███████▏  | 116/162 [00:56<00:18,  2.55it/s][A
- 72%|███████▏  | 117/162 [00:57<00:18,  2.46it/s][A
- 73%|███████▎  | 118/162 [00:57<00:18,  2.37it/s][A
- 73%|███████▎  | 119/162 [00:58<00:19,  2.26it/s][A
- 74%|███████▍  | 120/162 [00:58<00:18,  2.31it/s][A
- 75%|███████▍  | 121/162 [00:58<00:18,  2.23it/s][A
- 75%|███████▌  | 122/162 [00:59<00:18,  2.22it/s][A
- 76%|███████▌  | 123/162 [00:59<00:17,  2.26it/s][A
- 77%|███████▋  | 124/162 [01:00<00:16,  2.27it/s][A
- 77%|███████▋  | 125/162 [01:00<00:16,  2.25it/s][A
- 78%|███████▊  | 126/162 [01:01<00:15,  2.34it/s][A
- 78%|███████▊  | 127/162 [01:01<00:14,  2.41it/s][A
- 79%|███████▉  | 128/162 [01:01<00:14,  2.34it/s][A
- 80%|███████▉  | 129/162 [01:02<00:14,  2.30it/s][A
- 80%|████████  | 130/162 [01:02<00:13,  2.40it/s][A
- 81%|████████  | 131/162 [01:03<00:14,  2.21it/s][A
- 81%|████████▏ | 132/162 [01:03<00:13,  2.23it/s][A
- 82%|████████▏ | 133/162 [01:04<00:12,  2.26it/s][A
- 83%|████████▎ | 134/162 [01:04<00:12,  2.31it/s][A
- 83%|████████▎ | 135/162 [01:04<00:11,  2.39it/s][A
- 84%|████████▍ | 136/162 [01:05<00:11,  2.30it/s][A
- 85%|████████▍ | 137/162 [01:05<00:11,  2.16it/s][A
- 85%|████████▌ | 138/162 [01:06<00:10,  2.24it/s][A
- 86%|████████▌ | 139/162 [01:06<00:09,  2.33it/s][A
- 86%|████████▋ | 140/162 [01:07<00:09,  2.43it/s][A
- 87%|████████▋ | 141/162 [01:07<00:08,  2.36it/s][A
- 88%|████████▊ | 142/162 [01:08<00:08,  2.32it/s][A
- 88%|████████▊ | 143/162 [01:08<00:08,  2.29it/s][A
- 89%|████████▉ | 144/162 [01:08<00:08,  2.21it/s][A
- 90%|████████▉ | 145/162 [01:09<00:07,  2.25it/s][A
- 90%|█████████ | 146/162 [01:09<00:06,  2.34it/s][A
- 91%|█████████ | 147/162 [01:10<00:07,  1.95it/s][A
- 91%|█████████▏| 148/162 [01:10<00:06,  2.03it/s][A
- 92%|█████████▏| 149/162 [01:11<00:05,  2.17it/s][A
- 93%|█████████▎| 150/162 [01:11<00:05,  2.20it/s][A
- 93%|█████████▎| 151/162 [01:12<00:04,  2.25it/s][A
- 94%|█████████▍| 152/162 [01:12<00:04,  2.11it/s][A
- 94%|█████████▍| 153/162 [01:13<00:04,  2.18it/s][A
- 95%|█████████▌| 154/162 [01:13<00:03,  2.26it/s][A
- 96%|█████████▌| 155/162 [01:14<00:03,  2.21it/s][A
- 96%|█████████▋| 156/162 [01:14<00:02,  2.34it/s][A
- 97%|█████████▋| 157/162 [01:15<00:02,  2.03it/s][A
- 98%|█████████▊| 158/162 [01:15<00:01,  2.17it/s][A
- 98%|█████████▊| 159/162 [01:15<00:01,  2.22it/s][A
- 99%|█████████▉| 160/162 [01:16<00:00,  2.26it/s][A
- 99%|█████████▉| 161/162 [01:16<00:00,  2.22it/s][A
-100%|██████████| 162/162 [01:17<00:00,  2.49it/s][A                                                 
-                                                 [A 88%|████████▊ | 80/91 [1:35:06<10:05, 55.07s/it]
-100%|██████████| 162/162 [01:17<00:00,  2.49it/s][A
-                                                 [A[INFO|trainer.py:3801] 2025-01-15 01:20:38,728 >> Saving model checkpoint to saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-80
-[INFO|configuration_utils.py:679] 2025-01-15 01:20:39,278 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
-[INFO|configuration_utils.py:746] 2025-01-15 01:20:39,279 >> Model config LlamaConfig {
-  "architectures": [
-    "LlamaForCausalLM"
-  ],
-  "attention_bias": false,
-  "attention_dropout": 0.0,
-  "bos_token_id": 128000,
-  "eos_token_id": [
-    128001,
-    128008,
-    128009
-  ],
-  "head_dim": 128,
-  "hidden_act": "silu",
-  "hidden_size": 4096,
-  "initializer_range": 0.02,
-  "intermediate_size": 14336,
-  "max_position_embeddings": 131072,
-  "mlp_bias": false,
-  "model_type": "llama",
-  "num_attention_heads": 32,
-  "num_hidden_layers": 32,
-  "num_key_value_heads": 8,
-  "pretraining_tp": 1,
-  "rms_norm_eps": 1e-05,
-  "rope_scaling": {
-    "factor": 8.0,
-    "high_freq_factor": 4.0,
-    "low_freq_factor": 1.0,
-    "original_max_position_embeddings": 8192,
-    "rope_type": "llama3"
-  },
-  "rope_theta": 500000.0,
-  "tie_word_embeddings": false,
-  "torch_dtype": "bfloat16",
-  "transformers_version": "4.46.1",
-  "use_cache": true,
-  "vocab_size": 128256
-}
-
-[INFO|tokenization_utils_base.py:2646] 2025-01-15 01:20:39,891 >> tokenizer config file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-80/tokenizer_config.json
-[INFO|tokenization_utils_base.py:2655] 2025-01-15 01:20:39,893 >> Special tokens file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10/checkpoint-80/special_tokens_map.json
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
-/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.bfloat16 to float16 during quantization
-  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
- 89%|████████▉ | 81/91 [1:36:13<13:37, 81.78s/it] 90%|█████████ | 82/91 [1:37:07<11:02, 73.63s/it] 91%|█████████ | 83/91 [1:38:16<09:36, 72.10s/it] 92%|█████████▏| 84/91 [1:39:19<08:05, 69.38s/it] 93%|█████████▎| 85/91 [1:40:47<07:30, 75.10s/it] 95%|█████████▍| 86/91 [1:41:44<05:47, 69.47s/it] 96%|█████████▌| 87/91 [1:43:03<04:50, 72.54s/it] 97%|█████████▋| 88/91 [1:43:55<03:19, 66.33s/it]Traceback (most recent call last):
-  File "/home/ivieira/miniconda3/envs/lf-env/bin/llamafactory-cli", line 8, in <module>
-    sys.exit(main())
-             ^^^^^^
-  File "/home/ivieira/LLaMA-Factory/src/llamafactory/cli.py", line 112, in main
-    run_exp()
-  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/tuner.py", line 92, in run_exp
-    _training_function(config={"args": args, "callbacks": callbacks})
-  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/tuner.py", line 66, in _training_function
-    run_sft(model_args, data_args, training_args, finetuning_args, generating_args, callbacks)
-  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/sft/workflow.py", line 101, in run_sft
-    train_result = trainer.train(resume_from_checkpoint=training_args.resume_from_checkpoint)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/trainer.py", line 2122, in train
-    return inner_training_loop(
-           ^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/trainer.py", line 2474, in _inner_training_loop
-    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
-                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/trainer.py", line 3572, in training_step
-    loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/sft/trainer.py", line 98, in compute_loss
-    loss = super().compute_loss(model, inputs, return_outputs, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/trainer.py", line 3625, in compute_loss
-    outputs = model(**inputs)
-              ^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/accelerate/utils/operations.py", line 820, in forward
-    return model_forward(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/accelerate/utils/operations.py", line 808, in __call__
-    return convert_to_fp32(self.model_forward(*args, **kwargs))
-                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/amp/autocast_mode.py", line 44, in decorate_autocast
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/peft/peft_model.py", line 1577, in forward
-    return self.base_model(
-           ^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/peft/tuners/tuners_utils.py", line 188, in forward
-    return self.model.forward(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/accelerate/hooks.py", line 170, in new_forward
-    output = module._old_forward(*args, **kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 1214, in forward
-    loss = self.loss_function(logits=logits, labels=labels, vocab_size=self.config.vocab_size, **loss_kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/loss/loss_utils.py", line 46, in ForCausalLMLoss
-    loss = fixed_cross_entropy(shift_logits, shift_labels, num_items_in_batch, ignore_index, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/loss/loss_utils.py", line 26, in fixed_cross_entropy
-    loss = nn.functional.cross_entropy(source, target, ignore_index=ignore_index, reduction=reduction)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/functional.py", line 3479, in cross_entropy
-    return torch._C._nn.cross_entropy_loss(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 13.07 GiB. GPU 0 has a total capacity of 79.26 GiB of which 2.96 GiB is free. Including non-PyTorch memory, this process has 76.29 GiB memory in use. Of the allocated memory 58.16 GiB is allocated by PyTorch, and 17.62 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
-wandb: Currently logged in as: inaciovieira (inaciovieira-alpha-crc). Use `wandb login --relogin` to force relogin
-wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
-wandb: Tracking run with wandb version 0.19.2
-wandb: Run data is saved locally in /home/ivieira/LLaMA-Factory/wandb/run-20250115_012958-t4h9hcyt
-wandb: Run `wandb offline` to turn off syncing.
-wandb: Resuming run train_2025-01-14-23-45-10
-wandb: ⭐️ View project at https://wandb.ai/inaciovieira-alpha-crc/llamafactory
-wandb: 🚀 View run at https://wandb.ai/inaciovieira-alpha-crc/llamafactory/runs/t4h9hcyt
-Traceback (most recent call last):
-  File "/home/ivieira/chicago2/HP_FT_TM/inference_eval.py", line 52, in <module>
-    tokenizer = AutoTokenizer.from_pretrained(model_dir, use_fast=False)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/models/auto/tokenization_auto.py", line 877, in from_pretrained
-    config = AutoConfig.from_pretrained(
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/models/auto/configuration_auto.py", line 1049, in from_pretrained
-    raise ValueError(
-ValueError: Unrecognized model in /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10. Should have a `model_type` key in its config.json, or contain one of the following strings in its name: albert, align, altclip, audio-spectrogram-transformer, autoformer, bark, bart, beit, bert, bert-generation, big_bird, bigbird_pegasus, biogpt, bit, blenderbot, blenderbot-small, blip, blip-2, bloom, bridgetower, bros, camembert, canine, chameleon, chinese_clip, chinese_clip_vision_model, clap, clip, clip_text_model, clip_vision_model, clipseg, clvp, code_llama, codegen, cohere, conditional_detr, convbert, convnext, convnextv2, cpmant, ctrl, cvt, dac, data2vec-audio, data2vec-text, data2vec-vision, dbrx, deberta, deberta-v2, decision_transformer, deformable_detr, deit, depth_anything, deta, detr, dinat, dinov2, distilbert, donut-swin, dpr, dpt, efficientformer, efficientnet, electra, encodec, encoder-decoder, ernie, ernie_m, esm, falcon, falcon_mamba, fastspeech2_conformer, flaubert, flava, fnet, focalnet, fsmt, funnel, fuyu, gemma, gemma2, git, glm, glpn, gpt-sw3, gpt2, gpt_bigcode, gpt_neo, gpt_neox, gpt_neox_japanese, gptj, gptsan-japanese, granite, granitemoe, graphormer, grounding-dino, groupvit, hiera, hubert, ibert, idefics, idefics2, idefics3, imagegpt, informer, instructblip, instructblipvideo, jamba, jetmoe, jukebox, kosmos-2, layoutlm, layoutlmv2, layoutlmv3, led, levit, lilt, llama, llava, llava_next, llava_next_video, llava_onevision, longformer, longt5, luke, lxmert, m2m_100, mamba, mamba2, marian, markuplm, mask2former, maskformer, maskformer-swin, mbart, mctct, mega, megatron-bert, mgp-str, mimi, mistral, mixtral, mllama, mobilebert, mobilenet_v1, mobilenet_v2, mobilevit, mobilevitv2, moshi, mpnet, mpt, mra, mt5, musicgen, musicgen_melody, mvp, nat, nemotron, nezha, nllb-moe, nougat, nystromformer, olmo, olmoe, omdet-turbo, oneformer, open-llama, openai-gpt, opt, owlv2, owlvit, paligemma, patchtsmixer, patchtst, pegasus, pegasus_x, perceiver, persimmon, phi, phi3, phimoe, pix2struct, pixtral, plbart, poolformer, pop2piano, prophetnet, pvt, pvt_v2, qdqbert, qwen2, qwen2_audio, qwen2_audio_encoder, qwen2_moe, qwen2_vl, rag, realm, recurrent_gemma, reformer, regnet, rembert, resnet, retribert, roberta, roberta-prelayernorm, roc_bert, roformer, rt_detr, rt_detr_resnet, rwkv, sam, seamless_m4t, seamless_m4t_v2, segformer, seggpt, sew, sew-d, siglip, siglip_vision_model, speech-encoder-decoder, speech_to_text, speech_to_text_2, speecht5, splinter, squeezebert, stablelm, starcoder2, superpoint, swiftformer, swin, swin2sr, swinv2, switch_transformers, t5, table-transformer, tapas, time_series_transformer, timesformer, timm_backbone, trajectory_transformer, transfo-xl, trocr, tvlt, tvp, udop, umt5, unispeech, unispeech-sat, univnet, upernet, van, video_llava, videomae, vilt, vipllava, vision-encoder-decoder, vision-text-dual-encoder, visual_bert, vit, vit_hybrid, vit_mae, vit_msn, vitdet, vitmatte, vits, vivit, wav2vec2, wav2vec2-bert, wav2vec2-conformer, wavlm, whisper, xclip, xglm, xlm, xlm-prophetnet, xlm-roberta, xlm-roberta-xl, xlnet, xmod, yolos, yoso, zamba, zoedepth
