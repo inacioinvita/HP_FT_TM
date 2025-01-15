@@ -64,16 +64,30 @@ with open(test_dataset_path, "r") as f:
 def extract_translation(output_text):
     """Extract translation from model output."""
     try:
-        # Find the last JSON object in the text
+        # Print full output for debugging
+        print("Raw output:", output_text)
+        
+        # Try to find JSON-like structure
         json_start = output_text.rfind("{")
         json_end = output_text.find("}", json_start) + 1
         if json_start != -1 and json_end != -1:
-            response = json.loads(output_text[json_start:json_end])
+            json_str = output_text[json_start:json_end]
+            print("Found JSON:", json_str)
+            
+            response = json.loads(json_str)
             translation = response.get("translation", "").strip()
             if translation:
                 return translation
             else:
                 print(f"No translation found in response: {response}")
+        else:
+            print("No JSON structure found in output")
+            
+            # Fallback: try to extract text after the input
+            lines = output_text.split('\n')
+            if len(lines) > 0:
+                return lines[-1].strip()
+                
     except Exception as e:
         print(f"Error extracting translation: {e}")
         print(f"Raw output: {output_text}")
@@ -136,6 +150,8 @@ comet_model = load_from_checkpoint(comet_model_path)
 comet_data = [{"src": s, "mt": t, "ref": r} for s, t, r in zip(sources, predictions, references)]
 comet_scores = comet_model.predict(comet_data, batch_size=8, gpus=1)
 
+# Convert COMET scores to float
+comet_scores = [float(score) for score in comet_scores]
 avg_comet = sum(comet_scores)/len(comet_scores) if comet_scores else 0.0
 
 with open(os.path.join(output_dir, "comet_scores.txt"), "w") as f:
