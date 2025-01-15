@@ -49,7 +49,7 @@ output_dir = os.path.join(base_dir, "evaluation/autoeval", os.path.basename(mode
 os.makedirs(output_dir, exist_ok=True)
 
 # Load model and tokenizer
-tokenizer = LlamaTokenizer.from_pretrained(model_dir, use_fast=False)
+tokenizer = AutoTokenizer.from_pretrained(model_dir)
 model = LlamaForCausalLM.from_pretrained(
     model_dir,
     device_map="auto",
