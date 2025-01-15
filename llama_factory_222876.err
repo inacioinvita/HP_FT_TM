@@ -1,0 +1,248 @@
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 23.5.2
+  latest version: 24.11.3
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+Or to minimize the number of packages updated during conda update use
+
+     conda install conda=24.11.3
+
+
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 23.5.2
+  latest version: 24.11.3
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+Or to minimize the number of packages updated during conda update use
+
+     conda install conda=24.11.3
+
+
+Cloning into 'LLaMA-Factory'...
+[INFO|configuration_utils.py:679] 2025-01-10 20:09:14,406 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--unsloth--llama-3-8b-Instruct-bnb-4bit/snapshots/fd5a4dc328319c1cfe9489eccfb9c6406bdfd469/config.json
+[INFO|configuration_utils.py:746] 2025-01-10 20:09:14,408 >> Model config LlamaConfig {
+  "_name_or_path": "unsloth/llama-3-8b-Instruct-bnb-4bit",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "eos_token_id": 128009,
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 8192,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pad_token_id": 128255,
+  "pretraining_tp": 1,
+  "quantization_config": {
+    "_load_in_4bit": true,
+    "_load_in_8bit": false,
+    "bnb_4bit_compute_dtype": "bfloat16",
+    "bnb_4bit_quant_storage": "uint8",
+    "bnb_4bit_quant_type": "nf4",
+    "bnb_4bit_use_double_quant": true,
+    "llm_int8_enable_fp32_cpu_offload": false,
+    "llm_int8_has_fp16_weight": false,
+    "llm_int8_skip_modules": null,
+    "llm_int8_threshold": 6.0,
+    "load_in_4bit": true,
+    "load_in_8bit": false,
+    "quant_method": "bitsandbytes"
+  },
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.46.1",
+  "unsloth_version": "2024.9",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[INFO|tokenization_utils_base.py:2211] 2025-01-10 20:09:14,525 >> loading file tokenizer.json from cache at /home/ivieira/.cache/huggingface/hub/models--unsloth--llama-3-8b-Instruct-bnb-4bit/snapshots/fd5a4dc328319c1cfe9489eccfb9c6406bdfd469/tokenizer.json
+[INFO|tokenization_utils_base.py:2211] 2025-01-10 20:09:14,525 >> loading file tokenizer.model from cache at None
+[INFO|tokenization_utils_base.py:2211] 2025-01-10 20:09:14,525 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2211] 2025-01-10 20:09:14,525 >> loading file special_tokens_map.json from cache at /home/ivieira/.cache/huggingface/hub/models--unsloth--llama-3-8b-Instruct-bnb-4bit/snapshots/fd5a4dc328319c1cfe9489eccfb9c6406bdfd469/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2211] 2025-01-10 20:09:14,526 >> loading file tokenizer_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--unsloth--llama-3-8b-Instruct-bnb-4bit/snapshots/fd5a4dc328319c1cfe9489eccfb9c6406bdfd469/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2475] 2025-01-10 20:09:14,998 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|configuration_utils.py:679] 2025-01-10 20:09:15,388 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--unsloth--llama-3-8b-Instruct-bnb-4bit/snapshots/fd5a4dc328319c1cfe9489eccfb9c6406bdfd469/config.json
+[INFO|configuration_utils.py:746] 2025-01-10 20:09:15,390 >> Model config LlamaConfig {
+  "_name_or_path": "unsloth/llama-3-8b-Instruct-bnb-4bit",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "eos_token_id": 128009,
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 8192,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pad_token_id": 128255,
+  "pretraining_tp": 1,
+  "quantization_config": {
+    "_load_in_4bit": true,
+    "_load_in_8bit": false,
+    "bnb_4bit_compute_dtype": "bfloat16",
+    "bnb_4bit_quant_storage": "uint8",
+    "bnb_4bit_quant_type": "nf4",
+    "bnb_4bit_use_double_quant": true,
+    "llm_int8_enable_fp32_cpu_offload": false,
+    "llm_int8_has_fp16_weight": false,
+    "llm_int8_skip_modules": null,
+    "llm_int8_threshold": 6.0,
+    "load_in_4bit": true,
+    "load_in_8bit": false,
+    "quant_method": "bitsandbytes"
+  },
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.46.1",
+  "unsloth_version": "2024.9",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[INFO|tokenization_utils_base.py:2211] 2025-01-10 20:09:15,495 >> loading file tokenizer.json from cache at /home/ivieira/.cache/huggingface/hub/models--unsloth--llama-3-8b-Instruct-bnb-4bit/snapshots/fd5a4dc328319c1cfe9489eccfb9c6406bdfd469/tokenizer.json
+[INFO|tokenization_utils_base.py:2211] 2025-01-10 20:09:15,495 >> loading file tokenizer.model from cache at None
+[INFO|tokenization_utils_base.py:2211] 2025-01-10 20:09:15,495 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2211] 2025-01-10 20:09:15,495 >> loading file special_tokens_map.json from cache at /home/ivieira/.cache/huggingface/hub/models--unsloth--llama-3-8b-Instruct-bnb-4bit/snapshots/fd5a4dc328319c1cfe9489eccfb9c6406bdfd469/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2211] 2025-01-10 20:09:15,495 >> loading file tokenizer_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--unsloth--llama-3-8b-Instruct-bnb-4bit/snapshots/fd5a4dc328319c1cfe9489eccfb9c6406bdfd469/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2475] 2025-01-10 20:09:15,945 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 91 examples [00:00, 3428.84 examples/s]
+Converting format of dataset:   0%|          | 0/50 [00:00<?, ? examples/s]Converting format of dataset: 100%|██████████| 50/50 [00:00<00:00, 3371.03 examples/s]
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 1000 examples [00:00, 30945.14 examples/s]
+Converting format of dataset:   0%|          | 0/50 [00:00<?, ? examples/s]Converting format of dataset: 100%|██████████| 50/50 [00:00<00:00, 2632.17 examples/s]
+Running tokenizer on dataset:   0%|          | 0/100 [00:00<?, ? examples/s]Running tokenizer on dataset: 100%|██████████| 100/100 [00:00<00:00, 2247.52 examples/s]
+[INFO|configuration_utils.py:679] 2025-01-10 20:09:16,971 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--unsloth--llama-3-8b-Instruct-bnb-4bit/snapshots/fd5a4dc328319c1cfe9489eccfb9c6406bdfd469/config.json
+[INFO|configuration_utils.py:746] 2025-01-10 20:09:16,973 >> Model config LlamaConfig {
+  "_name_or_path": "unsloth/llama-3-8b-Instruct-bnb-4bit",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "eos_token_id": 128009,
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 8192,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pad_token_id": 128255,
+  "pretraining_tp": 1,
+  "quantization_config": {
+    "_load_in_4bit": true,
+    "_load_in_8bit": false,
+    "bnb_4bit_compute_dtype": "bfloat16",
+    "bnb_4bit_quant_storage": "uint8",
+    "bnb_4bit_quant_type": "nf4",
+    "bnb_4bit_use_double_quant": true,
+    "llm_int8_enable_fp32_cpu_offload": false,
+    "llm_int8_has_fp16_weight": false,
+    "llm_int8_skip_modules": null,
+    "llm_int8_threshold": 6.0,
+    "load_in_4bit": true,
+    "load_in_8bit": false,
+    "quant_method": "bitsandbytes"
+  },
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.46.1",
+  "unsloth_version": "2024.9",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[WARNING|quantization_config.py:415] 2025-01-10 20:09:17,093 >> Unused kwargs: ['_load_in_4bit', '_load_in_8bit', 'quant_method']. These kwargs are not used in <class 'transformers.utils.quantization_config.BitsAndBytesConfig'>.
+[INFO|modeling_utils.py:3937] 2025-01-10 20:11:56,319 >> loading weights file model.safetensors from cache at /home/ivieira/.cache/huggingface/hub/models--unsloth--llama-3-8b-Instruct-bnb-4bit/snapshots/fd5a4dc328319c1cfe9489eccfb9c6406bdfd469/model.safetensors
+[INFO|modeling_utils.py:1670] 2025-01-10 20:11:56,405 >> Instantiating LlamaForCausalLM model under default dtype torch.float16.
+[INFO|configuration_utils.py:1096] 2025-01-10 20:11:56,409 >> Generate config GenerationConfig {
+  "bos_token_id": 128000,
+  "eos_token_id": 128009,
+  "pad_token_id": 128255
+}
+
+[INFO|modeling_utils.py:4800] 2025-01-10 20:11:59,656 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+[INFO|modeling_utils.py:4808] 2025-01-10 20:11:59,656 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at unsloth/llama-3-8b-Instruct-bnb-4bit.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:1051] 2025-01-10 20:11:59,876 >> loading configuration file generation_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--unsloth--llama-3-8b-Instruct-bnb-4bit/snapshots/fd5a4dc328319c1cfe9489eccfb9c6406bdfd469/generation_config.json
+[INFO|configuration_utils.py:1096] 2025-01-10 20:11:59,876 >> Generate config GenerationConfig {
+  "bos_token_id": 128000,
+  "do_sample": true,
+  "eos_token_id": [
+    128001,
+    128009
+  ],
+  "max_length": 8192,
+  "pad_token_id": 128255,
+  "temperature": 0.6,
+  "top_p": 0.9
+}
+
+Traceback (most recent call last):
+  File "/home/ivieira/anaconda3/envs/llama-env/bin/llamafactory-cli", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/cli.py", line 112, in main
+    run_exp()
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/tuner.py", line 92, in run_exp
+    _training_function(config={"args": args, "callbacks": callbacks})
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/tuner.py", line 66, in _training_function
+    run_sft(model_args, data_args, training_args, finetuning_args, generating_args, callbacks)
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/sft/workflow.py", line 82, in run_sft
+    trainer = CustomSeq2SeqTrainer(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/sft/trainer.py", line 59, in __init__
+    super().__init__(**kwargs)
+  File "/home/ivieira/anaconda3/envs/llama-env/lib/python3.11/site-packages/transformers/utils/deprecation.py", line 165, in wrapped_func
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/anaconda3/envs/llama-env/lib/python3.11/site-packages/transformers/trainer_seq2seq.py", line 72, in __init__
+    super().__init__(
+  File "/home/ivieira/anaconda3/envs/llama-env/lib/python3.11/site-packages/transformers/utils/deprecation.py", line 165, in wrapped_func
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/anaconda3/envs/llama-env/lib/python3.11/site-packages/transformers/trainer.py", line 501, in __init__
+    raise ImportError(
+ImportError: You have set `use_liger_kernel` to `True` but liger-kernel >= 0.3.0 is not available. Please install it with `pip install liger-kernel`

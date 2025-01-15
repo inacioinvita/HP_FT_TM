@@ -1,0 +1,11 @@
+CUDA available? True
+Device count: 1
+[INFO|2025-01-15 14:20:08] llamafactory.hparams.parser:373 >> Process rank: 0, device: cuda:0, n_gpu: 1, distributed training: False, compute dtype: torch.bfloat16
+[INFO|2025-01-15 14:20:11] llamafactory.data.template:157 >> Add pad token: <|eot_id|>
+[INFO|2025-01-15 14:20:11] llamafactory.data.template:157 >> Add <|eot_id|>,<|eom_id|> to stop words.
+[INFO|2025-01-15 14:20:11] llamafactory.data.loader:157 >> Loading dataset BALS_de_train_dataset.json...
+----------------------------------------
+Model and evaluation paths:
+Model path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-15-14-19-50
+Evaluation output: /home/ivieira/LLaMA-Factory/evaluation/autoeval/train_2025-01-15-14-19-50
+----------------------------------------

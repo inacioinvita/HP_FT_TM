@@ -1,0 +1,31 @@
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 24.11.2
+    latest version: 24.11.3
+
+Please update conda by running
+
+    $ conda update -n base -c conda-forge conda
+
+
+
+SafetyError: The package for ld_impl_linux-64 located at /home/ivieira/mambaforge/pkgs/ld_impl_linux-64-2.43-h712a8e2_2
+appears to be corrupted. The path 'bin/x86_64-conda-linux-gnu-ld'
+has an incorrect size.
+  reported size: 3318336 bytes
+  actual size: 0 bytes
+
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+unbabel-comet 2.2.4 requires torchmetrics<0.11.0,>=0.10.2, but you have torchmetrics 1.5.2 which is incompatible.
+ERROR: Could not install packages due to an OSError: [Errno 2] No such file or directory: '/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/typing_extensions-4.12.2.dist-info/METADATA'
+
+Traceback (most recent call last):
+  File "run_llama_factory.py", line 34, in <module>
+    main()
+  File "run_llama_factory.py", line 18, in main
+    subprocess.run([sys.executable, "-m", "pip", "install", "-e", ".[torch,bitsandbytes]"], check=True)
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/home/ivieira/mambaforge/envs/llama-env/bin/python', '-m', 'pip', 'install', '-e', '.[torch,bitsandbytes]']' returned non-zero exit status 1.

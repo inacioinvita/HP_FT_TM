@@ -1,0 +1,111 @@
+Traceback (most recent call last):
+  File "/home/ivieira/miniconda3/envs/lf-env/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.5.1', 'console_scripts', 'torchrun')())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/run.py", line 919, in main
+    run(args)
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/run.py", line 910, in run
+    elastic_launch(
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 260, in launch_agent
+    result = agent.run()
+             ^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/metrics/api.py", line 137, in wrapper
+    result = f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/agent/server/api.py", line 696, in run
+    result = self._invoke_run(role)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/agent/server/api.py", line 849, in _invoke_run
+    self._initialize_workers(self._worker_group)
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/metrics/api.py", line 137, in wrapper
+    result = f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/agent/server/api.py", line 668, in _initialize_workers
+    self._rendezvous(worker_group)
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/metrics/api.py", line 137, in wrapper
+    result = f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/agent/server/api.py", line 500, in _rendezvous
+    rdzv_info = spec.rdzv_handler.next_rendezvous()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/rendezvous/static_tcp_rendezvous.py", line 67, in next_rendezvous
+    self._store = TCPStore(  # type: ignore[call-arg]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: The server socket has failed to listen on any local network address. port: 41247, useIpv6: 0, code: -98, name: EADDRINUSE, message: address already in use
+E0114 14:24:57.419000 81667 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 81674) of binary: /home/ivieira/miniconda3/envs/lf-env/bin/python
+E0114 14:24:57.443000 81667 site-packages/torch/distributed/elastic/multiprocessing/errors/error_handler.py:141] no error file defined for parent, to copy child error file (/tmp/torchelastic_1_2bq500/57322256-3c54-4a43-945f-3dcd8870957e_icu8rhb5/attempt_0/0/error.json)
+Traceback (most recent call last):
+  File "/home/ivieira/miniconda3/envs/lf-env/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.5.1', 'console_scripts', 'torchrun')())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/run.py", line 919, in main
+    run(args)
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/run.py", line 910, in run
+    elastic_launch(
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/home/ivieira/miniconda3/envs/lf-env/bin/llamafactory-cli FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-01-14_14:24:56
+  host      : g129.grove.adaptcentre.ie
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 81674)
+  error_file: /tmp/torchelastic_1_2bq500/57322256-3c54-4a43-945f-3dcd8870957e_icu8rhb5/attempt_0/0/error.json
+  traceback : Traceback (most recent call last):
+    File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+      return f(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^
+    File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/run.py", line 919, in main
+      run(args)
+    File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/run.py", line 910, in run
+      elastic_launch(
+    File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+      return launch_agent(self._config, self._entrypoint, list(args))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 260, in launch_agent
+      result = agent.run()
+               ^^^^^^^^^^^
+    File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/metrics/api.py", line 137, in wrapper
+      result = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+    File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/agent/server/api.py", line 696, in run
+      result = self._invoke_run(role)
+               ^^^^^^^^^^^^^^^^^^^^^^
+    File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/agent/server/api.py", line 849, in _invoke_run
+      self._initialize_workers(self._worker_group)
+    File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/metrics/api.py", line 137, in wrapper
+      result = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+    File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/agent/server/api.py", line 668, in _initialize_workers
+      self._rendezvous(worker_group)
+    File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/metrics/api.py", line 137, in wrapper
+      result = f(*args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^
+    File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/agent/server/api.py", line 500, in _rendezvous
+      rdzv_info = spec.rdzv_handler.next_rendezvous()
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/rendezvous/static_tcp_rendezvous.py", line 67, in next_rendezvous
+      self._store = TCPStore(  # type: ignore[call-arg]
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  RuntimeError: The server socket has failed to listen on any local network address. port: 41247, useIpv6: 0, code: -98, name: EADDRINUSE, message: address already in use
+  
+============================================================

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/ivieira/chicago2/HP_FT_TM/mlruns/0/bab00e9852964ddb81bfc6dbc7c671c9/artifacts
+end_time: 1736250652108
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: bab00e9852964ddb81bfc6dbc7c671c9
+run_name: /home/ivieira/chicago2/models/fine_tuned_models
+run_uuid: bab00e9852964ddb81bfc6dbc7c671c9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1736250651052
+status: 3
+tags: []
+user_id: ivieira

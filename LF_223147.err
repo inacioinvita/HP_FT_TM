@@ -1,0 +1,398 @@
+W0114 08:11:30.360000 61992 site-packages/torch/distributed/run.py:793] 
+W0114 08:11:30.360000 61992 site-packages/torch/distributed/run.py:793] *****************************************
+W0114 08:11:30.360000 61992 site-packages/torch/distributed/run.py:793] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0114 08:11:30.360000 61992 site-packages/torch/distributed/run.py:793] *****************************************
+[INFO|configuration_utils.py:679] 2025-01-14 08:11:34,656 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
+[INFO|configuration_utils.py:746] 2025-01-14 08:11:34,657 >> Model config LlamaConfig {
+  "_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.46.1",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 08:11:34,996 >> loading file tokenizer.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer.json
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 08:11:34,996 >> loading file tokenizer.model from cache at None
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 08:11:34,996 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 08:11:34,996 >> loading file special_tokens_map.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 08:11:34,996 >> loading file tokenizer_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2475] 2025-01-14 08:11:35,349 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|configuration_utils.py:679] 2025-01-14 08:11:36,441 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
+[INFO|configuration_utils.py:746] 2025-01-14 08:11:36,443 >> Model config LlamaConfig {
+  "_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.46.1",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 08:11:36,700 >> loading file tokenizer.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer.json
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 08:11:36,700 >> loading file tokenizer.model from cache at None
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 08:11:36,700 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 08:11:36,700 >> loading file special_tokens_map.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 08:11:36,700 >> loading file tokenizer_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer_config.json
+[rank1]:[W114 08:11:36.034468761 ProcessGroupNCCL.cpp:4115] [PG ID 0 PG GUID 0 Rank 1]  using GPU 1 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+[INFO|tokenization_utils_base.py:2475] 2025-01-14 08:11:37,064 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[rank0]:[W114 08:11:37.755700844 ProcessGroupNCCL.cpp:4115] [PG ID 0 PG GUID 0 Rank 0]  using GPU 0 to perform barrier as devices used by this process are currently unknown. This can potentially cause a hang if this rank to GPU mapping is incorrect.Specify device_ids in barrier() to force use of a particular device,or call init_process_group() with a device_id.
+[INFO|configuration_utils.py:679] 2025-01-14 08:11:39,055 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
+[INFO|configuration_utils.py:746] 2025-01-14 08:11:39,056 >> Model config LlamaConfig {
+  "_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.46.1",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[INFO|modeling_utils.py:3937] 2025-01-14 08:11:39,133 >> loading weights file model.safetensors from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/model.safetensors.index.json
+[INFO|modeling_utils.py:1670] 2025-01-14 08:11:39,134 >> Instantiating LlamaForCausalLM model under default dtype torch.bfloat16.
+[INFO|configuration_utils.py:1096] 2025-01-14 08:11:39,135 >> Generate config GenerationConfig {
+  "bos_token_id": 128000,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ]
+}
+
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:04<00:12,  4.13s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:04<00:12,  4.13s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:08<00:08,  4.34s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:08<00:08,  4.36s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:13<00:04,  4.41s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:13<00:04,  4.42s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:13<00:00,  2.92s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:13<00:00,  3.44s/it]
+[INFO|modeling_utils.py:4800] 2025-01-14 08:11:53,013 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+[INFO|modeling_utils.py:4808] 2025-01-14 08:11:53,013 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at meta-llama/Meta-Llama-3.1-8B-Instruct.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+Loading checkpoint shards: 100%|██████████| 4/4 [00:13<00:00,  2.92s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:13<00:00,  3.44s/it]
+[INFO|configuration_utils.py:1051] 2025-01-14 08:11:53,202 >> loading configuration file generation_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/generation_config.json
+[INFO|configuration_utils.py:1096] 2025-01-14 08:11:53,202 >> Generate config GenerationConfig {
+  "bos_token_id": 128000,
+  "do_sample": true,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "temperature": 0.6,
+  "top_p": 0.9
+}
+
+[INFO|trainer.py:698] 2025-01-14 08:11:55,795 >> Using auto half precision backend
+[INFO|trainer.py:2313] 2025-01-14 08:11:56,106 >> ***** Running training *****
+[INFO|trainer.py:2314] 2025-01-14 08:11:56,106 >>   Num examples = 23,270
+[INFO|trainer.py:2315] 2025-01-14 08:11:56,106 >>   Num Epochs = 1
+[INFO|trainer.py:2316] 2025-01-14 08:11:56,106 >>   Instantaneous batch size per device = 32
+[INFO|trainer.py:2319] 2025-01-14 08:11:56,106 >>   Total train batch size (w. parallel, distributed & accumulation) = 512
+[INFO|trainer.py:2320] 2025-01-14 08:11:56,106 >>   Gradient Accumulation steps = 8
+[INFO|trainer.py:2321] 2025-01-14 08:11:56,106 >>   Total optimization steps = 45
+[INFO|trainer.py:2322] 2025-01-14 08:11:56,110 >>   Number of trainable parameters = 335,544,320
+[INFO|integration_utils.py:812] 2025-01-14 08:11:56,117 >> Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+wandb: Currently logged in as: inaciovieira (inaciovieira-alpha-crc). Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.2
+wandb: Run data is saved locally in /home/ivieira/LLaMA-Factory/wandb/run-20250114_081156-g9y5a3f0
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run train_2025-01-14-08-11-22
+wandb: ⭐️ View project at https://wandb.ai/inaciovieira-alpha-crc/llamafactory
+wandb: 🚀 View run at https://wandb.ai/inaciovieira-alpha-crc/llamafactory/runs/g9y5a3f0
+  0%|          | 0/45 [00:00<?, ?it/s]/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.bfloat16 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.bfloat16 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+  2%|▏         | 1/45 [01:02<45:37, 62.22s/it]  4%|▍         | 2/45 [02:21<51:48, 72.29s/it]  7%|▋         | 3/45 [03:26<48:23, 69.13s/it]  9%|▉         | 4/45 [04:56<52:50, 77.32s/it] 11%|█         | 5/45 [05:57<47:35, 71.40s/it] 13%|█▎        | 6/45 [07:12<47:14, 72.67s/it] 16%|█▌        | 7/45 [08:22<45:25, 71.71s/it] 18%|█▊        | 8/45 [09:47<46:51, 75.99s/it] 20%|██        | 9/45 [10:51<43:13, 72.04s/it]Traceback (most recent call last):
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/launcher.py", line 23, in <module>
+    launch()
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/launcher.py", line 19, in launch
+    run_exp()
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/tuner.py", line 92, in run_exp
+    _training_function(config={"args": args, "callbacks": callbacks})
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/tuner.py", line 66, in _training_function
+    run_sft(model_args, data_args, training_args, finetuning_args, generating_args, callbacks)
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/sft/workflow.py", line 101, in run_sft
+    train_result = trainer.train(resume_from_checkpoint=training_args.resume_from_checkpoint)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/trainer.py", line 2122, in train
+    return inner_training_loop(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/trainer.py", line 2474, in _inner_training_loop
+    tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/trainer.py", line 3572, in training_step
+    loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/sft/trainer.py", line 98, in compute_loss
+    loss = super().compute_loss(model, inputs, return_outputs, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/trainer.py", line 3625, in compute_loss
+    outputs = model(**inputs)
+              ^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1643, in forward
+    else self._run_ddp_forward(*inputs, **kwargs)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1459, in _run_ddp_forward
+    return self.module(*inputs, **kwargs)  # type: ignore[index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/accelerate/utils/operations.py", line 820, in forward
+    return model_forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/accelerate/utils/operations.py", line 808, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/amp/autocast_mode.py", line 44, in decorate_autocast
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/peft/peft_model.py", line 1577, in forward
+    return self.base_model(
+           ^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/peft/tuners/tuners_utils.py", line 188, in forward
+    return self.model.forward(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 1214, in forward
+    loss = self.loss_function(logits=logits, labels=labels, vocab_size=self.config.vocab_size, **loss_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/loss/loss_utils.py", line 46, in ForCausalLMLoss
+    loss = fixed_cross_entropy(shift_logits, shift_labels, num_items_in_batch, ignore_index, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/loss/loss_utils.py", line 26, in fixed_cross_entropy
+    loss = nn.functional.cross_entropy(source, target, ignore_index=ignore_index, reduction=reduction)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/functional.py", line 3479, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 13.07 GiB. GPU 0 has a total capacity of 79.26 GiB of which 8.46 GiB is free. Including non-PyTorch memory, this process has 70.78 GiB memory in use. Of the allocated memory 61.01 GiB is allocated by PyTorch, and 8.40 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/ivieira/LLaMA-Factory/src/llamafactory/launcher.py", line 23, in <module>
+[rank0]:     launch()
+[rank0]:   File "/home/ivieira/LLaMA-Factory/src/llamafactory/launcher.py", line 19, in launch
+[rank0]:     run_exp()
+[rank0]:   File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/tuner.py", line 92, in run_exp
+[rank0]:     _training_function(config={"args": args, "callbacks": callbacks})
+[rank0]:   File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/tuner.py", line 66, in _training_function
+[rank0]:     run_sft(model_args, data_args, training_args, finetuning_args, generating_args, callbacks)
+[rank0]:   File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/sft/workflow.py", line 101, in run_sft
+[rank0]:     train_result = trainer.train(resume_from_checkpoint=training_args.resume_from_checkpoint)
+[rank0]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/trainer.py", line 2122, in train
+[rank0]:     return inner_training_loop(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/trainer.py", line 2474, in _inner_training_loop
+[rank0]:     tr_loss_step = self.training_step(model, inputs, num_items_in_batch)
+[rank0]:                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/trainer.py", line 3572, in training_step
+[rank0]:     loss = self.compute_loss(model, inputs, num_items_in_batch=num_items_in_batch)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/sft/trainer.py", line 98, in compute_loss
+[rank0]:     loss = super().compute_loss(model, inputs, return_outputs, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/trainer.py", line 3625, in compute_loss
+[rank0]:     outputs = model(**inputs)
+[rank0]:               ^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1643, in forward
+[rank0]:     else self._run_ddp_forward(*inputs, **kwargs)
+[rank0]:          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/parallel/distributed.py", line 1459, in _run_ddp_forward
+[rank0]:     return self.module(*inputs, **kwargs)  # type: ignore[index]
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/accelerate/utils/operations.py", line 820, in forward
+[rank0]:     return model_forward(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/accelerate/utils/operations.py", line 808, in __call__
+[rank0]:     return convert_to_fp32(self.model_forward(*args, **kwargs))
+[rank0]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/amp/autocast_mode.py", line 44, in decorate_autocast
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/peft/peft_model.py", line 1577, in forward
+[rank0]:     return self.base_model(
+[rank0]:            ^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/peft/tuners/tuners_utils.py", line 188, in forward
+[rank0]:     return self.model.forward(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/accelerate/hooks.py", line 170, in new_forward
+[rank0]:     output = module._old_forward(*args, **kwargs)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/models/llama/modeling_llama.py", line 1214, in forward
+[rank0]:     loss = self.loss_function(logits=logits, labels=labels, vocab_size=self.config.vocab_size, **loss_kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/loss/loss_utils.py", line 46, in ForCausalLMLoss
+[rank0]:     loss = fixed_cross_entropy(shift_logits, shift_labels, num_items_in_batch, ignore_index, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/loss/loss_utils.py", line 26, in fixed_cross_entropy
+[rank0]:     loss = nn.functional.cross_entropy(source, target, ignore_index=ignore_index, reduction=reduction)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/nn/functional.py", line 3479, in cross_entropy
+[rank0]:     return torch._C._nn.cross_entropy_loss(
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 13.07 GiB. GPU 0 has a total capacity of 79.26 GiB of which 8.46 GiB is free. Including non-PyTorch memory, this process has 70.78 GiB memory in use. Of the allocated memory 61.01 GiB is allocated by PyTorch, and 8.40 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+W0114 08:22:55.726000 61992 site-packages/torch/distributed/elastic/multiprocessing/api.py:897] Sending process 61999 closing signal SIGTERM
+E0114 08:22:55.941000 61992 site-packages/torch/distributed/elastic/multiprocessing/api.py:869] failed (exitcode: 1) local_rank: 0 (pid: 61998) of binary: /home/ivieira/miniconda3/envs/lf-env/bin/python
+Traceback (most recent call last):
+  File "/home/ivieira/miniconda3/envs/lf-env/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==2.5.1', 'console_scripts', 'torchrun')())
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 355, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/run.py", line 919, in main
+    run(args)
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/run.py", line 910, in run
+    elastic_launch(
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 138, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 269, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/home/ivieira/LLaMA-Factory/src/llamafactory/launcher.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2025-01-14_08:22:55
+  host      : g129.grove.adaptcentre.ie
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 61998)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

@@ -1,0 +1,16 @@
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 24.11.2
+    latest version: 24.11.3
+
+Please update conda by running
+
+    $ conda update -n base -c conda-forge conda
+
+
+
+AssertionError('Prefix record insertion error: a record with name _libgcc_mutex already exists in the prefix. This is a bug in conda. Please report it at https://github.com/conda/conda/issues')
+()
+
+/var/lib/slurm-llnl/slurmd/job222731/slurm_script: line 40: python: command not found

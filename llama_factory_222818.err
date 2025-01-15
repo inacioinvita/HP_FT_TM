@@ -1,0 +1,96 @@
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 24.11.2
+    latest version: 24.11.3
+
+Please update conda by running
+
+    $ conda update -n base -c conda-forge conda
+
+
+
+SafetyError: The package for ld_impl_linux-64 located at /home/ivieira/mambaforge/pkgs/ld_impl_linux-64-2.43-h712a8e2_2
+appears to be corrupted. The path 'bin/x86_64-conda-linux-gnu-ld'
+has an incorrect size.
+  reported size: 3318336 bytes
+  actual size: 0 bytes
+
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+unbabel-comet 2.2.4 requires torchmetrics<0.11.0,>=0.10.2, but you have torchmetrics 1.5.2 which is incompatible.
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+unbabel-comet 2.2.4 requires torchmetrics<0.11.0,>=0.10.2, but you have torchmetrics 1.5.2 which is incompatible.
+Traceback (most recent call last):
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/transformers/utils/import_utils.py", line 1778, in _get_module
+    return importlib.import_module("." + module_name, self.__name__)
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/transformers/modeling_utils.py", line 48, in <module>
+    from .loss.loss_utils import LOSS_MAPPING
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/transformers/loss/loss_utils.py", line 19, in <module>
+    from .loss_deformable_detr import DeformableDetrForObjectDetectionLoss, DeformableDetrForSegmentationLoss
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/transformers/loss/loss_deformable_detr.py", line 4, in <module>
+    from ..image_transforms import center_to_corners_format
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/transformers/image_transforms.py", line 22, in <module>
+    from .image_utils import (
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/transformers/image_utils.py", line 58, in <module>
+    from torchvision.transforms import InterpolationMode
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/torchvision/__init__.py", line 10, in <module>
+    from torchvision import _meta_registrations, datasets, io, models, ops, transforms, utils  # usort:skip
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/torchvision/_meta_registrations.py", line 164, in <module>
+    def meta_nms(dets, scores, iou_threshold):
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/torch/library.py", line 654, in register
+    use_lib._register_fake(op_name, func, _stacklevel=stacklevel + 1)
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/torch/library.py", line 154, in _register_fake
+    handle = entry.abstract_impl.register(func_to_register, source)
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/torch/_library/abstract_impl.py", line 31, in register
+    if torch._C._dispatch_has_kernel_for_dispatch_key(self.qualname, "Meta"):
+RuntimeError: operator torchvision::nms does not exist
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ivieira/mambaforge/envs/llama-env/bin/llamafactory-cli", line 5, in <module>
+    from llamafactory.cli import main
+  File "/home/ivieira/chicago2/HP_FT_TM/LLaMA-Factory/src/llamafactory/__init__.py", line 44, in <module>
+    from .extras.env import VERSION
+  File "/home/ivieira/chicago2/HP_FT_TM/LLaMA-Factory/src/llamafactory/extras/env.py", line 22, in <module>
+    import peft
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/peft/__init__.py", line 22, in <module>
+    from .auto import (
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/peft/auto.py", line 32, in <module>
+    from .mapping import MODEL_TYPE_TO_PEFT_MODEL_MAPPING
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/peft/mapping.py", line 22, in <module>
+    from peft.tuners.xlora.model import XLoraModel
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/peft/tuners/__init__.py", line 21, in <module>
+    from .lora import LoraConfig, LoraModel, LoftQConfig, LoraRuntimeConfig
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/peft/tuners/lora/__init__.py", line 18, in <module>
+    from .gptq import QuantLinear
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/peft/tuners/lora/gptq.py", line 19, in <module>
+    from peft.tuners.lora.layer import LoraLayer
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/peft/tuners/lora/layer.py", line 26, in <module>
+    from peft.tuners.tuners_utils import BaseTunerLayer, check_adapters_to_merge
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/peft/tuners/tuners_utils.py", line 29, in <module>
+    from transformers import PreTrainedModel
+  File "<frozen importlib._bootstrap>", line 1039, in _handle_fromlist
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/transformers/utils/import_utils.py", line 1766, in __getattr__
+    module = self._get_module(self._class_to_module[name])
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/site-packages/transformers/utils/import_utils.py", line 1780, in _get_module
+    raise RuntimeError(
+RuntimeError: Failed to import transformers.modeling_utils because of the following error (look up to see its traceback):
+operator torchvision::nms does not exist
+Traceback (most recent call last):
+  File "run_llama_factory.py", line 36, in <module>
+    main()
+  File "run_llama_factory.py", line 33, in main
+    subprocess.run(["llamafactory-cli", "webui", "--listen", "--share"], check=True)
+  File "/home/ivieira/mambaforge/envs/llama-env/lib/python3.8/subprocess.py", line 516, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['llamafactory-cli', 'webui', '--listen', '--share']' returned non-zero exit status 1.

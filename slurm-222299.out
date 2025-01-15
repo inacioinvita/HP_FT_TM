@@ -1,0 +1,194 @@
+Found existing installation: bitsandbytes 0.45.1.dev0
+Uninstalling bitsandbytes-0.45.1.dev0:
+  Successfully uninstalled bitsandbytes-0.45.1.dev0
+Collecting bitsandbytes@ git+https://github.com/TimDettmers/bitsandbytes.git
+  Cloning https://github.com/TimDettmers/bitsandbytes.git to /tmp/pip-install-86eh9140/bitsandbytes_803544852bca4129982e897819d825a0
+  Running command git clone --filter=blob:none --quiet https://github.com/TimDettmers/bitsandbytes.git /tmp/pip-install-86eh9140/bitsandbytes_803544852bca4129982e897819d825a0
+  Resolved https://github.com/TimDettmers/bitsandbytes.git to commit 5b015890be1880f910219c9ea966054b8f98affc
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: torch in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (2.4.1)
+Requirement already satisfied: ctranslate2==4.3.1 in /home/ivieira/.local/lib/python3.8/site-packages (4.3.1)
+Requirement already satisfied: transformers>=4.38.0 in /home/ivieira/.local/lib/python3.8/site-packages (4.46.3)
+Requirement already satisfied: trl>=0.7.6 in /home/ivieira/.local/lib/python3.8/site-packages (0.11.4)
+Requirement already satisfied: huggingface_hub in /home/ivieira/.local/lib/python3.8/site-packages (0.27.1)
+Requirement already satisfied: accelerate in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (1.0.1)
+Requirement already satisfied: sentencepiece in /home/ivieira/.local/lib/python3.8/site-packages (0.2.0)
+Requirement already satisfied: sacrebleu in /home/ivieira/.local/lib/python3.8/site-packages (2.5.1)
+Requirement already satisfied: pandas in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (2.0.3)
+Requirement already satisfied: comet in /home/ivieira/.local/lib/python3.8/site-packages (3.1.0)
+Requirement already satisfied: unbabel-comet in /home/ivieira/.local/lib/python3.8/site-packages (2.2.4)
+Requirement already satisfied: polars in /home/ivieira/.local/lib/python3.8/site-packages (1.8.2)
+Requirement already satisfied: mlflow in /home/ivieira/.local/lib/python3.8/site-packages (2.17.2)
+Requirement already satisfied: peft in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (0.13.2)
+Requirement already satisfied: datasets in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (3.1.0)
+Requirement already satisfied: safetensors in /home/ivieira/.local/lib/python3.8/site-packages (0.5.1)
+Requirement already satisfied: setuptools in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from ctranslate2==4.3.1) (75.3.0)
+Requirement already satisfied: numpy in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from ctranslate2==4.3.1) (1.24.4)
+Requirement already satisfied: pyyaml<7,>=5.3 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from ctranslate2==4.3.1) (6.0.2)
+Requirement already satisfied: filelock in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (3.16.1)
+Requirement already satisfied: typing-extensions>=4.8.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (4.12.2)
+Requirement already satisfied: sympy in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (1.13.3)
+Requirement already satisfied: networkx in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (3.1)
+Requirement already satisfied: jinja2 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (3.1.4)
+Requirement already satisfied: fsspec in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (2024.9.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.1.105 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (12.1.105)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.1.105 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (12.1.105)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.1.105 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (12.1.105)
+Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (9.1.0.70)
+Requirement already satisfied: nvidia-cublas-cu12==12.1.3.1 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (12.1.3.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.0.2.54 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (11.0.2.54)
+Requirement already satisfied: nvidia-curand-cu12==10.3.2.106 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (10.3.2.106)
+Requirement already satisfied: nvidia-cusolver-cu12==11.4.5.107 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (11.4.5.107)
+Requirement already satisfied: nvidia-cusparse-cu12==12.1.0.106 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (12.1.0.106)
+Requirement already satisfied: nvidia-nccl-cu12==2.20.5 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (2.20.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.1.105 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (12.1.105)
+Requirement already satisfied: triton==3.0.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (3.0.0)
+Requirement already satisfied: nvidia-nvjitlink-cu12 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from nvidia-cusolver-cu12==11.4.5.107->torch) (12.6.85)
+Requirement already satisfied: packaging>=20.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from transformers>=4.38.0) (24.2)
+Requirement already satisfied: regex!=2019.12.17 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from transformers>=4.38.0) (2024.11.6)
+Requirement already satisfied: requests in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from transformers>=4.38.0) (2.32.3)
+Requirement already satisfied: tokenizers<0.21,>=0.20 in /home/ivieira/.local/lib/python3.8/site-packages (from transformers>=4.38.0) (0.20.3)
+Requirement already satisfied: tqdm>=4.27 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from transformers>=4.38.0) (4.67.1)
+Requirement already satisfied: tyro>=0.5.11 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from trl>=0.7.6) (0.9.2)
+Requirement already satisfied: psutil in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from accelerate) (6.1.0)
+Requirement already satisfied: portalocker in /home/ivieira/.local/lib/python3.8/site-packages (from sacrebleu) (3.0.0)
+Requirement already satisfied: tabulate>=0.8.9 in /home/ivieira/.local/lib/python3.8/site-packages (from sacrebleu) (0.9.0)
+Requirement already satisfied: colorama in /home/ivieira/.local/lib/python3.8/site-packages (from sacrebleu) (0.4.6)
+Requirement already satisfied: lxml in /home/ivieira/.local/lib/python3.8/site-packages (from sacrebleu) (5.3.0)
+Requirement already satisfied: python-dateutil>=2.8.2 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from pandas) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from pandas) (2024.2)
+Requirement already satisfied: tzdata>=2022.1 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from pandas) (2024.2)
+Requirement already satisfied: twisted>=16.0.0 in /home/ivieira/.local/lib/python3.8/site-packages (from comet) (24.11.0)
+Requirement already satisfied: zope.interface>=4.1.1 in /home/ivieira/.local/lib/python3.8/site-packages (from comet) (7.2)
+Requirement already satisfied: entmax<2.0,>=1.1 in /home/ivieira/.local/lib/python3.8/site-packages (from unbabel-comet) (1.3)
+Requirement already satisfied: jsonargparse==3.13.1 in /home/ivieira/.local/lib/python3.8/site-packages (from unbabel-comet) (3.13.1)
+Requirement already satisfied: protobuf<5.0.0,>=4.24.4 in /home/ivieira/.local/lib/python3.8/site-packages (from unbabel-comet) (4.25.5)
+Requirement already satisfied: pytorch-lightning<3.0.0,>=2.0.0 in /home/ivieira/.local/lib/python3.8/site-packages (from unbabel-comet) (2.4.0)
+Requirement already satisfied: scipy<2.0.0,>=1.5.4 in /home/ivieira/.local/lib/python3.8/site-packages (from unbabel-comet) (1.10.1)
+Requirement already satisfied: torchmetrics<0.11.0,>=0.10.2 in /home/ivieira/.local/lib/python3.8/site-packages (from unbabel-comet) (0.10.3)
+Requirement already satisfied: mlflow-skinny==2.17.2 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow) (2.17.2)
+Requirement already satisfied: Flask<4 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow) (3.0.3)
+Requirement already satisfied: alembic!=1.10.0,<2 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow) (1.14.0)
+Requirement already satisfied: docker<8,>=4.0.0 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow) (7.1.0)
+Requirement already satisfied: graphene<4 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow) (3.4.3)
+Requirement already satisfied: markdown<4,>=3.3 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow) (3.7)
+Requirement already satisfied: matplotlib<4 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow) (3.7.5)
+Requirement already satisfied: pyarrow<18,>=4.0.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from mlflow) (17.0.0)
+Requirement already satisfied: scikit-learn<2 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow) (1.3.2)
+Requirement already satisfied: sqlalchemy<3,>=1.4.0 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow) (2.0.36)
+Requirement already satisfied: gunicorn<24 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow) (23.0.0)
+Requirement already satisfied: cachetools<6,>=5.0.0 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow-skinny==2.17.2->mlflow) (5.5.0)
+Requirement already satisfied: click<9,>=7.0 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow-skinny==2.17.2->mlflow) (8.1.8)
+Requirement already satisfied: cloudpickle<4 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow-skinny==2.17.2->mlflow) (3.1.0)
+Requirement already satisfied: databricks-sdk<1,>=0.20.0 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow-skinny==2.17.2->mlflow) (0.40.0)
+Requirement already satisfied: gitpython<4,>=3.1.9 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow-skinny==2.17.2->mlflow) (3.1.44)
+Requirement already satisfied: importlib-metadata!=4.7.0,<9,>=3.7.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from mlflow-skinny==2.17.2->mlflow) (8.5.0)
+Requirement already satisfied: opentelemetry-api<3,>=1.9.0 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow-skinny==2.17.2->mlflow) (1.29.0)
+Requirement already satisfied: opentelemetry-sdk<3,>=1.9.0 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow-skinny==2.17.2->mlflow) (1.29.0)
+Requirement already satisfied: sqlparse<1,>=0.4.0 in /home/ivieira/.local/lib/python3.8/site-packages (from mlflow-skinny==2.17.2->mlflow) (0.5.3)
+Requirement already satisfied: dill<0.3.9,>=0.3.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from datasets) (0.3.8)
+Requirement already satisfied: xxhash in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from datasets) (3.5.0)
+Requirement already satisfied: multiprocess<0.70.17 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from datasets) (0.70.16)
+Requirement already satisfied: aiohttp in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from datasets) (3.10.11)
+Requirement already satisfied: Mako in /home/ivieira/.local/lib/python3.8/site-packages (from alembic!=1.10.0,<2->mlflow) (1.3.8)
+Requirement already satisfied: importlib-resources in /home/ivieira/.local/lib/python3.8/site-packages (from alembic!=1.10.0,<2->mlflow) (6.4.5)
+Requirement already satisfied: urllib3>=1.26.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from docker<8,>=4.0.0->mlflow) (2.2.3)
+Requirement already satisfied: Werkzeug>=3.0.0 in /home/ivieira/.local/lib/python3.8/site-packages (from Flask<4->mlflow) (3.0.6)
+Requirement already satisfied: itsdangerous>=2.1.2 in /home/ivieira/.local/lib/python3.8/site-packages (from Flask<4->mlflow) (2.2.0)
+Requirement already satisfied: blinker>=1.6.2 in /home/ivieira/.local/lib/python3.8/site-packages (from Flask<4->mlflow) (1.8.2)
+Requirement already satisfied: aiohappyeyeballs>=2.3.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from aiohttp->datasets) (2.4.4)
+Requirement already satisfied: aiosignal>=1.1.2 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from aiohttp->datasets) (1.3.1)
+Requirement already satisfied: attrs>=17.3.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from aiohttp->datasets) (24.2.0)
+Requirement already satisfied: frozenlist>=1.1.1 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from aiohttp->datasets) (1.5.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from aiohttp->datasets) (6.1.0)
+Requirement already satisfied: yarl<2.0,>=1.12.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from aiohttp->datasets) (1.15.2)
+Requirement already satisfied: async-timeout<6.0,>=4.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from aiohttp->datasets) (5.0.1)
+Requirement already satisfied: graphql-core<3.3,>=3.1 in /home/ivieira/.local/lib/python3.8/site-packages (from graphene<4->mlflow) (3.2.5)
+Requirement already satisfied: graphql-relay<3.3,>=3.1 in /home/ivieira/.local/lib/python3.8/site-packages (from graphene<4->mlflow) (3.2.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from jinja2->torch) (2.1.5)
+Requirement already satisfied: contourpy>=1.0.1 in /home/ivieira/.local/lib/python3.8/site-packages (from matplotlib<4->mlflow) (1.1.1)
+Requirement already satisfied: cycler>=0.10 in /home/ivieira/.local/lib/python3.8/site-packages (from matplotlib<4->mlflow) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /home/ivieira/.local/lib/python3.8/site-packages (from matplotlib<4->mlflow) (4.55.3)
+Requirement already satisfied: kiwisolver>=1.0.1 in /home/ivieira/.local/lib/python3.8/site-packages (from matplotlib<4->mlflow) (1.4.7)
+Requirement already satisfied: pillow>=6.2.0 in /home/ivieira/.local/lib/python3.8/site-packages (from matplotlib<4->mlflow) (10.4.0)
+Requirement already satisfied: pyparsing>=2.3.1 in /home/ivieira/.local/lib/python3.8/site-packages (from matplotlib<4->mlflow) (3.1.4)
+Requirement already satisfied: six>=1.5 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from python-dateutil>=2.8.2->pandas) (1.17.0)
+Requirement already satisfied: lightning-utilities>=0.10.0 in /home/ivieira/.local/lib/python3.8/site-packages (from pytorch-lightning<3.0.0,>=2.0.0->unbabel-comet) (0.11.9)
+Requirement already satisfied: charset-normalizer<4,>=2 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from requests->transformers>=4.38.0) (3.4.0)
+Requirement already satisfied: idna<4,>=2.5 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from requests->transformers>=4.38.0) (3.10)
+Requirement already satisfied: certifi>=2017.4.17 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from requests->transformers>=4.38.0) (2024.8.30)
+Requirement already satisfied: joblib>=1.1.1 in /home/ivieira/.local/lib/python3.8/site-packages (from scikit-learn<2->mlflow) (1.4.2)
+Requirement already satisfied: threadpoolctl>=2.0.0 in /home/ivieira/.local/lib/python3.8/site-packages (from scikit-learn<2->mlflow) (3.5.0)
+Requirement already satisfied: greenlet!=0.4.17 in /home/ivieira/.local/lib/python3.8/site-packages (from sqlalchemy<3,>=1.4.0->mlflow) (3.1.1)
+Requirement already satisfied: automat>=24.8.0 in /home/ivieira/.local/lib/python3.8/site-packages (from twisted>=16.0.0->comet) (24.8.1)
+Requirement already satisfied: constantly>=15.1 in /home/ivieira/.local/lib/python3.8/site-packages (from twisted>=16.0.0->comet) (23.10.4)
+Requirement already satisfied: hyperlink>=17.1.1 in /home/ivieira/.local/lib/python3.8/site-packages (from twisted>=16.0.0->comet) (21.0.0)
+Requirement already satisfied: incremental>=24.7.0 in /home/ivieira/.local/lib/python3.8/site-packages (from twisted>=16.0.0->comet) (24.7.2)
+Requirement already satisfied: docstring-parser>=0.16 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from tyro>=0.5.11->trl>=0.7.6) (0.16)
+Requirement already satisfied: eval-type-backport>=0.1.3 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from tyro>=0.5.11->trl>=0.7.6) (0.2.0)
+Requirement already satisfied: rich>=11.1.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from tyro>=0.5.11->trl>=0.7.6) (13.9.4)
+Requirement already satisfied: shtab>=1.5.6 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from tyro>=0.5.11->trl>=0.7.6) (1.7.1)
+Requirement already satisfied: typeguard>=4.0.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from tyro>=0.5.11->trl>=0.7.6) (4.4.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from sympy->torch) (1.3.0)
+Requirement already satisfied: google-auth~=2.0 in /home/ivieira/.local/lib/python3.8/site-packages (from databricks-sdk<1,>=0.20.0->mlflow-skinny==2.17.2->mlflow) (2.37.0)
+Requirement already satisfied: gitdb<5,>=4.0.1 in /home/ivieira/.local/lib/python3.8/site-packages (from gitpython<4,>=3.1.9->mlflow-skinny==2.17.2->mlflow) (4.0.12)
+Requirement already satisfied: zipp>=3.20 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from importlib-metadata!=4.7.0,<9,>=3.7.0->mlflow-skinny==2.17.2->mlflow) (3.20.2)
+Requirement already satisfied: tomli in /home/ivieira/.local/lib/python3.8/site-packages (from incremental>=24.7.0->twisted>=16.0.0->comet) (2.2.1)
+Requirement already satisfied: deprecated>=1.2.6 in /home/ivieira/.local/lib/python3.8/site-packages (from opentelemetry-api<3,>=1.9.0->mlflow-skinny==2.17.2->mlflow) (1.2.15)
+Requirement already satisfied: opentelemetry-semantic-conventions==0.50b0 in /home/ivieira/.local/lib/python3.8/site-packages (from opentelemetry-sdk<3,>=1.9.0->mlflow-skinny==2.17.2->mlflow) (0.50b0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from rich>=11.1.0->tyro>=0.5.11->trl>=0.7.6) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from rich>=11.1.0->tyro>=0.5.11->trl>=0.7.6) (2.18.0)
+Requirement already satisfied: propcache>=0.2.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from yarl<2.0,>=1.12.0->aiohttp->datasets) (0.2.0)
+Requirement already satisfied: wrapt<2,>=1.10 in /home/ivieira/.local/lib/python3.8/site-packages (from deprecated>=1.2.6->opentelemetry-api<3,>=1.9.0->mlflow-skinny==2.17.2->mlflow) (1.17.0)
+Requirement already satisfied: smmap<6,>=3.0.1 in /home/ivieira/.local/lib/python3.8/site-packages (from gitdb<5,>=4.0.1->gitpython<4,>=3.1.9->mlflow-skinny==2.17.2->mlflow) (5.0.2)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /home/ivieira/.local/lib/python3.8/site-packages (from google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==2.17.2->mlflow) (0.4.1)
+Requirement already satisfied: rsa<5,>=3.1.4 in /home/ivieira/.local/lib/python3.8/site-packages (from google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==2.17.2->mlflow) (4.9)
+Requirement already satisfied: mdurl~=0.1 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from markdown-it-py>=2.2.0->rich>=11.1.0->tyro>=0.5.11->trl>=0.7.6) (0.1.2)
+Requirement already satisfied: pyasn1<0.7.0,>=0.4.6 in /home/ivieira/.local/lib/python3.8/site-packages (from pyasn1-modules>=0.2.1->google-auth~=2.0->databricks-sdk<1,>=0.20.0->mlflow-skinny==2.17.2->mlflow) (0.6.1)
+Building wheels for collected packages: bitsandbytes
+  Building wheel for bitsandbytes (pyproject.toml): started
+  Building wheel for bitsandbytes (pyproject.toml): finished with status 'done'
+  Created wheel for bitsandbytes: filename=bitsandbytes-0.45.1.dev0-cp38-cp38-linux_x86_64.whl size=125224 sha256=c0eed0ce64c46efaac2fcc6d70efaec68926435438d689afdb726904d24062ae
+  Stored in directory: /tmp/pip-ephem-wheel-cache-odfa9ign/wheels/60/a4/86/927dc21b394281798da74269aa21a13d8252d5df455647d894
+Successfully built bitsandbytes
+Installing collected packages: bitsandbytes
+Successfully installed bitsandbytes-0.45.1.dev0
+Could not load bitsandbytes native library: /home/ivieira/.local/lib/python3.8/site-packages/bitsandbytes/libbitsandbytes_cpu.so: cannot open shared object file: No such file or directory
+Traceback (most recent call last):
+  File "/home/ivieira/.local/lib/python3.8/site-packages/bitsandbytes/cextension.py", line 85, in <module>
+    lib = get_native_library()
+  File "/home/ivieira/.local/lib/python3.8/site-packages/bitsandbytes/cextension.py", line 72, in get_native_library
+    dll = ct.cdll.LoadLibrary(str(binary_path))
+  File "/home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/ctypes/__init__.py", line 451, in LoadLibrary
+    return self._dlltype(name)
+  File "/home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /home/ivieira/.local/lib/python3.8/site-packages/bitsandbytes/libbitsandbytes_cpu.so: cannot open shared object file: No such file or directory
+CUDA is required but not available for bitsandbytes. Please consider installing the multi-platform enabled version of bitsandbytes, which is currently a work in progress. Please check currently supported platforms and installation instructions at https://huggingface.co/docs/bitsandbytes/main/en/installation#multi-backend
+Loading training data from: /home/ivieira/chicago2/BALS_train_en-de.de
+Loading evaluation data from: /home/ivieira/chicago2/BALS_dev_en-de.de
+Loading training data from: /home/ivieira/chicago2/BALS_train_en-de.en
+Loading evaluation data from: /home/ivieira/chicago2/BALS_dev_en-de.en
+Traceback (most recent call last):
+  File "BALS_trainer.py", line 164, in <module>
+    main(train_file, eval_file, target_lang, num_train_records)
+  File "BALS_trainer.py", line 151, in main
+    model, tokenizer = load_model_and_tokenizer(model_path)
+  File "BALS_trainer.py", line 60, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(
+  File "/home/ivieira/.local/lib/python3.8/site-packages/transformers/models/auto/auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+  File "/home/ivieira/.local/lib/python3.8/site-packages/transformers/modeling_utils.py", line 3657, in from_pretrained
+    hf_quantizer.validate_environment(
+  File "/home/ivieira/.local/lib/python3.8/site-packages/transformers/quantizers/quantizer_bnb_4bit.py", line 82, in validate_environment
+    validate_bnb_backend_availability(raise_exception=True)
+  File "/home/ivieira/.local/lib/python3.8/site-packages/transformers/integrations/bitsandbytes.py", line 558, in validate_bnb_backend_availability
+    return _validate_bnb_cuda_backend_availability(raise_exception)
+  File "/home/ivieira/.local/lib/python3.8/site-packages/transformers/integrations/bitsandbytes.py", line 536, in _validate_bnb_cuda_backend_availability
+    raise RuntimeError(log_msg)
+RuntimeError: CUDA is required but not available for bitsandbytes. Please consider installing the multi-platform enabled version of bitsandbytes, which is currently a work in progress. Please check currently supported platforms and installation instructions at https://huggingface.co/docs/bitsandbytes/main/en/installation#multi-backend

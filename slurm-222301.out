@@ -1,0 +1,34 @@
+Found existing installation: bitsandbytes 0.45.1.dev0
+Uninstalling bitsandbytes-0.45.1.dev0:
+  Successfully uninstalled bitsandbytes-0.45.1.dev0
+Looking in indexes: https://download.pytorch.org/whl/cu118
+ERROR: Could not find a version that satisfies the requirement bitsandbytes==0.41.1 (from versions: none)
+ERROR: No matching distribution found for bitsandbytes==0.41.1
+The installed version of bitsandbytes was compiled without GPU support. 8-bit optimizers, 8-bit multiplication, and GPU quantization are unavailable.
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+AttributeError: module 'bitsandbytes' has no attribute 'COMPILED_WITH_CUDA'
+The installed version of bitsandbytes was compiled without GPU support. 8-bit optimizers, 8-bit multiplication, and GPU quantization are unavailable.
+CUDA is required but not available for bitsandbytes. Please consider installing the multi-platform enabled version of bitsandbytes, which is currently a work in progress. Please check currently supported platforms and installation instructions at https://huggingface.co/docs/bitsandbytes/main/en/installation#multi-backend
+Loading training data from: /home/ivieira/chicago2/BALS_train_en-de.de
+Loading evaluation data from: /home/ivieira/chicago2/BALS_dev_en-de.de
+Loading training data from: /home/ivieira/chicago2/BALS_train_en-de.en
+Loading evaluation data from: /home/ivieira/chicago2/BALS_dev_en-de.en
+Traceback (most recent call last):
+  File "BALS_trainer.py", line 164, in <module>
+    main(train_file, eval_file, target_lang, num_train_records)
+  File "BALS_trainer.py", line 151, in main
+    model, tokenizer = load_model_and_tokenizer(model_path)
+  File "BALS_trainer.py", line 60, in load_model_and_tokenizer
+    model = AutoModelForCausalLM.from_pretrained(
+  File "/home/ivieira/.local/lib/python3.8/site-packages/transformers/models/auto/auto_factory.py", line 564, in from_pretrained
+    return model_class.from_pretrained(
+  File "/home/ivieira/.local/lib/python3.8/site-packages/transformers/modeling_utils.py", line 3657, in from_pretrained
+    hf_quantizer.validate_environment(
+  File "/home/ivieira/.local/lib/python3.8/site-packages/transformers/quantizers/quantizer_bnb_4bit.py", line 82, in validate_environment
+    validate_bnb_backend_availability(raise_exception=True)
+  File "/home/ivieira/.local/lib/python3.8/site-packages/transformers/integrations/bitsandbytes.py", line 558, in validate_bnb_backend_availability
+    return _validate_bnb_cuda_backend_availability(raise_exception)
+  File "/home/ivieira/.local/lib/python3.8/site-packages/transformers/integrations/bitsandbytes.py", line 536, in _validate_bnb_cuda_backend_availability
+    raise RuntimeError(log_msg)
+RuntimeError: CUDA is required but not available for bitsandbytes. Please consider installing the multi-platform enabled version of bitsandbytes, which is currently a work in progress. Please check currently supported platforms and installation instructions at https://huggingface.co/docs/bitsandbytes/main/en/installation#multi-backend

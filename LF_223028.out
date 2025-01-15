@@ -1,0 +1,97 @@
+CUDA available? True
+Device count: 1
+[WARNING|2025-01-13 13:02:35] llamafactory.hparams.parser:162 >> We recommend enable `upcast_layernorm` in quantized training.
+[INFO|2025-01-13 13:02:35] llamafactory.hparams.parser:373 >> Process rank: 0, device: cuda:0, n_gpu: 1, distributed training: False, compute dtype: torch.bfloat16
+[INFO|2025-01-13 13:02:37] llamafactory.data.template:157 >> Add pad token: <|eot_id|>
+[INFO|2025-01-13 13:02:37] llamafactory.data.template:157 >> Add <|eot_id|>,<|eom_id|> to stop words.
+[INFO|2025-01-13 13:02:37] llamafactory.data.loader:157 >> Loading dataset BALS_de_dataset.json...
+training example:
+input_ids:
+[128000, 128006, 9125, 128007, 271, 2675, 527, 264, 11190, 15592, 18328, 369, 14807, 505, 6498, 311, 6063, 13, 1472, 28832, 4320, 449, 279, 2768, 4823, 13155, 25, 5324, 3129, 3332, 928, 9388, 128009, 128006, 882, 128007, 271, 5618, 15025, 279, 2768, 1495, 505, 6498, 311, 6063, 627, 53, 4289, 546, 5929, 15883, 10743, 12175, 67608, 27382, 323, 7515, 8329, 128009, 128006, 78191, 128007, 271, 53, 4289, 546, 1226, 91650, 82106, 10056, 15492, 3059, 2073, 48035, 1974, 268, 128009]
+inputs:
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+You are a helpful AI assistant for translation from English to German. You MUST answer with the following JSON scheme: {"translation":"string"}<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Please translate the following text from English to German.
+Vermont White Spruce® wreaths and garlands<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Vermont Weihnachtskränze und Girlanden<|eot_id|>
+label_ids:
+[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 53, 4289, 546, 1226, 91650, 82106, 10056, 15492, 3059, 2073, 48035, 1974, 268, 128009]
+labels:
+Vermont Weihnachtskränze und Girlanden<|eot_id|>
+[INFO|2025-01-13 13:02:50] llamafactory.model.model_utils.quantization:157 >> Quantizing model to 4 bit with bitsandbytes.
+[INFO|2025-01-13 13:09:52] llamafactory.model.model_utils.checkpointing:157 >> Gradient checkpointing enabled.
+[INFO|2025-01-13 13:09:52] llamafactory.model.model_utils.attention:157 >> Using torch SDPA for faster training and inference.
+[INFO|2025-01-13 13:09:52] llamafactory.model.adapter:157 >> Upcasting trainable params to float32.
+[INFO|2025-01-13 13:09:52] llamafactory.model.adapter:157 >> Fine-tuning method: LoRA
+[INFO|2025-01-13 13:09:52] llamafactory.model.model_utils.misc:157 >> Found linear modules: up_proj,k_proj,v_proj,o_proj,gate_proj,down_proj,q_proj
+[INFO|2025-01-13 13:09:54] llamafactory.model.loader:157 >> trainable params: 167,772,160 || all params: 8,198,033,408 || trainable%: 2.0465
+{'loss': 1.6086, 'grad_norm': 0.463814377784729, 'learning_rate': 0.0004, 'epoch': 0.02}
+{'loss': 1.0855, 'grad_norm': 0.3673925995826721, 'learning_rate': 0.0008, 'epoch': 0.05}
+{'loss': 0.973, 'grad_norm': 0.29382258653640747, 'learning_rate': 0.0012, 'epoch': 0.07}
+{'loss': 0.9439, 'grad_norm': 0.402896910905838, 'learning_rate': 0.0016, 'epoch': 0.1}
+{'loss': 0.9902, 'grad_norm': 0.4098910987377167, 'learning_rate': 0.002, 'epoch': 0.12}
+{'loss': 1.0273, 'grad_norm': 0.623262882232666, 'learning_rate': 0.0019960646970310024, 'epoch': 0.15}
+{'loss': 1.1423, 'grad_norm': 1.1204272508621216, 'learning_rate': 0.001984289761342926, 'epoch': 0.17}
+{'loss': 1.14, 'grad_norm': 5.12476110458374, 'learning_rate': 0.001964767868814516, 'epoch': 0.2}
+{'loss': 1.2026, 'grad_norm': 1.7545973062515259, 'learning_rate': 0.0019376526685690278, 'epoch': 0.22}
+{'loss': 1.2055, 'grad_norm': 0.7438657283782959, 'learning_rate': 0.0019031575736625237, 'epoch': 0.25}
+{'eval_loss': 1.1254549026489258, 'eval_runtime': 59.0964, 'eval_samples_per_second': 48.615, 'eval_steps_per_second': 6.092, 'epoch': 0.25}
+{'loss': 1.1884, 'grad_norm': 1.0517942905426025, 'learning_rate': 0.001861554081393806, 'epoch': 0.27}
+{'loss': 1.2444, 'grad_norm': 0.7337183356285095, 'learning_rate': 0.0018131696364561667, 'epoch': 0.3}
+{'loss': 1.2442, 'grad_norm': 0.9437646269798279, 'learning_rate': 0.0017583850537492385, 'epoch': 0.32}
+{'loss': 1.1816, 'grad_norm': 0.9553331136703491, 'learning_rate': 0.0016976315211349848, 'epoch': 0.35}
+{'loss': 1.1477, 'grad_norm': 0.9137056469917297, 'learning_rate': 0.0016313872057279535, 'epoch': 0.37}
+{'loss': 1.1702, 'grad_norm': 0.6620250940322876, 'learning_rate': 0.001560173490430346, 'epoch': 0.4}
+{'loss': 1.1745, 'grad_norm': 0.6489492058753967, 'learning_rate': 0.0014845508703326502, 'epoch': 0.42}
+{'loss': 1.0422, 'grad_norm': 0.7329332828521729, 'learning_rate': 0.0014051145412776536, 'epoch': 0.45}
+{'loss': 1.0079, 'grad_norm': 0.7985873222351074, 'learning_rate': 0.0013224897153085089, 'epoch': 0.47}
+{'loss': 1.0553, 'grad_norm': 0.6643031239509583, 'learning_rate': 0.001237326699871115, 'epoch': 0.5}
+{'eval_loss': 0.9964331984519958, 'eval_runtime': 59.0574, 'eval_samples_per_second': 48.648, 'eval_steps_per_second': 6.096, 'epoch': 0.5}
+{'loss': 1.004, 'grad_norm': 0.4854455292224884, 'learning_rate': 0.0011502957795004704, 'epoch': 0.52}
+{'loss': 0.9615, 'grad_norm': 0.48857665061950684, 'learning_rate': 0.001062081940275234, 'epoch': 0.54}
+{'loss': 0.9162, 'grad_norm': 0.4979858100414276, 'learning_rate': 0.0009733794785622253, 'epoch': 0.57}
+{'loss': 0.9224, 'grad_norm': 0.4530389606952667, 'learning_rate': 0.0008848865364833171, 'epoch': 0.59}
+{'loss': 0.8509, 'grad_norm': 0.5184714198112488, 'learning_rate': 0.0007972996071139065, 'epoch': 0.62}
+{'loss': 0.86, 'grad_norm': 0.45937201380729675, 'learning_rate': 0.0007113080526603792, 'epoch': 0.64}
+{'loss': 0.8699, 'grad_norm': 0.45473355054855347, 'learning_rate': 0.0006275886787618338, 'epoch': 0.67}
+{'loss': 0.803, 'grad_norm': 0.5370932817459106, 'learning_rate': 0.000546800407619603, 'epoch': 0.69}
+{'loss': 0.8109, 'grad_norm': 0.46493804454803467, 'learning_rate': 0.0004695790918802576, 'epoch': 0.72}
+{'loss': 0.7637, 'grad_norm': 0.45533108711242676, 'learning_rate': 0.0003965325100899961, 'epoch': 0.74}
+{'eval_loss': 0.7816928625106812, 'eval_runtime': 72.4073, 'eval_samples_per_second': 39.678, 'eval_steps_per_second': 4.972, 'epoch': 0.74}
+{'loss': 0.8037, 'grad_norm': 0.44557473063468933, 'learning_rate': 0.0003282355831092072, 'epoch': 0.77}
+{'loss': 0.7676, 'grad_norm': 0.4257943630218506, 'learning_rate': 0.0002652258491369329, 'epoch': 0.79}
+{'loss': 0.7464, 'grad_norm': 0.37037193775177, 'learning_rate': 0.00020799923295952626, 'epoch': 0.82}
+{'loss': 0.7458, 'grad_norm': 0.4787640869617462, 'learning_rate': 0.00015700614272208492, 'epoch': 0.84}
+{'loss': 0.7523, 'grad_norm': 0.4078911244869232, 'learning_rate': 0.00011264792494342856, 'epoch': 0.87}
+{'loss': 0.6954, 'grad_norm': 0.38116613030433655, 'learning_rate': 7.527370567580416e-05, 'epoch': 0.89}
+{'loss': 0.7609, 'grad_norm': 0.3539605140686035, 'learning_rate': 4.517764267130808e-05, 'epoch': 0.92}
+{'loss': 0.7438, 'grad_norm': 0.39802470803260803, 'learning_rate': 2.2596610182133324e-05, 'epoch': 0.94}
+{'loss': 0.6925, 'grad_norm': 0.3199935853481293, 'learning_rate': 7.708334616675417e-06, 'epoch': 0.97}
+{'loss': 0.7364, 'grad_norm': 0.3759128451347351, 'learning_rate': 6.29995725006438e-07, 'epoch': 0.99}
+{'eval_loss': 0.7137296795845032, 'eval_runtime': 59.4509, 'eval_samples_per_second': 48.326, 'eval_steps_per_second': 6.055, 'epoch': 0.99}
+{'train_runtime': 2045.2128, 'train_samples_per_second': 12.642, 'train_steps_per_second': 0.198, 'train_loss': 0.9717673399660847, 'epoch': 1.0}
+***** train metrics *****
+  epoch                    =         1.0
+  total_flos               = 171684728GF
+  train_loss               =      0.9718
+  train_runtime            =  0:34:05.21
+  train_samples_per_second =      12.642
+  train_steps_per_second   =       0.198
+Figure saved at: saves/Llama-3.1-8B-Instruct/lora/train_2025-01-13-13-02-25/training_loss.png
+Figure saved at: saves/Llama-3.1-8B-Instruct/lora/train_2025-01-13-13-02-25/training_eval_loss.png
+[WARNING|2025-01-13 13:44:01] llamafactory.extras.ploting:162 >> No metric eval_accuracy to plot.
+***** eval metrics *****
+  epoch                   =        1.0
+  eval_loss               =     0.7137
+  eval_runtime            = 0:00:59.28
+  eval_samples_per_second =     48.457
+  eval_steps_per_second   =      6.072
+----------------------------------------
+Model and checkpoint locations:
+Base directory: /home/ivieira/LLaMA-Factory/
+Model save path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-13-13-45-02
+Checkpoint directory: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-13-13-45-02/checkpoint-*
+----------------------------------------

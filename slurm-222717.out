@@ -1,0 +1,266 @@
+Cloning into 'LLaMA-Factory'...
+Looking in indexes: https://download.pytorch.org/whl/cu118
+Requirement already satisfied: torch in /home/ivieira/.local/lib/python3.8/site-packages (2.4.1)
+Collecting torchvision
+  Downloading https://download.pytorch.org/whl/cu118/torchvision-0.19.1%2Bcu118-cp38-cp38-linux_x86_64.whl (6.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 76.0 MB/s eta 0:00:00
+Collecting torchaudio
+  Downloading https://download.pytorch.org/whl/cu118/torchaudio-2.4.1%2Bcu118-cp38-cp38-linux_x86_64.whl (3.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 56.4 MB/s eta 0:00:00
+Requirement already satisfied: filelock in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (3.13.1)
+Requirement already satisfied: typing-extensions>=4.8.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (4.12.2)
+Requirement already satisfied: sympy in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (1.13.1)
+Requirement already satisfied: networkx in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (3.0)
+Requirement already satisfied: jinja2 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (3.1.3)
+Requirement already satisfied: fsspec in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (2024.2.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.1.105 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (12.1.105)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.1.105 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (12.1.105)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.1.105 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (12.1.105)
+Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (9.1.0.70)
+Requirement already satisfied: nvidia-cublas-cu12==12.1.3.1 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (12.1.3.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.0.2.54 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (11.0.2.54)
+Requirement already satisfied: nvidia-curand-cu12==10.3.2.106 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (10.3.2.106)
+Requirement already satisfied: nvidia-cusolver-cu12==11.4.5.107 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (11.4.5.107)
+Requirement already satisfied: nvidia-cusparse-cu12==12.1.0.106 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (12.1.0.106)
+Requirement already satisfied: nvidia-nccl-cu12==2.20.5 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (2.20.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.1.105 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch) (12.1.105)
+Requirement already satisfied: triton==3.0.0 in /home/ivieira/.local/lib/python3.8/site-packages (from torch) (3.0.0)
+Requirement already satisfied: nvidia-nvjitlink-cu12 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from nvidia-cusolver-cu12==11.4.5.107->torch) (12.1.105)
+Requirement already satisfied: numpy in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torchvision) (1.24.4)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /home/ivieira/.local/lib/python3.8/site-packages (from torchvision) (10.4.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from jinja2->torch) (2.1.5)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from sympy->torch) (1.3.0)
+Installing collected packages: torchvision, torchaudio
+Successfully installed torchaudio-2.4.1+cu118 torchvision-0.19.1+cu118
+Obtaining file:///home/ivieira/chicago2/HP_FT_TM/LLaMA-Factory
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Collecting transformers<=4.46.1,>=4.41.2 (from llamafactory==0.9.2.dev0)
+  Downloading transformers-4.46.1-py3-none-any.whl.metadata (44 kB)
+Requirement already satisfied: datasets<=3.1.0,>=2.16.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from llamafactory==0.9.2.dev0) (3.1.0)
+Requirement already satisfied: accelerate<=1.0.1,>=0.34.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from llamafactory==0.9.2.dev0) (1.0.1)
+Collecting peft<=0.12.0,>=0.11.1 (from llamafactory==0.9.2.dev0)
+  Downloading peft-0.12.0-py3-none-any.whl.metadata (13 kB)
+Collecting trl<=0.9.6,>=0.8.6 (from llamafactory==0.9.2.dev0)
+  Downloading trl-0.9.6-py3-none-any.whl.metadata (12 kB)
+Requirement already satisfied: tokenizers<0.20.4,>=0.19.0 in /home/ivieira/.local/lib/python3.8/site-packages (from llamafactory==0.9.2.dev0) (0.20.3)
+Collecting gradio<5.0.0,>=4.0.0 (from llamafactory==0.9.2.dev0)
+  Downloading gradio-4.44.1-py3-none-any.whl.metadata (15 kB)
+Requirement already satisfied: pandas>=2.0.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from llamafactory==0.9.2.dev0) (2.0.3)
+Requirement already satisfied: scipy in /home/ivieira/.local/lib/python3.8/site-packages (from llamafactory==0.9.2.dev0) (1.10.1)
+Collecting einops (from llamafactory==0.9.2.dev0)
+  Downloading einops-0.8.0-py3-none-any.whl.metadata (12 kB)
+Requirement already satisfied: sentencepiece in /home/ivieira/.local/lib/python3.8/site-packages (from llamafactory==0.9.2.dev0) (0.2.0)
+Collecting tiktoken (from llamafactory==0.9.2.dev0)
+  Downloading tiktoken-0.7.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+Requirement already satisfied: protobuf in /home/ivieira/.local/lib/python3.8/site-packages (from llamafactory==0.9.2.dev0) (4.25.5)
+Collecting uvicorn (from llamafactory==0.9.2.dev0)
+  Downloading uvicorn-0.33.0-py3-none-any.whl.metadata (6.6 kB)
+Collecting pydantic (from llamafactory==0.9.2.dev0)
+  Downloading pydantic-2.10.5-py3-none-any.whl.metadata (30 kB)
+Collecting fastapi (from llamafactory==0.9.2.dev0)
+  Downloading fastapi-0.115.6-py3-none-any.whl.metadata (27 kB)
+Collecting sse-starlette (from llamafactory==0.9.2.dev0)
+  Downloading sse_starlette-2.1.3-py3-none-any.whl.metadata (5.8 kB)
+Requirement already satisfied: matplotlib>=3.7.0 in /home/ivieira/.local/lib/python3.8/site-packages (from llamafactory==0.9.2.dev0) (3.7.5)
+Collecting fire (from llamafactory==0.9.2.dev0)
+  Downloading fire-0.7.0.tar.gz (87 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Requirement already satisfied: packaging in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from llamafactory==0.9.2.dev0) (24.2)
+Requirement already satisfied: pyyaml in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from llamafactory==0.9.2.dev0) (6.0.2)
+Requirement already satisfied: numpy<2.0.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from llamafactory==0.9.2.dev0) (1.24.4)
+Collecting av (from llamafactory==0.9.2.dev0)
+  Downloading av-12.3.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.6 kB)
+Collecting tyro<0.9.0 (from llamafactory==0.9.2.dev0)
+  Downloading tyro-0.8.14-py3-none-any.whl.metadata (8.4 kB)
+Requirement already satisfied: torch>=1.13.1 in /home/ivieira/.local/lib/python3.8/site-packages (from llamafactory==0.9.2.dev0) (2.4.1)
+Requirement already satisfied: bitsandbytes>=0.39.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from llamafactory==0.9.2.dev0) (0.45.1.dev0)
+Requirement already satisfied: psutil in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from accelerate<=1.0.1,>=0.34.0->llamafactory==0.9.2.dev0) (6.1.1)
+Requirement already satisfied: huggingface-hub>=0.21.0 in /home/ivieira/.local/lib/python3.8/site-packages (from accelerate<=1.0.1,>=0.34.0->llamafactory==0.9.2.dev0) (0.27.1)
+Requirement already satisfied: safetensors>=0.4.3 in /home/ivieira/.local/lib/python3.8/site-packages (from accelerate<=1.0.1,>=0.34.0->llamafactory==0.9.2.dev0) (0.5.1)
+Requirement already satisfied: filelock in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (3.13.1)
+Requirement already satisfied: pyarrow>=15.0.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (17.0.0)
+Requirement already satisfied: dill<0.3.9,>=0.3.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (0.3.8)
+Requirement already satisfied: requests>=2.32.2 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (2.32.3)
+Requirement already satisfied: tqdm>=4.66.3 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (4.67.1)
+Requirement already satisfied: xxhash in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (3.5.0)
+Requirement already satisfied: multiprocess<0.70.17 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (0.70.16)
+Requirement already satisfied: fsspec<=2024.9.0,>=2023.1.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from fsspec[http]<=2024.9.0,>=2023.1.0->datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (2024.2.0)
+Requirement already satisfied: aiohttp in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (3.10.11)
+Collecting aiofiles<24.0,>=22.0 (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading aiofiles-23.2.1-py3-none-any.whl.metadata (9.7 kB)
+Collecting anyio<5.0,>=3.0 (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading anyio-4.5.2-py3-none-any.whl.metadata (4.7 kB)
+Collecting ffmpy (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading ffmpy-0.5.0-py3-none-any.whl.metadata (3.0 kB)
+Collecting gradio-client==1.3.0 (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading gradio_client-1.3.0-py3-none-any.whl.metadata (7.1 kB)
+Collecting httpx>=0.24.1 (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Requirement already satisfied: importlib-resources<7.0,>=1.3 in /home/ivieira/.local/lib/python3.8/site-packages (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0) (6.4.5)
+Requirement already satisfied: jinja2<4.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0) (3.1.3)
+Requirement already satisfied: markupsafe~=2.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0) (2.1.5)
+Collecting orjson~=3.0 (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading orjson-3.10.14-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (41 kB)
+Requirement already satisfied: pillow<11.0,>=8.0 in /home/ivieira/.local/lib/python3.8/site-packages (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0) (10.4.0)
+Collecting pydub (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading pydub-0.25.1-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting python-multipart>=0.0.9 (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading python_multipart-0.0.20-py3-none-any.whl.metadata (1.8 kB)
+Collecting ruff>=0.2.2 (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading ruff-0.9.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (25 kB)
+Collecting semantic-version~=2.0 (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading semantic_version-2.10.0-py2.py3-none-any.whl.metadata (9.7 kB)
+Collecting tomlkit==0.12.0 (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading tomlkit-0.12.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting typer<1.0,>=0.12 (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading typer-0.15.1-py3-none-any.whl.metadata (15 kB)
+Requirement already satisfied: typing-extensions~=4.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0) (4.12.2)
+Requirement already satisfied: urllib3~=2.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0) (2.2.3)
+Collecting websockets<13.0,>=10.0 (from gradio-client==1.3.0->gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading websockets-12.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+Collecting starlette<0.42.0,>=0.40.0 (from fastapi->llamafactory==0.9.2.dev0)
+  Downloading starlette-0.41.3-py3-none-any.whl.metadata (6.0 kB)
+Requirement already satisfied: contourpy>=1.0.1 in /home/ivieira/.local/lib/python3.8/site-packages (from matplotlib>=3.7.0->llamafactory==0.9.2.dev0) (1.1.1)
+Requirement already satisfied: cycler>=0.10 in /home/ivieira/.local/lib/python3.8/site-packages (from matplotlib>=3.7.0->llamafactory==0.9.2.dev0) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /home/ivieira/.local/lib/python3.8/site-packages (from matplotlib>=3.7.0->llamafactory==0.9.2.dev0) (4.55.3)
+Requirement already satisfied: kiwisolver>=1.0.1 in /home/ivieira/.local/lib/python3.8/site-packages (from matplotlib>=3.7.0->llamafactory==0.9.2.dev0) (1.4.7)
+Requirement already satisfied: pyparsing>=2.3.1 in /home/ivieira/.local/lib/python3.8/site-packages (from matplotlib>=3.7.0->llamafactory==0.9.2.dev0) (3.1.4)
+Requirement already satisfied: python-dateutil>=2.7 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from matplotlib>=3.7.0->llamafactory==0.9.2.dev0) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from pandas>=2.0.0->llamafactory==0.9.2.dev0) (2024.2)
+Requirement already satisfied: tzdata>=2022.1 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from pandas>=2.0.0->llamafactory==0.9.2.dev0) (2024.2)
+Collecting annotated-types>=0.6.0 (from pydantic->llamafactory==0.9.2.dev0)
+  Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.27.2 (from pydantic->llamafactory==0.9.2.dev0)
+  Downloading pydantic_core-2.27.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+Requirement already satisfied: sympy in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch>=1.13.1->llamafactory==0.9.2.dev0) (1.13.1)
+Requirement already satisfied: networkx in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch>=1.13.1->llamafactory==0.9.2.dev0) (3.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.1.105 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch>=1.13.1->llamafactory==0.9.2.dev0) (12.1.105)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.1.105 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch>=1.13.1->llamafactory==0.9.2.dev0) (12.1.105)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.1.105 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch>=1.13.1->llamafactory==0.9.2.dev0) (12.1.105)
+Requirement already satisfied: nvidia-cudnn-cu12==9.1.0.70 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch>=1.13.1->llamafactory==0.9.2.dev0) (9.1.0.70)
+Requirement already satisfied: nvidia-cublas-cu12==12.1.3.1 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch>=1.13.1->llamafactory==0.9.2.dev0) (12.1.3.1)
+Requirement already satisfied: nvidia-cufft-cu12==11.0.2.54 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch>=1.13.1->llamafactory==0.9.2.dev0) (11.0.2.54)
+Requirement already satisfied: nvidia-curand-cu12==10.3.2.106 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch>=1.13.1->llamafactory==0.9.2.dev0) (10.3.2.106)
+Requirement already satisfied: nvidia-cusolver-cu12==11.4.5.107 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch>=1.13.1->llamafactory==0.9.2.dev0) (11.4.5.107)
+Requirement already satisfied: nvidia-cusparse-cu12==12.1.0.106 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch>=1.13.1->llamafactory==0.9.2.dev0) (12.1.0.106)
+Requirement already satisfied: nvidia-nccl-cu12==2.20.5 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch>=1.13.1->llamafactory==0.9.2.dev0) (2.20.5)
+Requirement already satisfied: nvidia-nvtx-cu12==12.1.105 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from torch>=1.13.1->llamafactory==0.9.2.dev0) (12.1.105)
+Requirement already satisfied: triton==3.0.0 in /home/ivieira/.local/lib/python3.8/site-packages (from torch>=1.13.1->llamafactory==0.9.2.dev0) (3.0.0)
+Requirement already satisfied: nvidia-nvjitlink-cu12 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from nvidia-cusolver-cu12==11.4.5.107->torch>=1.13.1->llamafactory==0.9.2.dev0) (12.1.105)
+Requirement already satisfied: regex!=2019.12.17 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from transformers<=4.46.1,>=4.41.2->llamafactory==0.9.2.dev0) (2024.11.6)
+Requirement already satisfied: docstring-parser>=0.16 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from tyro<0.9.0->llamafactory==0.9.2.dev0) (0.16)
+Requirement already satisfied: rich>=11.1.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from tyro<0.9.0->llamafactory==0.9.2.dev0) (13.9.4)
+Requirement already satisfied: shtab>=1.5.6 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from tyro<0.9.0->llamafactory==0.9.2.dev0) (1.7.1)
+Requirement already satisfied: eval-type-backport>=0.1.3 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from tyro<0.9.0->llamafactory==0.9.2.dev0) (0.2.2)
+Requirement already satisfied: click>=7.0 in /home/ivieira/.local/lib/python3.8/site-packages (from uvicorn->llamafactory==0.9.2.dev0) (8.1.8)
+Collecting h11>=0.8 (from uvicorn->llamafactory==0.9.2.dev0)
+  Downloading h11-0.14.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting termcolor (from fire->llamafactory==0.9.2.dev0)
+  Downloading termcolor-2.4.0-py3-none-any.whl.metadata (6.1 kB)
+Requirement already satisfied: idna>=2.8 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from anyio<5.0,>=3.0->gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0) (3.10)
+Collecting sniffio>=1.1 (from anyio<5.0,>=3.0->gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading sniffio-1.3.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting exceptiongroup>=1.0.2 (from anyio<5.0,>=3.0->gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading exceptiongroup-1.2.2-py3-none-any.whl.metadata (6.6 kB)
+Requirement already satisfied: aiohappyeyeballs>=2.3.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from aiohttp->datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (2.4.4)
+Requirement already satisfied: aiosignal>=1.1.2 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from aiohttp->datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (1.3.1)
+Requirement already satisfied: attrs>=17.3.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from aiohttp->datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (24.3.0)
+Requirement already satisfied: frozenlist>=1.1.1 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from aiohttp->datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (1.5.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from aiohttp->datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (6.1.0)
+Requirement already satisfied: yarl<2.0,>=1.12.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from aiohttp->datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (1.15.2)
+Requirement already satisfied: async-timeout<6.0,>=4.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from aiohttp->datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (5.0.1)
+Requirement already satisfied: certifi in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from httpx>=0.24.1->gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0) (2024.12.14)
+Collecting httpcore==1.* (from httpx>=0.24.1->gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading httpcore-1.0.7-py3-none-any.whl.metadata (21 kB)
+Requirement already satisfied: zipp>=3.1.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from importlib-resources<7.0,>=1.3->gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0) (3.20.2)
+Requirement already satisfied: six>=1.5 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from python-dateutil>=2.7->matplotlib>=3.7.0->llamafactory==0.9.2.dev0) (1.17.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from requests>=2.32.2->datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (3.4.1)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from rich>=11.1.0->tyro<0.9.0->llamafactory==0.9.2.dev0) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from rich>=11.1.0->tyro<0.9.0->llamafactory==0.9.2.dev0) (2.19.1)
+Collecting shellingham>=1.3.0 (from typer<1.0,>=0.12->gradio<5.0.0,>=4.0.0->llamafactory==0.9.2.dev0)
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from sympy->torch>=1.13.1->llamafactory==0.9.2.dev0) (1.3.0)
+Requirement already satisfied: mdurl~=0.1 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from markdown-it-py>=2.2.0->rich>=11.1.0->tyro<0.9.0->llamafactory==0.9.2.dev0) (0.1.2)
+Requirement already satisfied: propcache>=0.2.0 in /home/ivieira/mambaforge/envs/my-pip-env/lib/python3.8/site-packages (from yarl<2.0,>=1.12.0->aiohttp->datasets<=3.1.0,>=2.16.0->llamafactory==0.9.2.dev0) (0.2.0)
+Downloading gradio-4.44.1-py3-none-any.whl (18.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.1/18.1 MB 99.2 MB/s eta 0:00:00
+Downloading gradio_client-1.3.0-py3-none-any.whl (318 kB)
+Downloading tomlkit-0.12.0-py3-none-any.whl (37 kB)
+Downloading fastapi-0.115.6-py3-none-any.whl (94 kB)
+Downloading peft-0.12.0-py3-none-any.whl (296 kB)
+Downloading pydantic-2.10.5-py3-none-any.whl (431 kB)
+Downloading pydantic_core-2.27.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 127.0 MB/s eta 0:00:00
+Downloading transformers-4.46.1-py3-none-any.whl (10.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.0/10.0 MB 116.5 MB/s eta 0:00:00
+Downloading trl-0.9.6-py3-none-any.whl (245 kB)
+Downloading tyro-0.8.14-py3-none-any.whl (109 kB)
+Downloading uvicorn-0.33.0-py3-none-any.whl (62 kB)
+Downloading av-12.3.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (33.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 33.7/33.7 MB 58.8 MB/s eta 0:00:00
+Downloading einops-0.8.0-py3-none-any.whl (43 kB)
+Downloading sse_starlette-2.1.3-py3-none-any.whl (9.4 kB)
+Downloading tiktoken-0.7.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 148.3 MB/s eta 0:00:00
+Downloading aiofiles-23.2.1-py3-none-any.whl (15 kB)
+Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Downloading anyio-4.5.2-py3-none-any.whl (89 kB)
+Downloading h11-0.14.0-py3-none-any.whl (58 kB)
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading httpcore-1.0.7-py3-none-any.whl (78 kB)
+Downloading orjson-3.10.14-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (130 kB)
+Downloading python_multipart-0.0.20-py3-none-any.whl (24 kB)
+Downloading ruff-0.9.0-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.3/11.3 MB 118.7 MB/s eta 0:00:00
+Downloading semantic_version-2.10.0-py2.py3-none-any.whl (15 kB)
+Downloading starlette-0.41.3-py3-none-any.whl (73 kB)
+Downloading typer-0.15.1-py3-none-any.whl (44 kB)
+Downloading ffmpy-0.5.0-py3-none-any.whl (6.0 kB)
+Downloading pydub-0.25.1-py2.py3-none-any.whl (32 kB)
+Downloading termcolor-2.4.0-py3-none-any.whl (7.7 kB)
+Downloading exceptiongroup-1.2.2-py3-none-any.whl (16 kB)
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+Downloading websockets-12.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (130 kB)
+Building wheels for collected packages: llamafactory, fire
+  Building editable for llamafactory (pyproject.toml): started
+  Building editable for llamafactory (pyproject.toml): finished with status 'done'
+  Created wheel for llamafactory: filename=llamafactory-0.9.2.dev0-0.editable-py3-none-any.whl size=24009 sha256=16ddbbdb4523a55e6729ece105e3a5a5baa4362df94bb9540479ae5e3fcab1d7
+  Stored in directory: /tmp/pip-ephem-wheel-cache-bohhr2j3/wheels/77/ad/2e/25473b63422a5d84cb342c4d7d0400e8f96c35a11118fcd552
+  Building wheel for fire (setup.py): started
+  Building wheel for fire (setup.py): finished with status 'done'
+  Created wheel for fire: filename=fire-0.7.0-py3-none-any.whl size=114249 sha256=7e8c116395b52335f8f08e88ba134a11bce553f7fd42c863cdf6e0c780f8635f
+  Stored in directory: /tmp/pip-ephem-wheel-cache-bohhr2j3/wheels/e4/c0/6a/3b7584a4fa718f4d38126c56287b00665949885a3aaea27235
+Successfully built llamafactory fire
+Installing collected packages: pydub, websockets, tomlkit, termcolor, sniffio, shellingham, semantic-version, ruff, python-multipart, pydantic-core, orjson, h11, ffmpy, exceptiongroup, einops, av, annotated-types, aiofiles, uvicorn, tiktoken, pydantic, httpcore, fire, anyio, tyro, typer, starlette, httpx, transformers, sse-starlette, gradio-client, fastapi, peft, gradio, trl, llamafactory
+  Attempting uninstall: tyro
+    Found existing installation: tyro 0.9.6
+    Uninstalling tyro-0.9.6:
+      Successfully uninstalled tyro-0.9.6
+  Attempting uninstall: transformers
+    Found existing installation: transformers 4.46.3
+    Uninstalling transformers-4.46.3:
+      Successfully uninstalled transformers-4.46.3
+  Attempting uninstall: peft
+    Found existing installation: peft 0.13.2
+    Uninstalling peft-0.13.2:
+      Successfully uninstalled peft-0.13.2
+  Attempting uninstall: trl
+    Found existing installation: trl 0.11.4
+    Uninstalling trl-0.11.4:
+      Successfully uninstalled trl-0.11.4
+Successfully installed aiofiles-23.2.1 annotated-types-0.7.0 anyio-4.5.2 av-12.3.0 einops-0.8.0 exceptiongroup-1.2.2 fastapi-0.115.6 ffmpy-0.5.0 fire-0.7.0 gradio-4.44.1 gradio-client-1.3.0 h11-0.14.0 httpcore-1.0.7 httpx-0.28.1 llamafactory-0.9.2.dev0 orjson-3.10.14 peft-0.12.0 pydantic-2.10.5 pydantic-core-2.27.2 pydub-0.25.1 python-multipart-0.0.20 ruff-0.9.0 semantic-version-2.10.0 shellingham-1.5.4 sniffio-1.3.1 sse-starlette-2.1.3 starlette-0.41.3 termcolor-2.4.0 tiktoken-0.7.0 tomlkit-0.12.0 transformers-4.46.1 trl-0.9.6 typer-0.15.1 tyro-0.8.14 uvicorn-0.33.0 websockets-12.0
+Traceback (most recent call last):
+  File "run_llama_factory.py", line 52, in <module>
+    main()
+  File "run_llama_factory.py", line 39, in main
+    raise ValueError("HUGGINGFACEHUB_API_TOKEN environment variable not set.")
+ValueError: HUGGINGFACEHUB_API_TOKEN environment variable not set.

@@ -1,0 +1,64 @@
+CUDA available? True
+Device count: 1
+[WARNING|2025-01-13 14:58:57] llamafactory.hparams.parser:162 >> We recommend enable `upcast_layernorm` in quantized training.
+[INFO|2025-01-13 14:58:57] llamafactory.hparams.parser:373 >> Process rank: 0, device: cuda:0, n_gpu: 1, distributed training: False, compute dtype: torch.bfloat16
+[INFO|2025-01-13 14:58:59] llamafactory.data.template:157 >> Add pad token: <|eot_id|>
+[INFO|2025-01-13 14:58:59] llamafactory.data.template:157 >> Add <|eot_id|>,<|eom_id|> to stop words.
+[INFO|2025-01-13 14:58:59] llamafactory.data.loader:157 >> Loading dataset BALS_de_dataset.json...
+training example:
+input_ids:
+[128000, 128006, 9125, 128007, 271, 2675, 527, 264, 11190, 15592, 18328, 369, 14807, 505, 6498, 311, 6063, 13, 1472, 28832, 4320, 449, 279, 2768, 4823, 13155, 25, 5324, 3129, 3332, 928, 9388, 128009, 128006, 882, 128007, 271, 5618, 15025, 279, 2768, 1495, 505, 6498, 311, 6063, 627, 53, 4289, 546, 5929, 15883, 10743, 12175, 67608, 27382, 323, 7515, 8329, 128009, 128006, 78191, 128007, 271, 53, 4289, 546, 1226, 91650, 82106, 10056, 15492, 3059, 2073, 48035, 1974, 268, 128009]
+inputs:
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+You are a helpful AI assistant for translation from English to German. You MUST answer with the following JSON scheme: {"translation":"string"}<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Please translate the following text from English to German.
+Vermont White Spruce® wreaths and garlands<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+Vermont Weihnachtskränze und Girlanden<|eot_id|>
+label_ids:
+[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 53, 4289, 546, 1226, 91650, 82106, 10056, 15492, 3059, 2073, 48035, 1974, 268, 128009]
+labels:
+Vermont Weihnachtskränze und Girlanden<|eot_id|>
+[INFO|2025-01-13 14:59:00] llamafactory.model.model_utils.quantization:157 >> Quantizing model to 8 bit with bitsandbytes.
+[INFO|2025-01-13 14:59:18] llamafactory.model.model_utils.checkpointing:157 >> Gradient checkpointing enabled.
+[INFO|2025-01-13 14:59:18] llamafactory.model.model_utils.attention:157 >> Using torch SDPA for faster training and inference.
+[INFO|2025-01-13 14:59:18] llamafactory.model.adapter:157 >> Upcasting trainable params to float32.
+[INFO|2025-01-13 14:59:18] llamafactory.model.adapter:157 >> Fine-tuning method: LoRA
+[INFO|2025-01-13 14:59:18] llamafactory.model.model_utils.misc:157 >> Found linear modules: v_proj,k_proj,up_proj,o_proj,down_proj,q_proj,gate_proj
+[INFO|2025-01-13 14:59:20] llamafactory.model.loader:157 >> trainable params: 167,772,160 || all params: 8,198,033,408 || trainable%: 2.0465
+{'loss': 1.7193, 'grad_norm': 0.2812105119228363, 'learning_rate': 0.0002, 'epoch': 0.1}
+{'loss': 1.0989, 'grad_norm': 0.16497427225112915, 'learning_rate': 0.0004, 'epoch': 0.2}
+{'loss': 0.9739, 'grad_norm': 0.19199733436107635, 'learning_rate': 0.0006, 'epoch': 0.3}
+{'loss': 0.9062, 'grad_norm': 0.1624639630317688, 'learning_rate': 0.0008, 'epoch': 0.4}
+{'loss': 0.832, 'grad_norm': 0.16742590069770813, 'learning_rate': 0.001, 'epoch': 0.5}
+{'loss': 0.7858, 'grad_norm': 0.14103274047374725, 'learning_rate': 0.0008039411764705882, 'epoch': 0.59}
+{'loss': 0.7603, 'grad_norm': 0.1273687779903412, 'learning_rate': 0.0006078823529411764, 'epoch': 0.69}
+{'loss': 0.7461, 'grad_norm': 0.1535400003194809, 'learning_rate': 0.00041182352941176466, 'epoch': 0.79}
+{'loss': 0.7272, 'grad_norm': 0.13452358543872833, 'learning_rate': 0.00021576470588235294, 'epoch': 0.89}
+{'loss': 0.7277, 'grad_norm': 0.13324345648288727, 'learning_rate': 1.9705882352941215e-05, 'epoch': 0.99}
+{'eval_loss': 0.7119331955909729, 'eval_runtime': 104.7851, 'eval_samples_per_second': 27.418, 'eval_steps_per_second': 3.436, 'epoch': 0.99}
+{'train_runtime': 2520.9748, 'train_samples_per_second': 10.256, 'train_steps_per_second': 0.04, 'train_loss': 0.9253968513838136, 'epoch': 1.0}
+***** train metrics *****
+  epoch                    =         1.0
+  total_flos               = 202559881GF
+  train_loss               =      0.9254
+  train_runtime            =  0:42:00.97
+  train_samples_per_second =      10.256
+  train_steps_per_second   =        0.04
+Figure saved at: saves/Llama-3.1-8B-Instruct/lora/train_2025-01-13-14-58-42/training_loss.png
+Figure saved at: saves/Llama-3.1-8B-Instruct/lora/train_2025-01-13-14-58-42/training_eval_loss.png
+[WARNING|2025-01-13 15:41:23] llamafactory.extras.ploting:162 >> No metric eval_accuracy to plot.
+***** eval metrics *****
+  epoch                   =        1.0
+  eval_loss               =      0.711
+  eval_runtime            = 0:01:37.83
+  eval_samples_per_second =     29.366
+  eval_steps_per_second   =       3.68
+----------------------------------------
+Model and checkpoint locations:
+Base directory: /home/ivieira/LLaMA-Factory/
+Model save path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-13-15-43-02
+Checkpoint directory: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-13-15-43-02/checkpoint-*
+----------------------------------------

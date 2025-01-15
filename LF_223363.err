@@ -1,0 +1,131 @@
+[INFO|configuration_utils.py:679] 2025-01-15 17:04:31,958 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
+[INFO|configuration_utils.py:746] 2025-01-15 17:04:31,967 >> Model config LlamaConfig {
+  "_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.46.1",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[INFO|tokenization_utils_base.py:2211] 2025-01-15 17:04:32,192 >> loading file tokenizer.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer.json
+[INFO|tokenization_utils_base.py:2211] 2025-01-15 17:04:32,230 >> loading file tokenizer.model from cache at None
+[INFO|tokenization_utils_base.py:2211] 2025-01-15 17:04:32,239 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2211] 2025-01-15 17:04:32,252 >> loading file special_tokens_map.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2211] 2025-01-15 17:04:32,272 >> loading file tokenizer_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2475] 2025-01-15 17:04:32,781 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|configuration_utils.py:679] 2025-01-15 17:04:33,661 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
+[INFO|configuration_utils.py:746] 2025-01-15 17:04:33,669 >> Model config LlamaConfig {
+  "_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.46.1",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[INFO|tokenization_utils_base.py:2211] 2025-01-15 17:04:33,875 >> loading file tokenizer.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer.json
+[INFO|tokenization_utils_base.py:2211] 2025-01-15 17:04:33,893 >> loading file tokenizer.model from cache at None
+[INFO|tokenization_utils_base.py:2211] 2025-01-15 17:04:33,904 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2211] 2025-01-15 17:04:33,914 >> loading file special_tokens_map.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2211] 2025-01-15 17:04:33,926 >> loading file tokenizer_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2475] 2025-01-15 17:04:34,453 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Setting num_proc from 16 back to 1 for the train split to disable multiprocessing as it only contains one shard.
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 25856 examples [00:00, 117085.18 examples/s]Generating train split: 25856 examples [00:00, 111858.84 examples/s]
+Converting format of dataset (num_proc=16):   0%|          | 0/25856 [00:00<?, ? examples/s]Converting format of dataset (num_proc=16):   1%|          | 282/25856 [00:00<00:12, 2021.57 examples/s]Converting format of dataset (num_proc=16):   7%|▋         | 1868/25856 [00:00<00:02, 8593.75 examples/s]Converting format of dataset (num_proc=16):  14%|█▎        | 3492/25856 [00:00<00:01, 11325.58 examples/s]Converting format of dataset (num_proc=16):  27%|██▋       | 6999/25856 [00:00<00:00, 19853.37 examples/s]Converting format of dataset (num_proc=16):  39%|███▉      | 10033/25856 [00:00<00:00, 23175.98 examples/s]Converting format of dataset (num_proc=16):  50%|█████     | 13019/25856 [00:00<00:00, 25328.64 examples/s]Converting format of dataset (num_proc=16):  61%|██████▏   | 15866/25856 [00:00<00:00, 25684.75 examples/s]Converting format of dataset (num_proc=16):  72%|███████▏  | 18578/25856 [00:00<00:00, 24959.11 examples/s]Converting format of dataset (num_proc=16):  82%|████████▏ | 21207/25856 [00:00<00:00, 24432.66 examples/s]Converting format of dataset (num_proc=16):  93%|█████████▎| 24000/25856 [00:01<00:00, 25343.09 examples/s]Converting format of dataset (num_proc=16): 100%|██████████| 25856/25856 [00:01<00:00, 20805.42 examples/s]
+Running tokenizer on dataset (num_proc=16):   0%|          | 0/25856 [00:00<?, ? examples/s]Running tokenizer on dataset (num_proc=16):   6%|▋         | 1616/25856 [00:01<00:20, 1167.51 examples/s]Running tokenizer on dataset (num_proc=16):  10%|█         | 2616/25856 [00:01<00:14, 1575.02 examples/s]Running tokenizer on dataset (num_proc=16):  19%|█▉        | 4848/25856 [00:02<00:07, 2751.04 examples/s]Running tokenizer on dataset (num_proc=16):  25%|██▌       | 6464/25856 [00:02<00:05, 3321.63 examples/s]Running tokenizer on dataset (num_proc=16):  31%|███▏      | 8080/25856 [00:02<00:04, 3812.65 examples/s]Running tokenizer on dataset (num_proc=16):  35%|███▌      | 9080/25856 [00:03<00:04, 3391.95 examples/s]Running tokenizer on dataset (num_proc=16):  41%|████▏     | 10696/25856 [00:03<00:03, 3845.03 examples/s]Running tokenizer on dataset (num_proc=16):  48%|████▊     | 12312/25856 [00:04<00:04, 3075.44 examples/s]Running tokenizer on dataset (num_proc=16):  60%|██████    | 15544/25856 [00:04<00:02, 4639.95 examples/s]Running tokenizer on dataset (num_proc=16):  66%|██████▋   | 17160/25856 [00:05<00:01, 4417.59 examples/s]Running tokenizer on dataset (num_proc=16):  73%|███████▎  | 18776/25856 [00:05<00:01, 5394.42 examples/s]Running tokenizer on dataset (num_proc=16):  81%|████████▏ | 21008/25856 [00:05<00:00, 6111.44 examples/s]Running tokenizer on dataset (num_proc=16):  88%|████████▊ | 22624/25856 [00:05<00:00, 6923.48 examples/s]Running tokenizer on dataset (num_proc=16):  94%|█████████▍| 24240/25856 [00:05<00:00, 7552.41 examples/s]Running tokenizer on dataset (num_proc=16): 100%|██████████| 25856/25856 [00:05<00:00, 8049.75 examples/s]Running tokenizer on dataset (num_proc=16): 100%|██████████| 25856/25856 [00:05<00:00, 4339.59 examples/s]
+Traceback (most recent call last):
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/data/loader.py", line 215, in _get_preprocessed_dataset
+    print_function(next(iter(dataset)))
+                   ^^^^^^^^^^^^^^^^^^^
+StopIteration
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ivieira/miniconda3/envs/lf-env/bin/llamafactory-cli", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/cli.py", line 112, in main
+    run_exp()
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/tuner.py", line 92, in run_exp
+    _training_function(config={"args": args, "callbacks": callbacks})
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/tuner.py", line 66, in _training_function
+    run_sft(model_args, data_args, training_args, finetuning_args, generating_args, callbacks)
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/train/sft/workflow.py", line 51, in run_sft
+    dataset_module = get_dataset(template, model_args, data_args, training_args, stage="sft", **tokenizer_module)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/data/loader.py", line 269, in get_dataset
+    dataset = _get_preprocessed_dataset(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ivieira/LLaMA-Factory/src/llamafactory/data/loader.py", line 220, in _get_preprocessed_dataset
+    raise RuntimeError("Cannot find valid samples, check `data/README.md` for the data format.")
+RuntimeError: Cannot find valid samples, check `data/README.md` for the data format.
+Traceback (most recent call last):
+  File "/home/ivieira/chicago2/HP_FT_TM/inference_eval.py", line 36, in <module>
+    raise RuntimeError(f"No runs found with run_name: {target_run_name}")
+RuntimeError: No runs found with run_name: train_2025-01-15-17-04-15

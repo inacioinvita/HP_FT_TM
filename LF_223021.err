@@ -1,0 +1,7 @@
+Cloning into 'LLaMA-Factory'...
+ERROR: Could not install packages due to an OSError: [Errno 2] No such file or directory
+
+The folder you are executing pip from can no longer be found.
+Intel MKL FATAL ERROR: Cannot load /home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/torch/lib/../../../../libmkl_core.so.
+/var/lib/slurm-llnl/slurmd/job223021/slurm_script: line 42: train_llama3.json: No such file or directory
+/var/lib/slurm-llnl/slurmd/job223021/slurm_script: line 97: llamafactory-cli: command not found

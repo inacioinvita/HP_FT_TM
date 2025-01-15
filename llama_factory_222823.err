@@ -1,0 +1,21 @@
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 24.11.2
+    latest version: 24.11.3
+
+Please update conda by running
+
+    $ conda update -n base -c conda-forge conda
+
+
+
+SafetyError: The package for ld_impl_linux-64 located at /home/ivieira/mambaforge/pkgs/ld_impl_linux-64-2.43-h712a8e2_2
+appears to be corrupted. The path 'bin/x86_64-conda-linux-gnu-ld'
+has an incorrect size.
+  reported size: 3318336 bytes
+  actual size: 0 bytes
+
+
+Cloning into 'LLaMA-Factory'...
+python: can't open file '/home/ivieira/chicago2/HP_FT_TM/LLaMA-Factory/run_llama_factory.py': [Errno 2] No such file or directory

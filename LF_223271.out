@@ -1,0 +1,58 @@
+CUDA available? True
+Device count: 1
+[INFO|2025-01-14 23:45:16] llamafactory.hparams.parser:373 >> Process rank: 0, device: cuda:0, n_gpu: 1, distributed training: False, compute dtype: torch.bfloat16
+[INFO|2025-01-14 23:45:18] llamafactory.data.template:157 >> Add pad token: <|eot_id|>
+[INFO|2025-01-14 23:45:18] llamafactory.data.template:157 >> Add <|eot_id|>,<|eom_id|> to stop words.
+[INFO|2025-01-14 23:45:18] llamafactory.data.loader:157 >> Loading dataset BALS_de_train_dataset.json...
+training example:
+input_ids:
+[128000, 128006, 9125, 128007, 271, 2675, 527, 264, 11190, 15592, 18328, 369, 14807, 505, 6498, 311, 6063, 13, 1472, 28832, 4320, 449, 279, 2768, 4823, 13155, 25, 5324, 3129, 3332, 928, 9388, 128009, 128006, 882, 128007, 271, 5618, 15025, 279, 2768, 1495, 505, 6498, 311, 6063, 627, 37, 7618, 18977, 50, 128009, 128006, 78191, 128007, 271, 11673, 52, 643, 40451, 42, 320, 37, 7618, 18977, 50, 8, 128009]
+inputs:
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+You are a helpful AI assistant for translation from English to German. You MUST answer with the following JSON scheme: {"translation":"string"}<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Please translate the following text from English to German.
+FIREWORKS<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
+FEUERWERK (FIREWORKS)<|eot_id|>
+label_ids:
+[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 11673, 52, 643, 40451, 42, 320, 37, 7618, 18977, 50, 8, 128009]
+labels:
+FEUERWERK (FIREWORKS)<|eot_id|>
+[INFO|2025-01-14 23:45:19] llamafactory.model.model_utils.quantization:157 >> Quantizing model to 8 bit with bitsandbytes.
+[INFO|2025-01-14 23:45:29] llamafactory.model.model_utils.checkpointing:157 >> Upcasting layernorm weights in float32.
+[INFO|2025-01-14 23:45:29] llamafactory.model.model_utils.checkpointing:157 >> Gradient checkpointing enabled.
+[INFO|2025-01-14 23:45:29] llamafactory.model.model_utils.attention:157 >> Using torch SDPA for faster training and inference.
+[INFO|2025-01-14 23:45:29] llamafactory.model.adapter:157 >> Upcasting trainable params to float32.
+[INFO|2025-01-14 23:45:29] llamafactory.model.adapter:157 >> Fine-tuning method: LoRA
+[INFO|2025-01-14 23:45:29] llamafactory.model.model_utils.misc:157 >> Found linear modules: up_proj,v_proj,o_proj,down_proj,k_proj,gate_proj,q_proj
+[INFO|2025-01-14 23:45:30] llamafactory.model.loader:157 >> trainable params: 167,772,160 || all params: 8,198,033,408 || trainable%: 2.0465
+{'loss': 1.3841, 'grad_norm': 0.18657329678535461, 'learning_rate': 0.0009844686508907537, 'epoch': 0.11}
+{'eval_loss': 0.9883327484130859, 'eval_runtime': 77.8893, 'eval_samples_per_second': 33.201, 'eval_steps_per_second': 2.08, 'epoch': 0.11}
+{'loss': 0.9247, 'grad_norm': 0.26154500246047974, 'learning_rate': 0.0009107103875602458, 'epoch': 0.22}
+{'eval_loss': 0.8778547048568726, 'eval_runtime': 78.0031, 'eval_samples_per_second': 33.153, 'eval_steps_per_second': 2.077, 'epoch': 0.22}
+{'loss': 0.862, 'grad_norm': 0.18689492344856262, 'learning_rate': 0.000785161318467482, 'epoch': 0.33}
+{'eval_loss': 0.8251579999923706, 'eval_runtime': 78.1329, 'eval_samples_per_second': 33.097, 'eval_steps_per_second': 2.073, 'epoch': 0.33}
+{'loss': 0.7876, 'grad_norm': 0.18859289586544037, 'learning_rate': 0.0006236532502771077, 'epoch': 0.44}
+{'eval_loss': 0.7860376834869385, 'eval_runtime': 77.7893, 'eval_samples_per_second': 33.244, 'eval_steps_per_second': 2.083, 'epoch': 0.44}
+{'loss': 0.771, 'grad_norm': 0.16251662373542786, 'learning_rate': 0.0004465524392174437, 'epoch': 0.55}
+{'eval_loss': 0.76079922914505, 'eval_runtime': 77.7213, 'eval_samples_per_second': 33.273, 'eval_steps_per_second': 2.084, 'epoch': 0.55}
+{'loss': 0.7515, 'grad_norm': 0.11876141279935837, 'learning_rate': 0.00027619139496864374, 'epoch': 0.66}
+{'eval_loss': 0.7397873997688293, 'eval_runtime': 77.8404, 'eval_samples_per_second': 33.222, 'eval_steps_per_second': 2.081, 'epoch': 0.66}
+{'loss': 0.7279, 'grad_norm': 0.14008402824401855, 'learning_rate': 0.0001340527389091374, 'epoch': 0.77}
+{'eval_loss': 0.7249389290809631, 'eval_runtime': 77.9303, 'eval_samples_per_second': 33.184, 'eval_steps_per_second': 2.079, 'epoch': 0.77}
+{'loss': 0.7178, 'grad_norm': 0.15796837210655212, 'learning_rate': 3.806023374435663e-05, 'epoch': 0.88}
+{'eval_loss': 0.7160972356796265, 'eval_runtime': 77.4739, 'eval_samples_per_second': 33.379, 'eval_steps_per_second': 2.091, 'epoch': 0.88}
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mtrain_2025-01-14-23-45-10[0m at: [34mhttps://wandb.ai/inaciovieira-alpha-crc/llamafactory/runs/t4h9hcyt[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250114_234531-t4h9hcyt/logs[0m
+Found run ID t4h9hcyt for run name train_2025-01-14-23-45-10
+[1;34mwandb[0m: 
+[1;34mwandb[0m: 🚀 View run [33mtrain_2025-01-14-23-45-10[0m at: [34mhttps://wandb.ai/inaciovieira-alpha-crc/llamafactory/runs/t4h9hcyt[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/run-20250115_012958-t4h9hcyt/logs[0m
+----------------------------------------
+Model and evaluation paths:
+Model path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-23-45-10
+Evaluation output: /home/ivieira/LLaMA-Factory/evaluation/autoeval/train_2025-01-14-23-45-10
+----------------------------------------

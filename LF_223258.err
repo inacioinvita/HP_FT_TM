@@ -1,0 +1,332 @@
+[INFO|configuration_utils.py:679] 2025-01-14 17:36:50,337 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
+[INFO|configuration_utils.py:746] 2025-01-14 17:36:50,338 >> Model config LlamaConfig {
+  "_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.46.1",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 17:36:50,534 >> loading file tokenizer.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer.json
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 17:36:50,534 >> loading file tokenizer.model from cache at None
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 17:36:50,534 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 17:36:50,534 >> loading file special_tokens_map.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 17:36:50,534 >> loading file tokenizer_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2475] 2025-01-14 17:36:50,901 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|configuration_utils.py:679] 2025-01-14 17:36:51,831 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
+[INFO|configuration_utils.py:746] 2025-01-14 17:36:51,833 >> Model config LlamaConfig {
+  "_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.46.1",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 17:36:52,038 >> loading file tokenizer.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer.json
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 17:36:52,038 >> loading file tokenizer.model from cache at None
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 17:36:52,038 >> loading file added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 17:36:52,039 >> loading file special_tokens_map.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2211] 2025-01-14 17:36:52,039 >> loading file tokenizer_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2475] 2025-01-14 17:36:52,411 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|configuration_utils.py:679] 2025-01-14 17:36:53,173 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
+[INFO|configuration_utils.py:746] 2025-01-14 17:36:53,173 >> Model config LlamaConfig {
+  "_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.46.1",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[INFO|modeling_utils.py:3937] 2025-01-14 17:36:53,250 >> loading weights file model.safetensors from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/model.safetensors.index.json
+[INFO|modeling_utils.py:1670] 2025-01-14 17:36:53,251 >> Instantiating LlamaForCausalLM model under default dtype torch.bfloat16.
+[INFO|configuration_utils.py:1096] 2025-01-14 17:36:53,252 >> Generate config GenerationConfig {
+  "bos_token_id": 128000,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ]
+}
+
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:02<00:08,  2.76s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:05<00:05,  2.64s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:07<00:02,  2.61s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:08<00:00,  1.79s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:08<00:00,  2.11s/it]
+[INFO|modeling_utils.py:4800] 2025-01-14 17:37:01,811 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+[INFO|modeling_utils.py:4808] 2025-01-14 17:37:01,811 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at meta-llama/Meta-Llama-3.1-8B-Instruct.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:1051] 2025-01-14 17:37:02,023 >> loading configuration file generation_config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/generation_config.json
+[INFO|configuration_utils.py:1096] 2025-01-14 17:37:02,024 >> Generate config GenerationConfig {
+  "bos_token_id": 128000,
+  "do_sample": true,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "temperature": 0.6,
+  "top_p": 0.9
+}
+
+[INFO|trainer.py:698] 2025-01-14 17:37:03,984 >> Using auto half precision backend
+[INFO|trainer.py:2313] 2025-01-14 17:37:04,211 >> ***** Running training *****
+[INFO|trainer.py:2314] 2025-01-14 17:37:04,211 >>   Num examples = 23,270
+[INFO|trainer.py:2315] 2025-01-14 17:37:04,211 >>   Num Epochs = 1
+[INFO|trainer.py:2316] 2025-01-14 17:37:04,211 >>   Instantaneous batch size per device = 32
+[INFO|trainer.py:2319] 2025-01-14 17:37:04,211 >>   Total train batch size (w. parallel, distributed & accumulation) = 256
+[INFO|trainer.py:2320] 2025-01-14 17:37:04,211 >>   Gradient Accumulation steps = 8
+[INFO|trainer.py:2321] 2025-01-14 17:37:04,211 >>   Total optimization steps = 1
+[INFO|trainer.py:2322] 2025-01-14 17:37:04,214 >>   Number of trainable parameters = 167,772,160
+[INFO|integration_utils.py:812] 2025-01-14 17:37:04,217 >> Automatic Weights & Biases logging enabled, to disable set os.environ["WANDB_DISABLED"] = "true"
+wandb: Currently logged in as: inaciovieira (inaciovieira-alpha-crc). Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.2
+wandb: Run data is saved locally in /home/ivieira/LLaMA-Factory/wandb/run-20250114_173704-qyly5pzh
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run train_2025-01-14-17-36-44
+wandb: ⭐️ View project at https://wandb.ai/inaciovieira-alpha-crc/llamafactory
+wandb: 🚀 View run at https://wandb.ai/inaciovieira-alpha-crc/llamafactory/runs/qyly5pzh
+  0%|          | 0/1 [00:00<?, ?it/s]/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.bfloat16 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+100%|██████████| 1/1 [00:49<00:00, 49.53s/it][INFO|trainer.py:3801] 2025-01-14 17:37:54,903 >> Saving model checkpoint to saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-17-36-44/checkpoint-1
+[INFO|configuration_utils.py:679] 2025-01-14 17:37:55,339 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
+[INFO|configuration_utils.py:746] 2025-01-14 17:37:55,340 >> Model config LlamaConfig {
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.46.1",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[INFO|tokenization_utils_base.py:2646] 2025-01-14 17:37:55,945 >> tokenizer config file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-17-36-44/checkpoint-1/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2655] 2025-01-14 17:37:55,946 >> Special tokens file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-17-36-44/checkpoint-1/special_tokens_map.json
+[INFO|trainer.py:2584] 2025-01-14 17:37:57,058 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                             100%|██████████| 1/1 [00:51<00:00, 49.53s/it]100%|██████████| 1/1 [00:51<00:00, 51.71s/it]
+[INFO|trainer.py:3801] 2025-01-14 17:37:57,077 >> Saving model checkpoint to saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-17-36-44
+[INFO|configuration_utils.py:679] 2025-01-14 17:37:57,536 >> loading configuration file config.json from cache at /home/ivieira/.cache/huggingface/hub/models--meta-llama--Meta-Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659/config.json
+[INFO|configuration_utils.py:746] 2025-01-14 17:37:57,537 >> Model config LlamaConfig {
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 128000,
+  "eos_token_id": [
+    128001,
+    128008,
+    128009
+  ],
+  "head_dim": 128,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 14336,
+  "max_position_embeddings": 131072,
+  "mlp_bias": false,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 8,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": {
+    "factor": 8.0,
+    "high_freq_factor": 4.0,
+    "low_freq_factor": 1.0,
+    "original_max_position_embeddings": 8192,
+    "rope_type": "llama3"
+  },
+  "rope_theta": 500000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.46.1",
+  "use_cache": true,
+  "vocab_size": 128256
+}
+
+[INFO|tokenization_utils_base.py:2646] 2025-01-14 17:37:58,134 >> tokenizer config file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-17-36-44/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2655] 2025-01-14 17:37:58,135 >> Special tokens file saved in saves/Llama-3.1-8B-Instruct/lora/train_2025-01-14-17-36-44/special_tokens_map.json
+[INFO|trainer.py:4117] 2025-01-14 17:37:58,321 >> 
+***** Running Evaluation *****
+[INFO|trainer.py:4119] 2025-01-14 17:37:58,321 >>   Num examples = 2586
+[INFO|trainer.py:4122] 2025-01-14 17:37:58,322 >>   Batch size = 16
+/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/bitsandbytes/autograd/_functions.py:316: UserWarning: MatMul8bitLt: inputs will be cast from torch.bfloat16 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+  0%|          | 0/162 [00:00<?, ?it/s]  1%|          | 2/162 [00:00<00:35,  4.51it/s]  2%|▏         | 3/162 [00:00<00:47,  3.32it/s]  2%|▏         | 4/162 [00:01<00:56,  2.82it/s]  3%|▎         | 5/162 [00:01<01:07,  2.32it/s]  4%|▎         | 6/162 [00:02<01:05,  2.39it/s]  4%|▍         | 7/162 [00:02<01:05,  2.38it/s]  5%|▍         | 8/162 [00:03<01:12,  2.14it/s]  6%|▌         | 9/162 [00:03<01:09,  2.19it/s]  6%|▌         | 10/162 [00:04<01:16,  1.98it/s]  7%|▋         | 11/162 [00:05<01:30,  1.67it/s]  7%|▋         | 12/162 [00:05<01:20,  1.86it/s]  8%|▊         | 13/162 [00:06<01:20,  1.86it/s]  9%|▊         | 14/162 [00:06<01:15,  1.96it/s]  9%|▉         | 15/162 [00:06<01:12,  2.03it/s] 10%|▉         | 16/162 [00:07<01:10,  2.07it/s] 10%|█         | 17/162 [00:07<01:10,  2.05it/s] 11%|█         | 18/162 [00:08<01:14,  1.93it/s] 12%|█▏        | 19/162 [00:08<01:11,  1.99it/s] 12%|█▏        | 20/162 [00:09<01:16,  1.86it/s] 13%|█▎        | 21/162 [00:10<01:11,  1.96it/s] 14%|█▎        | 22/162 [00:10<01:06,  2.11it/s] 14%|█▍        | 23/162 [00:11<01:16,  1.81it/s] 15%|█▍        | 24/162 [00:11<01:11,  1.93it/s] 15%|█▌        | 25/162 [00:12<01:08,  1.99it/s] 16%|█▌        | 26/162 [00:12<01:05,  2.06it/s] 17%|█▋        | 27/162 [00:13<01:43,  1.31it/s] 17%|█▋        | 28/162 [00:14<01:29,  1.50it/s] 18%|█▊        | 29/162 [00:14<01:18,  1.69it/s] 19%|█▊        | 30/162 [00:15<01:14,  1.77it/s] 19%|█▉        | 31/162 [00:15<01:09,  1.89it/s] 20%|█▉        | 32/162 [00:16<01:04,  2.02it/s] 20%|██        | 33/162 [00:16<01:01,  2.11it/s] 21%|██        | 34/162 [00:17<01:08,  1.86it/s] 22%|██▏       | 35/162 [00:17<01:04,  1.98it/s] 22%|██▏       | 36/162 [00:19<01:42,  1.23it/s] 23%|██▎       | 37/162 [00:19<01:27,  1.43it/s] 23%|██▎       | 38/162 [00:20<01:17,  1.59it/s] 24%|██▍       | 39/162 [00:20<01:18,  1.57it/s] 25%|██▍       | 40/162 [00:21<01:07,  1.80it/s] 25%|██▌       | 41/162 [00:21<01:07,  1.78it/s] 26%|██▌       | 42/162 [00:22<01:00,  2.00it/s] 27%|██▋       | 43/162 [00:22<00:57,  2.07it/s] 27%|██▋       | 44/162 [00:23<01:03,  1.86it/s] 28%|██▊       | 45/162 [00:23<00:58,  1.98it/s] 28%|██▊       | 46/162 [00:24<00:55,  2.08it/s] 29%|██▉       | 47/162 [00:24<00:55,  2.06it/s] 30%|██▉       | 48/162 [00:25<00:55,  2.05it/s] 30%|███       | 49/162 [00:25<00:52,  2.15it/s] 31%|███       | 50/162 [00:25<00:52,  2.12it/s] 31%|███▏      | 51/162 [00:26<00:50,  2.20it/s] 32%|███▏      | 52/162 [00:26<00:49,  2.22it/s] 33%|███▎      | 53/162 [00:27<00:47,  2.31it/s] 33%|███▎      | 54/162 [00:27<00:46,  2.32it/s] 34%|███▍      | 55/162 [00:27<00:44,  2.41it/s] 35%|███▍      | 56/162 [00:28<00:43,  2.42it/s] 35%|███▌      | 57/162 [00:28<00:46,  2.28it/s] 36%|███▌      | 58/162 [00:29<00:45,  2.30it/s] 36%|███▋      | 59/162 [00:29<00:48,  2.14it/s] 37%|███▋      | 60/162 [00:30<00:47,  2.15it/s] 38%|███▊      | 61/162 [00:30<00:46,  2.18it/s] 38%|███▊      | 62/162 [00:31<00:44,  2.22it/s] 39%|███▉      | 63/162 [00:31<00:43,  2.26it/s] 40%|███▉      | 64/162 [00:32<00:45,  2.16it/s] 40%|████      | 65/162 [00:32<00:44,  2.17it/s] 41%|████      | 66/162 [00:32<00:42,  2.24it/s] 41%|████▏     | 67/162 [00:33<00:43,  2.17it/s] 42%|████▏     | 68/162 [00:33<00:40,  2.30it/s] 43%|████▎     | 69/162 [00:34<00:42,  2.19it/s] 43%|████▎     | 70/162 [00:34<00:41,  2.21it/s] 44%|████▍     | 71/162 [00:35<00:40,  2.27it/s] 44%|████▍     | 72/162 [00:36<00:51,  1.73it/s] 45%|████▌     | 73/162 [00:36<00:47,  1.88it/s] 46%|████▌     | 74/162 [00:36<00:44,  1.98it/s] 46%|████▋     | 75/162 [00:37<00:40,  2.12it/s] 47%|████▋     | 76/162 [00:37<00:43,  1.99it/s] 48%|████▊     | 77/162 [00:38<00:45,  1.87it/s] 48%|████▊     | 78/162 [00:40<01:21,  1.03it/s] 49%|████▉     | 79/162 [00:40<01:06,  1.25it/s] 49%|████▉     | 80/162 [00:41<00:58,  1.40it/s] 50%|█████     | 81/162 [00:41<00:51,  1.57it/s] 51%|█████     | 82/162 [00:42<00:45,  1.74it/s] 51%|█████     | 83/162 [00:42<00:41,  1.92it/s] 52%|█████▏    | 84/162 [00:43<00:38,  2.05it/s] 52%|█████▏    | 85/162 [00:43<00:35,  2.20it/s] 53%|█████▎    | 86/162 [00:44<00:35,  2.16it/s] 54%|█████▎    | 87/162 [00:44<00:42,  1.76it/s] 54%|█████▍    | 88/162 [00:45<00:39,  1.87it/s] 55%|█████▍    | 89/162 [00:45<00:35,  2.03it/s] 56%|█████▌    | 90/162 [00:46<00:35,  2.03it/s] 56%|█████▌    | 91/162 [00:46<00:33,  2.09it/s] 57%|█████▋    | 92/162 [00:47<00:32,  2.18it/s] 57%|█████▋    | 93/162 [00:47<00:30,  2.29it/s] 58%|█████▊    | 94/162 [00:47<00:29,  2.30it/s] 59%|█████▊    | 95/162 [00:48<00:28,  2.37it/s] 59%|█████▉    | 96/162 [00:48<00:28,  2.31it/s] 60%|█████▉    | 97/162 [00:49<00:28,  2.27it/s] 60%|██████    | 98/162 [00:49<00:27,  2.32it/s] 61%|██████    | 99/162 [00:49<00:26,  2.41it/s] 62%|██████▏   | 100/162 [00:50<00:26,  2.30it/s] 62%|██████▏   | 101/162 [00:50<00:26,  2.31it/s] 63%|██████▎   | 102/162 [00:51<00:25,  2.38it/s] 64%|██████▎   | 103/162 [00:51<00:26,  2.19it/s] 64%|██████▍   | 104/162 [00:52<00:25,  2.25it/s] 65%|██████▍   | 105/162 [00:52<00:25,  2.23it/s] 65%|██████▌   | 106/162 [00:53<00:23,  2.35it/s] 66%|██████▌   | 107/162 [00:53<00:22,  2.41it/s] 67%|██████▋   | 108/162 [00:53<00:22,  2.41it/s] 67%|██████▋   | 109/162 [00:54<00:22,  2.39it/s] 68%|██████▊   | 110/162 [00:54<00:21,  2.40it/s] 69%|██████▊   | 111/162 [00:55<00:20,  2.44it/s] 69%|██████▉   | 112/162 [00:55<00:21,  2.36it/s] 70%|██████▉   | 113/162 [00:55<00:20,  2.42it/s] 70%|███████   | 114/162 [00:56<00:19,  2.48it/s] 71%|███████   | 115/162 [00:56<00:19,  2.43it/s] 72%|███████▏  | 116/162 [00:57<00:18,  2.52it/s] 72%|███████▏  | 117/162 [00:57<00:18,  2.44it/s] 73%|███████▎  | 118/162 [00:57<00:18,  2.35it/s] 73%|███████▎  | 119/162 [00:58<00:19,  2.25it/s] 74%|███████▍  | 120/162 [00:58<00:18,  2.29it/s] 75%|███████▍  | 121/162 [00:59<00:18,  2.21it/s] 75%|███████▌  | 122/162 [00:59<00:18,  2.20it/s] 76%|███████▌  | 123/162 [01:00<00:17,  2.24it/s] 77%|███████▋  | 124/162 [01:00<00:16,  2.24it/s] 77%|███████▋  | 125/162 [01:01<00:16,  2.23it/s] 78%|███████▊  | 126/162 [01:01<00:15,  2.32it/s] 78%|███████▊  | 127/162 [01:01<00:14,  2.38it/s] 79%|███████▉  | 128/162 [01:02<00:14,  2.32it/s] 80%|███████▉  | 129/162 [01:02<00:14,  2.28it/s] 80%|████████  | 130/162 [01:03<00:13,  2.38it/s] 81%|████████  | 131/162 [01:03<00:14,  2.19it/s] 81%|████████▏ | 132/162 [01:04<00:13,  2.21it/s] 82%|████████▏ | 133/162 [01:04<00:12,  2.25it/s] 83%|████████▎ | 134/162 [01:05<00:12,  2.30it/s] 83%|████████▎ | 135/162 [01:05<00:11,  2.37it/s] 84%|████████▍ | 136/162 [01:05<00:11,  2.28it/s] 85%|████████▍ | 137/162 [01:06<00:11,  2.15it/s] 85%|████████▌ | 138/162 [01:06<00:10,  2.22it/s] 86%|████████▌ | 139/162 [01:07<00:09,  2.31it/s] 86%|████████▋ | 140/162 [01:07<00:09,  2.41it/s] 87%|████████▋ | 141/162 [01:08<00:08,  2.36it/s] 88%|████████▊ | 142/162 [01:08<00:08,  2.33it/s] 88%|████████▊ | 143/162 [01:08<00:08,  2.28it/s] 89%|████████▉ | 144/162 [01:09<00:08,  2.20it/s] 90%|████████▉ | 145/162 [01:09<00:07,  2.24it/s] 90%|█████████ | 146/162 [01:10<00:06,  2.33it/s] 91%|█████████ | 147/162 [01:11<00:07,  1.94it/s] 91%|█████████▏| 148/162 [01:11<00:06,  2.02it/s] 92%|█████████▏| 149/162 [01:11<00:06,  2.16it/s] 93%|█████████▎| 150/162 [01:12<00:05,  2.19it/s] 93%|█████████▎| 151/162 [01:12<00:04,  2.23it/s] 94%|█████████▍| 152/162 [01:13<00:04,  2.10it/s] 94%|█████████▍| 153/162 [01:13<00:04,  2.17it/s] 95%|█████████▌| 154/162 [01:14<00:03,  2.24it/s] 96%|█████████▌| 155/162 [01:14<00:03,  2.19it/s] 96%|█████████▋| 156/162 [01:14<00:02,  2.32it/s] 97%|█████████▋| 157/162 [01:15<00:02,  2.02it/s] 98%|█████████▊| 158/162 [01:15<00:01,  2.15it/s] 98%|█████████▊| 159/162 [01:16<00:01,  2.21it/s] 99%|█████████▉| 160/162 [01:16<00:00,  2.24it/s] 99%|█████████▉| 161/162 [01:17<00:00,  2.20it/s]100%|██████████| 162/162 [01:17<00:00,  2.46it/s]100%|██████████| 162/162 [01:17<00:00,  2.09it/s]
+[INFO|modelcard.py:449] 2025-01-14 17:39:16,419 >> Dropping the following result as it does not have all the necessary fields:
+{'task': {'name': 'Causal Language Modeling', 'type': 'text-generation'}}
+wandb: Currently logged in as: inaciovieira (inaciovieira-alpha-crc). Use `wandb login --relogin` to force relogin
+wandb: Using wandb-core as the SDK backend.  Please refer to https://wandb.me/wandb-core for more information.
+wandb: Tracking run with wandb version 0.19.2
+wandb: Run data is saved locally in /home/ivieira/LLaMA-Factory/wandb/run-20250114_173924-qyly5pzh
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run train_2025-01-14-17-36-44
+wandb: ⭐️ View project at https://wandb.ai/inaciovieira-alpha-crc/llamafactory
+wandb: 🚀 View run at https://wandb.ai/inaciovieira-alpha-crc/llamafactory/runs/qyly5pzh
+We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:05,  1.70s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.72s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:05<00:01,  1.70s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.22s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.40s/it]
+/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/generation/configuration_utils.py:590: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.6` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
+  warnings.warn(
+/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/transformers/generation/configuration_utils.py:595: UserWarning: `do_sample` is set to `False`. However, `top_p` is set to `0.9` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `top_p`.
+  warnings.warn(
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files:  40%|████      | 2/5 [00:44<01:06, 22.24s/it]Fetching 5 files:  80%|████████  | 4/5 [00:53<00:11, 11.84s/it]Fetching 5 files: 100%|██████████| 5/5 [00:53<00:00, 10.72s/it]
+Lightning automatically upgraded your loaded checkpoint from v1.3.5 to v2.5.0.post0. To apply the upgrade to your files permanently, run `python -m pytorch_lightning.utilities.upgrade_checkpoint ../.cache/huggingface/hub/models--Unbabel--wmt20-comet-da/snapshots/87819f4d6d4f17e0d1752cc9e0ccfa2064997219/checkpoints/model.ckpt`
+Encoder model frozen.
+/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/pytorch_lightning/core/saving.py:195: Found keys that are not in the model state dict but in the checkpoint: ['encoder.model.embeddings.position_ids']
+/home/ivieira/miniconda3/envs/lf-env/lib/python3.11/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python /home/ivieira/chicago2/HP_FT_TM/inference_eval.py -- ...
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA A100-SXM4-80GB') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+Predicting: 0it [00:00, ?it/s]Predicting:   0%|          | 0/360 [00:00<?, ?it/s]Predicting DataLoader 0:   0%|          | 0/360 [00:00<?, ?it/s]Predicting DataLoader 0:   0%|          | 1/360 [00:00<00:36,  9.82it/s]Predicting DataLoader 0:   1%|          | 2/360 [00:00<00:25, 14.13it/s]Predicting DataLoader 0:   1%|          | 3/360 [00:00<00:21, 16.47it/s]Predicting DataLoader 0:   1%|          | 4/360 [00:00<00:19, 18.24it/s]Predicting DataLoader 0:   1%|▏         | 5/360 [00:00<00:18, 19.17it/s]Predicting DataLoader 0:   2%|▏         | 6/360 [00:00<00:17, 19.94it/s]Predicting DataLoader 0:   2%|▏         | 7/360 [00:00<00:17, 20.50it/s]Predicting DataLoader 0:   2%|▏         | 8/360 [00:00<00:16, 21.02it/s]Predicting DataLoader 0:   2%|▎         | 9/360 [00:00<00:16, 21.40it/s]Predicting DataLoader 0:   3%|▎         | 10/360 [00:00<00:16, 21.72it/s]Predicting DataLoader 0:   3%|▎         | 11/360 [00:00<00:15, 21.97it/s]Predicting DataLoader 0:   3%|▎         | 12/360 [00:00<00:15, 22.20it/s]Predicting DataLoader 0:   4%|▎         | 13/360 [00:00<00:15, 22.41it/s]Predicting DataLoader 0:   4%|▍         | 14/360 [00:00<00:15, 22.62it/s]Predicting DataLoader 0:   4%|▍         | 15/360 [00:00<00:15, 22.76it/s]Predicting DataLoader 0:   4%|▍         | 16/360 [00:00<00:15, 22.91it/s]Predicting DataLoader 0:   5%|▍         | 17/360 [00:00<00:14, 23.02it/s]Predicting DataLoader 0:   5%|▌         | 18/360 [00:00<00:14, 23.20it/s]Predicting DataLoader 0:   5%|▌         | 19/360 [00:00<00:14, 23.29it/s]Predicting DataLoader 0:   6%|▌         | 20/360 [00:00<00:14, 23.37it/s]Predicting DataLoader 0:   6%|▌         | 21/360 [00:00<00:14, 23.46it/s]Predicting DataLoader 0:   6%|▌         | 22/360 [00:00<00:14, 23.57it/s]Predicting DataLoader 0:   6%|▋         | 23/360 [00:00<00:14, 23.64it/s]Predicting DataLoader 0:   7%|▋         | 24/360 [00:01<00:14, 23.74it/s]Predicting DataLoader 0:   7%|▋         | 25/360 [00:01<00:14, 23.77it/s]Predicting DataLoader 0:   7%|▋         | 26/360 [00:01<00:14, 23.85it/s]Predicting DataLoader 0:   8%|▊         | 27/360 [00:01<00:13, 23.92it/s]Predicting DataLoader 0:   8%|▊         | 28/360 [00:01<00:13, 24.02it/s]Predicting DataLoader 0:   8%|▊         | 29/360 [00:01<00:13, 24.06it/s]Predicting DataLoader 0:   8%|▊         | 30/360 [00:01<00:13, 24.11it/s]Predicting DataLoader 0:   9%|▊         | 31/360 [00:01<00:13, 24.14it/s]Predicting DataLoader 0:   9%|▉         | 32/360 [00:01<00:13, 24.19it/s]Predicting DataLoader 0:   9%|▉         | 33/360 [00:01<00:13, 24.25it/s]Predicting DataLoader 0:   9%|▉         | 34/360 [00:01<00:13, 24.30it/s]Predicting DataLoader 0:  10%|▉         | 35/360 [00:01<00:13, 24.32it/s]Predicting DataLoader 0:  10%|█         | 36/360 [00:01<00:13, 24.37it/s]Predicting DataLoader 0:  10%|█         | 37/360 [00:01<00:13, 24.37it/s]Predicting DataLoader 0:  11%|█         | 38/360 [00:01<00:13, 24.40it/s]Predicting DataLoader 0:  11%|█         | 39/360 [00:01<00:13, 24.40it/s]Predicting DataLoader 0:  11%|█         | 40/360 [00:01<00:13, 24.41it/s]Predicting DataLoader 0:  11%|█▏        | 41/360 [00:01<00:13, 24.40it/s]Predicting DataLoader 0:  12%|█▏        | 42/360 [00:01<00:13, 24.41it/s]Predicting DataLoader 0:  12%|█▏        | 43/360 [00:01<00:13, 24.34it/s]Predicting DataLoader 0:  12%|█▏        | 44/360 [00:01<00:12, 24.37it/s]Predicting DataLoader 0:  12%|█▎        | 45/360 [00:01<00:12, 24.39it/s]Predicting DataLoader 0:  13%|█▎        | 46/360 [00:01<00:12, 24.42it/s]Predicting DataLoader 0:  13%|█▎        | 47/360 [00:01<00:12, 24.44it/s]Predicting DataLoader 0:  13%|█▎        | 48/360 [00:01<00:12, 24.44it/s]Predicting DataLoader 0:  14%|█▎        | 49/360 [00:02<00:12, 24.45it/s]Predicting DataLoader 0:  14%|█▍        | 50/360 [00:02<00:12, 24.47it/s]Predicting DataLoader 0:  14%|█▍        | 51/360 [00:02<00:12, 24.48it/s]Predicting DataLoader 0:  14%|█▍        | 52/360 [00:02<00:12, 24.50it/s]Predicting DataLoader 0:  15%|█▍        | 53/360 [00:02<00:12, 24.50it/s]Predicting DataLoader 0:  15%|█▌        | 54/360 [00:02<00:12, 24.54it/s]Predicting DataLoader 0:  15%|█▌        | 55/360 [00:02<00:12, 24.56it/s]Predicting DataLoader 0:  16%|█▌        | 56/360 [00:02<00:12, 24.57it/s]Predicting DataLoader 0:  16%|█▌        | 57/360 [00:02<00:12, 24.59it/s]Predicting DataLoader 0:  16%|█▌        | 58/360 [00:02<00:12, 24.59it/s]Predicting DataLoader 0:  16%|█▋        | 59/360 [00:02<00:12, 24.62it/s]Predicting DataLoader 0:  17%|█▋        | 60/360 [00:02<00:12, 24.62it/s]Predicting DataLoader 0:  17%|█▋        | 61/360 [00:02<00:12, 24.65it/s]Predicting DataLoader 0:  17%|█▋        | 62/360 [00:02<00:12, 24.66it/s]Predicting DataLoader 0:  18%|█▊        | 63/360 [00:02<00:12, 24.68it/s]Predicting DataLoader 0:  18%|█▊        | 64/360 [00:02<00:11, 24.69it/s]Predicting DataLoader 0:  18%|█▊        | 65/360 [00:02<00:11, 24.71it/s]Predicting DataLoader 0:  18%|█▊        | 66/360 [00:02<00:11, 24.72it/s]Predicting DataLoader 0:  19%|█▊        | 67/360 [00:02<00:11, 24.74it/s]Predicting DataLoader 0:  19%|█▉        | 68/360 [00:02<00:11, 24.74it/s]Predicting DataLoader 0:  19%|█▉        | 69/360 [00:02<00:11, 24.76it/s]Predicting DataLoader 0:  19%|█▉        | 70/360 [00:02<00:11, 24.76it/s]Predicting DataLoader 0:  20%|█▉        | 71/360 [00:02<00:11, 24.78it/s]Predicting DataLoader 0:  20%|██        | 72/360 [00:02<00:11, 24.78it/s]Predicting DataLoader 0:  20%|██        | 73/360 [00:02<00:11, 24.79it/s]Predicting DataLoader 0:  21%|██        | 74/360 [00:02<00:11, 24.79it/s]Predicting DataLoader 0:  21%|██        | 75/360 [00:03<00:11, 24.80it/s]Predicting DataLoader 0:  21%|██        | 76/360 [00:03<00:11, 24.80it/s]Predicting DataLoader 0:  21%|██▏       | 77/360 [00:03<00:11, 24.81it/s]Predicting DataLoader 0:  22%|██▏       | 78/360 [00:03<00:11, 24.81it/s]Predicting DataLoader 0:  22%|██▏       | 79/360 [00:03<00:11, 24.76it/s]Predicting DataLoader 0:  22%|██▏       | 80/360 [00:03<00:11, 24.77it/s]Predicting DataLoader 0:  22%|██▎       | 81/360 [00:03<00:11, 24.78it/s]Predicting DataLoader 0:  23%|██▎       | 82/360 [00:03<00:11, 24.79it/s]Predicting DataLoader 0:  23%|██▎       | 83/360 [00:03<00:11, 24.79it/s]Predicting DataLoader 0:  23%|██▎       | 84/360 [00:03<00:11, 24.80it/s]Predicting DataLoader 0:  24%|██▎       | 85/360 [00:03<00:11, 24.80it/s]Predicting DataLoader 0:  24%|██▍       | 86/360 [00:03<00:11, 24.82it/s]Predicting DataLoader 0:  24%|██▍       | 87/360 [00:03<00:11, 24.79it/s]Predicting DataLoader 0:  24%|██▍       | 88/360 [00:03<00:10, 24.80it/s]Predicting DataLoader 0:  25%|██▍       | 89/360 [00:03<00:10, 24.81it/s]Predicting DataLoader 0:  25%|██▌       | 90/360 [00:03<00:10, 24.82it/s]Predicting DataLoader 0:  25%|██▌       | 91/360 [00:03<00:10, 24.81it/s]Predicting DataLoader 0:  26%|██▌       | 92/360 [00:03<00:10, 24.82it/s]Predicting DataLoader 0:  26%|██▌       | 93/360 [00:03<00:10, 24.82it/s]Predicting DataLoader 0:  26%|██▌       | 94/360 [00:03<00:10, 24.82it/s]Predicting DataLoader 0:  26%|██▋       | 95/360 [00:03<00:10, 24.82it/s]Predicting DataLoader 0:  27%|██▋       | 96/360 [00:03<00:10, 24.82it/s]Predicting DataLoader 0:  27%|██▋       | 97/360 [00:03<00:10, 24.82it/s]Predicting DataLoader 0:  27%|██▋       | 98/360 [00:03<00:10, 24.83it/s]Predicting DataLoader 0:  28%|██▊       | 99/360 [00:03<00:10, 24.84it/s]Predicting DataLoader 0:  28%|██▊       | 100/360 [00:04<00:10, 24.84it/s]Predicting DataLoader 0:  28%|██▊       | 101/360 [00:04<00:10, 24.85it/s]Predicting DataLoader 0:  28%|██▊       | 102/360 [00:04<00:10, 24.85it/s]Predicting DataLoader 0:  29%|██▊       | 103/360 [00:04<00:10, 24.85it/s]Predicting DataLoader 0:  29%|██▉       | 104/360 [00:04<00:10, 24.85it/s]Predicting DataLoader 0:  29%|██▉       | 105/360 [00:04<00:10, 24.85it/s]Predicting DataLoader 0:  29%|██▉       | 106/360 [00:04<00:10, 24.86it/s]Predicting DataLoader 0:  30%|██▉       | 107/360 [00:04<00:10, 24.86it/s]Predicting DataLoader 0:  30%|███       | 108/360 [00:04<00:10, 24.85it/s]Predicting DataLoader 0:  30%|███       | 109/360 [00:04<00:10, 24.85it/s]Predicting DataLoader 0:  31%|███       | 110/360 [00:04<00:10, 24.86it/s]Predicting DataLoader 0:  31%|███       | 111/360 [00:04<00:10, 24.86it/s]Predicting DataLoader 0:  31%|███       | 112/360 [00:04<00:09, 24.85it/s]Predicting DataLoader 0:  31%|███▏      | 113/360 [00:04<00:09, 24.85it/s]Predicting DataLoader 0:  32%|███▏      | 114/360 [00:04<00:09, 24.85it/s]Predicting DataLoader 0:  32%|███▏      | 115/360 [00:04<00:09, 24.84it/s]Predicting DataLoader 0:  32%|███▏      | 116/360 [00:04<00:09, 24.85it/s]Predicting DataLoader 0:  32%|███▎      | 117/360 [00:04<00:09, 24.83it/s]Predicting DataLoader 0:  33%|███▎      | 118/360 [00:04<00:09, 24.83it/s]Predicting DataLoader 0:  33%|███▎      | 119/360 [00:04<00:09, 24.83it/s]Predicting DataLoader 0:  33%|███▎      | 120/360 [00:04<00:09, 24.81it/s]Predicting DataLoader 0:  34%|███▎      | 121/360 [00:04<00:09, 24.80it/s]Predicting DataLoader 0:  34%|███▍      | 122/360 [00:04<00:09, 24.80it/s]Predicting DataLoader 0:  34%|███▍      | 123/360 [00:04<00:09, 24.79it/s]Predicting DataLoader 0:  34%|███▍      | 124/360 [00:05<00:09, 24.77it/s]Predicting DataLoader 0:  35%|███▍      | 125/360 [00:05<00:09, 24.76it/s]Predicting DataLoader 0:  35%|███▌      | 126/360 [00:05<00:09, 24.75it/s]Predicting DataLoader 0:  35%|███▌      | 127/360 [00:05<00:09, 24.74it/s]Predicting DataLoader 0:  36%|███▌      | 128/360 [00:05<00:09, 24.74it/s]Predicting DataLoader 0:  36%|███▌      | 129/360 [00:05<00:09, 24.74it/s]Predicting DataLoader 0:  36%|███▌      | 130/360 [00:05<00:09, 24.74it/s]Predicting DataLoader 0:  36%|███▋      | 131/360 [00:05<00:09, 24.74it/s]Predicting DataLoader 0:  37%|███▋      | 132/360 [00:05<00:09, 24.74it/s]Predicting DataLoader 0:  37%|███▋      | 133/360 [00:05<00:09, 24.74it/s]Predicting DataLoader 0:  37%|███▋      | 134/360 [00:05<00:09, 24.74it/s]Predicting DataLoader 0:  38%|███▊      | 135/360 [00:05<00:09, 24.71it/s]Predicting DataLoader 0:  38%|███▊      | 136/360 [00:05<00:09, 24.70it/s]Predicting DataLoader 0:  38%|███▊      | 137/360 [00:05<00:09, 24.68it/s]Predicting DataLoader 0:  38%|███▊      | 138/360 [00:05<00:09, 24.66it/s]Predicting DataLoader 0:  39%|███▊      | 139/360 [00:05<00:08, 24.65it/s]Predicting DataLoader 0:  39%|███▉      | 140/360 [00:05<00:08, 24.65it/s]Predicting DataLoader 0:  39%|███▉      | 141/360 [00:05<00:08, 24.65it/s]Predicting DataLoader 0:  39%|███▉      | 142/360 [00:05<00:08, 24.65it/s]Predicting DataLoader 0:  40%|███▉      | 143/360 [00:05<00:08, 24.62it/s]Predicting DataLoader 0:  40%|████      | 144/360 [00:05<00:08, 24.62it/s]Predicting DataLoader 0:  40%|████      | 145/360 [00:05<00:08, 24.62it/s]Predicting DataLoader 0:  41%|████      | 146/360 [00:05<00:08, 24.62it/s]Predicting DataLoader 0:  41%|████      | 147/360 [00:05<00:08, 24.63it/s]Predicting DataLoader 0:  41%|████      | 148/360 [00:06<00:08, 24.62it/s]Predicting DataLoader 0:  41%|████▏     | 149/360 [00:06<00:08, 24.62it/s]Predicting DataLoader 0:  42%|████▏     | 150/360 [00:06<00:08, 24.61it/s]Predicting DataLoader 0:  42%|████▏     | 151/360 [00:06<00:08, 24.61it/s]Predicting DataLoader 0:  42%|████▏     | 152/360 [00:06<00:08, 24.61it/s]Predicting DataLoader 0:  42%|████▎     | 153/360 [00:06<00:08, 24.61it/s]Predicting DataLoader 0:  43%|████▎     | 154/360 [00:06<00:08, 24.61it/s]Predicting DataLoader 0:  43%|████▎     | 155/360 [00:06<00:08, 24.61it/s]Predicting DataLoader 0:  43%|████▎     | 156/360 [00:06<00:08, 24.60it/s]Predicting DataLoader 0:  44%|████▎     | 157/360 [00:06<00:08, 24.60it/s]Predicting DataLoader 0:  44%|████▍     | 158/360 [00:06<00:08, 24.60it/s]Predicting DataLoader 0:  44%|████▍     | 159/360 [00:06<00:08, 24.59it/s]Predicting DataLoader 0:  44%|████▍     | 160/360 [00:06<00:08, 24.59it/s]Predicting DataLoader 0:  45%|████▍     | 161/360 [00:06<00:08, 24.59it/s]Predicting DataLoader 0:  45%|████▌     | 162/360 [00:06<00:08, 24.57it/s]Predicting DataLoader 0:  45%|████▌     | 163/360 [00:06<00:08, 24.56it/s]Predicting DataLoader 0:  46%|████▌     | 164/360 [00:06<00:07, 24.56it/s]Predicting DataLoader 0:  46%|████▌     | 165/360 [00:06<00:07, 24.56it/s]Predicting DataLoader 0:  46%|████▌     | 166/360 [00:06<00:07, 24.55it/s]Predicting DataLoader 0:  46%|████▋     | 167/360 [00:06<00:07, 24.51it/s]Predicting DataLoader 0:  47%|████▋     | 168/360 [00:06<00:07, 24.51it/s]Predicting DataLoader 0:  47%|████▋     | 169/360 [00:06<00:07, 24.49it/s]Predicting DataLoader 0:  47%|████▋     | 170/360 [00:06<00:07, 24.49it/s]Predicting DataLoader 0:  48%|████▊     | 171/360 [00:06<00:07, 24.48it/s]Predicting DataLoader 0:  48%|████▊     | 172/360 [00:07<00:07, 24.47it/s]Predicting DataLoader 0:  48%|████▊     | 173/360 [00:07<00:07, 24.46it/s]Predicting DataLoader 0:  48%|████▊     | 174/360 [00:07<00:07, 24.45it/s]Predicting DataLoader 0:  49%|████▊     | 175/360 [00:07<00:07, 24.40it/s]Predicting DataLoader 0:  49%|████▉     | 176/360 [00:07<00:07, 24.40it/s]Predicting DataLoader 0:  49%|████▉     | 177/360 [00:07<00:07, 24.38it/s]Predicting DataLoader 0:  49%|████▉     | 178/360 [00:07<00:07, 24.38it/s]Predicting DataLoader 0:  50%|████▉     | 179/360 [00:07<00:07, 24.36it/s]Predicting DataLoader 0:  50%|█████     | 180/360 [00:07<00:07, 24.35it/s]Predicting DataLoader 0:  50%|█████     | 181/360 [00:07<00:07, 24.35it/s]Predicting DataLoader 0:  51%|█████     | 182/360 [00:07<00:07, 24.35it/s]Predicting DataLoader 0:  51%|█████     | 183/360 [00:07<00:07, 24.33it/s]Predicting DataLoader 0:  51%|█████     | 184/360 [00:07<00:07, 24.31it/s]Predicting DataLoader 0:  51%|█████▏    | 185/360 [00:07<00:07, 24.31it/s]Predicting DataLoader 0:  52%|█████▏    | 186/360 [00:07<00:07, 24.29it/s]Predicting DataLoader 0:  52%|█████▏    | 187/360 [00:07<00:07, 24.28it/s]Predicting DataLoader 0:  52%|█████▏    | 188/360 [00:07<00:07, 24.27it/s]Predicting DataLoader 0:  52%|█████▎    | 189/360 [00:07<00:07, 24.27it/s]Predicting DataLoader 0:  53%|█████▎    | 190/360 [00:07<00:07, 24.25it/s]Predicting DataLoader 0:  53%|█████▎    | 191/360 [00:07<00:06, 24.23it/s]Predicting DataLoader 0:  53%|█████▎    | 192/360 [00:07<00:06, 24.21it/s]Predicting DataLoader 0:  54%|█████▎    | 193/360 [00:07<00:06, 24.20it/s]Predicting DataLoader 0:  54%|█████▍    | 194/360 [00:08<00:06, 24.19it/s]Predicting DataLoader 0:  54%|█████▍    | 195/360 [00:08<00:06, 24.19it/s]Predicting DataLoader 0:  54%|█████▍    | 196/360 [00:08<00:06, 24.19it/s]Predicting DataLoader 0:  55%|█████▍    | 197/360 [00:08<00:06, 24.17it/s]Predicting DataLoader 0:  55%|█████▌    | 198/360 [00:08<00:06, 24.15it/s]Predicting DataLoader 0:  55%|█████▌    | 199/360 [00:08<00:06, 24.14it/s]Predicting DataLoader 0:  56%|█████▌    | 200/360 [00:08<00:06, 24.13it/s]Predicting DataLoader 0:  56%|█████▌    | 201/360 [00:08<00:06, 24.13it/s]Predicting DataLoader 0:  56%|█████▌    | 202/360 [00:08<00:06, 24.12it/s]Predicting DataLoader 0:  56%|█████▋    | 203/360 [00:08<00:06, 24.11it/s]Predicting DataLoader 0:  57%|█████▋    | 204/360 [00:08<00:06, 24.10it/s]Predicting DataLoader 0:  57%|█████▋    | 205/360 [00:08<00:06, 24.09it/s]Predicting DataLoader 0:  57%|█████▋    | 206/360 [00:08<00:06, 24.07it/s]Predicting DataLoader 0:  57%|█████▊    | 207/360 [00:08<00:06, 24.06it/s]Predicting DataLoader 0:  58%|█████▊    | 208/360 [00:08<00:06, 24.05it/s]Predicting DataLoader 0:  58%|█████▊    | 209/360 [00:08<00:06, 24.04it/s]Predicting DataLoader 0:  58%|█████▊    | 210/360 [00:08<00:06, 24.03it/s]Predicting DataLoader 0:  59%|█████▊    | 211/360 [00:08<00:06, 24.01it/s]Predicting DataLoader 0:  59%|█████▉    | 212/360 [00:08<00:06, 24.00it/s]Predicting DataLoader 0:  59%|█████▉    | 213/360 [00:08<00:06, 23.99it/s]Predicting DataLoader 0:  59%|█████▉    | 214/360 [00:08<00:06, 23.97it/s]Predicting DataLoader 0:  60%|█████▉    | 215/360 [00:08<00:06, 23.96it/s]Predicting DataLoader 0:  60%|██████    | 216/360 [00:09<00:06, 23.95it/s]Predicting DataLoader 0:  60%|██████    | 217/360 [00:09<00:05, 23.93it/s]Predicting DataLoader 0:  61%|██████    | 218/360 [00:09<00:05, 23.92it/s]Predicting DataLoader 0:  61%|██████    | 219/360 [00:09<00:05, 23.90it/s]Predicting DataLoader 0:  61%|██████    | 220/360 [00:09<00:05, 23.89it/s]Predicting DataLoader 0:  61%|██████▏   | 221/360 [00:09<00:05, 23.88it/s]Predicting DataLoader 0:  62%|██████▏   | 222/360 [00:09<00:05, 23.86it/s]Predicting DataLoader 0:  62%|██████▏   | 223/360 [00:09<00:05, 23.83it/s]Predicting DataLoader 0:  62%|██████▏   | 224/360 [00:09<00:05, 23.82it/s]Predicting DataLoader 0:  62%|██████▎   | 225/360 [00:09<00:05, 23.81it/s]Predicting DataLoader 0:  63%|██████▎   | 226/360 [00:09<00:05, 23.79it/s]Predicting DataLoader 0:  63%|██████▎   | 227/360 [00:09<00:05, 23.78it/s]Predicting DataLoader 0:  63%|██████▎   | 228/360 [00:09<00:05, 23.76it/s]Predicting DataLoader 0:  64%|██████▎   | 229/360 [00:09<00:05, 23.75it/s]Predicting DataLoader 0:  64%|██████▍   | 230/360 [00:09<00:05, 23.74it/s]Predicting DataLoader 0:  64%|██████▍   | 231/360 [00:09<00:05, 23.73it/s]Predicting DataLoader 0:  64%|██████▍   | 232/360 [00:09<00:05, 23.72it/s]Predicting DataLoader 0:  65%|██████▍   | 233/360 [00:09<00:05, 23.70it/s]Predicting DataLoader 0:  65%|██████▌   | 234/360 [00:09<00:05, 23.69it/s]Predicting DataLoader 0:  65%|██████▌   | 235/360 [00:09<00:05, 23.67it/s]Predicting DataLoader 0:  66%|██████▌   | 236/360 [00:09<00:05, 23.66it/s]Predicting DataLoader 0:  66%|██████▌   | 237/360 [00:10<00:05, 23.65it/s]Predicting DataLoader 0:  66%|██████▌   | 238/360 [00:10<00:05, 23.64it/s]Predicting DataLoader 0:  66%|██████▋   | 239/360 [00:10<00:05, 23.62it/s]Predicting DataLoader 0:  67%|██████▋   | 240/360 [00:10<00:05, 23.61it/s]Predicting DataLoader 0:  67%|██████▋   | 241/360 [00:10<00:05, 23.58it/s]Predicting DataLoader 0:  67%|██████▋   | 242/360 [00:10<00:05, 23.57it/s]Predicting DataLoader 0:  68%|██████▊   | 243/360 [00:10<00:04, 23.55it/s]Predicting DataLoader 0:  68%|██████▊   | 244/360 [00:10<00:04, 23.54it/s]Predicting DataLoader 0:  68%|██████▊   | 245/360 [00:10<00:04, 23.53it/s]Predicting DataLoader 0:  68%|██████▊   | 246/360 [00:10<00:04, 23.51it/s]Predicting DataLoader 0:  69%|██████▊   | 247/360 [00:10<00:04, 23.50it/s]Predicting DataLoader 0:  69%|██████▉   | 248/360 [00:10<00:04, 23.48it/s]Predicting DataLoader 0:  69%|██████▉   | 249/360 [00:10<00:04, 23.47it/s]Predicting DataLoader 0:  69%|██████▉   | 250/360 [00:10<00:04, 23.45it/s]Predicting DataLoader 0:  70%|██████▉   | 251/360 [00:10<00:04, 23.43it/s]Predicting DataLoader 0:  70%|███████   | 252/360 [00:10<00:04, 23.42it/s]Predicting DataLoader 0:  70%|███████   | 253/360 [00:10<00:04, 23.40it/s]Predicting DataLoader 0:  71%|███████   | 254/360 [00:10<00:04, 23.39it/s]Predicting DataLoader 0:  71%|███████   | 255/360 [00:10<00:04, 23.37it/s]Predicting DataLoader 0:  71%|███████   | 256/360 [00:10<00:04, 23.36it/s]Predicting DataLoader 0:  71%|███████▏  | 257/360 [00:11<00:04, 23.33it/s]Predicting DataLoader 0:  72%|███████▏  | 258/360 [00:11<00:04, 23.32it/s]Predicting DataLoader 0:  72%|███████▏  | 259/360 [00:11<00:04, 23.31it/s]Predicting DataLoader 0:  72%|███████▏  | 260/360 [00:11<00:04, 23.29it/s]Predicting DataLoader 0:  72%|███████▎  | 261/360 [00:11<00:04, 23.27it/s]Predicting DataLoader 0:  73%|███████▎  | 262/360 [00:11<00:04, 23.25it/s]Predicting DataLoader 0:  73%|███████▎  | 263/360 [00:11<00:04, 23.24it/s]Predicting DataLoader 0:  73%|███████▎  | 264/360 [00:11<00:04, 23.22it/s]Predicting DataLoader 0:  74%|███████▎  | 265/360 [00:11<00:04, 23.20it/s]Predicting DataLoader 0:  74%|███████▍  | 266/360 [00:11<00:04, 23.18it/s]Predicting DataLoader 0:  74%|███████▍  | 267/360 [00:11<00:04, 23.17it/s]Predicting DataLoader 0:  74%|███████▍  | 268/360 [00:11<00:03, 23.15it/s]Predicting DataLoader 0:  75%|███████▍  | 269/360 [00:11<00:03, 23.14it/s]Predicting DataLoader 0:  75%|███████▌  | 270/360 [00:11<00:03, 23.12it/s]Predicting DataLoader 0:  75%|███████▌  | 271/360 [00:11<00:03, 23.11it/s]Predicting DataLoader 0:  76%|███████▌  | 272/360 [00:11<00:03, 23.10it/s]Predicting DataLoader 0:  76%|███████▌  | 273/360 [00:11<00:03, 23.08it/s]Predicting DataLoader 0:  76%|███████▌  | 274/360 [00:11<00:03, 23.07it/s]Predicting DataLoader 0:  76%|███████▋  | 275/360 [00:11<00:03, 23.05it/s]Predicting DataLoader 0:  77%|███████▋  | 276/360 [00:11<00:03, 23.03it/s]Predicting DataLoader 0:  77%|███████▋  | 277/360 [00:12<00:03, 23.02it/s]Predicting DataLoader 0:  77%|███████▋  | 278/360 [00:12<00:03, 23.01it/s]Predicting DataLoader 0:  78%|███████▊  | 279/360 [00:12<00:03, 22.99it/s]Predicting DataLoader 0:  78%|███████▊  | 280/360 [00:12<00:03, 22.98it/s]Predicting DataLoader 0:  78%|███████▊  | 281/360 [00:12<00:03, 22.97it/s]Predicting DataLoader 0:  78%|███████▊  | 282/360 [00:12<00:03, 22.95it/s]Predicting DataLoader 0:  79%|███████▊  | 283/360 [00:12<00:03, 22.94it/s]Predicting DataLoader 0:  79%|███████▉  | 284/360 [00:12<00:03, 22.92it/s]Predicting DataLoader 0:  79%|███████▉  | 285/360 [00:12<00:03, 22.90it/s]Predicting DataLoader 0:  79%|███████▉  | 286/360 [00:12<00:03, 22.89it/s]Predicting DataLoader 0:  80%|███████▉  | 287/360 [00:12<00:03, 22.87it/s]Predicting DataLoader 0:  80%|████████  | 288/360 [00:12<00:03, 22.85it/s]Predicting DataLoader 0:  80%|████████  | 289/360 [00:12<00:03, 22.83it/s]Predicting DataLoader 0:  81%|████████  | 290/360 [00:12<00:03, 22.82it/s]Predicting DataLoader 0:  81%|████████  | 291/360 [00:12<00:03, 22.80it/s]Predicting DataLoader 0:  81%|████████  | 292/360 [00:12<00:02, 22.78it/s]Predicting DataLoader 0:  81%|████████▏ | 293/360 [00:12<00:02, 22.76it/s]Predicting DataLoader 0:  82%|████████▏ | 294/360 [00:12<00:02, 22.75it/s]Predicting DataLoader 0:  82%|████████▏ | 295/360 [00:12<00:02, 22.73it/s]Predicting DataLoader 0:  82%|████████▏ | 296/360 [00:13<00:02, 22.72it/s]Predicting DataLoader 0:  82%|████████▎ | 297/360 [00:13<00:02, 22.70it/s]Predicting DataLoader 0:  83%|████████▎ | 298/360 [00:13<00:02, 22.68it/s]Predicting DataLoader 0:  83%|████████▎ | 299/360 [00:13<00:02, 22.66it/s]Predicting DataLoader 0:  83%|████████▎ | 300/360 [00:13<00:02, 22.65it/s]Predicting DataLoader 0:  84%|████████▎ | 301/360 [00:13<00:02, 22.63it/s]Predicting DataLoader 0:  84%|████████▍ | 302/360 [00:13<00:02, 22.62it/s]Predicting DataLoader 0:  84%|████████▍ | 303/360 [00:13<00:02, 22.60it/s]Predicting DataLoader 0:  84%|████████▍ | 304/360 [00:13<00:02, 22.58it/s]Predicting DataLoader 0:  85%|████████▍ | 305/360 [00:13<00:02, 22.57it/s]Predicting DataLoader 0:  85%|████████▌ | 306/360 [00:13<00:02, 22.54it/s]Predicting DataLoader 0:  85%|████████▌ | 307/360 [00:13<00:02, 22.52it/s]Predicting DataLoader 0:  86%|████████▌ | 308/360 [00:13<00:02, 22.51it/s]Predicting DataLoader 0:  86%|████████▌ | 309/360 [00:13<00:02, 22.49it/s]Predicting DataLoader 0:  86%|████████▌ | 310/360 [00:13<00:02, 22.48it/s]Predicting DataLoader 0:  86%|████████▋ | 311/360 [00:13<00:02, 22.45it/s]Predicting DataLoader 0:  87%|████████▋ | 312/360 [00:13<00:02, 22.43it/s]Predicting DataLoader 0:  87%|████████▋ | 313/360 [00:13<00:02, 22.41it/s]Predicting DataLoader 0:  87%|████████▋ | 314/360 [00:14<00:02, 22.40it/s]Predicting DataLoader 0:  88%|████████▊ | 315/360 [00:14<00:02, 22.38it/s]Predicting DataLoader 0:  88%|████████▊ | 316/360 [00:14<00:01, 22.37it/s]Predicting DataLoader 0:  88%|████████▊ | 317/360 [00:14<00:01, 22.35it/s]Predicting DataLoader 0:  88%|████████▊ | 318/360 [00:14<00:01, 22.33it/s]Predicting DataLoader 0:  89%|████████▊ | 319/360 [00:14<00:01, 22.31it/s]Predicting DataLoader 0:  89%|████████▉ | 320/360 [00:14<00:01, 22.30it/s]Predicting DataLoader 0:  89%|████████▉ | 321/360 [00:14<00:01, 22.28it/s]Predicting DataLoader 0:  89%|████████▉ | 322/360 [00:14<00:01, 22.25it/s]Predicting DataLoader 0:  90%|████████▉ | 323/360 [00:14<00:01, 22.24it/s]Predicting DataLoader 0:  90%|█████████ | 324/360 [00:14<00:01, 22.22it/s]Predicting DataLoader 0:  90%|█████████ | 325/360 [00:14<00:01, 22.20it/s]Predicting DataLoader 0:  91%|█████████ | 326/360 [00:14<00:01, 22.18it/s]Predicting DataLoader 0:  91%|█████████ | 327/360 [00:14<00:01, 22.16it/s]Predicting DataLoader 0:  91%|█████████ | 328/360 [00:14<00:01, 22.15it/s]Predicting DataLoader 0:  91%|█████████▏| 329/360 [00:14<00:01, 22.13it/s]Predicting DataLoader 0:  92%|█████████▏| 330/360 [00:14<00:01, 22.11it/s]Predicting DataLoader 0:  92%|█████████▏| 331/360 [00:15<00:01, 22.07it/s]Predicting DataLoader 0:  92%|█████████▏| 332/360 [00:15<00:01, 22.04it/s]Predicting DataLoader 0:  92%|█████████▎| 333/360 [00:15<00:01, 22.02it/s]Predicting DataLoader 0:  93%|█████████▎| 334/360 [00:15<00:01, 22.00it/s]Predicting DataLoader 0:  93%|█████████▎| 335/360 [00:15<00:01, 21.98it/s]Predicting DataLoader 0:  93%|█████████▎| 336/360 [00:15<00:01, 21.96it/s]Predicting DataLoader 0:  94%|█████████▎| 337/360 [00:15<00:01, 21.94it/s]Predicting DataLoader 0:  94%|█████████▍| 338/360 [00:15<00:01, 21.92it/s]Predicting DataLoader 0:  94%|█████████▍| 339/360 [00:15<00:00, 21.90it/s]Predicting DataLoader 0:  94%|█████████▍| 340/360 [00:15<00:00, 21.88it/s]Predicting DataLoader 0:  95%|█████████▍| 341/360 [00:15<00:00, 21.86it/s]Predicting DataLoader 0:  95%|█████████▌| 342/360 [00:15<00:00, 21.84it/s]Predicting DataLoader 0:  95%|█████████▌| 343/360 [00:15<00:00, 21.81it/s]Predicting DataLoader 0:  96%|█████████▌| 344/360 [00:15<00:00, 21.78it/s]Predicting DataLoader 0:  96%|█████████▌| 345/360 [00:15<00:00, 21.76it/s]Predicting DataLoader 0:  96%|█████████▌| 346/360 [00:15<00:00, 21.73it/s]Predicting DataLoader 0:  96%|█████████▋| 347/360 [00:15<00:00, 21.70it/s]Predicting DataLoader 0:  97%|█████████▋| 348/360 [00:16<00:00, 21.67it/s]Predicting DataLoader 0:  97%|█████████▋| 349/360 [00:16<00:00, 21.65it/s]Predicting DataLoader 0:  97%|█████████▋| 350/360 [00:16<00:00, 21.60it/s]Predicting DataLoader 0:  98%|█████████▊| 351/360 [00:16<00:00, 21.57it/s]Predicting DataLoader 0:  98%|█████████▊| 352/360 [00:16<00:00, 21.55it/s]Predicting DataLoader 0:  98%|█████████▊| 353/360 [00:16<00:00, 21.51it/s]Predicting DataLoader 0:  98%|█████████▊| 354/360 [00:16<00:00, 21.47it/s]Predicting DataLoader 0:  99%|█████████▊| 355/360 [00:16<00:00, 21.43it/s]Predicting DataLoader 0:  99%|█████████▉| 356/360 [00:16<00:00, 21.37it/s]Predicting DataLoader 0:  99%|█████████▉| 357/360 [00:16<00:00, 21.26it/s]Predicting DataLoader 0:  99%|█████████▉| 358/360 [00:16<00:00, 21.14it/s]Predicting DataLoader 0: 100%|█████████▉| 359/360 [00:17<00:00, 20.91it/s]Predicting DataLoader 0: 100%|██████████| 360/360 [00:17<00:00, 20.87it/s]Predicting DataLoader 0: 100%|██████████| 360/360 [00:17<00:00, 20.87it/s]
+Traceback (most recent call last):
+  File "/home/ivieira/chicago2/HP_FT_TM/inference_eval.py", line 120, in <module>
+    bleu = sacrebleu.corpus_bleu(predictions, [references])
+                ^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for +: 'int' and 'str'

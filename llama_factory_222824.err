@@ -1,0 +1,23 @@
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 24.11.2
+    latest version: 24.11.3
+
+Please update conda by running
+
+    $ conda update -n base -c conda-forge conda
+
+
+
+SafetyError: The package for ld_impl_linux-64 located at /home/ivieira/mambaforge/pkgs/ld_impl_linux-64-2.43-h712a8e2_2
+appears to be corrupted. The path 'bin/x86_64-conda-linux-gnu-ld'
+has an incorrect size.
+  reported size: 3318336 bytes
+  actual size: 0 bytes
+
+
+fatal: destination path 'LLaMA-Factory' already exists and is not an empty directory.
+Cloning into 'LLaMA-Factory'...
+2025/01/10 14:08:40 [W] [service.go:132] login to server failed: dial tcp 44.237.78.176:7000: i/o timeout
+slurmstepd-g128: error: *** JOB 222824 ON g128 CANCELLED AT 2025-01-10T19:56:30 ***

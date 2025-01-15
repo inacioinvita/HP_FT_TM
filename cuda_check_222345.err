@@ -1,0 +1,39 @@
+
+EnvironmentLocationNotFound: Not a conda environment: /home/ivieira/mambaforge/envs/cuda_test_env
+
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+alembic 1.14.0 requires importlib-metadata; python_version < "3.9", which is not installed.
+flask 3.0.3 requires importlib-metadata>=3.6.0; python_version < "3.10", which is not installed.
+graphene 3.4.3 requires python-dateutil<3,>=2.7.0, which is not installed.
+huggingface-hub 0.27.1 requires packaging>=20.9, which is not installed.
+huggingface-hub 0.27.1 requires pyyaml>=5.1, which is not installed.
+huggingface-hub 0.27.1 requires requests, which is not installed.
+huggingface-hub 0.27.1 requires tqdm>=4.42.1, which is not installed.
+lightning-utilities 0.11.9 requires packaging>=17.1, which is not installed.
+mlflow 2.17.2 requires numpy<3, which is not installed.
+mlflow 2.17.2 requires pandas<3, which is not installed.
+mlflow 2.17.2 requires pyarrow<18,>=4.0.0, which is not installed.
+pytorch-lightning 2.4.0 requires packaging>=20.0, which is not installed.
+pytorch-lightning 2.4.0 requires PyYAML>=5.4, which is not installed.
+pytorch-lightning 2.4.0 requires torchmetrics>=0.7.0, which is not installed.
+pytorch-lightning 2.4.0 requires tqdm>=4.57.0, which is not installed.
+transformers 4.46.3 requires numpy>=1.17, which is not installed.
+transformers 4.46.3 requires packaging>=20.0, which is not installed.
+transformers 4.46.3 requires pyyaml>=5.1, which is not installed.
+transformers 4.46.3 requires regex!=2019.12.17, which is not installed.
+transformers 4.46.3 requires requests, which is not installed.
+transformers 4.46.3 requires tqdm>=4.27, which is not installed.
+trl 0.11.4 requires accelerate, which is not installed.
+trl 0.11.4 requires datasets, which is not installed.
+trl 0.11.4 requires numpy>=1.18.2; platform_system != "Windows", which is not installed.
+trl 0.11.4 requires tyro>=0.5.11, which is not installed.
+twisted 24.11.0 requires attrs>=22.2.0, which is not installed.
+unbabel-comet 2.2.4 requires numpy<2.0.0,>=1.20.0, which is not installed.
+unbabel-comet 2.2.4 requires pandas>=1.4.1, which is not installed.
+unbabel-comet 2.2.4 requires torchmetrics<0.11.0,>=0.10.2, which is not installed.
+/home/ivieira/mambaforge/envs/cuda_test_env/lib/python3.8/site-packages/torch/_subclasses/functional_tensor.py:258: UserWarning: Failed to initialize NumPy: numpy.core.multiarray failed to import (Triggered internally at ../torch/csrc/utils/tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+ERROR: Invalid requirement: '"bitsandbytes@https://github.com/bitsandbytes-foundation/bitsandbytes/archive/refs/heads/main.zip"': Expected package name at the start of dependency specifier
+    "bitsandbytes@https://github.com/bitsandbytes-foundation/bitsandbytes/archive/refs/heads/main.zip"
+    ^
+Hint: It looks like a path. File '"bitsandbytes@https://github.com/bitsandbytes-foundation/bitsandbytes/archive/refs/heads/main.zip"' does not exist.
