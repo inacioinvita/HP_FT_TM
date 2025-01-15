@@ -44,7 +44,7 @@ wandb.init(
 # Directories and paths
 base_dir = os.path.expanduser("~/LLaMA-Factory")
 model_dir = args.model_dir  # From command line
-test_dataset_path = os.path.expanduser("~/chicago2/HP_FT_TM/BALS_de_test_dataset.json")
+test_dataset_path = os.path.join(base_dir, "data/BALS_de_test_dataset.json")
 output_dir = os.path.join(base_dir, "evaluation/autoeval", os.path.basename(model_dir))
 os.makedirs(output_dir, exist_ok=True)
 

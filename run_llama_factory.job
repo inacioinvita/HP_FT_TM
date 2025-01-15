@@ -51,7 +51,7 @@ cat <<EOF > train_llama3.json
   "do_train": true,
   "model_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
   "dataset": "BALS_de_train_dataset",
-  "dataset_dir": "~/chicago2/HP_FT_TM",
+  "dataset_dir": "data",
   "template": "llama3",
   "finetuning_type": "lora",
   "lora_target": "all",
