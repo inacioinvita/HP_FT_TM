@@ -79,33 +79,32 @@ import re
 import json
 
 def extract_translation(output_text):
-    """Extract the *last* valid JSON block containing 'translation' from the model output."""
+    """Extract the second valid JSON block containing 'translation' from the model output."""
     print("Raw output:", output_text)  # keep for debugging
 
     # Find all JSON-like patterns
     pattern = r"\{[^{}]*\}"
     candidates = re.findall(pattern, output_text)
     
-    # Check candidates from last to first (since example appears first in prompt)
-    for candidate in reversed(candidates):
+    valid_jsons = []
+    for candidate in candidates:
         try:
             parsed = json.loads(candidate)
             if "translation" in parsed:
                 translation = parsed["translation"].strip()
-                if translation and translation != "Translated text":  # Skip example
-                    print("Found valid JSON:", candidate)
-                    return translation
+                if translation:  # Any non-empty translation
+                    valid_jsons.append(translation)
         except json.JSONDecodeError:
             continue
 
-    print("No valid translation JSON found")
-    return ""
+    # Return second valid JSON if available, otherwise empty string
+    return valid_jsons[1] if len(valid_jsons) > 1 else ""
 
 
 predictions = []
 sources = []
 references = []
-number_samples = 2800
+number_samples = 20
 data = data[:number_samples]
 # Define our stopping criteria
 stop_criteria = StoppingCriteriaList([StopSequenceCriteria('}\n', tokenizer)])
