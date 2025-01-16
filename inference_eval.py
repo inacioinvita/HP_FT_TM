@@ -79,33 +79,27 @@ import re
 import json
 
 def extract_translation(output_text):
-    """Extract the *first* valid JSON block containing 'translation' from the model output."""
-    print("Raw output:", output_text)  # for debugging
+    """Extract the *last* valid JSON block containing 'translation' from the model output."""
+    print("Raw output:", output_text)  # keep for debugging
 
-    # Regex pattern to capture non-nested {...} blocks.
-    # This is a simplistic pattern; if you have nested JSON braces, it won't handle those fully.
+    # Find all JSON-like patterns
     pattern = r"\{[^{}]*\}"
-
-    # Find all candidate substrings enclosed by braces
     candidates = re.findall(pattern, output_text)
-
-    # Check each candidate in order until we find valid JSON with "translation" key
-    for candidate in candidates:
+    
+    # Check candidates from last to first (since example appears first in prompt)
+    for candidate in reversed(candidates):
         try:
             parsed = json.loads(candidate)
             if "translation" in parsed:
                 translation = parsed["translation"].strip()
-                if translation:
+                if translation and translation != "Translated text":  # Skip example
                     print("Found valid JSON:", candidate)
                     return translation
         except json.JSONDecodeError:
-            # Not valid JSON; skip
-            pass
+            continue
 
-    # If we reach here, no valid JSON with 'translation' was found
-    print("No valid JSON with 'translation' found. Falling back to last line.")
-    lines = output_text.split('\n')
-    return lines[-1].strip() if lines else ""
+    print("No valid translation JSON found")
+    return ""
 
 
 predictions = []
@@ -125,7 +119,7 @@ for sample in data:
     prompt = f"{system}\n{instruction}\n{input_text}"
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
     
-    # Generate translation with minimal overrides
+    # Use model's trained generation parameters
     output_tokens = model.generate(
         **inputs,
         max_new_tokens=100,
