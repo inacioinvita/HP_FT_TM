@@ -116,23 +116,6 @@ data = data[:number_samples]
 # Define our stopping criteria
 stop_criteria = StoppingCriteriaList([StopSequenceCriteria('}\n', tokenizer)])
 
-# Create generation config with recommended settings for translation
-generation_config = GenerationConfig(
-    max_new_tokens=100,
-    do_sample=False,  # Deterministic for translation
-    num_beams=1,      # Simple greedy decoding
-    pad_token_id=tokenizer.eos_token_id,
-    eos_token_id=tokenizer.eos_token_id,
-    repetition_penalty=1.2,
-    # Explicitly disable sampling parameters
-    temperature=None,
-    top_p=None,
-    top_k=None
-)
-
-# Apply config to model
-model.generation_config = generation_config
-
 for sample in data:
     system = sample["system"]
     instruction = sample["instruction"]
@@ -142,9 +125,10 @@ for sample in data:
     prompt = f"{system}\n{instruction}\n{input_text}"
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
     
-    # Generate translation
+    # Generate translation using model's original config
     output_tokens = model.generate(
         **inputs,
+        max_new_tokens=100,
         stopping_criteria=stop_criteria
     )
  

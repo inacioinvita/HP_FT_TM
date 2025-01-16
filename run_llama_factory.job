@@ -71,7 +71,7 @@ cat <<EOF > train_llama3.json
   "lr_scheduler_type": "polynomial",
   "max_grad_norm": 1.0,
   "max_samples": 100000,
-  "num_train_epochs": 0.3,
+  "num_train_epochs": 1,
   "optim": "adamw_torch",
   "packing": false,
   "per_device_eval_batch_size": 8,
@@ -118,14 +118,14 @@ source ~/.api_keys
 #   $(which llamafactory-cli) train train_llama3.json
 
 # Run training
-# llamafactory-cli train train_llama3.json
+llamafactory-cli train train_llama3.json
 
 # Run inference and evaluation with the same path
-python ~/chicago2/HP_FT_TM/inference_eval.py --model_dir "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-16-14-05-37" #"$HOME/LLaMA-Factory/$MODEL_PATH"
+python ~/chicago2/HP_FT_TM/inference_eval.py --model_dir "$HOME/LLaMA-Factory/$MODEL_PATH" #"/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-16-14-05-37" #
 
 # Print paths for verification
 echo "----------------------------------------"
 echo "Model and evaluation paths:"
-echo "Model path: $HOME/LLaMA-Factory/$MODEL_PATH"
-echo "Evaluation output: $HOME/LLaMA-Factory/evaluation/autoeval/train_${TIMESTAMP}"
+echo "Model path: $HOME/LLaMA-Factory/$MODEL_PATH" # /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-16-14-05-37" # 
+echo "Evaluation output: $HOME/LLaMA-Factory/evaluation/autoeval/train_${TIMESTAMP}" # /home/ivieira/LLaMA-Factory/evaluation/autoeval/train_2025-01-16-14-05-37"
 echo "----------------------------------------"
