@@ -97,7 +97,9 @@ predictions = []
 sources = []
 references = []
 
-for sample in data:
+number_samples = 100
+
+for sample in data[:number_samples]:
     system = sample["system"]
     instruction = sample["instruction"]
     input_text = sample["input"]
@@ -123,7 +125,7 @@ for sample in data:
     # Optional: print progress
     print(f"Processed {len(predictions)} samples", end="\r")
 
-print("\nFinished processing all samples")
+print(f"\nFinished processing {number_samples} samples")
 
 # Save translations
 with open(os.path.join(output_dir, "translations.txt"), "w") as f:
