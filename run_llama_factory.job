@@ -71,7 +71,7 @@ cat <<EOF > train_llama3.json
   "lr_scheduler_type": "polynomial",
   "max_grad_norm": 1.0,
   "max_samples": 100000,
-  "num_train_epochs": 0.3,
+  "num_train_epochs": 0.05,
   "optim": "adamw_torch",
   "packing": false,
   "per_device_eval_batch_size": 8,

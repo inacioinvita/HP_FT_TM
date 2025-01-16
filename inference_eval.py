@@ -4,7 +4,7 @@ import json
 import torch
 import sacrebleu
 import wandb
-from transformers import AutoTokenizer, AutoModelForCausalLM, LlamaTokenizer, LlamaForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, LlamaTokenizer, LlamaForCausalLM, GenerationConfig
 from comet import download_model, load_from_checkpoint
 from transformers import StoppingCriteria, StoppingCriteriaList
 
@@ -116,6 +116,23 @@ data = data[:number_samples]
 # Define our stopping criteria
 stop_criteria = StoppingCriteriaList([StopSequenceCriteria('}\n', tokenizer)])
 
+# Create generation config with recommended settings for translation
+generation_config = GenerationConfig(
+    max_new_tokens=100,
+    do_sample=False,  # Deterministic for translation
+    num_beams=1,      # Simple greedy decoding
+    pad_token_id=tokenizer.eos_token_id,
+    eos_token_id=tokenizer.eos_token_id,
+    repetition_penalty=1.2,
+    # Explicitly disable sampling parameters
+    temperature=None,
+    top_p=None,
+    top_k=None
+)
+
+# Apply config to model
+model.generation_config = generation_config
+
 for sample in data:
     system = sample["system"]
     instruction = sample["instruction"]
@@ -128,10 +145,6 @@ for sample in data:
     # Generate translation
     output_tokens = model.generate(
         **inputs,
-        max_new_tokens=100,
-        do_sample=False,
-        pad_token_id=tokenizer.eos_token_id,
-        repetition_penalty=1.2,            # Might help reduce repeated patterns
         stopping_criteria=stop_criteria
     )
  
