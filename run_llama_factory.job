@@ -121,7 +121,7 @@ source ~/.api_keys
 # llamafactory-cli train train_llama3.json
 
 # Run inference and evaluation with the same path
-python ~/chicago2/HP_FT_TM/inference_eval.py --model_dir "/saves/LLaMA-Factory/Llama-3.1-8B-Instruct/lora/train_2025-01-16-16-38-53" # "$HOME/LLaMA-Factory/$MODEL_PATH" #"/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-16-14-05-37" #
+python ~/chicago2/HP_FT_TM/inference_eval.py --model_dir "/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-16-16-38-53" # "$HOME/LLaMA-Factory/$MODEL_PATH" #"/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-16-14-05-37" #
 
 # Print paths for verification
 echo "----------------------------------------"
