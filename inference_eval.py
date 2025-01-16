@@ -104,7 +104,7 @@ def extract_translation(output_text):
 predictions = []
 sources = []
 references = []
-number_samples = 20
+number_samples = 100
 data = data[:number_samples]
 # Define our stopping criteria
 stop_criteria = StoppingCriteriaList([StopSequenceCriteria('}\n', tokenizer)])
