@@ -109,6 +109,16 @@ references = []
 # Define our stopping criteria
 stop_criteria = StoppingCriteriaList([StopSequenceCriteria('}\n', tokenizer)])
 
+# Create generation config for deterministic inference
+generation_config = GenerationConfig(
+    max_new_tokens=100,
+    do_sample=False,  # Deterministic generation
+    temperature=1.0,  # Full "sharpness"
+    top_p=1.0,       # No nucleus sampling
+    pad_token_id=tokenizer.eos_token_id,
+    eos_token_id=tokenizer.eos_token_id
+)
+
 for sample in data:
     system = sample["system"]
     instruction = sample["instruction"]
@@ -118,12 +128,10 @@ for sample in data:
     prompt = f"{system}\n{instruction}\n{input_text}"
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
     
-    # Use model's trained generation parameters
+    # Generate with deterministic config
     output_tokens = model.generate(
         **inputs,
-        max_new_tokens=100,
-        pad_token_id=tokenizer.eos_token_id,
-        eos_token_id=tokenizer.eos_token_id,
+        generation_config=generation_config,
         stopping_criteria=stop_criteria
     )
  

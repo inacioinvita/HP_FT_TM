@@ -119,9 +119,9 @@ source ~/.api_keys
 
 # Run training
 # llamafactory-cli train train_llama3.json
-
+model_now="meta-llama/Meta-Llama-3.1-8B-Instruct"
 # Run inference and evaluation with the same path
-python ~/chicago2/HP_FT_TM/inference_eval.py --model_dir "meta-llama/Meta-Llama-3.1-8B-Instruct" # "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-16-16-38-53"
+python ~/chicago2/HP_FT_TM/inference_eval.py --model_dir "$model_now" # "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-16-16-38-53"
 
 # Print paths for verification
 echo "----------------------------------------"
