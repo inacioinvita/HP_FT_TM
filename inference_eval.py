@@ -6,7 +6,20 @@ import sacrebleu
 import wandb
 from transformers import AutoTokenizer, AutoModelForCausalLM, LlamaTokenizer, LlamaForCausalLM
 from comet import download_model, load_from_checkpoint
+from transformers import StoppingCriteria, StoppingCriteriaList
 
+
+# Custom stopping criterion
+class StopSequenceCriteria(StoppingCriteria):
+    def __init__(self, stop_string, tokenizer):
+        super().__init__()
+        self.stop_string = stop_string
+        self.tokenizer = tokenizer
+
+    def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor) -> bool:
+        decoded_text = self.tokenizer.decode(input_ids[0], skip_special_tokens=True)
+        return self.stop_string in decoded_text
+    
 # Add argument parsing
 parser = argparse.ArgumentParser()
 parser.add_argument('--model_dir', type=str, required=True, help='Path to the model directory')
@@ -61,6 +74,7 @@ model.eval()
 with open(test_dataset_path, "r") as f:
     data = json.load(f)
 
+
 def extract_translation(output_text):
     """Extract translation from model output."""
     try:
@@ -96,8 +110,10 @@ def extract_translation(output_text):
 predictions = []
 sources = []
 references = []
-
 number_samples = 100
+
+# Define our stopping criteria
+stop_criteria = StoppingCriteriaList([StopSequenceCriteria('}\n', tokenizer)])
 
 for sample in data[:number_samples]:
     system = sample["system"]
@@ -109,7 +125,15 @@ for sample in data[:number_samples]:
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
     
     # Generate translation
-    output_tokens = model.generate(**inputs, max_new_tokens=256, do_sample=False, pad_token_id=tokenizer.eos_token_id)
+    output_tokens = model.generate(
+        **inputs,
+        max_new_tokens=100,
+        do_sample=False,
+        pad_token_id=tokenizer.eos_token_id,
+        repetition_penalty=1.2,            # Might help reduce repeated patterns
+        stopping_criteria=stop_criteria
+    )
+ 
     output_text = tokenizer.decode(output_tokens[0], skip_special_tokens=True)
     
     # Extract translation
