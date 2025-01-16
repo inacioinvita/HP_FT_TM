@@ -35,7 +35,7 @@ if not timestamp:
     raise RuntimeError("TIMESTAMP environment variable is not set!")
 
 # Construct target run name using the timestamp
-target_run_name = f"train_{timestamp}"
+target_run_name = "train_2025-01-16-16-38-53" # f"train_{timestamp}"
 
 # Initialize W&B connection
 api = wandb.Api()
