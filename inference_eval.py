@@ -75,47 +75,48 @@ with open(test_dataset_path, "r") as f:
     data = json.load(f)
 
 
+import re
+import json
+
 def extract_translation(output_text):
-    """Extract translation from model output."""
-    try:
-        # Print full output for debugging
-        print("Raw output:", output_text)
-        
-        # Try to find JSON-like structure
-        json_start = output_text.rfind("{")
-        json_end = output_text.find("}", json_start) + 1
-        if json_start != -1 and json_end != -1:
-            json_str = output_text[json_start:json_end]
-            print("Found JSON:", json_str)
-            
-            response = json.loads(json_str)
-            translation = response.get("translation", "").strip()
-            if translation:
-                return translation
-            else:
-                print(f"No translation found in response: {response}")
-        else:
-            print("No JSON structure found in output")
-            
-            # Fallback: try to extract text after the input
-            lines = output_text.split('\n')
-            if len(lines) > 0:
-                return lines[-1].strip()
-                
-    except Exception as e:
-        print(f"Error extracting translation: {e}")
-        print(f"Raw output: {output_text}")
-    return ""
+    """Extract the *first* valid JSON block containing 'translation' from the model output."""
+    print("Raw output:", output_text)  # for debugging
+
+    # Regex pattern to capture non-nested {...} blocks.
+    # This is a simplistic pattern; if you have nested JSON braces, it won't handle those fully.
+    pattern = r"\{[^{}]*\}"
+
+    # Find all candidate substrings enclosed by braces
+    candidates = re.findall(pattern, output_text)
+
+    # Check each candidate in order until we find valid JSON with "translation" key
+    for candidate in candidates:
+        try:
+            parsed = json.loads(candidate)
+            if "translation" in parsed:
+                translation = parsed["translation"].strip()
+                if translation:
+                    print("Found valid JSON:", candidate)
+                    return translation
+        except json.JSONDecodeError:
+            # Not valid JSON; skip
+            pass
+
+    # If we reach here, no valid JSON with 'translation' was found
+    print("No valid JSON with 'translation' found. Falling back to last line.")
+    lines = output_text.split('\n')
+    return lines[-1].strip() if lines else ""
+
 
 predictions = []
 sources = []
 references = []
 number_samples = 100
-
+data = data[:number_samples]
 # Define our stopping criteria
 stop_criteria = StoppingCriteriaList([StopSequenceCriteria('}\n', tokenizer)])
 
-for sample in data[:number_samples]:
+for sample in data:
     system = sample["system"]
     instruction = sample["instruction"]
     input_text = sample["input"]
@@ -149,7 +150,8 @@ for sample in data[:number_samples]:
     # Optional: print progress
     print(f"Processed {len(predictions)} samples", end="\r")
 
-print(f"\nFinished processing {number_samples} samples")
+print(f"Total samples in dataset: {len(data)}")
+print(f"Processing first {number_samples} samples")
 
 # Save translations
 with open(os.path.join(output_dir, "translations.txt"), "w") as f:
