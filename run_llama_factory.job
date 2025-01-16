@@ -101,31 +101,45 @@ fi
 # Source the API keys
 source ~/.api_keys
 
-### CHANGED: Use Native DDP with torchrun for single-node multi-GPU
-# The trick here is to set the number of processes you want per node to match your number of GPUs
-# We also set MASTER_ADDR to our own hostname for single-node usage
-# export MASTER_ADDR=$(hostname)
-# export MASTER_PORT=29500
-# export NNODES=1
-# export GPUS_PER_NODE=1  # matches --gres=gpu:a100:1
-# export NPROC_PER_NODE=$GPUS_PER_NODE
-
-# # Use FORCE_TORCHRUN=1 to let LLaMA Factory know we want to run under torchrun 
-# # (which automatically invokes DistributedDataParallel)
-# FORCE_TORCHRUN=1 torchrun --standalone \
-#   --nnodes=$NNODES \
-#   --nproc-per-node=$NPROC_PER_NODE \
-#   $(which llamafactory-cli) train train_llama3.json
-
 # Run training
-# llamafactory-cli train train_llama3.json
-model_now="meta-llama/Meta-Llama-3.1-8B-Instruct"
+llamafactory-cli train train_llama3.json
+# model_now="meta-llama/Meta-Llama-3.1-8B-Instruct"
 # Run inference and evaluation with the same path
-python ~/chicago2/HP_FT_TM/inference_eval.py --model_dir "$model_now" # "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-16-16-38-53"
+# python ~/chicago2/HP_FT_TM/inference_eval.py --model_dir "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}"
 
 # Print paths for verification
 echo "----------------------------------------"
 echo "Model and evaluation paths:"
-echo "Model path: Llama-3.1-8B-Instruct/lora/train_2025-01-16-16-38-53" # HOME/LLaMA-Factory/$MODEL_PATH" # /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-16-14-05-37" # 
-echo "Evaluation output: Llama-3.1-8B-Instruct/lora/train_2025-01-16-16-38-53" # $HOME/LLaMA-Factory/evaluation/autoeval/train_${TIMESTAMP}" # /home/ivieira/LLaMA-Factory/evaluation/autoeval/train_2025-01-16-14-05-37"
+echo "Model path: $HOME/LLaMA-Factory/$MODEL_PATH" # Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}" #  # /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-16-14-05-37" # 
+echo "Evaluation output: $HOME/LLaMA-Factory/evaluation/autoeval/train_${TIMESTAMP}" # /home/ivieira/LLaMA-Factory/evaluation/autoeval/train_2025-01-16-14-05-37"
+echo "----------------------------------------"
+
+# Create YAML configuration for inference
+# Here we're overriding generation settings for a deterministic approach (no sampling)
+# but with temperature=1.0 and top_p=1.0, to match your request.
+cat <<EOF > llama3_lora_sft.yaml
+model_name_or_path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}
+adapter_name_or_path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}
+template: llama3
+infer_backend: huggingface
+trust_remote_code: true
+
+# Generation parameters:
+do_sample: false           # Disable sampling for deterministic decoding
+temperature: 1.0           # Keep at 1.0 (though do_sample=false effectively ignores temperature)
+top_p: 1.0                 # Set to 1.0 (though do_sample=false effectively ignores top_p)
+
+# Additional optional parameters:
+max_new_tokens: 100
+# repetition_penalty: 1.2
+EOF
+
+# Now run inference (evaluation) via LLaMA-Factory CLI
+llamafactory-cli infer llama3_lora_sft.yaml
+
+# If you need to train first, you can do that above, e.g.:
+# llamafactory-cli train your_config.json
+
+echo "----------------------------------------"
+echo "Finished inference with llama3_lora_sft.yaml"
 echo "----------------------------------------"
