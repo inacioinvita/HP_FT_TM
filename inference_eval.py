@@ -111,7 +111,7 @@ def extract_translation(output_text):
 predictions = []
 sources = []
 references = []
-number_samples = 100
+number_samples = 20
 data = data[:number_samples]
 # Define our stopping criteria
 stop_criteria = StoppingCriteriaList([StopSequenceCriteria('}\n', tokenizer)])
@@ -125,10 +125,12 @@ for sample in data:
     prompt = f"{system}\n{instruction}\n{input_text}"
     inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
     
-    # Generate translation using model's original config
+    # Generate translation with minimal overrides
     output_tokens = model.generate(
         **inputs,
         max_new_tokens=100,
+        pad_token_id=tokenizer.eos_token_id,
+        eos_token_id=tokenizer.eos_token_id,
         stopping_criteria=stop_criteria
     )
  
