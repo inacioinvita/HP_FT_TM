@@ -64,7 +64,7 @@ def compute_metrics(predictions, sources, references):
         "bleu": bleu_score.score,
         "chrf": chrf_score.score,
         "ter": ter_score.score,
-        "comet": comet_score
+        "comet": float(comet_score.system_score)
     }
 
 def main():
