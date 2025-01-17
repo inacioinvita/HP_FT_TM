@@ -70,9 +70,6 @@ cat <<EOF > train_llama3.json
   "lora_rank": 64,
   "lr_scheduler_type": "polynomial",
   "max_grad_norm": 1.0,
-  // "use_unsloth": true,
-  // "flash_attn": fa2,
-  // "enable_liger_kernel": true
   "max_samples": 100000,
   "num_train_epochs": 1,
   "optim": "adamw_torch",
@@ -94,6 +91,9 @@ cat <<EOF > train_llama3.json
 EOF
 
 # upcast_layernorm:  Whether or not to upcast the layernorm weights in fp32 (remove when 4bit quantization is used)
+#   // "use_unsloth": true,
+#   // "flash_attn": fa2,
+#   // "enable_liger_kernel": true
 
 # Load all API keys
 if [ ! -f ~/.api_keys ]; then
@@ -117,15 +117,18 @@ echo "Model path: $HOME/LLaMA-Factory/$MODEL_PATH" # Llama-3.1-8B-Instruct/lora/
 echo "Evaluation output: $HOME/LLaMA-Factory/evaluation/autoeval/train_${TIMESTAMP}" # /home/ivieira/LLaMA-Factory/evaluation/autoeval/train_2025-01-16-14-05-37"
 echo "----------------------------------------"
 
-# Run batch inference using vllm script
+cd ~/LLaMA-Factory || exit 1
+
+# Run vLLM inference with proper LoRA configuration
 python scripts/vllm_infer.py \
     --model_name_or_path "meta-llama/Meta-Llama-3.1-8B-Instruct" \
     --adapter_name_or_path "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}" \
     --dataset BALS_de_test_dataset \
     --template llama3 \
-    --temperature 1.0 \
+    --temperature 0.0 \
     --top_p 1.0 \
-    --vllm_config '{"max_lora_rank": 64}' \
+    --top_k 1 \
+    --vllm_config '{"enable_lora": true, "max_lora_rank": 64, "max_loras": 1}' \
     --save_name "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json"
 
 # Run evaluation using the original evaluation script
