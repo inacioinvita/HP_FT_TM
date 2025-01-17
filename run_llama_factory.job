@@ -128,13 +128,10 @@ cat <<EOF > eval_llama3.yaml
 model_name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
 adapter_name_or_path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}
 template: llama3
-predictions_file: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json
 task: translation
-metrics:
-  - bleu
-  - chrf
-  - ter
-  - comet
+dataset: BALS_de_test_dataset
+dataset_dir: data
+output_dir: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}
 EOF
 
 # Run vLLM inference
