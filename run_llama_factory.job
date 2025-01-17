@@ -124,8 +124,13 @@ python scripts/vllm_infer.py \
     --top_p 1.0 \
     --save_name "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json"
 
+# Run evaluation using the original evaluation script
+python ~/chicago2/HP_FT_TM/inference_eval.py \
+    --model_dir "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}"
+
 echo "----------------------------------------"
-echo "Inference paths:"
-echo "Model used: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}"
-echo "Predictions saved to: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json"
+echo "Inference and evaluation completed"
+echo "Model: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}"
+echo "Predictions: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json"
+echo "Evaluation: /home/ivieira/LLaMA-Factory/evaluation/autoeval/train_${TIMESTAMP}/"
 echo "----------------------------------------"

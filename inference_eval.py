@@ -1,52 +1,34 @@
 import argparse
 import os
 import json
-import torch
 import sacrebleu
 import wandb
-from transformers import AutoTokenizer, AutoModelForCausalLM, LlamaTokenizer, LlamaForCausalLM, GenerationConfig
 from comet import download_model, load_from_checkpoint
-from transformers import StoppingCriteria, StoppingCriteriaList
 
-
-# Custom stopping criterion
-class StopSequenceCriteria(StoppingCriteria):
-    def __init__(self, stop_string, tokenizer):
-        super().__init__()
-        self.stop_string = stop_string
-        self.tokenizer = tokenizer
-
-    def __call__(self, input_ids: torch.LongTensor, scores: torch.FloatTensor) -> bool:
-        decoded_text = self.tokenizer.decode(input_ids[0], skip_special_tokens=True)
-        return self.stop_string in decoded_text
-    
 # Add argument parsing
 parser = argparse.ArgumentParser()
 parser.add_argument('--model_dir', type=str, required=True, help='Path to the model directory')
 args = parser.parse_args()
 
 # W&B Configuration
-entity = "inaciovieira-alpha-crc"  # Your W&B username or organization
-project = "llamafactory"           # Your W&B project name
+entity = "inaciovieira-alpha-crc"
+project = "llamafactory"
 
 # Retrieve the TIMESTAMP from environment variables
 timestamp = os.environ.get("TIMESTAMP")
 if not timestamp:
     raise RuntimeError("TIMESTAMP environment variable is not set!")
 
-# Construct target run name using the timestamp
-target_run_name = "train_2025-01-16-16-38-53" # f"train_{timestamp}"
-
 # Initialize W&B connection
 api = wandb.Api()
-runs = api.runs(f"{entity}/{project}", filters={"config.run_name": target_run_name})
+runs = api.runs(f"{entity}/{project}", filters={"config.run_name": f"train_{timestamp}"})
 
 if runs:
     target_run = runs[0]
     original_run_id = target_run.id
-    print(f"Found run ID {original_run_id} for run name {target_run_name} for EVAL STAGE")
+    print(f"Found run ID {original_run_id} for run name train_{timestamp} for EVAL STAGE")
 else:
-    raise RuntimeError(f"No runs found with run_name: {target_run_name}")
+    raise RuntimeError(f"No runs found with run_name: train_{timestamp}")
 
 wandb.init(
     project=project,
@@ -56,107 +38,51 @@ wandb.init(
 
 # Directories and paths
 base_dir = os.path.expanduser("~/LLaMA-Factory")
-model_dir = args.model_dir  # From command line
-test_dataset_path = os.path.join(base_dir, "data/BALS_de_test_dataset.json")
+model_dir = args.model_dir
 output_dir = os.path.join(base_dir, "evaluation/autoeval", os.path.basename(model_dir))
 os.makedirs(output_dir, exist_ok=True)
 
-# Load model and tokenizer
-tokenizer = AutoTokenizer.from_pretrained(model_dir)
-model = LlamaForCausalLM.from_pretrained(
-    model_dir,
-    device_map="auto",
-    torch_dtype=torch.bfloat16
-)
-model.eval()
-
-# Load test data
-with open(test_dataset_path, "r") as f:
-    data = json.load(f)
-
-
-import re
-import json
-
-def extract_translation(output_text):
-    """Extract the second valid JSON block containing 'translation' from the model output."""
-    print("Raw output:", output_text)  # keep for debugging
-
-    # Find all JSON-like patterns
-    pattern = r"\{[^{}]*\}"
-    candidates = re.findall(pattern, output_text)
+def load_vllm_predictions(predictions_file):
+    if not os.path.exists(predictions_file):
+        raise FileNotFoundError(f"Predictions file not found: {predictions_file}")
+        
+    predictions = []
+    sources = []
+    references = []
     
-    valid_jsons = []
-    for candidate in candidates:
-        try:
-            parsed = json.loads(candidate)
-            if "translation" in parsed:
-                translation = parsed["translation"].strip()
-                if translation:  # Any non-empty translation
-                    valid_jsons.append(translation)
-        except json.JSONDecodeError:
-            continue
+    with open(predictions_file, 'r') as f:
+        for i, line in enumerate(f, 1):
+            try:
+                data = json.loads(line)
+                prompt = data['prompt']
+                input_text = prompt.split('\n')[-1].strip('"')
+                
+                pred_json = json.loads(data['predict'])
+                ref_json = json.loads(data['label'])
+                
+                if 'translation' not in pred_json or 'translation' not in ref_json:
+                    print(f"Warning: Missing translation in line {i}")
+                    continue
+                    
+                predictions.append(pred_json['translation'])
+                sources.append(input_text)
+                references.append(ref_json['translation'])
+            except (json.JSONDecodeError, KeyError) as e:
+                print(f"Warning: Error processing line {i}: {e}")
+                continue
+            
+    if not predictions:
+        raise ValueError("No valid predictions found in file")
+            
+    return predictions, sources, references
 
-    # Return second valid JSON if available, otherwise empty string
-    return valid_jsons[1] if len(valid_jsons) > 1 else ""
+# Load predictions from vLLM output
+predictions_file = os.path.join(model_dir, f"predictions_{timestamp}.json")
+if not os.path.exists(predictions_file):
+    raise FileNotFoundError(f"Predictions file not found: {predictions_file}")
 
-
-predictions = []
-sources = []
-references = []
-number_samples = 100
-data = data[:number_samples]
-# Define our stopping criteria
-stop_criteria = StoppingCriteriaList([StopSequenceCriteria('}\n', tokenizer)])
-
-# Create generation config for deterministic inference
-generation_config = GenerationConfig(
-    max_new_tokens=100,
-    do_sample=False,  # Deterministic generation
-    temperature=1.0,  # Full "sharpness"
-    top_p=1.0,       # No nucleus sampling
-    pad_token_id=tokenizer.eos_token_id,
-    eos_token_id=tokenizer.eos_token_id
-)
-
-for sample in data:
-    system = sample["system"]
-    instruction = sample["instruction"]
-    input_text = sample["input"]
-    reference = sample["output"]
-    
-    prompt = f"{system}\n{instruction}\n{input_text}"
-    inputs = tokenizer(prompt, return_tensors="pt").to(model.device)
-    
-    # Generate with deterministic config
-    output_tokens = model.generate(
-        **inputs,
-        generation_config=generation_config,
-        stopping_criteria=stop_criteria
-    )
- 
-    output_text = tokenizer.decode(output_tokens[0], skip_special_tokens=True)
-    
-    # Extract translation
-    translation = extract_translation(output_text)
-    
-    if not translation:
-        print(f"Warning: Empty translation for input: {input_text[:100]}...")
-    
-    predictions.append(translation)
-    sources.append(input_text)
-    references.append(reference)
-
-    # Optional: print progress
-    print(f"Processed {len(predictions)} samples", end="\r")
-
-print(f"Total samples in dataset: {len(data)}")
-print(f"Processing first {number_samples} samples")
-
-# Save translations
-with open(os.path.join(output_dir, "translations.txt"), "w") as f:
-    for pred in predictions:
-        f.write(pred + "\n")
+predictions, sources, references = load_vllm_predictions(predictions_file)
+print(f"Loaded {len(predictions)} predictions")
 
 # Compute BLEU, TER, ChrF++
 bleu = sacrebleu.corpus_bleu(predictions, [references])
