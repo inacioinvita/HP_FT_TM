@@ -18,7 +18,6 @@ SKIP_TRAIN="true"
 SKIP_INFERENCE="false"
 # Timestamp of existing model/predictions when skipping
 OLD_TRAIN_TIMESTAMP="2025-01-17-09-43-52"
-# 
 # =======================================
 
 # Initialize conda
@@ -137,18 +136,18 @@ if [ "$SKIP_INFERENCE" = "false" ]; then
         --temperature 1.3 \
         --top_p 1.0 \
         // --vllm_config '{"enable_lora": true, "max_lora_rank": 64, "max_loras": 1}' \
-        --save_name "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/BM_predictions_${TIMESTAMP}.json"
+        --save_name "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/baseline_predictions_${TIMESTAMP}.json"
 fi
 
 # Run evaluation
 echo "Running evaluation..."
 python ~/chicago2/HP_FT_TM/inference_eval.py \
-    --predictions_file "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json"
+    --predictions_file "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/baseline_predictions_${TIMESTAMP}.json"
 
 echo "----------------------------------------"
 echo "Pipeline completed with settings:"
 echo "SKIP_TRAIN: ${SKIP_TRAIN}"
 echo "SKIP_INFERENCE: ${SKIP_INFERENCE}"
 echo "TIMESTAMP: ${TIMESTAMP}"
-echo "Predictions path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json"
+echo "Predictions path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/baseline_predictions_${TIMESTAMP}.json"
 echo "----------------------------------------"
