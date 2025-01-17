@@ -75,7 +75,7 @@ cat <<EOF > train_llama3.json
   "eval_steps": 10,
   "eval_strategy": "steps",
   "flash_attn": "auto",
-  "gradient_accumulation_steps": 4,
+  "gradient_accumulation_steps": 8,
   "learning_rate": 0.0005,
   "logging_steps": 25,
   "lora_alpha": 16,
