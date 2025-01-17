@@ -86,7 +86,7 @@ cat <<EOF > train_llama3.json
   "trust_remote_code": true, 
   "upcast_layernorm": false,
   "val_size": 0.1,
-  "warmup_steps": 35
+  "warmup_steps": 5
 }
 EOF
 
@@ -114,32 +114,18 @@ echo "Model path: $HOME/LLaMA-Factory/$MODEL_PATH" # Llama-3.1-8B-Instruct/lora/
 echo "Evaluation output: $HOME/LLaMA-Factory/evaluation/autoeval/train_${TIMESTAMP}" # /home/ivieira/LLaMA-Factory/evaluation/autoeval/train_2025-01-16-14-05-37"
 echo "----------------------------------------"
 
-# Create YAML configuration for inference
-# Here we're overriding generation settings for a deterministic approach (no sampling)
-# but with temperature=1.0 and top_p=1.0, to match your request.
-cat <<EOF > llama3_lora_sft.yaml
-model_name_or_path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}
-adapter_name_or_path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}
-template: llama3
-infer_backend: huggingface
-trust_remote_code: true
-
-# Generation parameters:
-do_sample: false           # Disable sampling for deterministic decoding
-temperature: 1.0           # Keep at 1.0 (though do_sample=false effectively ignores temperature)
-top_p: 1.0                 # Set to 1.0 (though do_sample=false effectively ignores top_p)
-
-# Additional optional parameters:
-max_new_tokens: 100
-# repetition_penalty: 1.2
-EOF
-
-# Now run inference (evaluation) via LLaMA-Factory CLI
-llamafactory-cli infer llama3_lora_sft.yaml
-
-# If you need to train first, you can do that above, e.g.:
-# llamafactory-cli train your_config.json
+# Run batch inference using vllm script
+python scripts/vllm_infer.py \
+    --model_name_or_path "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}" \
+    --dataset BALS_de_test_dataset \
+    --finetuning_type lora \
+    --template llama3 \
+    --do_sample false \
+    --temperature 1.0 \
+    --top_p 1.0
 
 echo "----------------------------------------"
-echo "Finished inference with llama3_lora_sft.yaml"
+echo "Inference paths:"
+echo "Model used: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}"
+echo "Predictions saved to: /home/ivieira/LLaMA-Factory/predictions_${TIMESTAMP}.json"
 echo "----------------------------------------"
