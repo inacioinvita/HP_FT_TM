@@ -129,6 +129,7 @@ model_name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
 adapter_name_or_path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}
 template: llama3
 predictions_file: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json
+task: translation
 metrics:
   - bleu
   - chrf
