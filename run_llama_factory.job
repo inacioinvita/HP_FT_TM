@@ -161,6 +161,3 @@ echo "Config files used:"
 echo "Training config:"
 cat train_llama3.json
 echo "----------------------------------------"
-echo "vLLM inference config:"
-cat scripts/vllm_infer.py
-echo "----------------------------------------"
