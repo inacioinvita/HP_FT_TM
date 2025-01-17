@@ -42,20 +42,20 @@ python -c "import torch; print('CUDA available?', torch.cuda.is_available()); pr
 
 # Set timestamp variable
 export TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
-MODEL_PATH="saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}"
+MODEL_PATH="saves/Llama-3.1-70B-Instruct/lora/train_${TIMESTAMP}"
 
 # Create training config with variable
 cat <<EOF > train_llama3.json
 {
   "stage": "sft",
   "do_train": true,
-  "model_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
+  "model_name_or_path": "meta-llama/Llama-3.1-70B-Instruct",
   "dataset": "BALS_de_train_dataset",
   "dataset_dir": "data",
   "template": "llama3",
   "finetuning_type": "lora",
   "lora_target": "all",
-  "output_dir": "saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}",
+  "output_dir": "saves/Llama-3.1-70B-Instruct/lora/train_${TIMESTAMP}",
   "bf16": true,
   "cutoff_len": 1024,
   "ddp_timeout": 180000000,
@@ -70,6 +70,9 @@ cat <<EOF > train_llama3.json
   "lora_rank": 64,
   "lr_scheduler_type": "polynomial",
   "max_grad_norm": 1.0,
+  "use_unsloth": true,
+  "flash_attn": fa2,
+  "enable_liger_kernel": true
   "max_samples": 100000,
   "num_train_epochs": 1,
   "optim": "adamw_torch",
