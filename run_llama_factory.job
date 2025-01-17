@@ -151,14 +151,6 @@ task: translation_en_de
 dataset: BALS_de_test_dataset
 dataset_dir: data
 finetuning_type: lora
-language_pairs:
-  - source: en
-    target: de
-metrics:
-  - bleu
-  - chrf
-  - ter
-  - comet
 EOF
 
 # Run evaluation
