@@ -150,7 +150,6 @@ template: llama3
 task: translation
 dataset: BALS_de_test_dataset
 dataset_dir: data
-output_dir: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}
 EOF
 
 # Run evaluation
