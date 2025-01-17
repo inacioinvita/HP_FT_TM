@@ -3,19 +3,50 @@ import sacrebleu
 from comet import download_model, load_from_checkpoint
 import torch
 import os
+import re
 
 def clean_json_output(text):
     """Clean and normalize JSON string before parsing"""
-    # Fix common issues
-    text = text.replace('„', '"').replace('"', '"')  # Fix German quotes
-    text = text.replace(',}', '}')  # Fix trailing commas
-    text = text.replace('\\', '\\\\')  # Escape backslashes
+    # Skip if already valid JSON
+    try:
+        json.loads(text)
+        return text
+    except:
+        pass
+    
+    # Fix German quotes and nested quotes
+    text = text.replace('„', '"').replace('"', '"').replace('"', '"')
+    
+    # Handle quotes within translation text by escaping them
+    if '"translation"' in text:
+        start = text.find('"translation"') + len('"translation"')
+        colon_pos = text.find(':', start)
+        if colon_pos != -1:
+            before = text[:colon_pos+1]
+            content = text[colon_pos+1:]
+            # Clean up the content
+            content = content.strip()
+            if content.startswith('"'):
+                content = content[1:]
+            if content.endswith('"'):
+                content = content[:-1]
+            # Escape any remaining quotes in content
+            content = content.replace('"', '\\"')
+            # Rebuild with proper JSON structure
+            text = f'{before} "{content}"'
     
     # Ensure proper JSON structure
-    if not text.startswith('{"translation":'):
-        text = '{"translation": ' + text
+    if not text.startswith('{'):
+        text = '{' + text
     if not text.endswith('}'):
         text = text + '}'
+        
+    # Remove any trailing characters after JSON
+    try:
+        end = text.rindex('}') + 1
+        text = text[:end]
+    except ValueError:
+        pass
     
     return text
 
@@ -93,6 +124,29 @@ def compute_metrics(predictions, sources, references):
         "ter": ter_score.score,
         "comet": float(comet_score.system_score)
     }
+
+def extract_translation(output_text):
+    """Extract the *last* valid JSON block containing 'translation' from the model output."""
+    print("Raw output:", output_text)  # keep for debugging
+
+    # Find all JSON-like patterns
+    pattern = r"\{[^{}]*\}"
+    candidates = re.findall(pattern, output_text)
+    
+    # Check candidates from last to first (since example appears first in prompt)
+    for candidate in reversed(candidates):
+        try:
+            parsed = json.loads(candidate)
+            if "translation" in parsed:
+                translation = parsed["translation"].strip()
+                if translation and translation != "Translated text":  # Skip example
+                    print("Found valid JSON:", candidate)
+                    return translation
+        except json.JSONDecodeError:
+            continue
+
+    print("No valid translation JSON found")
+    return ""
 
 def main():
     import argparse
