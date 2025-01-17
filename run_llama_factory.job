@@ -15,7 +15,7 @@
 SKIP_TRAIN="true"
 # Set to "true" to skip inference and run eval on existing predictions only
 # Set to "false" to run inference+eval
-SKIP_INFERENCE="true"
+SKIP_INFERENCE="false"
 # Timestamp of existing model/predictions when skipping
 OLD_TRAIN_TIMESTAMP="2025-01-17-09-43-52"
 # =======================================
@@ -133,9 +133,8 @@ if [ "$SKIP_INFERENCE" = "false" ]; then
         --adapter_name_or_path "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}" \
         --dataset BALS_de_test_dataset \
         --template llama3 \
-        --temperature 0.0 \
+        --temperature 1.0 \
         --top_p 1.0 \
-        --top_k 1 \
         --vllm_config '{"enable_lora": true, "max_lora_rank": 64, "max_loras": 1}' \
         --save_name "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json"
 fi
