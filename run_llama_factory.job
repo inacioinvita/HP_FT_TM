@@ -12,7 +12,7 @@
 # ============= CONFIGURATION =============
 # Set to "true" to skip training and run inference+eval on existing model
 # Set to "false" to run full train+infer+eval pipeline
-SKIP_TRAIN="true"
+SKIP_TRAIN="false"
 # Set to "true" to skip inference and run eval on existing predictions only
 # Set to "false" to run inference+eval
 SKIP_INFERENCE="false"
@@ -72,10 +72,10 @@ cat <<EOF > train_llama3.json
   "bf16": true,
   "cutoff_len": 1024,
   "ddp_timeout": 180000000,
-  "eval_steps": 25,
+  "eval_steps": 10,
   "eval_strategy": "steps",
   "flash_attn": "auto",
-  "gradient_accumulation_steps": 8,
+  "gradient_accumulation_steps": 4,
   "learning_rate": 0.001,
   "logging_steps": 25,
   "lora_alpha": 16,
@@ -153,4 +153,14 @@ echo "SKIP_TRAIN: ${SKIP_TRAIN}"
 echo "SKIP_INFERENCE: ${SKIP_INFERENCE}"
 echo "TIMESTAMP: ${TIMESTAMP}"
 echo "Predictions path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json"
+echo "----------------------------------------"
+
+# Print config files for reproducibility
+echo "----------------------------------------"
+echo "Config files used:"
+echo "Training config:"
+cat train_llama3.json
+echo "----------------------------------------"
+echo "vLLM inference config:"
+cat vllm_infer.py
 echo "----------------------------------------"
