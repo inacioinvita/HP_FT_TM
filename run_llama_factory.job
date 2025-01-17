@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 #SBATCH -p compute
 #SBATCH -J LF_L_3.1_8B
