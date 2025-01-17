@@ -12,7 +12,7 @@
 # ============= CONFIGURATION =============
 # Set to "true" to skip training and run inference+eval on existing model
 # Set to "false" to run full train+infer+eval pipeline
-SKIP_TRAIN="true"
+SKIP_TRAIN="false"
 # Set to "true" to skip inference and run eval on existing predictions only
 # Set to "false" to run inference+eval
 SKIP_INFERENCE="false"

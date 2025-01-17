@@ -171,6 +171,12 @@ def main():
     print(f"chrF: {metrics['chrf']:.2f}")
     print(f"TER: {metrics['ter']:.2f}")
     print(f"COMET: {metrics['comet']:.2f}")
+    
+    # Save metrics to file
+    metrics_file = os.path.join(os.path.dirname(args.predictions_file), "evaluation_metrics.json")
+    with open(metrics_file, 'w') as f:
+        json.dump(metrics, f, indent=2)
+    print(f"\nMetrics saved to: {metrics_file}")
 
 if __name__ == "__main__":
     main()
