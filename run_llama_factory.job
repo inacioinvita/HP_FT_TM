@@ -12,12 +12,12 @@
 # ============= CONFIGURATION =============
 # Set to "true" to skip training and run inference+eval on existing model
 # Set to "false" to run full train+infer+eval pipeline
-SKIP_TRAIN="false"
+SKIP_TRAIN="true"
 # Set to "true" to skip inference and run eval on existing predictions only
 # Set to "false" to run inference+eval
 SKIP_INFERENCE="false"
 # Timestamp of existing model/predictions when skipping
-OLD_TRAIN_TIMESTAMP="2025-01-17-09-43-52"
+OLD_TRAIN_TIMESTAMP="2025-01-17-17-53-22"
 # 2025-01-17-09-43-52
 # baseline
 # =======================================
@@ -53,7 +53,7 @@ cd LLaMA-Factory
 # Quick GPU check
 python -c "import torch; print('CUDA available?', torch.cuda.is_available()); print('Device count:', torch.cuda.device_count());"
 
-# Set timestamp variable
+# Set timestamp once at the beginning
 export TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 MODEL_PATH="saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}"
 
@@ -123,7 +123,6 @@ cd ~/LLaMA-Factory || exit 1
 if [ "$SKIP_TRAIN" = "false" ]; then
     echo "Running full pipeline: train + inference + evaluation"
     llamafactory-cli train train_llama3.json
-    TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 else
     echo "Using timestamp from existing run: ${OLD_TRAIN_TIMESTAMP}"
     TIMESTAMP=$OLD_TRAIN_TIMESTAMP
@@ -163,5 +162,5 @@ echo "Training config:"
 cat train_llama3.json
 echo "----------------------------------------"
 echo "vLLM inference config:"
-cat vllm_infer.py
+cat scripts/vllm_infer.py
 echo "----------------------------------------"
