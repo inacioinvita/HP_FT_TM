@@ -17,7 +17,7 @@ SKIP_TRAIN="true"
 # Set to "false" to run inference+eval
 SKIP_INFERENCE="false"
 # Timestamp of existing model/predictions when skipping
-OLD_TRAIN_TIMESTAMP="2025-01-17-17-58-46"
+OLD_TRAIN_TIMESTAMP="2025-01-17-17-56-34"
 # 2025-01-17-09-43-52
 # baseline
 # =======================================
