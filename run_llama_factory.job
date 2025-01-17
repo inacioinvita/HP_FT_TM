@@ -133,22 +133,23 @@ if [ "$SKIP_INFERENCE" = "false" ]; then
         --model_name_or_path "meta-llama/Meta-Llama-3.1-8B-Instruct" \
         // --adapter_name_or_path "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}" \
         --dataset BALS_de_test_dataset \
+        --dataset_dir "data" \
         --template llama3 \
         --temperature 1.3 \
         --top_p 1.0 \
         // --vllm_config '{"enable_lora": true, "max_lora_rank": 64, "max_loras": 1}' \
-        --save_name "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/baseline_predictions_${TIMESTAMP}.json"
+        --save_name "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/base_predictions.json".json"
 fi
 
 # Run evaluation
 echo "Running evaluation..."
 python ~/chicago2/HP_FT_TM/inference_eval.py \
-    --predictions_file "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/baseline_predictions_${TIMESTAMP}.json"
+    --predictions_file "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/base_predictions.json"
 
 echo "----------------------------------------"
 echo "Pipeline completed with settings:"
 echo "SKIP_TRAIN: ${SKIP_TRAIN}"
 echo "SKIP_INFERENCE: ${SKIP_INFERENCE}"
 echo "TIMESTAMP: ${TIMESTAMP}"
-echo "Predictions path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/baseline_predictions_${TIMESTAMP}.json"
+echo "Predictions path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/base_predictions.json"
 echo "----------------------------------------"
