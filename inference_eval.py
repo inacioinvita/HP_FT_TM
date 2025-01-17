@@ -17,6 +17,9 @@ def clean_json_output(text):
     # Fix German quotes and nested quotes
     text = text.replace('„', '"').replace('"', '"').replace('"', '"')
     
+    # Remove invalid escapes before periods
+    text = text.replace('\\.', '.')
+    
     # Handle quotes within translation text by escaping them
     if '"translation"' in text:
         start = text.find('"translation"') + len('"translation"')
@@ -32,6 +35,8 @@ def clean_json_output(text):
                 content = content[:-1]
             # Escape any remaining quotes in content
             content = content.replace('"', '\\"')
+            # Remove any invalid escapes
+            content = content.replace('\\.', '.')
             # Rebuild with proper JSON structure
             text = f'{before} "{content}"'
     
