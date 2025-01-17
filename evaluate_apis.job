@@ -1,0 +1,64 @@
+#!/bin/bash
+
+#SBATCH -p compute
+#SBATCH -J API_EVAL
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=32000
+#SBATCH -t 12:00:00
+#SBATCH -o API_%j.out
+#SBATCH -e API_%j.err
+
+# Initialize conda
+eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
+conda activate lf-env
+
+# Install required packages if not present
+pip install --quiet google-cloud-translate deepl
+
+cd ~/LLaMA-Factory || exit 1
+
+# Set paths
+export TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
+GOOGLE_DIR="saves/Llama-3.1-8B-Instruct/lora/Google_baseline_${TIMESTAMP}"
+DEEPL_DIR="saves/Llama-3.1-8B-Instruct/lora/DeepL_baseline_${TIMESTAMP}"
+
+# Create output directories
+mkdir -p $GOOGLE_DIR
+mkdir -p $DEEPL_DIR
+
+# Define prediction files
+GOOGLE_PREDICTIONS="${GOOGLE_DIR}/predictions_google_${TIMESTAMP}.json"
+DEEPL_PREDICTIONS="${DEEPL_DIR}/predictions_deepl_${TIMESTAMP}.json"
+
+# Load API keys
+source ~/.api_keys
+
+# Run inference for both APIs
+echo "Running inference on Google Translate and DeepL..."
+python ~/chicago2/HP_FT_TM/api_infer.py \
+    --test_data data/BALS_de_test_dataset.json \
+    --google_predictions $GOOGLE_PREDICTIONS \
+    --deepl_predictions $DEEPL_PREDICTIONS
+
+# Only run evaluation if prediction files exist
+if [ -f "$GOOGLE_PREDICTIONS" ]; then
+    echo "Running evaluation on Google Translate results..."
+    python ~/chicago2/HP_FT_TM/inference_eval.py \
+        --predictions_file $GOOGLE_PREDICTIONS
+else
+    echo "Warning: Google predictions file not found"
+fi
+
+if [ -f "$DEEPL_PREDICTIONS" ]; then
+    echo "Running evaluation on DeepL results..."
+    python ~/chicago2/HP_FT_TM/inference_eval.py \
+        --predictions_file $DEEPL_PREDICTIONS
+else
+    echo "Warning: DeepL predictions file not found"
+fi
+
+echo "----------------------------------------"
+echo "API evaluations completed:"
+echo "Google results: ${GOOGLE_DIR}"
+echo "DeepL results: ${DEEPL_DIR}"
+echo "----------------------------------------" 

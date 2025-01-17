@@ -1,0 +1,50 @@
+#!/bin/bash
+
+#SBATCH -p compute
+#SBATCH -J BASE_L3
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=200000
+#SBATCH --gres=gpu:a100:1
+#SBATCH -t 12:00:00
+#SBATCH -o BASE_%j.out
+#SBATCH -e BASE_%j.err
+
+# Initialize conda
+eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
+conda activate lf-env
+
+cd ~/LLaMA-Factory || exit 1
+
+# Set paths
+export TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
+BASE_MODEL="meta-llama/Meta-Llama-3.1-8B-Instruct"
+OUTPUT_DIR="saves/Llama-3.1-8B-Instruct/lora/baseline_${TIMESTAMP}"
+PREDICTIONS_FILE="${OUTPUT_DIR}/predictions_${TIMESTAMP}.json"
+
+# Create output directory
+mkdir -p $OUTPUT_DIR
+
+# Load API keys
+source ~/.api_keys
+
+# Run inference
+echo "Running inference on base model..."
+python scripts/vllm_infer.py \
+    --model_name_or_path $BASE_MODEL \
+    --dataset BALS_de_test_dataset \
+    --dataset_dir "data" \
+    --template llama3 \
+    --temperature 1.0 \
+    --top_p 1.0 \
+    --save_name $PREDICTIONS_FILE
+
+# Run evaluation
+echo "Running evaluation..."
+python ~/chicago2/HP_FT_TM/inference_eval.py \
+    --predictions_file $PREDICTIONS_FILE
+
+echo "----------------------------------------"
+echo "Base model evaluation completed:"
+echo "Results saved at: ${OUTPUT_DIR}"
+echo "Predictions file: ${PREDICTIONS_FILE}"
+echo "----------------------------------------" 
