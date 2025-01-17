@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 #SBATCH -p compute
 #SBATCH -J LF_L_3.1_8B
@@ -8,6 +9,14 @@
 #SBATCH -t 12:00:00
 #SBATCH -o LF_%j.out
 #SBATCH -e LF_%j.err
+
+# ============= CONFIGURATION =============
+# Set to "true" to skip training and run inference+eval on existing model
+# Set to "false" to run full train+infer+eval pipeline
+SKIP_TRAIN="true"
+# Timestamp of existing model when SKIP_TRAIN is true
+OLD_TRAIN_TIMESTAMP="2025-01-17-09-43-52"
+# =======================================
 
 # Initialize conda
 eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
@@ -104,22 +113,31 @@ fi
 # Source the API keys
 source ~/.api_keys
 
-# Run training
-llamafactory-cli train train_llama3.json
-# model_now="meta-llama/Meta-Llama-3.1-8B-Instruct"
-# Run inference and evaluation with the same path
-# python ~/chicago2/HP_FT_TM/inference_eval.py --model_dir "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}"
-
-# Print paths for verification
-echo "----------------------------------------"
-echo "Model and evaluation paths:"
-echo "Model path: $HOME/LLaMA-Factory/$MODEL_PATH" # Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}" #  # /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_2025-01-16-14-05-37" # 
-echo "Evaluation output: $HOME/LLaMA-Factory/evaluation/autoeval/train_${TIMESTAMP}" # /home/ivieira/LLaMA-Factory/evaluation/autoeval/train_2025-01-16-14-05-37"
-echo "----------------------------------------"
-
 cd ~/LLaMA-Factory || exit 1
 
-# Run vLLM inference with proper LoRA configuration
+if [ "$SKIP_TRAIN" = "false" ]; then
+    echo "Running full pipeline: train + inference + evaluation"
+    llamafactory-cli train train_llama3.json
+    TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
+else
+    echo "Skipping training, running inference + evaluation on existing model: train_${OLD_TRAIN_TIMESTAMP}"
+    TIMESTAMP=$OLD_TRAIN_TIMESTAMP
+fi
+
+# Create evaluation config with current timestamp
+cat <<EOF > eval_llama3.yaml
+model_name_or_path: meta-llama/Meta-Llama-3.1-8B-Instruct
+adapter_name_or_path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}
+template: llama3
+predictions_file: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json
+metrics:
+  - bleu
+  - chrf
+  - ter
+  - comet
+EOF
+
+# Run vLLM inference
 python scripts/vllm_infer.py \
     --model_name_or_path "meta-llama/Meta-Llama-3.1-8B-Instruct" \
     --adapter_name_or_path "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}" \
@@ -131,13 +149,14 @@ python scripts/vllm_infer.py \
     --vllm_config '{"enable_lora": true, "max_lora_rank": 64, "max_loras": 1}' \
     --save_name "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json"
 
-# Run evaluation using the original evaluation script
-python ~/chicago2/HP_FT_TM/inference_eval.py \
-    --model_dir "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}"
+# Run LlamaFactory evaluation
+echo "Running evaluation with LlamaFactory..."
+llamafactory-cli eval eval_llama3.yaml
+
 echo "----------------------------------------"
-echo "Inference and evaluation completed"
+echo "Pipeline completed:"
 echo "Model: meta-llama/Meta-Llama-3.1-8B-Instruct"
 echo "LoRA adapter: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}"
 echo "Predictions: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json"
-echo "Evaluation: /home/ivieira/LLaMA-Factory/evaluation/autoeval/train_${TIMESTAMP}/"
+echo "Evaluation config: eval_llama3.yaml"
 echo "----------------------------------------"
