@@ -2,6 +2,7 @@ import json
 import sacrebleu
 from comet import download_model, load_from_checkpoint
 import torch
+import os
 
 def load_vllm_predictions(predictions_file):
     predictions = []
@@ -49,7 +50,12 @@ def compute_metrics(predictions, sources, references):
     ter_score = ter.corpus_score(predictions, [references])
     
     # COMET
-    comet_model = load_from_checkpoint("Unbabel/wmt22-comet-da")
+    print("Downloading COMET model...")
+    model_path = download_model("Unbabel/wmt22-comet-da")
+    print(f"Loading COMET model from {model_path}")
+    comet_model = load_from_checkpoint(model_path)
+    
+    print("Computing COMET scores...")
     comet_data = [{"src": src, "mt": pred, "ref": ref} 
                   for src, pred, ref in zip(sources, predictions, references)]
     comet_score = comet_model.predict(comet_data, batch_size=32, gpus=1)
@@ -58,7 +64,7 @@ def compute_metrics(predictions, sources, references):
         "bleu": bleu_score.score,
         "chrf": chrf_score.score,
         "ter": ter_score.score,
-        "comet": comet_score.score
+        "comet": comet_score
     }
 
 def main():
