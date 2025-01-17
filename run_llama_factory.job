@@ -117,15 +117,15 @@ echo "----------------------------------------"
 # Run batch inference using vllm script
 python scripts/vllm_infer.py \
     --model_name_or_path "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}" \
+    --adapter_name_or_path "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}" \
     --dataset BALS_de_test_dataset \
-    --finetuning_type lora \
     --template llama3 \
-    --do_sample false \
     --temperature 1.0 \
-    --top_p 1.0
+    --top_p 1.0 \
+    --save_name "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json"
 
 echo "----------------------------------------"
 echo "Inference paths:"
 echo "Model used: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}"
-echo "Predictions saved to: /home/ivieira/LLaMA-Factory/predictions_${TIMESTAMP}.json"
+echo "Predictions saved to: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json"
 echo "----------------------------------------"
