@@ -75,14 +75,14 @@ cat <<EOF > train_llama3.json
   "eval_steps": 10,
   "eval_strategy": "steps",
   "flash_attn": "auto",
-  "gradient_accumulation_steps": 1,
-  "learning_rate": 0.0002,
+  "gradient_accumulation_steps": 4,
+  "learning_rate": 0.0005,
   "logging_steps": 25,
   "lora_alpha": 16,
   "lora_dropout": 0.1,
   "lora_rank": 64,
   "lr_scheduler_type": "polynomial",
-  "max_grad_norm": 1.0,
+  "max_grad_norm": 0.5,
   "max_samples": 100000,
   "num_train_epochs": 1,
   "optim": "adamw_torch",
@@ -97,9 +97,10 @@ cat <<EOF > train_llama3.json
   "run_name": "train_${TIMESTAMP}",
   "save_steps": 25,
   "trust_remote_code": true, 
-  "upcast_layernorm": false,
+  "upcast_layernorm": true,
   "val_size": 0.1,
-  "warmup_steps": 5
+  "warmup_ratio": 0.05,
+  "weight_decay": 0.01
 }
 EOF
 
