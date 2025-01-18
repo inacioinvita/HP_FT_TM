@@ -31,7 +31,7 @@ eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
 
 # Create and activate environment
 # conda create -n lf-env python=3.11 -y
-conda activate lf-env
+conda activate lf-env7
 
 # Only install the following packages once on the environment
 # Install CUDA-enabled PyTorch first
