@@ -13,7 +13,7 @@
 # Set to "true" to skip training and run inference+eval on existing model
 # Set to "false" to run full train+infer+eval pipeline
 SKIP_TRAIN="false"
-# Timestamp of existing model/predictions when skipping
+# Timestamp of existing model/predictions when SKIP_TRAIN="true"
 OLD_TRAIN_TIMESTAMP="2025-01-17-17-56-34"
 # 2025-01-17-09-43-52
 # baseline
@@ -88,7 +88,7 @@ cat <<EOF > train_llama3.json
   "lr_scheduler_type": "polynomial",
   "max_grad_norm": 0.5,
   "max_samples": 100000,
-  "num_train_epochs": 5,
+  "num_train_epochs": 10,
   "optim": "adamw_torch",
   "packing": false,
   "per_device_eval_batch_size": 8,
