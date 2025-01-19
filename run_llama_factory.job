@@ -22,8 +22,17 @@ OLD_TRAIN_TIMESTAMP="2025-01-17-17-56-34"
 # Set to "false" to run inference+eval
 SKIP_INFERENCE="false"
 
-# 2025-01-17-09-43-52
-# baseline
+# Training parameters
+MAX_SAMPLES=30000
+BATCH_SIZE=32
+NUM_EPOCHS=3
+GRAD_ACCUM=8
+MONITOR_PERCENT=10  # Adjustable percentage for monitoring steps
+
+# Calculate steps
+TOTAL_STEPS=$((MAX_SAMPLES * NUM_EPOCHS / (BATCH_SIZE * GRAD_ACCUM)))
+MONITOR_STEPS=$((TOTAL_STEPS * MONITOR_PERCENT / 100))
+
 # =======================================
 
 # Initialize conda
@@ -61,6 +70,15 @@ python -c "import torch; print('CUDA available?', torch.cuda.is_available()); pr
 export TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 MODEL_PATH="saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}"
 
+# Print configuration for logging
+echo "----------------------------------------"
+echo "Training configuration:"
+echo "Max samples: ${MAX_SAMPLES}"
+echo "Total training steps: ${TOTAL_STEPS}"
+echo "Monitor percentage: ${MONITOR_PERCENT}%"
+echo "Monitor steps: ${MONITOR_STEPS}"
+echo "----------------------------------------"
+
 # Create training config with variable
 cat <<EOF > train_llama3.json
 {
@@ -76,30 +94,30 @@ cat <<EOF > train_llama3.json
   "bf16": true,
   "cutoff_len": 1024,
   "ddp_timeout": 180000000,
-  "eval_steps": 100,
+  "eval_steps": ${MONITOR_STEPS},
   "eval_strategy": "steps",
   "flash_attn": "auto",
-  "gradient_accumulation_steps": 8,
+  "gradient_accumulation_steps": ${GRAD_ACCUM},
   "learning_rate": 0.0002,
-  "logging_steps": 25,
+  "logging_steps": ${MONITOR_STEPS},
   "lora_alpha": 128,
   "lora_dropout": 0.1,
   "lora_rank": 64,
   "lr_scheduler_type": "polynomial",
   "max_grad_norm": 0.5,
-  "max_samples": 100000,
-  "num_train_epochs": 3,
+  "max_samples": ${MAX_SAMPLES},
+  "num_train_epochs": ${NUM_EPOCHS},
   "optim": "adamw_torch",
   "packing": false,
   "per_device_eval_batch_size": 8,
-  "per_device_train_batch_size": 32,
+  "per_device_train_batch_size": ${BATCH_SIZE},
   "plot_loss": true,
   "preprocessing_num_workers": 16,
   "quantization_bit": 4,
   "quantization_method": "bitsandbytes",
   "report_to": "wandb",
   "run_name": "train_${TIMESTAMP}",
-  "save_steps": 400,
+  "save_steps": ${MONITOR_STEPS},
   "trust_remote_code": true, 
   "upcast_layernorm": true,
   "val_size": 0.1,
