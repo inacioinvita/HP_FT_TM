@@ -101,7 +101,7 @@ cat <<EOF > train_llama3.json
   "learning_rate": 0.0002,
   "logging_steps": ${MONITOR_STEPS},
   "lora_alpha": 128,
-  "lora_dropout": 0.1,
+  "lora_dropout": 0.2,
   "lora_rank": 64,
   "lr_scheduler_type": "polynomial",
   "max_grad_norm": 0.5,
