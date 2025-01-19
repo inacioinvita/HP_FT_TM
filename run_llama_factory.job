@@ -25,7 +25,7 @@ SKIP_INFERENCE="false"
 # Training parameters
 MAX_SAMPLES=30000
 BATCH_SIZE=32
-NUM_EPOCHS=3
+NUM_EPOCHS=2
 GRAD_ACCUM=8
 MONITOR_PERCENT=10  # Adjustable percentage for monitoring steps
 
