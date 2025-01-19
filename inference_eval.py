@@ -4,6 +4,8 @@ from comet import download_model, load_from_checkpoint
 import torch
 import os
 import re
+import wandb
+from typing import Dict, List, Tuple
 
 def clean_json_output(text):
     """Clean and normalize JSON string before parsing"""
@@ -153,6 +155,46 @@ def extract_translation(output_text):
     print("No valid translation JSON found")
     return ""
 
+def log_metrics_to_wandb(metrics: Dict[str, float]) -> None:
+    """Log evaluation metrics to Weights & Biases."""
+    # W&B Configuration
+    entity = "inaciovieira-alpha-crc"
+    project = "llamafactory"
+    
+    # Get timestamp from environment
+    timestamp = os.environ.get("TIMESTAMP")
+    if not timestamp:
+        raise RuntimeError("TIMESTAMP environment variable is not set!")
+    
+    # Construct target run name
+    target_run_name = f"train_{timestamp}"
+    
+    try:
+        # Initialize W&B connection
+        api = wandb.Api()
+        runs = api.runs(f"{entity}/{project}", filters={"config.run_name": target_run_name})
+        
+        if not runs:
+            raise RuntimeError(f"No runs found with run_name: {target_run_name}")
+        
+        target_run = runs[0]
+        original_run_id = target_run.id
+        print(f"Found run ID {original_run_id} for run name {target_run_name}")
+        
+        # Resume the run
+        wandb.init(
+            project=project,
+            id=original_run_id,
+            resume="must"
+        )
+        
+        # Log metrics
+        wandb.log(metrics)
+        
+    finally:
+        # Ensure we always close the W&B run
+        wandb.finish()
+
 def main():
     import argparse
     parser = argparse.ArgumentParser()
@@ -171,6 +213,9 @@ def main():
     print(f"chrF: {metrics['chrf']:.2f}")
     print(f"TER: {metrics['ter']:.2f}")
     print(f"COMET: {metrics['comet']:.2f}")
+    
+    # Log metrics to W&B
+    log_metrics_to_wandb(metrics)
     
     # Save metrics to file
     metrics_file = os.path.join(os.path.dirname(args.predictions_file), "evaluation_metrics.json")
