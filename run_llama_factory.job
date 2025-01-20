@@ -24,11 +24,11 @@ SKIP_INFERENCE="false"
 
 # Training parameters
 MAX_SAMPLES=30000
-BATCH_SIZE=16 #32
+BATCH_SIZE=32 #32
 NUM_EPOCHS=3
-GRAD_ACCUM=16 #8
-MONITOR_PERCENT=10  # Adjustable percentage for monitoring steps
-
+GRAD_ACCUM=8
+MONITOR_PERCENT=10
+CLIENT="DOMI_" # empty string for BALS "" , if client then use underscore after client name, like "DOMI_"
 # Calculate steps
 TOTAL_STEPS=$((MAX_SAMPLES * NUM_EPOCHS / (BATCH_SIZE * GRAD_ACCUM)))
 MONITOR_STEPS=$((TOTAL_STEPS * MONITOR_PERCENT / 100))
@@ -68,11 +68,12 @@ python -c "import torch; print('CUDA available?', torch.cuda.is_available()); pr
 
 # Set timestamp once at the beginning
 export TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
-MODEL_PATH="saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}"
+MODEL_PATH="saves/Llama-3.1-8B-Instruct/lora/${CLIENT}train_${TIMESTAMP}"
 
 # Print configuration for logging
 echo "----------------------------------------"
 echo "Training configuration:"
+echo "Client: ${CLIENT}"
 echo "Max samples: ${MAX_SAMPLES}"
 echo "Total training steps: ${TOTAL_STEPS}"
 echo "Monitor percentage: ${MONITOR_PERCENT}%"
@@ -85,12 +86,12 @@ cat <<EOF > train_llama3.json
   "stage": "sft",
   "do_train": true,
   "model_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
-  "dataset": "BALS_de_train_dataset",
+  "dataset": "${CLIENT}de_train_dataset",
   "dataset_dir": "data",
   "template": "llama3",
   "finetuning_type": "lora",
   "lora_target": "all",
-  "output_dir": "saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}",
+  "output_dir": "saves/Llama-3.1-8B-Instruct/lora/${CLIENT}train_${TIMESTAMP}",
   "bf16": true,
   "cutoff_len": 512,
   "ddp_timeout": 180000000,
@@ -109,12 +110,14 @@ cat <<EOF > train_llama3.json
   "num_train_epochs": ${NUM_EPOCHS},
   "optim": "adamw_torch",
   "packing": false,
-  "per_device_eval_batch_size": 4,
+  "per_device_eval_batch_size": 8,
   "per_device_train_batch_size": ${BATCH_SIZE},
   "plot_loss": true,
   "preprocessing_num_workers": 16,
+  "quantization_bit": 4,
+  "quantization_method": "bitsandbytes",  
   "report_to": "wandb",
-  "run_name": "train_${TIMESTAMP}",
+  "run_name": "${CLIENT}train_${TIMESTAMP}",
   "save_steps": ${MONITOR_STEPS},
   "trust_remote_code": true, 
   "upcast_layernorm": true,
@@ -154,27 +157,27 @@ if [ "$SKIP_INFERENCE" = "false" ]; then
     echo "Running inference..."
     python scripts/vllm_infer.py \
         --model_name_or_path "meta-llama/Meta-Llama-3.1-8B-Instruct" \
-        --adapter_name_or_path "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}" \
-        --dataset BALS_de_test_dataset \
+        --adapter_name_or_path "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/${CLIENT}train_${TIMESTAMP}" \
+        --dataset ${CLIENT}de_test_dataset \
         --dataset_dir "data" \
         --template llama3 \
         --temperature 1.0 \
         --top_p 1.0 \
         --vllm_config '{"enable_lora": true, "max_lora_rank": 64, "max_loras": 1}' \
-        --save_name "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json"
+        --save_name "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/${CLIENT}train_${TIMESTAMP}/${CLIENT}predictions_${TIMESTAMP}.json"
 fi
 
 # Run evaluation with TIMESTAMP available in environment
 echo "Running evaluation..."
 TIMESTAMP=${TIMESTAMP} python ~/chicago2/HP_FT_TM/inference_eval.py \
-    --predictions_file "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json"
+    --predictions_file "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/${CLIENT}train_${TIMESTAMP}/${CLIENT}predictions_${TIMESTAMP}.json"
 
 echo "----------------------------------------"
 echo "Pipeline completed with settings:"
 echo "SKIP_TRAIN: ${SKIP_TRAIN}"
 echo "SKIP_INFERENCE: ${SKIP_INFERENCE}"
 echo "TIMESTAMP: ${TIMESTAMP}"
-echo "Predictions path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}/predictions_${TIMESTAMP}.json"
+echo "Predictions path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/${CLIENT}train_${TIMESTAMP}/${CLIENT}predictions_${TIMESTAMP}.json"
 echo "----------------------------------------"
 
 # Print config files for reproducibility
