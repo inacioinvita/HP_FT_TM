@@ -24,9 +24,9 @@ SKIP_INFERENCE="false"
 
 # Training parameters
 MAX_SAMPLES=30000
-BATCH_SIZE=32
-NUM_EPOCHS=6
-GRAD_ACCUM=8
+BATCH_SIZE=16 #32
+NUM_EPOCHS=3
+GRAD_ACCUM=16 #8
 MONITOR_PERCENT=10  # Adjustable percentage for monitoring steps
 
 # Calculate steps
@@ -92,7 +92,7 @@ cat <<EOF > train_llama3.json
   "lora_target": "all",
   "output_dir": "saves/Llama-3.1-8B-Instruct/lora/train_${TIMESTAMP}",
   "bf16": true,
-  "cutoff_len": 1024,
+  "cutoff_len": 512,
   "ddp_timeout": 180000000,
   "eval_steps": ${MONITOR_STEPS},
   "eval_strategy": "steps",
@@ -109,12 +109,10 @@ cat <<EOF > train_llama3.json
   "num_train_epochs": ${NUM_EPOCHS},
   "optim": "adamw_torch",
   "packing": false,
-  "per_device_eval_batch_size": 8,
+  "per_device_eval_batch_size": 4,
   "per_device_train_batch_size": ${BATCH_SIZE},
   "plot_loss": true,
   "preprocessing_num_workers": 16,
-  "quantization_bit": 4,
-  "quantization_method": "bitsandbytes",
   "report_to": "wandb",
   "run_name": "train_${TIMESTAMP}",
   "save_steps": ${MONITOR_STEPS},
@@ -126,6 +124,8 @@ cat <<EOF > train_llama3.json
 }
 EOF
 
+#  "quantization_bit": 4,
+#  "quantization_method": "bitsandbytes",
 # upcast_layernorm:  Whether or not to upcast the layernorm weights in fp32 (remove when 4bit quantization is used)
 #   // "use_unsloth": true,
 #   // "flash_attn": fa2,
