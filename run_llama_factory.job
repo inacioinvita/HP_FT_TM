@@ -24,9 +24,9 @@ SKIP_INFERENCE="false"
 
 # Training parameters
 MAX_SAMPLES=30000
-BATCH_SIZE=16 #32
+BATCH_SIZE=32 #32
 NUM_EPOCHS=3
-GRAD_ACCUM=16
+GRAD_ACCUM=8
 MONITOR_PERCENT=10
 CLIENT="DOMI_" # empty string for BALS "" , if client then use underscore after client name, like "DOMI_"
 # Calculate steps
@@ -114,6 +114,8 @@ cat <<EOF > train_llama3.json
   "per_device_train_batch_size": ${BATCH_SIZE},
   "plot_loss": true,
   "preprocessing_num_workers": 16,
+  "quantization_bit": 4,
+  "quantization_method": "bitsandbytes",  
   "report_to": "wandb",
   "run_name": "${CLIENT}train_${TIMESTAMP}",
   "save_steps": ${MONITOR_STEPS},
@@ -143,6 +145,9 @@ source ~/.api_keys
 
 cd ~/LLaMA-Factory || exit 1
 
+# At the top with other exports
+export CLIENT
+
 if [ "$SKIP_TRAIN" = "false" ]; then
     echo "Running full pipeline: train + inference + evaluation"
     llamafactory-cli train train_llama3.json
@@ -167,7 +172,7 @@ fi
 
 # Run evaluation with TIMESTAMP available in environment
 echo "Running evaluation..."
-TIMESTAMP=${TIMESTAMP} python ~/chicago2/HP_FT_TM/inference_eval.py \
+TIMESTAMP=${TIMESTAMP} CLIENT=${CLIENT} python ~/chicago2/HP_FT_TM/inference_eval.py \
     --predictions_file "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/${CLIENT}train_${TIMESTAMP}/${CLIENT}predictions_${TIMESTAMP}.json"
 
 echo "----------------------------------------"
