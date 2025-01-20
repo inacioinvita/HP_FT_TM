@@ -86,7 +86,7 @@ cat <<EOF > train_llama3.json
   "stage": "sft",
   "do_train": true,
   "model_name_or_path": "meta-llama/Llama-3.1-70B-Instruct",
-  "dataset": "${CLIENT}de_train_dataset",
+  "dataset": "${CLIENT}BALS_de_train_dataset",
   "dataset_dir": "data",
   "template": "llama3",
   "finetuning_type": "lora",
@@ -161,7 +161,7 @@ if [ "$SKIP_INFERENCE" = "false" ]; then
     python scripts/vllm_infer.py \
         --model_name_or_path "meta-llama/Meta-Llama-3.1-8B-Instruct" \
         --adapter_name_or_path "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/${CLIENT}train_${TIMESTAMP}" \
-        --dataset ${CLIENT}de_test_dataset \
+        --dataset ${CLIENT}BALS_de_test_dataset \
         --dataset_dir "data" \
         --template llama3 \
         --temperature 1.0 \
