@@ -8,6 +8,7 @@ import wandb
 from typing import Dict, List, Tuple
 
 client = os.getenv('CLIENT', '')  # Default to empty string if not set
+lang = os.getenv('LANG', '')  # Default to empty string if not set
 
 def clean_json_output(text):
     """Clean and normalize JSON string before parsing"""
@@ -169,7 +170,7 @@ def log_metrics_to_wandb(metrics: Dict[str, float]) -> None:
         raise RuntimeError("TIMESTAMP environment variable is not set!")
     
     # Construct target run name
-    target_run_name = f"{client}_train_{timestamp}"
+    target_run_name = f"{client}_{lang}_train_{timestamp}"
     
     try:
         # Initialize W&B connection
