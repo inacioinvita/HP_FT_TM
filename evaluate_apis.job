@@ -10,8 +10,9 @@
 #SBATCH -e API_%j.err
 
 # Create environment variables for CLIENT and TARGET_LANG
-export CLIENT="some_client"
+export CLIENT="DOMI"
 export TARGET_LANG="DE"
+export LANG_LOWER=$(echo "$TARGET_LANG" | tr '[:upper:]' '[:lower:]')
 
 # Add environment variable for batch size
 export TRANSLATION_BATCH_SIZE=50
@@ -36,13 +37,13 @@ cd ~/LLaMA-Factory || { echo "Directory not found!"; exit 1; }
 
 # Set timestamped output directory
 export TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
-DEEPL_DIR="saves/Llama-3.1-8B-Instruct/lora/DeepL_baseline_${TIMESTAMP}"
+DEEPL_DIR="saves/Llama-3.1-8B-Instruct/lora/${CLIENT}_${TARGET_LANG}_DeepL_baseline_${TIMESTAMP}"
 mkdir -p "$DEEPL_DIR"
 
 # Run inference & evaluation in one step
-echo "Running DeepL translation and evaluation..."
+echo "Running DeepL translation and evaluation into ${DEEPL_DIR}..."
 python ~/chicago2/HP_FT_TM/api_infer.py \
-    --input_file data/BALS_de_test_dataset.json \
+    --input_file data/${CLIENT}_${LANG_LOWER}_test_dataset.json \
     --output_dir "$DEEPL_DIR"
 
 echo "----------------------------------------"

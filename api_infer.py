@@ -6,16 +6,26 @@ import deepl
 import sacrebleu
 from comet import download_model, load_from_checkpoint
 
-def load_test_data(file_path, max_samples=500):
+# Read environment variables
+auth_key = os.getenv('DEEPL_API_KEY', '')
+if not auth_key:
+    raise ValueError("DEEPL_API_KEY environment variable not set!")
+
+client = os.getenv('CLIENT', 'unknown_client')
+target_lang = os.getenv('TARGET_LANG', 'DE')
+timestamp = os.getenv('TIMESTAMP', datetime.now().strftime("%Y-%m-%d-%H-%M-%S"))
+
+
+def load_test_data(file_path, max_samples=None):
     """Load up to max_samples from a JSON array with 'source' and 'reference' fields."""
     with open(file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
     return data[:max_samples]
 
 def translate_deepl_single(text, auth_key):
-    """Translate a single string to German (DE) from English (EN) with DeepL."""
+    f"""Translate a single string to {target_lang} from English (EN) with DeepL."""
     translator = deepl.Translator(auth_key)
-    result = translator.translate_text(text, source_lang="EN", target_lang="DE")
+    result = translator.translate_text(text, source_lang="EN", target_lang=target_lang)
     return result.text
 
 def translate_deepl_batch(texts, auth_key, batch_size=50):
@@ -26,7 +36,7 @@ def translate_deepl_batch(texts, auth_key, batch_size=50):
     for i in range(0, len(texts), batch_size):
         batch = texts[i : i + batch_size]
         try:
-            batch_res = translator.translate_text(batch, source_lang="EN", target_lang="DE")
+            batch_res = translator.translate_text(batch, source_lang="EN", target_lang=target_lang)
             all_translations.extend([r.text for r in batch_res])
         except Exception as e:
             print(f"Error translating batch {i} - {i + len(batch)}: {str(e)}")
@@ -72,15 +82,6 @@ def main():
                         help="Directory to save translations and metrics.")
     args = parser.parse_args()
     
-    # Read environment variables
-    auth_key = os.getenv('DEEPL_API_KEY', '')
-    if not auth_key:
-        raise ValueError("DEEPL_API_KEY environment variable not set!")
-    
-    client = os.getenv('CLIENT', 'unknown_client')
-    target_lang = os.getenv('TARGET_LANG', 'DE')
-    timestamp = os.getenv('TIMESTAMP', datetime.now().strftime("%Y-%m-%d-%H-%M-%S"))
-
     # Batch size from environment
     batch_size = int(os.getenv('TRANSLATION_BATCH_SIZE', '50'))
 
@@ -100,15 +101,28 @@ def main():
 
     # Save predictions
     os.makedirs(args.output_dir, exist_ok=True)
-    predictions_file = os.path.join(args.output_dir, f"predictions_deepl_{timestamp}.json")
+    predictions_file = os.path.join(args.output_dir, f"{client}_{target_lang}_predictions_deepl_{timestamp}.json")
 
     output_data = []
     for src, ref, pred in zip(sources, references, predictions):
+        # Clean source by stripping extra quotes if present
+        src = src.strip('"')
+        
+        # Attempt to parse the reference if it's a JSON string with a 'translation' field
+        try:
+            parsed_ref = json.loads(ref)
+            if isinstance(parsed_ref, dict) and 'translation' in parsed_ref:
+                ref = parsed_ref['translation']
+        except (json.JSONDecodeError, TypeError):
+            # If parsing fails, keep the original reference
+            pass
+
         output_data.append({
             "source": src,
             "reference": ref,
             "prediction": pred
         })
+
 
     with open(predictions_file, 'w', encoding='utf-8') as f:
         json.dump(output_data, f, ensure_ascii=False, indent=2)
