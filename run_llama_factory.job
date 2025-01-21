@@ -125,7 +125,7 @@ cat <<EOF > train_llama3.json
   "val_size": 0.1,
   "warmup_ratio": 0.05,
   "cutoff_len": 300,
-  "packing": true,
+  "packing": false,
   "weight_decay": 0.01
 }
 EOF

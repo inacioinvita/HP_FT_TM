@@ -1,143 +1,131 @@
+import os
 import json
 import argparse
-import os
-from tqdm import tqdm
-
-try:
-    from google.cloud import translate
-except ImportError:
-    print("Installing google-cloud-translate...")
-    os.system('pip install --quiet google-cloud-translate')
-    from google.cloud import translate
-
-try:
-    import deepl
-except ImportError:
-    print("Installing deepl...")
-    os.system('pip install --quiet deepl')
-    import deepl
+from datetime import datetime
+import deepl
+import sacrebleu
+from comet import download_model, load_from_checkpoint
 
 def load_test_data(file_path, max_samples=500):
+    """Load up to max_samples from a JSON array with 'source' and 'reference' fields."""
     with open(file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
-    return data[:max_samples]  # Only take first 500 examples
+    return data[:max_samples]
 
-def translate_google(text, project_id):
-    client = translate.TranslationServiceClient()
-    location = "global"
-    parent = f"projects/{project_id}/locations/{location}"
-    
-    response = client.translate_text(
-        request={
-            "parent": parent,
-            "contents": [text],
-            "mime_type": "text/plain",
-            "source_language_code": "en",
-            "target_language_code": "de",
-        }
-    )
-    return response.translations[0].translated_text
-
-def translate_deepl(text, auth_key):
+def translate_deepl_single(text, auth_key):
+    """Translate a single string to German (DE) from English (EN) with DeepL."""
     translator = deepl.Translator(auth_key)
     result = translator.translate_text(text, source_lang="EN", target_lang="DE")
     return result.text
 
-def save_predictions(translations, file_path):
-    """Save translations in the correct format with proper character handling"""
-    formatted_data = []
-    for item in translations:
-        # Remove extra quotes and clean special characters
-        translation = item["translation"].strip('"')  # Remove surrounding quotes
-        
-        formatted_item = {
-            "translation": {"translation": translation},
-            "source": item["source"],
-            "reference": item["reference"].replace("<|eot_id|>", "")  # Remove EOT marker
-        }
-        formatted_data.append(formatted_item)
+def translate_deepl_batch(texts, auth_key, batch_size=50):
+    """Translate a list of strings in batches using DeepL."""
+    translator = deepl.Translator(auth_key)
+    all_translations = []
     
-    # Save with proper UTF-8 encoding and without escaping
-    with open(file_path, 'w', encoding='utf-8') as f:
-        json.dump(formatted_data, f, ensure_ascii=False, indent=2)
-        print(f"Saved {len(formatted_data)} translations to {file_path}")
-
-def translate_batch_deepl(translator, texts, batch_size=50):
-    """Translate texts in batches for better efficiency"""
-    translations = []
     for i in range(0, len(texts), batch_size):
-        batch = texts[i:i + batch_size]
+        batch = texts[i : i + batch_size]
         try:
-            batch_translations = translator.translate_text(batch, 
-                                                        target_lang="DE",
-                                                        source_lang="EN")
-            translations.extend([t.text for t in batch_translations])
+            batch_res = translator.translate_text(batch, source_lang="EN", target_lang="DE")
+            all_translations.extend([r.text for r in batch_res])
         except Exception as e:
-            print(f"Error in batch {i}-{i+batch_size}: {e}")
-            # Fallback to single translation for failed batch
-            for text in batch:
-                try:
-                    trans = translator.translate_text(text, 
-                                                   target_lang="DE",
-                                                   source_lang="EN")
-                    translations.append(trans.text)
-                except:
-                    translations.append("")
-    return translations
-
-def process_translations(data, translator):
-    texts = [item["prompt"] for item in data]
-    total_batches = len(texts) // BATCH_SIZE + (1 if len(texts) % BATCH_SIZE else 0)
+            print(f"Error translating batch {i} - {i + len(batch)}: {str(e)}")
+            raise
     
-    with tqdm(total=total_batches, desc="Translating batches") as pbar:
-        translations = translate_batch_deepl(translator, texts, BATCH_SIZE)
-        pbar.update(1)
+    return all_translations
+
+def compute_metrics(predictions, references):
+    """Compute BLEU, chrF, TER, and COMET scores given parallel lists of predictions and references."""
+    # sacreBLEU metrics
+    bleu = sacrebleu.metrics.BLEU()
+    chrf = sacrebleu.metrics.CHRF()
+    ter = sacrebleu.metrics.TER()
+
+    bleu_score = bleu.corpus_score(predictions, [references]).score
+    chrf_score = chrf.corpus_score(predictions, [references]).score
+    ter_score = ter.corpus_score(predictions, [references]).score
+    
+    # COMET
+    print("Downloading COMET model for evaluation...")
+    model_path = download_model("Unbabel/wmt22-comet-da")
+    comet_model = load_from_checkpoint(model_path)
+
+    comet_data = [
+        {"src": "", "mt": pred, "ref": ref}
+        for pred, ref in zip(predictions, references)
+    ]
+    comet_outputs = comet_model.predict(comet_data, batch_size=32, gpus=1)
+    comet_score = float(comet_outputs.system_score)
+
+    return {
+        "BLEU": bleu_score,
+        "chrF": chrf_score,
+        "TER": ter_score,
+        "COMET": comet_score
+    }
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--test_data", type=str, required=True)
-    parser.add_argument("--google_predictions", type=str, required=True)
-    parser.add_argument("--deepl_predictions", type=str, required=True)
+    parser.add_argument("--input_file", type=str, required=True,
+                        help="Path to JSON file with data: each item must have 'source' and 'reference'.")
+    parser.add_argument("--output_dir", type=str, default='.',
+                        help="Directory to save translations and metrics.")
     args = parser.parse_args()
     
-    # Load first 500 examples from test data
-    test_data = load_test_data(args.test_data, max_samples=500)
-    print(f"Loaded {len(test_data)} examples from test set")
+    # Read environment variables
+    auth_key = os.getenv('DEEPL_API_KEY', '')
+    if not auth_key:
+        raise ValueError("DEEPL_API_KEY environment variable not set!")
     
-    # Initialize results for both services
-    google_translations = []
-    deepl_translations = []
-    
-    # Get API keys
-    project_id = os.getenv('GOOGLE_PROJECT_ID')
-    auth_key = os.getenv('DEEPL_API_KEY')
-    
-    # Translate each text with both services
-    for item in tqdm(test_data, desc="Translating"):
-        source_text = item['input']
-        try:
-            # Google translation
-            google_trans = translate_google(source_text, project_id)
-            google_translations.append({
-                "translation": google_trans,
-                "source": source_text,
-                "reference": item['output']
-            })
-            
-            # DeepL translation
-            deepl_trans = translate_deepl(source_text, auth_key)
-            deepl_translations.append({
-                "translation": deepl_trans,
-                "source": source_text,
-                "reference": item['output']
-            })
-        except Exception as e:
-            print(f"Error translating text: {e}")
-            continue
-    
-    # Save results in correct format
-    save_predictions(google_translations, args.google_predictions)
-    save_predictions(deepl_translations, args.deepl_predictions)
+    client = os.getenv('CLIENT', 'unknown_client')
+    target_lang = os.getenv('TARGET_LANG', 'DE')
+    timestamp = os.getenv('TIMESTAMP', datetime.now().strftime("%Y-%m-%d-%H-%M-%S"))
+
+    # Batch size from environment
+    batch_size = int(os.getenv('TRANSLATION_BATCH_SIZE', '50'))
+
+    # Load data
+    print(f"Loading test data from {args.input_file}...")
+    data = load_test_data(args.input_file)
+    print(f"Loaded {len(data)} examples.")
+
+    # Extract sources and references
+    sources = [d["source"] for d in data]
+    references = [d["reference"] for d in data]
+
+    # Translate with DeepL in batches
+    print(f"Translating {len(sources)} texts with batch size = {batch_size}...")
+    predictions = translate_deepl_batch(sources, auth_key, batch_size=batch_size)
+    print("Translation completed.")
+
+    # Save predictions
+    os.makedirs(args.output_dir, exist_ok=True)
+    predictions_file = os.path.join(args.output_dir, f"predictions_deepl_{timestamp}.json")
+
+    output_data = []
+    for src, ref, pred in zip(sources, references, predictions):
+        output_data.append({
+            "source": src,
+            "reference": ref,
+            "prediction": pred
+        })
+
+    with open(predictions_file, 'w', encoding='utf-8') as f:
+        json.dump(output_data, f, ensure_ascii=False, indent=2)
+    print(f"Saved {len(output_data)} translations to {predictions_file}")
+
+    # Compute metrics (no W&B logging)
+    print("Computing evaluation metrics (BLEU, chrF, TER, COMET)...")
+    metrics = compute_metrics(predictions, references)
+    print("Metrics computed:")
+    for k, v in metrics.items():
+        print(f"  {k}: {v:.2f}")
+
+    # Save metrics to JSON
+    metrics_file = os.path.join(args.output_dir, "evaluation_metrics.json")
+    with open(metrics_file, 'w', encoding='utf-8') as f:
+        json.dump(metrics, f, indent=2)
+    print(f"Saved metrics to {metrics_file}")
 
 if __name__ == "__main__":
-    main() 
+    main()
