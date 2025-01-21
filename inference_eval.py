@@ -169,7 +169,7 @@ def log_metrics_to_wandb(metrics: Dict[str, float]) -> None:
         raise RuntimeError("TIMESTAMP environment variable is not set!")
     
     # Construct target run name
-    target_run_name = f"{client}train_{timestamp}"
+    target_run_name = f"{client}_train_{timestamp}"
     
     try:
         # Initialize W&B connection
