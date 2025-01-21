@@ -86,7 +86,7 @@ cat <<EOF > train_llama3.json
 {
   "stage": "sft",
   "do_train": true,
-  "model_name_or_path": "meta-llama/Llama-3.1-70B-Instruct",
+  "model_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
   "dataset": "${CLIENT}_de_train_dataset",
   "dataset_dir": "data",
   "template": "llama3",
