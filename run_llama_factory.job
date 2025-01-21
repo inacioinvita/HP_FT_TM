@@ -24,9 +24,9 @@ SKIP_INFERENCE="false"
 
 # Training parameters
 MAX_SAMPLES=30000
-BATCH_SIZE=32 #32
+BATCH_SIZE=8 #32
 NUM_EPOCHS=2
-GRAD_ACCUM=8
+GRAD_ACCUM=32
 MONITOR_PERCENT=10
 CLIENT="DOMI" # "BALS" or "DOMI"
 # Calculate steps
@@ -115,8 +115,6 @@ cat <<EOF > train_llama3.json
   "per_device_train_batch_size": ${BATCH_SIZE},
   "plot_loss": true,
   "preprocessing_num_workers": 16,
-  "quantization_bit": 4,
-  "quantization_method": "bitsandbytes",  
   "report_to": "wandb",
   "run_name": "${CLIENT}_train_${TIMESTAMP}",
   "save_steps": ${SAVE_STEPS},
