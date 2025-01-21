@@ -97,6 +97,7 @@ cat <<EOF > train_llama3.json
   "output_dir": "saves/Llama-3.1-8B-Instruct/lora/${CLIENT}_${TARGET_LANG}_train_${TIMESTAMP}",
   "bf16": true,
   "cutoff_len": 512,
+  "packing": false,  
   "ddp_timeout": 180000000,
   "eval_steps": ${MONITOR_STEPS},
   "eval_strategy": "steps",
@@ -124,8 +125,6 @@ cat <<EOF > train_llama3.json
   "upcast_layernorm": true,
   "val_size": 0.1,
   "warmup_ratio": 0.05,
-  "cutoff_len": 300,
-  "packing": false,
   "weight_decay": 0.01
 }
 EOF
