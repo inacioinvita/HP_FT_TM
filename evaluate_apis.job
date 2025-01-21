@@ -21,6 +21,8 @@ echo "Initialising conda environment..."
 eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
 conda activate lf-env
 
+source ~/.api_keys
+
 # Debug: Check which Python and torch version are active
 echo "Using Python from: $(which python)"
 python --version

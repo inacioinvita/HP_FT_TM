@@ -67,7 +67,7 @@ def compute_metrics(predictions, references):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--input_file", type=str, required=True,
-                        help="Path to JSON file with data: each item must have 'source' and 'reference'.")
+                        help="Path to JSON file with data: each item must have 'input' and 'output'.")
     parser.add_argument("--output_dir", type=str, default='.',
                         help="Directory to save translations and metrics.")
     args = parser.parse_args()
@@ -89,9 +89,9 @@ def main():
     data = load_test_data(args.input_file)
     print(f"Loaded {len(data)} examples.")
 
-    # Extract sources and references
-    sources = [d["source"] for d in data]
-    references = [d["reference"] for d in data]
+    # Extract sources and references using the correct keys from your JSON
+    sources = [d["input"] for d in data]
+    references = [d["output"] for d in data]
 
     # Translate with DeepL in batches
     print(f"Translating {len(sources)} texts with batch size = {batch_size}...")
