@@ -62,6 +62,37 @@ def save_predictions(translations, file_path):
         json.dump(formatted_data, f, ensure_ascii=False, indent=2)
         print(f"Saved {len(formatted_data)} translations to {file_path}")
 
+def translate_batch_deepl(translator, texts, batch_size=50):
+    """Translate texts in batches for better efficiency"""
+    translations = []
+    for i in range(0, len(texts), batch_size):
+        batch = texts[i:i + batch_size]
+        try:
+            batch_translations = translator.translate_text(batch, 
+                                                        target_lang="DE",
+                                                        source_lang="EN")
+            translations.extend([t.text for t in batch_translations])
+        except Exception as e:
+            print(f"Error in batch {i}-{i+batch_size}: {e}")
+            # Fallback to single translation for failed batch
+            for text in batch:
+                try:
+                    trans = translator.translate_text(text, 
+                                                   target_lang="DE",
+                                                   source_lang="EN")
+                    translations.append(trans.text)
+                except:
+                    translations.append("")
+    return translations
+
+def process_translations(data, translator):
+    texts = [item["prompt"] for item in data]
+    total_batches = len(texts) // BATCH_SIZE + (1 if len(texts) % BATCH_SIZE else 0)
+    
+    with tqdm(total=total_batches, desc="Translating batches") as pbar:
+        translations = translate_batch_deepl(translator, texts, BATCH_SIZE)
+        pbar.update(1)
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--test_data", type=str, required=True)

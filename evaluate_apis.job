@@ -1,12 +1,16 @@
 #!/bin/bash
 
 #SBATCH -p compute
+#SBATCH --gres=gpu:a6000:1
 #SBATCH -J API_EVAL
-#SBATCH --cpus-per-task=4
-#SBATCH --mem=32000
+#SBATCH --cpus-per-task=8    # Increased CPUs
+#SBATCH --mem=64000          # Increased memory
 #SBATCH -t 12:00:00
 #SBATCH -o API_%j.out
 #SBATCH -e API_%j.err
+
+# Add environment variable for batch size
+export TRANSLATION_BATCH_SIZE=50
 
 # Initialize conda
 eval "$($HOME/miniconda3/bin/conda shell.bash hook)"
