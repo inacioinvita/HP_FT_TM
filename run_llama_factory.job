@@ -23,10 +23,10 @@ OLD_TRAIN_TIMESTAMP="2025-01-17-17-56-34"
 SKIP_INFERENCE="false"
 
 # Training parameters
-MAX_SAMPLES=74000
+MAX_SAMPLES=66000
 BATCH_SIZE=32 #32
 GRAD_ACCUM=16
-NUM_EPOCHS=1
+NUM_EPOCHS=4
 MONITOR_PERCENT=10
 CLIENT="DOMI" # "BALS" or "DOMI"
 TARGET_LANG="ja" # if DOMI, "ja" or "de", if BALS, "de" only
@@ -83,6 +83,12 @@ echo "Total training steps: ${TOTAL_STEPS}"
 echo "Monitor percentage: ${MONITOR_PERCENT}%"
 echo "Monitor steps: ${MONITOR_STEPS}"
 echo "Save steps: ${SAVE_STEPS}"
+echo "Batch size: ${BATCH_SIZE}"
+echo "Gradient accumulation: ${GRAD_ACCUM}"
+echo "Number of epochs: ${NUM_EPOCHS}"
+echo "Timestamp: ${TIMESTAMP}"
+echo "Model path: ${MODEL_PATH}"
+echo "Dataset description: ${DESCRIPTOR}"
 echo "----------------------------------------"
 
 # Create training config with variable
