@@ -24,12 +24,14 @@ SKIP_INFERENCE="false"
 
 # Training parameters
 MAX_SAMPLES=30000
-BATCH_SIZE=64 #32
-GRAD_ACCUM=32
-NUM_EPOCHS=3
+BATCH_SIZE=32 #32
+GRAD_ACCUM=16
+NUM_EPOCHS=0.1
 MONITOR_PERCENT=10
 CLIENT="DOMI" # "BALS" or "DOMI"
-TARGET_LANG="de" # if DOMI, "ja" or "de", if BALS, "de" only
+TARGET_LANG="ja" # if DOMI, "ja" or "de", if BALS, "de" only
+DESCRIPTOR="ALLTMS_" # Describes specifics of the run. Either use empty string "" or followed by "_" like "ALLTMS_"
+
 # Calculate steps
 TOTAL_STEPS=$((MAX_SAMPLES * NUM_EPOCHS / (BATCH_SIZE * GRAD_ACCUM)))
 MONITOR_STEPS=$((TOTAL_STEPS * MONITOR_PERCENT / 100))
@@ -69,7 +71,7 @@ python -c "import torch; print('CUDA available?', torch.cuda.is_available()); pr
 
 # Set timestamp once at the beginning
 export TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
-MODEL_PATH="saves/Llama-3.1-8B-Instruct/lora/${CLIENT}_${TARGET_LANG}_train_${TIMESTAMP}"
+MODEL_PATH="saves/Llama-3.1-8B-Instruct/lora/${CLIENT}_${TARGET_LANG}_${DESCRIPTOR}train_${TIMESTAMP}"
 
 # Print configuration for logging
 echo "----------------------------------------"
@@ -89,12 +91,12 @@ cat <<EOF > train_llama3.json
   "stage": "sft",
   "do_train": true,
   "model_name_or_path": "meta-llama/Meta-Llama-3.1-8B-Instruct",
-  "dataset": "${CLIENT}_${TARGET_LANG}_train_dataset",
+  "dataset": "${CLIENT}_${TARGET_LANG}_${DESCRIPTOR}train_dataset",
   "dataset_dir": "data",
   "template": "llama3",
   "finetuning_type": "lora",
   "lora_target": "all",
-  "output_dir": "saves/Llama-3.1-8B-Instruct/lora/${CLIENT}_${TARGET_LANG}_train_${TIMESTAMP}",
+  "output_dir": "saves/Llama-3.1-8B-Instruct/lora/${CLIENT}_${TARGET_LANG}_${DESCRIPTOR}train_${TIMESTAMP}",
   "bf16": true,
   "cutoff_len": 512,
   "packing": false,  
@@ -103,7 +105,7 @@ cat <<EOF > train_llama3.json
   "eval_strategy": "steps",
   "flash_attn": "auto",
   "gradient_accumulation_steps": ${GRAD_ACCUM},
-  "learning_rate": 0.001,
+  "learning_rate": 0.0001,
   "logging_steps": ${MONITOR_STEPS},
   "lora_alpha": 128,
   "lora_dropout": 0.3,
@@ -121,7 +123,7 @@ cat <<EOF > train_llama3.json
   "quantization_bit": 4,
   "quantization_method": "bitsandbytes",  
   "report_to": "wandb",
-  "run_name": "${CLIENT}_${TARGET_LANG}_train_${TIMESTAMP}",
+  "run_name": "${CLIENT}_${TARGET_LANG}_${DESCRIPTOR}train_${TIMESTAMP}",
   "save_steps": ${SAVE_STEPS},
   "trust_remote_code": true, 
   "upcast_layernorm": true,
@@ -156,6 +158,7 @@ cd ~/LLaMA-Factory || exit 1
 # At the top with other exports
 export CLIENT
 export TARGET_LANG
+export DESCRIPTOR
 
 if [ "$SKIP_TRAIN" = "false" ]; then
     echo "Running full pipeline: train + inference + evaluation"
@@ -169,27 +172,27 @@ if [ "$SKIP_INFERENCE" = "false" ]; then
     echo "Running inference..."
     python scripts/vllm_infer.py \
         --model_name_or_path "meta-llama/Meta-Llama-3.1-8B-Instruct" \
-        --adapter_name_or_path "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/${CLIENT}_${TARGET_LANG}_train_${TIMESTAMP}" \
+        --adapter_name_or_path "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/${CLIENT}_${TARGET_LANG}_${DESCRIPTOR}train_${TIMESTAMP}" \
         --dataset ${CLIENT}_${TARGET_LANG}_test_dataset \
         --dataset_dir "data" \
         --template llama3 \
         --temperature 1.0 \
         --top_p 1.0 \
         --vllm_config '{"enable_lora": true, "max_lora_rank": 64, "max_loras": 1}' \
-        --save_name "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/${CLIENT}_${TARGET_LANG}_train_${TIMESTAMP}/${CLIENT}_${TARGET_LANG}_predictions_${TIMESTAMP}.json"
+        --save_name "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/${CLIENT}_${TARGET_LANG}_${DESCRIPTOR}train_${TIMESTAMP}/${CLIENT}_${TARGET_LANG}_${DESCRIPTOR}predictions_${TIMESTAMP}.json"
 fi
 
 # Run evaluation with TIMESTAMP available in environment
 echo "Running evaluation..."
-TIMESTAMP=${TIMESTAMP} CLIENT=${CLIENT} TARGET_LANG=${TARGET_LANG} python ~/chicago2/HP_FT_TM/inference_eval.py \
-    --predictions_file "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/${CLIENT}_${TARGET_LANG}_train_${TIMESTAMP}/${CLIENT}_${TARGET_LANG}_predictions_${TIMESTAMP}.json"
+TIMESTAMP=${TIMESTAMP} CLIENT=${CLIENT} TARGET_LANG=${TARGET_LANG} DESCRIPTOR=${DESCRIPTOR} python ~/chicago2/HP_FT_TM/inference_eval.py \
+    --predictions_file "/home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/${CLIENT}_${TARGET_LANG}_${DESCRIPTOR}train_${TIMESTAMP}/${CLIENT}_${TARGET_LANG}_${DESCRIPTOR}predictions_${TIMESTAMP}.json"
 
 echo "----------------------------------------"
 echo "Pipeline completed with settings:"
 echo "SKIP_TRAIN: ${SKIP_TRAIN}"
 echo "SKIP_INFERENCE: ${SKIP_INFERENCE}"
 echo "TIMESTAMP: ${TIMESTAMP}"
-echo "Predictions path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/${CLIENT}_${TARGET_LANG}_train_${TIMESTAMP}/${CLIENT}_${TARGET_LANG}_predictions_${TIMESTAMP}.json"
+echo "Predictions path: /home/ivieira/LLaMA-Factory/saves/Llama-3.1-8B-Instruct/lora/${CLIENT}_${TARGET_LANG}_${DESCRIPTOR}train_${TIMESTAMP}/${CLIENT}_${TARGET_LANG}_${DESCRIPTOR}predictions_${TIMESTAMP}.json"
 echo "----------------------------------------"
 
 # Print config files for reproducibility

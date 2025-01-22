@@ -6,6 +6,8 @@ import deepl
 import sacrebleu
 from comet import download_model, load_from_checkpoint
 
+max_samples = 20  # Set to None to load all samples
+
 # Read environment variables
 auth_key = os.getenv('DEEPL_API_KEY', '')
 if not auth_key:
@@ -16,8 +18,8 @@ target_lang = os.getenv('TARGET_LANG', 'DE')
 timestamp = os.getenv('TIMESTAMP', datetime.now().strftime("%Y-%m-%d-%H-%M-%S"))
 
 
-def load_test_data(file_path, max_samples=None):
-    """Load up to max_samples from a JSON array with 'source' and 'reference' fields."""
+def load_test_data(file_path, max_samples=max_samples):
+    """Load up to max_samples from a JSON array with 'input' field"""
     with open(file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
     return data[:max_samples]
@@ -74,59 +76,102 @@ def compute_metrics(predictions, references):
         "COMET": comet_score
     }
 
+def clean_prediction(text):
+    """Clean up extra quotes from predictions"""
+    # Remove double quotes at start and end
+    text = text.strip('"')
+    # Remove Japanese/Chinese quotes at start
+    text = text.lstrip('「')
+    # Remove Japanese/Chinese quotes at end
+    text = text.rstrip('」')
+    # Remove any remaining double quotes at start/end
+    text = text.strip('"')
+    return text
+
+def prepare_text_for_translation(input_data):
+    """Extract clean text from input data"""
+    # Get the input text and remove outer quotes manually
+    text = input_data['input'].strip('"')
+    # Unescape forward slashes if present
+    text = text.replace('\/', '/')
+    return text
+
+def extract_reference(output_data):
+    """Extract reference translation from output JSON with fallback"""
+    # Remove outer quotes
+    output_text = output_data['output'].strip('"')
+    
+    try:
+        # Try to parse as JSON first
+        output_json = json.loads(output_text)
+        reference = output_json.get('translation', output_text)
+    except json.JSONDecodeError:
+        # Fallback: use the raw output text
+        reference = output_text
+    
+    # Clean up the reference
+    reference = reference.strip('"').replace('\/', '/')
+    return reference
+
+def save_translations_with_verify(translations, sources, references, filename):
+    data = []
+    for idx, (translation, source, reference) in enumerate(zip(translations, sources, references)):
+        # Clean quotes from all fields
+        clean_source = source.strip('"')
+        clean_reference = reference.strip('"')
+        data.append({
+            "id": idx,
+            "prediction": translation,
+            "source": clean_source,
+            "reference": clean_reference
+        })
+    
+    try:
+        with open(filename, 'w', encoding='utf-8') as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+        
+        if os.path.exists(filename):
+            with open(filename, 'r', encoding='utf-8') as f:
+                verify_data = json.load(f)
+            print(f"Successfully saved {len(verify_data)} translations to {filename}")
+        else:
+            print(f"ERROR: File {filename} was not created!")
+            
+    except Exception as e:
+        print(f"Error saving translations: {str(e)}")
+        raise
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--input_file", type=str, required=True,
-                        help="Path to JSON file with data: each item must have 'input' and 'output'.")
-    parser.add_argument("--output_dir", type=str, default='.',
-                        help="Directory to save translations and metrics.")
+    parser.add_argument('--input_file', type=str, required=True,
+                       help='Path to input JSON file with test data')
+    parser.add_argument('--output_dir', type=str, default='.',
+                       help='Directory to save translations')
     args = parser.parse_args()
-    
+
+    print(f"Loading test data from {args.input_file}...")
+    test_data = load_test_data(args.input_file, max_samples=max_samples)  # Enforce limit
+    print(f"Loaded {len(test_data)} test examples")
+    texts = [prepare_text_for_translation(item) for item in test_data]
+    print(f"First text to translate: {texts[0]}")
+
+    # Extract sources and references using the correct keys from your JSON
+    sources = [prepare_text_for_translation(item) for item in test_data]
+    references = [extract_reference(item) for item in test_data]
+
     # Batch size from environment
     batch_size = int(os.getenv('TRANSLATION_BATCH_SIZE', '50'))
 
-    # Load data
-    print(f"Loading test data from {args.input_file}...")
-    data = load_test_data(args.input_file)
-    print(f"Loaded {len(data)} examples.")
-
-    # Extract sources and references using the correct keys from your JSON
-    sources = [d["input"] for d in data]
-    references = [d["output"] for d in data]
-
     # Translate with DeepL in batches
     print(f"Translating {len(sources)} texts with batch size = {batch_size}...")
-    predictions = translate_deepl_batch(sources, auth_key, batch_size=batch_size)
+    predictions = translate_deepl_batch(texts, auth_key, batch_size=batch_size)
     print("Translation completed.")
 
     # Save predictions
     os.makedirs(args.output_dir, exist_ok=True)
     predictions_file = os.path.join(args.output_dir, f"{client}_{target_lang}_predictions_deepl_{timestamp}.json")
 
-    output_data = []
-    for src, ref, pred in zip(sources, references, predictions):
-        # Clean source by stripping extra quotes if present
-        src = src.strip('"')
-        
-        # Attempt to parse the reference if it's a JSON string with a 'translation' field
-        try:
-            parsed_ref = json.loads(ref)
-            if isinstance(parsed_ref, dict) and 'translation' in parsed_ref:
-                ref = parsed_ref['translation']
-        except (json.JSONDecodeError, TypeError):
-            # If parsing fails, keep the original reference
-            pass
-
-        output_data.append({
-            "source": src,
-            "reference": ref,
-            "prediction": pred
-        })
-
-
-    with open(predictions_file, 'w', encoding='utf-8') as f:
-        json.dump(output_data, f, ensure_ascii=False, indent=2)
-    print(f"Saved {len(output_data)} translations to {predictions_file}")
+    save_translations_with_verify(predictions, sources, references, predictions_file)
 
     # Compute metrics (no W&B logging)
     print("Computing evaluation metrics (BLEU, chrF, TER, COMET)...")
